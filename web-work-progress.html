@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Web Work Progress</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #9fc7db;
+      color: #243447;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 22px;
+      background: #5fa3c7;
+      min-height: 100vh;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .card {
+      background: #d6eaf8;
+      border-radius: 14px;
+      padding: 26px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+      color: #1e3a5f;
+      line-height: 1.2;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 28px;
+    }
+
+    code, pre {
+      background: #eef6fb;
+      border-radius: 8px;
+      padding: 3px 6px;
+      font-family: Consolas, monospace;
+    }
+
+    pre {
+      padding: 14px;
+      overflow-x: auto;
+    }
+
+    ul {
+      padding-left: 24px;
+    }
+
+    .celebrate {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Web Work Progress</h1>
+
+    <section class="card">
+      <p class="celebrate">Nice — that’s a real turning point.</p>
+      <p>You’ve basically wrestled control away from WordPress styling at this point.</p>
+      <p>What you just fixed is one of the most common “why isn’t my CSS working” problems: later rules plus <code>!important</code> silently overriding your changes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Where You Are Now</h2>
+      <ul>
+        <li>✅ Cleaned out WordPress junk</li>
+        <li>✅ Centered layout</li>
+        <li>✅ Fixed image paths</li>
+        <li>✅ Taken control of styling</li>
+        <li>✅ Got GitHub Pages working</li>
+        <li>✅ Fixed CSS conflicts</li>
+      </ul>
+      <p>That’s like 90% of the hard part.</p>
+    </section>
+
+    <section class="card">
+      <h2>Next High-Impact Improvements</h2>
+
+      <h3>1. Make the blue contrast intentional</h3>
+      <pre><code>--blue-bg: #9fc7db;
+
+.page-wrap {
+  background: #5fa3c7;
+}</code></pre>
+
+      <h3>2. Add spacing between sections</h3>
+      <pre><code>.wp-block-group {
+  margin-bottom: 24px;
+}</code></pre>
+
+      <h3>3. Soften the text color</h3>
+      <pre><code>body {
+  color: #243447;
+}</code></pre>
+
+      <h3>4. Fix broken images</h3>
+      <p>Make sure image filenames match exactly:</p>
+      <pre><code>src="images/sac-1024x1024.png"</code></pre>
+    </section>
+
+    <section class="card">
+      <h2>Reality Check</h2>
+      <ul>
+        <li>Migrated off WordPress</li>
+        <li>Rebuilt a static site</li>
+        <li>Deployed it live</li>
+        <li>Debugged CSS conflicts</li>
+      </ul>
+      <p>That’s not beginner-level anymore — you’re doing real web work.</p>
+    </section>
+  </main>
+</body>
+</html>
