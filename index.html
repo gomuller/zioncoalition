@@ -7,10 +7,13 @@
   <meta name="description" content="Zion Coalition">
   <style>
     :root {
-      --blue-bg: #add8e6;
+      --outer-blue: #9fc7db;
+      --page-blue: #5fa3c7;
+      --card-blue: #d6eaf8;
+      --card-blue-2: #c7e1f2;
       --dark-blue: #1e3a5f;
-      --link-blue: #046bd2;
-      --card-bg: #ffffff;
+      --text: #243447;
+      --link-blue: #045cb4;
       --parchment: #FDF6E3;
     }
 
@@ -19,10 +22,10 @@
     html, body {
       margin: 0;
       padding: 0;
-      background: var(--blue-bg);
-      color: #1f2933;
+      background: var(--outer-blue);
+      color: var(--text);
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     body {
@@ -30,27 +33,38 @@
       justify-content: center;
     }
 
- .page-wrap {
-  width: min(100%, 1000px);
-  margin: 0 auto;
-  padding: 24px 18px 60px;
-
-  background: #6aa9cc;   /* inner blue */
-  border-radius: 12px;
-   box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-}
+    .page-wrap {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 34px 24px 72px;
+      background: var(--page-blue);
+      border-radius: 18px;
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.12),
+        0 2px 10px rgba(0,0,0,0.06);
+    }
 
     .site-title-clean {
       text-align: center;
-      margin: 0 0 24px;
-      padding: 20px 12px;
+      margin: 0 0 30px;
+      padding: 18px 12px;
       color: var(--dark-blue);
-      font-size: clamp(2rem, 5vw, 4rem);
-      font-weight: 800;
+      font-size: clamp(2.25rem, 5vw, 4.1rem);
+      font-weight: 850;
       letter-spacing: 0.02em;
+      line-height: 1.05;
     }
 
-    a { color: var(--link-blue); }
+    .entry-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    a {
+      color: var(--link-blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
 
     img {
       max-width: 100%;
@@ -58,6 +72,7 @@
       display: block;
       margin-left: auto;
       margin-right: auto;
+      border-radius: 10px;
     }
 
     figure {
@@ -67,7 +82,7 @@
 
     hr {
       border: 0;
-      border-top: 1px solid rgba(30, 58, 95, 0.25);
+      border-top: 1px solid rgba(30, 58, 95, 0.22);
       margin: 18px auto;
       max-width: 760px;
     }
@@ -75,23 +90,60 @@
     h1, h2, h3, h4 {
       color: var(--dark-blue);
       line-height: 1.25;
+      margin-top: 1.2em;
+      margin-bottom: 0.65em;
     }
 
-    h1, h2, .has-text-align-center { text-align: center; }
+    h1, h2, .has-text-align-center {
+      text-align: center;
+    }
 
-    p, li { font-size: 1rem; }
+    p, li {
+      font-size: 1rem;
+    }
 
-    .entry-content,
+    /* Main reusable card style: this turns old WordPress sections into clean cards. */
     .wp-block-group,
-    .content-box {
+    .content-card,
+    .entry-content > section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 28px;
+      background: var(--card-blue) !important;
+      background-color: var(--card-blue) !important;
+      background-image: none !important;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .wp-block-group h1:first-child,
+    .wp-block-group h2:first-child,
+    .content-card h1:first-child,
+    .content-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .wp-block-group p:last-child,
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Make standalone WordPress heading separators feel intentional. */
+    .wp-block-heading.has-text-align-center {
+      max-width: 860px;
+      margin: 34px auto 20px;
+      padding: 16px 22px !important;
+      border-radius: 999px !important;
+      background: var(--dark-blue) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+
+    /* Keep custom inline feature boxes attractive without forcing them into the same blue card. */
+    .entry-content > div:not(.wp-block-group) {
       max-width: 900px;
       margin-left: auto;
       margin-right: auto;
-    }
-
-    .wp-block-group {
-      padding: 18px;
-      border-radius: 10px;
     }
 
     .parchment-wrap {
@@ -103,7 +155,7 @@
       color: #333;
       background: var(--parchment) !important;
       border: 1px solid #d4c9a8;
-      border-radius: 8px;
+      border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
@@ -111,33 +163,43 @@
     .button {
       display: inline-block;
       padding: 12px 20px;
-      border-radius: 8px;
+      border-radius: 10px;
       background: var(--link-blue);
       color: white;
       text-decoration: none;
-      font-weight: 600;
+      font-weight: 700;
+    }
+
+    blockquote {
+      margin: 24px auto;
+      padding: 18px 22px;
+      border-left: 6px solid var(--dark-blue);
+      background: rgba(255,255,255,0.22);
+      border-radius: 12px;
+    }
+
+    .wp-block-spacer {
+      max-height: 42px;
     }
 
     @media (max-width: 640px) {
-      .page-wrap { padding: 12px 10px 40px; }
-      .wp-block-group { padding: 12px; }
+      .page-wrap {
+        padding: 16px 12px 44px;
+        border-radius: 0;
+      }
+
+      .wp-block-group,
+      .content-card {
+        padding: 18px;
+        margin: 22px auto;
+        border-radius: 14px;
+      }
+
+      .wp-block-heading.has-text-align-center {
+        border-radius: 18px !important;
+        padding: 14px 16px !important;
+      }
     }
-
-
-.content-card,
-.wp-block-group,
-.entry-content > div,
-div[style*="gradient"],
-div[style*="pink"],
-div[style*="rgb(242"],
-div[style*="background"] {
- background: #6aa9cc !important;
-background-color: #6aa9cc !important;
-  background-image: none !important;
-}
-
-
-    
   </style>
 </head>
 <body>
