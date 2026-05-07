@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Song #212 - Zion Coalition</title>
+  <meta name="description" content="Song #212: Jesus Is The Way (to... Take My Breath Away), a redeemed classic rock song." />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #9fc7db;
+      color: #243447;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 40px 22px;
+      background: #5fa3c7;
+      min-height: 100vh;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+
+    .card {
+      background: #d6eaf8;
+      border-radius: 14px;
+      padding: 26px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    h1, h2, h3 {
+      color: #1e3a5f;
+      line-height: 1.2;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.6rem;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin-top: 0;
+      text-align: center;
+    }
+
+    a {
+      color: #046bd2;
+      font-weight: bold;
+      overflow-wrap: anywhere;
+    }
+
+    .subtitle {
+      text-align: center;
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #1e3a5f;
+      margin-top: -10px;
+    }
+
+    .note {
+      text-align: center;
+      font-size: 1.1rem;
+      font-style: italic;
+      font-weight: bold;
+    }
+
+    .lyrics {
+      font-size: 1.08rem;
+      background: #eef6fb;
+      border-radius: 12px;
+      padding: 22px;
+      box-shadow: inset 0 0 0 1px rgba(30,58,95,0.08);
+    }
+
+    .lyrics p {
+      margin-top: 0;
+    }
+
+    .home-link {
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Song #212</h1>
+
+    <section class="card">
+      <h2>Jesus Is The Way</h2>
+      <p class="subtitle">to… Take My Breath Away</p>
+      <p class="note">A redeemed classic rock song by Jesus, Giorgio Moroder and Greg.</p>
+    </section>
+
+    <section class="card">
+      <h2>Lyrics</h2>
+      <div class="lyrics">
+        <p>
+          …<strong>Watching Jesus TV</strong> captivates my heart and mind,<br>
+          His broadcasts meant to lead me to be <strong>possessed by Christ;</strong><br>
+          turning, I keep turning to <strong>a channel deep inside me</strong><br>
+          where a repeating notion comes and says, <strong>“Jesus is the Way, Jesus is the Way.”</strong>
+        </p>
+
+        <p>
+          …Watching, I keep waiting, still <strong>anticipating</strong> God<br>
+          will ever show up to become <strong>the fated One;</strong><br>
+          turning, I keep turning to a channel deep inside me<br>
+          where that same notion comes and says, “Jesus is the Way.”
+        </p>
+
+        <p>
+          …<strong>Throughout all my life I saw you</strong> in each scene you sent my way;<br>
+          though I didn’t know it was you, <strong><em>I later heard you say,<br>
+          “I never go away, I always stay.”</em></strong>
+        </p>
+
+        <p>
+          …Jesus is the Way, Jesus is the Way.
+        </p>
+
+        <p>
+          …Watching every motion in this Jesus-guided play<br>
+          haunts me with the notion it’s all going to go one way;<br>
+          turning, I keep turning to a channel deep inside me<br>
+          where the repeating notion comes to me and says, “Jesus is the Way.”
+        </p>
+
+        <p>
+          My God, take my breath away—my God, Jesus is the Way—my God, take my breath away.
+        </p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Listen / Reference</h2>
+      <p><a href="https://youtu.be/QlRc0z8Ow8Q?si=pr-sy1v2qJA58wsv">https://youtu.be/QlRc0z8Ow8Q?si=pr-sy1v2qJA58wsv</a></p>
+    </section>
+
+    <section class="card home-link">
+      <p><a href="index.html">Return to Home</a></p>
+    </section>
+  </main>
+</body>
+</html>
