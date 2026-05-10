@@ -1,0 +1,307 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Altar Generator - Zion Coalition</title>
+
+  <style>
+    body {
+      margin: 0;
+      background: #9fc7db;
+      font-family: Georgia, "Times New Roman", serif;
+      color: #123047;
+      line-height: 1.75;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 32px 18px;
+      background: #5fa3c7;
+      min-height: 100vh;
+    }
+
+    .hero,
+    .card {
+      background: #d6eaf8;
+      border-radius: 22px;
+      box-shadow: 0 8px 24px rgba(0, 45, 75, 0.18);
+      padding: 30px;
+      margin-bottom: 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 48px 30px;
+    }
+
+    h1, h2, h3 {
+      color: #07324d;
+      margin-top: 0;
+      line-height: 1.25;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      border-bottom: 2px solid rgba(7, 50, 77, 0.16);
+      padding-bottom: 10px;
+    }
+
+    p, li {
+      font-size: 1.08rem;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+    }
+
+    li {
+      margin-bottom: 14px;
+    }
+
+    .subtitle {
+      font-size: 1.25rem;
+      font-style: italic;
+      margin: 0;
+    }
+
+    .note {
+      background: rgba(255,255,255,0.55);
+      border-left: 5px solid #07324d;
+      padding: 18px 22px;
+      border-radius: 14px;
+      margin: 20px 0;
+    }
+
+    .verse {
+      font-style: italic;
+      background: rgba(255,255,255,0.45);
+      padding: 18px 22px;
+      border-radius: 14px;
+      margin: 18px 0;
+    }
+
+    .generator-box {
+      background: rgba(255,255,255,0.5);
+      padding: 24px;
+      border-radius: 18px;
+      margin-top: 24px;
+    }
+
+    .generator-box textarea {
+      width: 100%;
+      min-height: 140px;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 1rem;
+      resize: vertical;
+      font-family: inherit;
+      box-sizing: border-box;
+    }
+
+    .generator-box button {
+      margin-top: 16px;
+      background: #07324d;
+      color: white;
+      border: none;
+      border-radius: 999px;
+      padding: 14px 24px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.25s ease;
+    }
+
+    .generator-box button:hover {
+      background: #0d4a72;
+    }
+
+    .result {
+      margin-top: 24px;
+      background: rgba(255,255,255,0.65);
+      padding: 22px;
+      border-radius: 18px;
+      min-height: 80px;
+      white-space: pre-wrap;
+    }
+
+    .nav {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .nav a {
+      display: inline-block;
+      background: #d6eaf8;
+      color: #07324d;
+      padding: 10px 18px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 12px rgba(0, 45, 75, 0.16);
+    }
+
+    footer {
+      text-align: center;
+      color: #07324d;
+      font-style: italic;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <nav class="nav">
+      <a href="index.html">← Back to Zion Coalition</a>
+    </nav>
+
+    <section class="hero">
+      <h1>Altar Generator</h1>
+      <p class="subtitle">
+        Gratitude to Jesus can be spoken — but it can also be built.
+      </p>
+    </section>
+
+    <section class="card">
+
+      <h2>Build a Spiritual Altar</h2>
+
+      <p>
+        Throughout Scripture, altars represented remembrance,
+        surrender, gratitude, worship, covenant, and encounter.
+      </p>
+
+      <div class="verse">
+        “An altar of earth thou shalt make unto me, and shalt sacrifice thereon...”
+        — Exodus 20:24
+      </div>
+
+      <p>
+        This tool helps generate symbolic spiritual altar ideas
+        centered around prayer, repentance, gratitude, worship,
+        discipline, restoration, and devotion to Christ.
+      </p>
+
+      <div class="note">
+        This is not occult practice, magic, or ritualism.
+        The purpose is reflection, prayer, remembrance,
+        intentional living, and honoring Jesus.
+      </div>
+
+      <div class="generator-box">
+
+        <h3>Describe Your Prayer or Situation</h3>
+
+        <textarea id="prompt" placeholder="Example: I want to rebuild my prayer life and overcome fear."></textarea>
+
+        <button onclick="generateAltar()">
+          Generate Altar
+        </button>
+
+        <div class="result" id="result">
+Your generated altar will appear here.
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="card">
+
+      <h2>Examples of Spiritual Altars</h2>
+
+      <ul>
+        <li>
+          A prayer corner dedicated to daily worship and Scripture reading.
+        </li>
+
+        <li>
+          A gratitude journal documenting answered prayers and blessings.
+        </li>
+
+        <li>
+          A fast or sacrifice dedicated to repentance and spiritual renewal.
+        </li>
+
+        <li>
+          Acts of service and charity offered quietly before God.
+        </li>
+
+        <li>
+          Removing distractions and rebuilding holy disciplines.
+        </li>
+      </ul>
+
+    </section>
+
+    <section class="card">
+
+      <h2>Remember</h2>
+
+      <p>
+        God desires obedience, humility, sincerity, repentance,
+        mercy, and love more than outward performance.
+      </p>
+
+      <div class="verse">
+        “Create in me a clean heart, O God.”
+        — Psalm 51:10
+      </div>
+
+      <p>
+        The true altar is ultimately the heart surrendered to Christ.
+      </p>
+
+    </section>
+
+    <footer>
+      Zion Coalition
+    </footer>
+
+  </main>
+
+  <script>
+    function generateAltar() {
+      const input = document.getElementById("prompt").value.trim();
+      const result = document.getElementById("result");
+
+      if (!input) {
+        result.innerText = "Please enter a prayer request or situation.";
+        return;
+      }
+
+      const responses = [
+        "Spend 15 minutes daily in quiet prayer and remove one recurring distraction from your life this week.",
+        "Create a gratitude journal and write down 3 blessings every night for the next 30 days.",
+        "Dedicate a small space in your room for Scripture reading, worship, and reflection.",
+        "Fast from social media for a day and replace the time with prayer and worship music.",
+        "Read one Psalm daily and pray specifically for wisdom, peace, and spiritual strength.",
+        "Commit one act of hidden kindness this week as an offering of love to God.",
+        "Write a personal prayer of surrender and revisit it each morning."
+      ];
+
+      const random = responses[Math.floor(Math.random() * responses.length)];
+
+      result.innerText =
+        "Your Prayer Focus:\n\n" +
+        input +
+        "\n\nSuggested Spiritual Altar:\n\n" +
+        random;
+    }
+  </script>
+
+</body>
+</html>
+```
+
