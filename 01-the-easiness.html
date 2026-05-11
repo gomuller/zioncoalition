@@ -1,0 +1,432 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Easiness | Zion Coalition</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --bg:#05070b;
+    --card:#0d1118;
+    --text:#f3f5f7;
+    --muted:#b7c0cb;
+    --line:#1f2937;
+    --gold:#d6b36a;
+    --blue:#78b7ff;
+}
+
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+body{
+    background:
+        radial-gradient(circle at top, rgba(80,120,255,.12), transparent 40%),
+        #05070b;
+    color:var(--text);
+    font-family:'Inter',sans-serif;
+    line-height:1.9;
+    padding:60px 20px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.hero{
+    text-align:center;
+    margin-bottom:70px;
+}
+
+.eyebrow{
+    letter-spacing:.35em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-size:.78rem;
+    margin-bottom:18px;
+}
+
+h1{
+    font-family:'Cinzel',serif;
+    font-size:clamp(2.5rem,5vw,4.6rem);
+    line-height:1.1;
+    margin-bottom:24px;
+    text-shadow:
+        0 0 6px rgba(255,255,255,.08),
+        0 0 18px rgba(120,183,255,.18);
+}
+
+.subtitle{
+    max-width:720px;
+    margin:auto;
+    color:var(--muted);
+    font-size:1.08rem;
+}
+
+.card{
+    background:linear-gradient(180deg,#0f141d,#0b0f16);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:28px;
+    padding:48px;
+    margin-bottom:38px;
+    box-shadow:
+        0 20px 50px rgba(0,0,0,.45),
+        inset 0 1px 0 rgba(255,255,255,.03);
+}
+
+h2{
+    font-family:'Cinzel',serif;
+    color:var(--gold);
+    font-size:2rem;
+    margin-bottom:28px;
+}
+
+h3{
+    color:#fff;
+    font-size:1.25rem;
+    margin-top:34px;
+    margin-bottom:16px;
+}
+
+p{
+    margin-bottom:22px;
+    color:#eef2f7;
+}
+
+.quote{
+    border-left:3px solid var(--gold);
+    padding-left:22px;
+    margin:28px 0;
+    font-style:italic;
+    color:#f7e9c7;
+}
+
+ul{
+    padding-left:24px;
+    margin-top:18px;
+}
+
+li{
+    margin-bottom:14px;
+    color:#e6ebf2;
+}
+
+.divider-link{
+    margin:48px auto;
+    text-align:center;
+    position:relative;
+}
+
+.divider-link::before{
+    content:"";
+    position:absolute;
+    top:50%;
+    left:0;
+    width:100%;
+    height:1px;
+    background:linear-gradient(
+        to right,
+        transparent,
+        rgba(214,179,106,.35),
+        transparent
+    );
+}
+
+.divider-link a{
+    position:relative;
+    display:inline-block;
+    padding:18px 34px;
+    background:#0b1017;
+    border:1px solid rgba(214,179,106,.25);
+    border-radius:999px;
+    color:#f6f0df;
+    text-decoration:none;
+    font-size:1.05rem;
+    font-weight:600;
+    letter-spacing:.02em;
+    transition:.3s ease;
+    box-shadow:
+        0 0 0 rgba(120,183,255,0),
+        0 0 25px rgba(120,183,255,.08);
+}
+
+.divider-link a:hover{
+    transform:translateY(-2px);
+    border-color:rgba(120,183,255,.45);
+    box-shadow:
+        0 0 22px rgba(120,183,255,.22);
+}
+
+.divider-link .emoji{
+    margin-right:10px;
+    filter:drop-shadow(0 0 10px rgba(120,183,255,.4));
+}
+
+.tag{
+    margin-top:38px;
+    font-style:italic;
+    color:#cfd7e3;
+    text-align:center;
+}
+
+.footer{
+    text-align:center;
+    color:#7e8897;
+    margin-top:70px;
+    font-size:.92rem;
+}
+
+@media(max-width:700px){
+    .card{
+        padding:34px 24px;
+    }
+
+    body{
+        padding:35px 14px;
+    }
+
+    h1{
+        font-size:2.5rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <section class="hero">
+        <div class="eyebrow">JesusVerse • Episode 999</div>
+        <h1>The Easiness</h1>
+
+        <p class="subtitle">
+            Somewhere late in the JesusVerse — so late it loops back to the beginning —
+            the exhausted disciple finally asks:
+            “Jesus… how is Your yoke easy?”
+        </p>
+    </section>
+
+    <section class="card">
+
+        <h2>The River</h2>
+
+        <p>
+            Jesus walks us down to a quiet river — not the Jordan, not the Mississippi,
+            something older. Something that feels like it was here before Eden and
+            will flow long after Zion rises in full.
+        </p>
+
+        <p>
+            He hands us a little raft.
+            Not a motorboat. Not a canoe.
+            A Tom-Sawyer-grade, Huck-Finn-primitive raft —
+            just enough to hold a person and a calling.
+        </p>
+
+        <div class="quote">
+            “Push off.”
+        </div>
+
+        <p>
+            We step on. We wobble — then settle.
+            The river moves all by itself.
+        </p>
+
+        <h3>1. The River Has Its Own Power</h3>
+
+        <p>
+            You don’t propel it.
+            You don’t push it.
+            You don’t drag it.
+            You align with it.
+        </p>
+
+        <p>
+            Swartz &amp; Loehr would call it “full engagement.”
+            Rush’s Limelight would call it “getting on with the fascination.”
+            Physics would call it “path of least resistance.”
+            Jesus calls it:
+        </p>
+
+        <div class="quote">
+            “My Spirit.”
+        </div>
+
+        <h3>2. The Burden Is Light Because It’s Not Really Yours</h3>
+
+        <div class="quote">
+            “A burden is only heavy when you pick it up alone.
+            A yoke is only painful when you fight the direction.”
+        </div>
+
+        <p>
+            When you try to row your life, you exhaust yourself.
+            When you stand still and let the river carry you,
+            you rest while you move.
+        </p>
+
+        <p>
+            Stillness that travels.
+            Rest that accelerates.
+            Surrender that becomes power.
+        </p>
+
+        <h3>3. The Real Relation</h3>
+
+        <p>
+            The real fascination is not the raft.
+            Not the riverbanks.
+            Not even the rapids.
+        </p>
+
+        <p>
+            The real relation. The underlying theme:
+            relating to Him while the river does the heavy lifting.
+        </p>
+
+        <div class="quote">
+            It was never “work for Jesus.”
+            It was always “work with Jesus.”
+            And eventually:
+            “Jesus works through you.”
+        </div>
+
+        <h3>4. The How of Easy</h3>
+
+        <ul>
+            <li>Stop rowing.</li>
+            <li>Stop forcing outcomes He never asked you to control.</li>
+            <li>Tune to His energy, not your anxiety.</li>
+            <li>Follow the path of least divine resistance.</li>
+            <li>Let fascination replace willpower.</li>
+        </ul>
+
+        <div class="divider-link">
+            <a href="https://zioncoalition.org/yo-the-yoke-is-easy/">
+                <span class="emoji">🎥</span>
+                Jesus will have His people inherit Zion, movie camera piece by piece
+            </a>
+        </div>
+
+        <div class="quote">
+            “Blessed are the meek,
+            for they shall inherit the earth.”
+            — Matthew 5:5
+        </div>
+
+        <h3>The Reveal</h3>
+
+        <p>
+            Greg finally looks down at the rope tying him to Jesus on the raft.
+        </p>
+
+        <p>
+            Except —
+            there is no rope.
+        </p>
+
+        <p>
+            Just proximity.
+            Because the yoke was never a wooden tool.
+            It was relationship.
+        </p>
+
+        <div class="quote">
+            “My way isn’t effortless.
+            But it is unforced.”
+        </div>
+
+        <div class="quote">
+            “Let the river do the carrying.”
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Jesus TV</h2>
+
+        <p>
+            “Easy, Like Watching TV — Jesus TV: ‘I will give you JTV.’”
+        </p>
+
+        <p>
+            It felt as though Jesus had stepped inside me,
+            taken hold of my senses,
+            and begun curating reality itself.
+        </p>
+
+        <p>
+            Using my own body as His instrument,
+            He placed visions before my eyes —
+            scenes, symbols, and stories —
+            like an endless cosmic broadcast only I could see.
+        </p>
+
+        <div class="quote">
+            “Feed your head, Greg.”
+        </div>
+
+        <p>
+            The stream continued hour after hour —
+            a divine binge-watch He called Jesus TV.
+        </p>
+
+        <div class="divider-link">
+            <a href="https://zioncoalition.org/jesus-tv-and-zc">
+                <span class="emoji">📺</span>
+                Learn more about how Jesus TV and Zion Coalition work together
+            </a>
+        </div>
+
+    </section>
+
+    <section class="card">
+
+        <h2>Jesus World Building</h2>
+
+        <p>
+            Jesus is building Zion Coalition, and I help Him.
+        </p>
+
+        <p>
+            Working together,
+            He has me “use the force” —
+            my sacred imagination —
+            to build the pieces of Zion I’m called to.
+        </p>
+
+        <p>
+            Zion Coalition exists inside the JesusVerse,
+            not the Metaverse.
+        </p>
+
+        <p>
+            It serves as a portal into My Jesus-Greg WORLD —
+            and other Jesus-WORLDs He is building
+            with witting or unwitting mortals.
+        </p>
+
+        <div class="tag">
+            Built by Jesus • Inherited by Grace • Flowing Like a River
+        </div>
+
+    </section>
+
+    <div class="footer">
+        Zion Coalition © 2026
+    </div>
+
+</div>
+
+</body>
+</html>
+```
