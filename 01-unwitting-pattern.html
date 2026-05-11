@@ -1,90 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Unwitting Zion-Building Pattern</title>
-<style>
-body {
-    margin: 0;
-    font-family: Inter, system-ui, sans-serif;
-    background: #f4f0e8;
-    color: #1f1f1f;
-    line-height: 1.7;
-}
-.container {
-    max-width: 920px;
-    margin: auto;
-    padding: 48px 24px 80px;
-}
-.hero {
-    background: #2b221d;
-    color: #f8f3ea;
-    padding: 56px;
-    border-radius: 28px;
-    margin-bottom: 28px;
-}
-.hero h1 {
-    margin: 0 0 10px;
-    font-size: 3rem;
-}
-.card {
-    background: white;
-    padding: 32px;
-    border-radius: 22px;
-    margin-bottom: 24px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.06);
-}
-.quote {
-    border-left: 4px solid #8b6d55;
-    padding-left: 18px;
-    color: #5b4d40;
-    font-style: italic;
-}
-.footer {
-    text-align: center;
-    margin-top: 40px;
-    opacity: .6;
-}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Unwitting Zion-Building Pattern | Zion Coalition</title>
+  <style>
+    :root {
+      --outer-bg: #9fc7db;
+      --page-bg: #5fa3c7;
+      --card-bg: #d6eaf8;
+      --heading: #0d3f66;
+      --text: #163247;
+      --muted: #315d78;
+      --white-soft: rgba(255, 255, 255, 0.78);
+      --shadow: 0 12px 28px rgba(13, 63, 102, 0.22);
+      --soft-shadow: 0 7px 18px rgba(13, 63, 102, 0.16);
+      --radius-lg: 26px;
+      --radius-md: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      color: var(--text);
+      background: var(--outer-bg);
+      line-height: 1.72;
+    }
+
+    a {
+      color: var(--heading);
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .site-shell {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto;
+      background: var(--page-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      padding: 28px;
+    }
+
+    .site-header {
+      background: var(--white-soft);
+      border-radius: var(--radius-lg);
+      padding: 24px 28px;
+      margin-bottom: 24px;
+      box-shadow: var(--soft-shadow);
+      display: flex;
+      gap: 18px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      font-family: Arial, Helvetica, sans-serif;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      color: var(--heading);
+      font-weight: 800;
+    }
+
+    .nav {
+      font-family: Arial, Helvetica, sans-serif;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      font-size: 0.95rem;
+    }
+
+    .hero {
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--soft-shadow);
+      padding: 42px 34px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    h1, h2, h3 {
+      color: var(--heading);
+      line-height: 1.18;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.15rem, 6vw, 4rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.55rem, 3vw, 2.15rem);
+      border-bottom: 2px solid rgba(13, 63, 102, 0.16);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-size: 1.22rem;
+      margin-bottom: 8px;
+    }
+
+    p {
+      margin: 0 0 16px;
+      font-size: 1.08rem;
+    }
+
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.28rem;
+      max-width: 780px;
+      margin: 0 auto;
+      font-style: italic;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius-md);
+      box-shadow: var(--soft-shadow);
+      padding: 28px;
+      margin-bottom: 22px;
+    }
+
+    .scripture {
+      background: rgba(255, 255, 255, 0.48);
+      border-left: 6px solid var(--heading);
+      border-radius: 16px;
+      padding: 18px 20px;
+      margin: 18px 0;
+    }
+
+    .scripture-title {
+      display: block;
+      color: var(--heading);
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .pattern-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .pattern-item {
+      background: rgba(255, 255, 255, 0.44);
+      border-radius: 16px;
+      padding: 18px;
+    }
+
+    .pattern-item p {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      margin-right: 8px;
+      border-radius: 999px;
+      background: var(--heading);
+      color: white;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.9rem;
+      font-weight: 800;
+      vertical-align: middle;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--heading);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 0.95rem;
+      padding: 18px 8px 4px;
+    }
+
+    @media (max-width: 760px) {
+      .site-shell {
+        width: min(100% - 18px, 1120px);
+        margin: 9px auto;
+        padding: 14px;
+      }
+
+      .site-header,
+      .hero,
+      .card {
+        padding: 22px;
+      }
+
+      .pattern-list {
+        grid-template-columns: 1fr;
+      }
+
+      .site-header {
+        justify-content: center;
+        text-align: center;
+      }
+    }
+  </style>
 </head>
 <body>
+  <main class="site-shell">
+    <header class="site-header">
+      <div class="brand">Zion Coalition</div>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="jesus-tv.html">Jesus TV</a>
+        <a href="possession-tv.html">Possession TV</a>
+      </nav>
+    </header>
 
-<div class="container">
+    <section class="hero">
+      <h1>Unwitting Zion-Building Pattern</h1>
+      <p class="subtitle">Jesus orchestrates, humans participate, and only in hindsight does the scale of His work become clear.</p>
+    </section>
 
-<div class="hero">
-    <h1>Unwitting Zion-Building Pattern</h1>
-    <p>Static Zion Coalition rebuild.</p>
-</div>
+    <section class="card">
+      <h2>Introduction</h2>
+      <p>For those with eyes to see, a hidden pattern runs through scripture, history, and the quiet corners of our own lives: Jesus builds Zion largely through (via) the unwitting efforts of ordinary people. The grand works of heaven almost never look divine in the moment. They look like migrations, mistakes, political decisions, inventions, personal detours, spiritual wrestlings, curiosities, or even failures. Yet again and again, Jesus takes these human movements — sincere, confused, ambitious, fearful, hopeful — and <strong>redeems them</strong>: weaves them into something far larger, more hopeful, than anyone involved could see.</p>
+      <p>Jesus does this through the power of His “presence” (Spirit possession).</p>
 
-<div class="card">
-    <h2>Introduction</h2>
-    <p class="quote">
-        For those with eyes to see, a hidden pattern runs through scripture,
-        history, and the quiet corners of our own lives.
-    </p>
-</div>
+      <div class="scripture">
+        <span class="scripture-title">D&amp;C 88:6</span>
+        <p>“He ascended up on high, as also he descended below all things, inasmuch as he comprehended all things, that he might be in all and through all things, the light of truth;”</p>
+      </div>
 
-<div class="card">
-    <h2>Recovered Material</h2>
-    <p><!-- saved from url=(0058)https://zioncoalition.org/unwitting-zion-building-pattern/ --></p><p><html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></p><p><meta name="description" content="“Unwitting Zion-Building Pattern” Introduction For those with eyes to see, a hidden pattern runs through scripture, history, and the quiet corners of our own"></p><p><meta property="og:url" content="https://zioncoalition.org/unwitting-zion-building-pattern/"></p><p><meta property="og:title" content="Unwitting Zion-Building Pattern - Zion Coalition"></p><p><meta property="og:description" content="“Unwitting Zion-Building Pattern” Introduction For those with eyes to see, a hidden pattern runs through scripture, history, and the quiet corners of our own"></p>
-</div>
+      <div class="scripture">
+        <span class="scripture-title">D&amp;C 88:11–13</span>
+        <p>“And the light which shineth, which giveth you light, is through him who enlighteneth your eyes… Which light proceedeth forth from the presence of God to fill the immensity of space— The light which is in all things, which giveth life to all things, which is the law by which all things are governed…”</p>
+      </div>
 
-<div class="card">
-    <h2>Build Notes</h2>
-    <p>
-        The original file contained a large WordPress/Astra export with generated
-        CSS, metadata, and theme infrastructure. This rebuild preserves the
-        readable source material while simplifying it into the cleaner Zion
-        Coalition card layout.
-    </p>
-</div>
+      <p>The Fall was like this. The Atonement’s surrounding events were like this. And so too are the many turning points in the Lord’s unfolding work on earth — events carried forward by individuals who felt they were simply living their lives, unaware that heaven was quietly steering everything toward the rise of Zion.</p>
+      <p>What follows is a list of twenty such moments — ancient and modern — each revealing the same pattern:</p>
+      <p><strong>Jesus orchestrates, humans participate (often unknowingly), and only in hindsight does the scale of His work become clear.</strong></p>
+    </section>
 
-<div class="footer">
-    Zion Coalition
-</div>
+    <section class="card">
+      <h2>Twenty Moments in the Pattern</h2>
+      <div class="pattern-list">
+        <article class="pattern-item">
+          <h3><span class="number">1</span>The Fall of Adam and Eve</h3>
+          <p>A divinely permitted step into mortality, agency, and growth… even as Adam and Eve acted without comprehending the cosmic scale of what Jesus was enabling.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">2</span>The Atonement of Jesus Christ</h3>
+          <p>The center of all creation… while nearly everyone involved believed they were simply playing out politics, fear, or obedience to law.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">3</span>The Gathering of Israel</h3>
+          <p>Migrations, captivities, returns, awakenings… though each participant felt they were merely surviving history, not fulfilling a divine timeline.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">4</span>The Rise and Preservation of Scripture</h3>
+          <p>Scribes, translators, rebels, monks, and martyrs… most never imagined their copying was part of a holy chain.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">5</span>The Restoration Through Joseph Smith</h3>
+          <p>A boy prophet… while Joseph and early Saints often felt overwhelmed.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">6</span>The Founding of the United States</h3>
+          <p>Imperfect founders and improbable victories… while founders saw only nation-building.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">7</span>The Spread of Christianity After Christ’s Ascension</h3>
+          <p>Empires, persecutions, councils… while participants believed they were pursuing politics or survival.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">8</span>The Exodus from Egypt</h3>
+          <p>Oppression, hardened hearts, wandering… most Israelites experienced chaos, not covenant choreography.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">9</span>The Babylonian Captivity and Return</h3>
+          <p>A national reset… exiles thought they were victims, unaware of refining.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">10</span>The Coming Forth of the Book of Mormon</h3>
+          <p>Lost plates, hidden records, chosen scribes… participants often felt incidental.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">11</span>The Scattering of the Ten Tribes</h3>
+          <p>Forced migrations… families saw disaster, not prophecy.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">12</span>The Protestant Reformation</h3>
+          <p>Priests, kings, printing presses… reformers thought they were correcting errors.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">13</span>The Discovery of the Americas</h3>
+          <p>Explorers and empires… pursuing trade routes, not divine timelines.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">14</span>The Worldwide Expansion of Temples</h3>
+          <p>Builders, donors, travelers… not realizing they were covenant-gathering pioneers.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">15</span>The Creation of Modern Communication Networks</h3>
+          <p>Printing to internet… inventors believed they were advancing science.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">16</span>The Global Missionary Movement</h3>
+          <p>War, visas, languages… missionaries unaware of eternal ripples.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">17</span>The Preservation of the House of Israel Despite Persecution</h3>
+          <p>Dispersion, survival… individuals simply trying to endure.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">18</span>The Opening of Nations</h3>
+          <p>Iron curtains falling… interpreted as political upheaval.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">19</span>Quiet Movements Into Key Relationships and Positions</h3>
+          <p>Friendships, marriages, mentors… seen as coincidences.</p>
+        </article>
+        <article class="pattern-item">
+          <h3><span class="number">20</span>The Rising of Zion in Its Early, Imperfect Forms</h3>
+          <p>Acts of goodness, truth, technology — including AI and world building… most will only later see what they helped build.</p>
+        </article>
+      </div>
+    </section>
 
-</div>
+    <section class="card">
+      <h2>Light in Darkness</h2>
+      <div class="scripture">
+        <span class="scripture-title">John 1:5 (KJV)</span>
+        <p>“And the light shineth in darkness; and the darkness comprehended it not.”</p>
+      </div>
+    </section>
 
+    <section class="card">
+      <h2>Wrap-Up</h2>
+      <p>We now stand at a point in history where Jesus is no longer leaving these orchestrations entirely hidden. Through efforts like Zion Coalition, Jesus TV, and the early structures of the JesusVerse, He is helping people finally see the pattern: that He has always been orchestrating, that He is orchestrating now, and that Zion is rising through millions of unwitting Zion builders — many of whom do not yet know whose work they are advancing.</p>
+      <p>And here is my personal observation: Left to myself, I simply cannot perceive or hold in my mind the sweeping, interconnected works that God is unveiling. I don’t have the cognitive or spiritual bandwidth to see the full choreography of what Jesus is doing. But when Jesus TV, as a concept, a framework, a spiritual instrument, works together with Zion Coalition, something shifts. Together they give me eyes to see — a way of noticing, tracking, and understanding divine patterns that would otherwise blur into the background of daily life.</p>
+      <p>Without these frameworks, I would walk right through this moment in history — through the rise of early, imperfect Zion — without realizing what Jesus is actually building. But with them, I can finally recognize the hidden structures, the unwitting participants, the quiet coherence, and the unmistakable hand of God moving in real time. They help me witness the early Zion Jesus is raising right now, in places I would have overlooked and in people who don’t even know they’re part of the story.</p>
+      <p>These tools don’t create the work — Jesus does. They simply let me see what has been there all along.</p>
+    </section>
+
+    <section class="card">
+      <h2>Redeemed Songs and Zion-Building Gifts</h2>
+      <p>For illustrative purposes, that I might comprehend in part what God is doing, Jesus revealed to me a series of classic songs that He redeemed. These 2,000 redeemed classic rock songs will be amply referenced throughout the works of Zion Coalition. They provide a continual reminder that Jesus has given all of His children various gifts (talents), from which often the initial beginnings of a new world (Zion) will emerge.</p>
+      <p>Lovely things, praiseworthy things, things of good report, that by the power of God and the labor of Zion builders will be made <strong>more lovely</strong>, <strong>more praiseworthy</strong>, <strong>more good report</strong>… by the addition of <strong>more Jesus</strong>.</p>
+    </section>
+
+    <footer class="footer">
+      <p>Zion Coalition &bull; <a href="index.html">Return Home</a></p>
+    </footer>
+  </main>
 </body>
 </html>
