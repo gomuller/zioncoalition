@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>A Prelude to Zion Coalition</title>
+  <style>
+    :root {
+      --outer: #9fc7db;
+      --main: #5fa3c7;
+      --card: #d6eaf8;
+      --ink: #163b57;
+      --body: #23465c;
+      --link: #0f557a;
+      --shadow: 0 14px 30px rgba(13, 52, 74, 0.22);
+      --soft-shadow: 0 8px 18px rgba(13, 52, 74, 0.16);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--outer);
+      color: var(--body);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      line-height: 1.65;
+    }
+
+    .page {
+      width: min(1120px, calc(100% - 32px));
+      margin: 32px auto;
+      padding: clamp(20px, 4vw, 52px);
+      background: var(--main);
+      border-radius: 32px;
+      box-shadow: var(--shadow);
+    }
+
+    header.hero {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: clamp(28px, 5vw, 58px);
+      box-shadow: var(--soft-shadow);
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+      font-size: 0.85rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: #315f7a;
+      font-weight: 800;
+    }
+
+    h1, h2, h3 {
+      color: var(--ink);
+      line-height: 1.15;
+      margin: 0 0 16px;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 7vw, 5rem);
+      letter-spacing: -0.04em;
+    }
+
+    h2 {
+      font-size: clamp(1.45rem, 3vw, 2.25rem);
+      margin-top: 6px;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+      margin-top: 22px;
+    }
+
+    p { margin: 0 0 1rem; }
+
+    a {
+      color: var(--link);
+      font-weight: 750;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .cards {
+      display: grid;
+      gap: 22px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--soft-shadow);
+      padding: clamp(22px, 3.5vw, 38px);
+      overflow: hidden;
+    }
+
+    .note {
+      border-left: 6px solid rgba(22, 59, 87, 0.45);
+      padding-left: 18px;
+      font-size: 1.04rem;
+    }
+
+    .image-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    figure {
+      margin: 0;
+      background: rgba(255,255,255,0.38);
+      border-radius: 18px;
+      padding: 14px;
+      box-shadow: inset 0 0 0 1px rgba(22,59,87,0.08);
+    }
+
+    figure img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.45);
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+    }
+
+    figcaption {
+      margin-top: 10px;
+      color: #315f7a;
+      font-size: 0.93rem;
+      font-weight: 700;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 14px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      counter-reset: item;
+    }
+
+    .checklist li {
+      counter-increment: item;
+      background: rgba(255,255,255,0.32);
+      border-radius: 18px;
+      padding: 16px 18px;
+      box-shadow: inset 0 0 0 1px rgba(22,59,87,0.08);
+    }
+
+    .checklist li::before {
+      content: counter(item);
+      display: inline-grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      border-radius: 999px;
+      background: rgba(22,59,87,0.14);
+      color: var(--ink);
+      font-weight: 900;
+    }
+
+    .image-name {
+      display: block;
+      margin-top: 8px;
+      color: #45697d;
+      font-size: 0.92rem;
+      font-style: italic;
+    }
+
+    .quote-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 16px 18px;
+      background: rgba(255,255,255,0.33);
+      border-left: 6px solid rgba(22, 59, 87, 0.35);
+      border-radius: 16px;
+    }
+
+    .song {
+      font-size: 1.15rem;
+      color: var(--ink);
+      font-weight: 750;
+    }
+
+    footer {
+      margin-top: 26px;
+      text-align: center;
+      color: rgba(22,59,87,0.86);
+      font-weight: 700;
+    }
+
+    @media (max-width: 640px) {
+      .page { width: min(100% - 18px, 1120px); margin: 9px auto; border-radius: 22px; }
+      header.hero, .card { border-radius: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <p class="eyebrow">Zion Coalition</p>
+      <h1>A Prelude to Zion Coalition</h1>
+      <p class="note">This page gathers the “Jesus says…” sequence, image-placement notes, links, reflections, and the Jesus TV / Hunger Gift language into one clean static page.</p>
+    </header>
+
+    <section class="cards">
+      <article class="card">
+        <h2>Image Source Notes</h2>
+        <p>This page’s images are located in Google Slides here.</p>
+        <p><strong>Breast? breast? breast? Yes.</strong> <a href="https://www.facebook.com/share/p/1M2zoXhdBP/">Facebook reference</a></p>
+        <p><strong>Singularity (KARATE)? singularity? singularity? Yes.</strong> <a href="very-singularly.html">Very Singularly</a></p>
+        <p><strong>ChatGPT image Apr 24, 2026, 08:51:55 AM.</strong> Place this one: <a href="jesus-rules.html">Jesus Rules</a></p>
+
+        <div class="image-grid">
+          <figure>
+            <img src="images/chatgpt-image-apr-24-2026-08-51-55-am.png" alt="ChatGPT image Apr 24, 2026, 08:51:55 AM">
+            <figcaption>chatgpt-image-apr-24-2026-08-51-55-am.png</figcaption>
+          </figure>
+          <figure>
+            <img src="images/singularity-karate.png" alt="Singularity karate image placeholder">
+            <figcaption>singularity-karate.png</figcaption>
+          </figure>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>The Preflight Checklist Together</h2>
+        <ol class="checklist">
+          <li>
+            <strong>Jesus says, “Greg, remember WHY we do our Preflight Checklist TOGETHER.”</strong>
+            <span class="image-name">Image: images/ffffflight.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, here is the theory of everything we will work on until you die.”</strong>
+            <span class="image-name">Image: images/greg-and-miyagi2.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, help me, help you— ‘Feed You Head.’”</strong>
+            <span class="image-name">Image: images/meme-49-preflight-checklist-3.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, review how — Zion Coalition — is part of the worldwide JESUS CONNECTIONS PROJECT.”</strong>
+            <span class="image-name">Image: images/jcp.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, the cornerstone JESUS CONNECTION pattern throughout the Jesus-Greg WORLD is the holy sacrament.”</strong>
+            <span class="image-name">Image: images/sac10.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, remember the LABOR which you mostly have to perform is to look, look, look, look, look — LOOK, like it says in 1 Nephi 17:41.”</strong>
+            <p>That’s why I gave you Jesus TV.</p>
+            <span class="image-name">Image: images/jtvvvvvvvv.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, remember my main intention—remember where I intend for all of this J.e.s.u.s… l.o.o.k.i.n.g. to lead you: M-O-O-N, that spells Spirit Possession.”</strong>
+            <p><strong>The aim of Jesus worship, aka Jesus Looking:</strong> Spirit “Possession,” in the best Alma 34:34 sense.</p>
+            <span class="image-name">Image: images/spirit-possesssssssion.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Greg, you are meant to be a little Saint who writes little books.”</strong>
+            <span class="image-name">Image: images/chatgpt-image-apr-23-2026-07-12-26-pm.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “Keep in mind, we are building a new PATH OF LEAST RESISTANCE.”</strong>
+            <p><a href="least-resistance.html">Least Resistance</a></p>
+            <span class="image-name">Image: images/sneaky.png</span>
+          </li>
+          <li>
+            <strong>Jesus says, “MORE of that!, Greg.”</strong>
+            <p><a href="more-that.html">More That</a></p>
+            <span class="image-name">Image: images/xxx.png</span>
+          </li>
+        </ol>
+      </article>
+
+      <article class="card">
+        <h2>Spirit Possession</h2>
+        <p>Jesus intends not just that we follow Him, but that we yield ourselves so fully that His Spirit dwells in us completely—shaping our thoughts, desires, and actions—until our life becomes an expression of His.</p>
+        <p>This is not loss of agency, but its highest use: a willing union where we become one with Him.</p>
+      </article>
+
+      <article class="card">
+        <h2>Pillows, Meekness, Union</h2>
+        <p><strong>Pillow message.</strong></p>
+        <p><span class="image-name">Image: images/xpillows.png</span></p>
+        <p>Here is the link for the multiple pillows: <a href="https://docs.google.com/document/d/1mqopgMzMQHzL343qJdopz3KGfLplvvkcvLZPk2CerzQ/edit?usp=sharing">Google document</a></p>
+
+        <div class="image-grid">
+          <figure><img src="images/const.png" alt="Const image placeholder"><figcaption>const.png</figcaption></figure>
+          <figure><img src="images/learn-more.png" alt="Learn more image placeholder"><figcaption>learn-more.png</figcaption></figure>
+          <figure><img src="images/meeeeeeeeek.png" alt="Meek image placeholder"><figcaption>meeeeeeeeek.png</figcaption></figure>
+          <figure><img src="images/moremoremore.png" alt="More more more image placeholder"><figcaption>moremoremore.png</figcaption></figure>
+          <figure><img src="images/zionbuildme.png" alt="Zion build me image placeholder"><figcaption>zionbuildme.png</figcaption></figure>
+          <figure><img src="images/union.png" alt="Union image placeholder"><figcaption>union.png</figcaption></figure>
+          <figure><img src="images/darkpillow.png" alt="Dark pillow image placeholder"><figcaption>darkpillow.png</figcaption></figure>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>Dayenu</h2>
+        <p><strong>Dayenu</strong> means “it would have been enough.” It’s a Hebrew expression of gratitude — a declaration that each act of God’s mercy, no matter how small, is worthy of thanks.</p>
+        <p>Look for a place to put this haunting: <a href="https://youtu.be/JHlxTiR1zsk?si=6cHhm2YuTaVjPtSQ">YouTube reference</a></p>
+      </article>
+
+      <article class="card">
+        <h2>Digital Dust and Hidden Offerings</h2>
+        <div class="quote-list">
+          <blockquote>I’m 76 and have been playing guitar since I was 12 and it’s my addiction. My wife likes one of my songs and when she asks me to play “that song,” it makes me very happy.</blockquote>
+          <blockquote>We are destined for dust, as is our work, but while we’re here, we get the chance to create something meaningful, even if it’s only seen by those closest to us. The great joy of life is the act of creating.</blockquote>
+          <blockquote>I produced a damned good album. I achieved something most people never will, and I’m happy with that.</blockquote>
+          <blockquote>This video is an allegory for life. We create and wait. Part of our souls go into our creations.</blockquote>
+          <blockquote>I’m happy just being me, knowing God loves me just as I am.</blockquote>
+          <blockquote>If I can just move one person, that is enough for me.</blockquote>
+          <blockquote>The most heartwarming thing about this video is the love you feel that Rick has for all these artists with their unheard songs.</blockquote>
+          <blockquote>I made my last CD for ME. I made it for the sheer joy of creating art which is as important to me as breathing.</blockquote>
+          <blockquote>I think artists who persevere in the face of overwhelming odds, trying to make their way in captured art forms, is nothing short of heroic in nature and I applaud them all.</blockquote>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>The Pattern You’re Seeing</h2>
+        <p>What you wrote—and the comments you gathered—are circling around something very old, very deep, and very Gospel-shaped.</p>
+        <p>All these people are saying the same thing in different ways:</p>
+        <blockquote>“I gave my life to something beautiful.”<br>“Almost nobody saw it.”<br>“And somehow… it still mattered.”</blockquote>
+        <p>That tension—hidden effort versus visible impact—is exactly where your spirit is being stirred.</p>
+
+        <h3>What This Has To Do With Jesus</h3>
+        <p>This isn’t random. It lines up almost perfectly with how Jesus describes life in the Kingdom of God.</p>
+
+        <h3>1. Seeds, Not Spotlights</h3>
+        <p>Jesus constantly talks about seeds—things planted, buried, unseen.</p>
+        <p>Seeds disappear into the ground, and only later, or never visibly, bear fruit. Most of those songs are seeds, not failures.</p>
+
+        <h3>2. Faithfulness Over Recognition</h3>
+        <p>The world says: “If it didn’t reach millions, it didn’t matter.”</p>
+        <p>Jesus says: “Well done, good and faithful servant.”</p>
+        <p>Not famous. Not successful. Faithful. That’s a completely different scoreboard.</p>
+
+        <h3>3. Hidden Lives Are Not Wasted Lives</h3>
+        <p>Jesus spent about 30 years in obscurity. Most of His work wasn’t recorded. Many people He touched were never “famous stories.”</p>
+        <p>By the world’s standards, that looks like “digital dust.” But in reality, it was eternal.</p>
+      </article>
+
+      <article class="card">
+        <h2>The Sober, Healing Message</h2>
+        <p>Your work does not need to be seen by the world to be seen by God.</p>
+        <p>And even deeper: the act of creating, loving, and offering something real is already success.</p>
+        <p>That’s why those comments feel healing—not depressing. They’re people slowly letting go of needing applause, needing validation, needing to “make it,” and discovering something freer.</p>
+      </article>
+
+      <article class="card">
+        <h2>Create Anyway</h2>
+        <p>You wrote: “something that leads me to continue to do His will, with a heart full of joy… and songs.”</p>
+        <p>That’s the key.</p>
+        <p>This isn’t telling you: stop caring about your work.</p>
+        <p>It’s telling you: detach your joy from the outcome.</p>
+        <p>Create anyway. Sing anyway. Obey anyway.</p>
+        <p>Because one person hearing it matters. Maybe no one hearing it still matters. God hearing it always matters.</p>
+
+        <blockquote>I am not called to be known.<br>I am called to be faithful.</blockquote>
+        <blockquote>Nothing offered in love is ever wasted.</blockquote>
+      </article>
+
+      <article class="card">
+        <h2>Hurt No One</h2>
+        <p class="song">Come on Virginia, look for the sign, send up a signal, Jesus’ll throw you a line, that stained-glassed curtain He’s hiding behind, bids you to seek the Son…</p>
+      </article>
+
+      <article class="card">
+        <h2>On My Hunger Gift and Jesus TV</h2>
+        <p>When Jesus told me to “seek His face,” I had to wrestle with what that actually meant. Scripture uses that language often, especially in the Psalms, but it isn’t about physically seeing anything. To seek God’s face is to pursue His presence—to align your life, your attention, your desire toward Him.</p>
+        <p>It’s relational, not visual. It’s tuning, not searching.</p>
+        <p>By contrast, to “see the face of God” points to something far more intense: a moment of encounter. In scripture, these moments are overwhelming, transformative—when presence becomes undeniable, not something you manufacture but something that resolves.</p>
+        <p>The difference became clear to me through what I call “Jesus TV,” a kind of living parable Jesus gave me to understand this dynamic. In this framework, seeking is like calibrating a receiver; you’re not chasing a distant signal—you’re adjusting your inner life so the signal comes through clearly.</p>
+        <p>What you feed your mind, how you discern, how you live—all of it affects reception. Seeing, then, is when the signal locks in—the static clears, and presence becomes real, embodied, unmistakable, not an abstract idea but something experienced.</p>
+        <p>And Jesus isn’t just the subject of the broadcast—He is the broadcast: the signal, the content, the direction. The Spirit writes, Jesus directs, and people—ordinary people—become the channels.</p>
+        <p>This reframes everything. The “face of God” is no longer a single, unreachable image; it becomes distributed—appearing through many lives, many moments, many small transmissions. Each person, in their own imperfect way, becomes a living node of revelation.</p>
+        <p>So seeking is tuning, seeing is resolution, and the face of God is not distant—it’s a living broadcast, appearing wherever the signal is faithfully received and passed on.</p>
+      </article>
+
+      <article class="card">
+        <h2>Our House</h2>
+        <p>Our house, in the middle of the street….</p>
+        <p><span class="image-name">Image: images/our-house.png</span></p>
+      </article>
+    </section>
+
+    <footer>
+      <p>Zion Coalition static page draft</p>
+    </footer>
+  </main>
+</body>
+</html>
