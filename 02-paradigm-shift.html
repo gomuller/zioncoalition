@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>People Who Changed Their Paradigm</title>
+  <style>
+    :root {
+      --bg: #0f1117;
+      --panel: #171a23;
+      --panel-soft: #202431;
+      --text: #f4f1ea;
+      --muted: #b9b2a3;
+      --accent: #d6a85d;
+      --accent-2: #8fb8ff;
+      --line: rgba(255,255,255,0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+      background:
+        radial-gradient(circle at top left, rgba(214,168,93,0.16), transparent 34%),
+        radial-gradient(circle at bottom right, rgba(143,184,255,0.12), transparent 32%),
+        var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .wrap {
+      width: min(1100px, 92vw);
+      margin: 0 auto;
+      padding: 72px 0;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 56px;
+    }
+
+    .kicker {
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.78rem;
+      margin-bottom: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: clamp(2.8rem, 7vw, 6.4rem);
+      line-height: 0.95;
+      margin: 0 0 24px;
+      font-weight: 500;
+    }
+
+    .subtitle {
+      max-width: 760px;
+      margin: 0 auto;
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      color: var(--muted);
+    }
+
+    .definition {
+      border: 1px solid var(--line);
+      background: linear-gradient(135deg, rgba(255,255,255,0.06), rgba(255,255,255,0.02));
+      border-radius: 28px;
+      padding: 34px;
+      margin-bottom: 56px;
+      box-shadow: 0 22px 70px rgba(0,0,0,0.26);
+    }
+
+    .definition strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    .section-title {
+      margin: 56px 0 24px;
+      font-size: clamp(1.8rem, 4vw, 3.1rem);
+      font-weight: 500;
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 14px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      grid-column: span 6;
+      background: rgba(23, 26, 35, 0.84);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      padding: 28px;
+      min-height: 300px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 18px 60px rgba(0,0,0,0.22);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(214,168,93,0.14), transparent 38%);
+      pointer-events: none;
+    }
+
+    .card.large { grid-column: span 12; }
+
+    .num {
+      font-family: Arial, sans-serif;
+      color: var(--accent);
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      font-weight: 500;
+      position: relative;
+    }
+
+    .role {
+      color: var(--accent-2);
+      font-family: Arial, sans-serif;
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .shift {
+      color: var(--muted);
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .arrow {
+      display: inline-block;
+      color: var(--accent);
+      padding: 0 8px;
+    }
+
+    .quote {
+      margin-top: 22px;
+      padding: 18px 20px;
+      border-left: 3px solid var(--accent);
+      background: rgba(255,255,255,0.04);
+      border-radius: 0 18px 18px 0;
+      color: #e8e2d7;
+      position: relative;
+    }
+
+    .closing {
+      margin-top: 60px;
+      padding: 42px;
+      background: var(--panel-soft);
+      border-radius: 30px;
+      border: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .closing h2 {
+      margin-bottom: 18px;
+    }
+
+    .closing p {
+      max-width: 780px;
+      margin: 0 auto 18px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
+
+    .final-line {
+      margin-top: 30px;
+      color: var(--accent);
+      font-size: 1.45rem;
+    }
+
+    @media (max-width: 760px) {
+      .wrap { padding: 44px 0; }
+      .definition, .closing { padding: 26px; }
+      .card, .card.large { grid-column: span 12; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <div class="kicker">Paradigm Shift</div>
+      <h1>People Who Changed the Map</h1>
+      <p class="subtitle">A paradigm shift is not just changing your opinion. It is changing the frame through which reality itself is understood.</p>
+    </header>
+
+    <section class="definition">
+      <p><strong>A paradigm shift</strong> happens when the old questions stop working. The world does not merely gain a new answer; it gains a new structure. What once seemed obvious becomes strange. What once seemed impossible becomes inevitable.</p>
+    </section>
+
+    <h2 class="section-title">Science & Reality</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="num">01 / Galileo Galilei</div>
+        <h2>From Authority to Observation</h2>
+        <div class="role">Astronomer · Physicist · Disruptor of the heavens</div>
+        <p class="shift">The old world said Earth sat at the center of creation. Galileo looked through a telescope and saw moons orbiting Jupiter.</p>
+        <p><strong>Shift:</strong> inherited truth <span class="arrow">→</span> measurable reality.</p>
+        <div class="quote">Not everything revolved around Earth. And once that was seen, humanity’s cosmic self-image could not remain intact.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">02 / Isaac Newton</div>
+        <h2>One Universe, One Law</h2>
+        <div class="role">Mathematician · Physicist · Architect of classical mechanics</div>
+        <p class="shift">Before Newton, heaven and Earth were often treated as separate realms. Newton unified them.</p>
+        <p><strong>Shift:</strong> celestial mystery <span class="arrow">→</span> universal law.</p>
+        <div class="quote">The same force that pulls an apple downward also helps govern the motion of planets.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">03 / Charles Darwin</div>
+        <h2>Life Without Fixed Forms</h2>
+        <div class="role">Naturalist · Evolutionary thinker</div>
+        <p class="shift">Darwin reframed species as changing, adapting, branching forms rather than permanent categories.</p>
+        <p><strong>Shift:</strong> fixed creation <span class="arrow">→</span> evolving life.</p>
+        <div class="quote">Humanity was no longer outside nature looking in. Humanity was nature looking back at itself.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">04 / Albert Einstein</div>
+        <h2>Reality Becomes Relative</h2>
+        <div class="role">Theoretical physicist · Reimaginer of space and time</div>
+        <p class="shift">Einstein overturned the comfort of absolute time and absolute space.</p>
+        <p><strong>Shift:</strong> fixed stage <span class="arrow">→</span> relational cosmos.</p>
+        <div class="quote">Gravity was no longer merely a force acting across space. Space itself could curve.</div>
+      </article>
+    </section>
+
+    <h2 class="section-title">Philosophy & Consciousness</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="num">05 / Siddhartha Gautama</div>
+        <h2>From Possession to Awareness</h2>
+        <div class="role">The Buddha · Spiritual revolutionary</div>
+        <p class="shift">A prince raised in comfort encountered sickness, aging, and death. The surface of life cracked open.</p>
+        <p><strong>Shift:</strong> external achievement <span class="arrow">→</span> inner liberation.</p>
+        <div class="quote">The problem was not merely suffering. The problem was attachment to what cannot last.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">06 / Friedrich Nietzsche</div>
+        <h2>Meaning Must Be Created</h2>
+        <div class="role">Philosopher · Critic of inherited morality</div>
+        <p class="shift">Nietzsche treated morality not as an eternal structure but as something human beings construct, inherit, and often fear to question.</p>
+        <p><strong>Shift:</strong> discovered meaning <span class="arrow">→</span> created meaning.</p>
+        <div class="quote">He did not simply ask what is true. He asked who benefits from calling it truth.</div>
+      </article>
+    </section>
+
+    <h2 class="section-title">Politics & Society</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="num">07 / Mahatma Gandhi</div>
+        <h2>Power Without Violence</h2>
+        <div class="role">Independence leader · Practitioner of nonviolent resistance</div>
+        <p class="shift">Empires assumed power came from force. Gandhi showed that legitimacy, discipline, and noncooperation could become political weapons.</p>
+        <p><strong>Shift:</strong> coercion <span class="arrow">→</span> moral resistance.</p>
+        <div class="quote">The refusal to obey can become more powerful than the command to submit.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">08 / Martin Luther King Jr.</div>
+        <h2>Justice as Moral Theater</h2>
+        <div class="role">Civil rights leader · Minister · Strategist of conscience</div>
+        <p class="shift">King helped shift segregation from a regional political arrangement into a visible moral crisis.</p>
+        <p><strong>Shift:</strong> private injustice <span class="arrow">→</span> public moral reckoning.</p>
+        <div class="quote">Protest became a mirror. The nation had to look at itself.</div>
+      </article>
+    </section>
+
+    <h2 class="section-title">Technology & Modernity</h2>
+    <section class="grid">
+      <article class="card">
+        <div class="num">09 / Alan Turing</div>
+        <h2>Thinking as Process</h2>
+        <div class="role">Mathematician · Codebreaker · Founder of modern computing</div>
+        <p class="shift">Turing imagined computation not as arithmetic alone but as a universal symbolic process.</p>
+        <p><strong>Shift:</strong> machines as tools <span class="arrow">→</span> machines as reasoners.</p>
+        <div class="quote">The possibility emerged that thought itself could be formalized, simulated, and tested.</div>
+      </article>
+
+      <article class="card">
+        <div class="num">10 / Steve Jobs</div>
+        <h2>Technology Becomes Personal</h2>
+        <div class="role">Entrepreneur · Design evangelist · Cultural translator of computing</div>
+        <p class="shift">Computers were once seen as specialist machines. Jobs reframed them as intimate, beautiful, creative extensions of the self.</p>
+        <p><strong>Shift:</strong> technical device <span class="arrow">→</span> personal companion.</p>
+        <div class="quote">The machine was no longer just something you used. It became something you lived through.</div>
+      </article>
+    </section>
+
+    <section class="closing">
+      <h2>The Inner Pattern</h2>
+      <p>Paradigm shifts often begin as disorientation. The old map fails before the new one appears.</p>
+      <p>They may come through loss, illness, exile, discovery, failure, love, mystical experience, or the confrontation with mortality.</p>
+      <p>Thomas Kuhn gave the phrase its modern power: anomalies gather, crisis builds, and then a new way of seeing reorganizes the world.</p>
+      <div class="final-line">Before the shift, it looks impossible. After the shift, it looks obvious.</div>
+    </section>
+  </main>
+</body>
+</html>
