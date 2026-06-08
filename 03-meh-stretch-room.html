@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MEH Stretch ROOM</title>
+  <meta name="description" content="Zion Coalition">
+  <style>
+    :root {
+      --outer-blue: #9fc7db;
+      --page-blue: #5fa3c7;
+      --card-blue: #d6eaf8;
+      --card-blue-2: #c7e1f2;
+      --dark-blue: #1e3a5f;
+      --text: #243447;
+      --link-blue: #045cb4;
+      --parchment: #FDF6E3;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--outer-blue);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+      line-height: 1.7;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+    }
+
+    .page-wrap {
+      width: min(100%, 1000px);
+      margin: 0 auto;
+      padding: 34px 24px 72px;
+      background: var(--page-blue);
+      border-radius: 18px;
+      box-shadow:
+        0 8px 30px rgba(0,0,0,0.12),
+        0 2px 10px rgba(0,0,0,0.06);
+    }
+
+    .site-title-clean {
+      text-align: center;
+      margin: 0 0 30px;
+      padding: 18px 12px;
+      color: var(--dark-blue);
+      font-size: clamp(2.25rem, 5vw, 4.1rem);
+      font-weight: 850;
+      letter-spacing: 0.02em;
+      line-height: 1.05;
+    }
+
+    .entry-content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    a {
+      color: var(--link-blue);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 10px;
+    }
+
+    figure {
+      margin: 24px auto;
+      text-align: center;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px solid rgba(30, 58, 95, 0.22);
+      margin: 18px auto;
+      max-width: 760px;
+    }
+
+    h1, h2, h3, h4 {
+      color: var(--dark-blue);
+      line-height: 1.25;
+      margin-top: 1.2em;
+      margin-bottom: 0.65em;
+    }
+
+    h1, h2, .has-text-align-center {
+      text-align: center;
+    }
+
+    p, li {
+      font-size: 1rem;
+    }
+
+    /* Main reusable card style: this turns old WordPress sections into clean cards. */
+    .wp-block-group,
+    .content-card,
+    .entry-content > section {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 28px;
+      background: var(--card-blue) !important;
+      background-color: var(--card-blue) !important;
+      background-image: none !important;
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .wp-block-group h1:first-child,
+    .wp-block-group h2:first-child,
+    .content-card h1:first-child,
+    .content-card h2:first-child {
+      margin-top: 0;
+    }
+
+    .wp-block-group p:last-child,
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Make standalone WordPress heading separators feel intentional. */
+    .wp-block-heading.has-text-align-center {
+      max-width: 860px;
+      margin: 34px auto 20px;
+      padding: 16px 22px !important;
+      border-radius: 999px !important;
+      background: var(--dark-blue) !important;
+      color: #ffffff !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+    }
+
+    /* Keep custom inline feature boxes attractive without forcing them into the same blue card. */
+    .entry-content > div:not(.wp-block-group) {
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .parchment-wrap {
+      max-width: 800px;
+      margin: 24px auto;
+      padding: 2rem;
+      font-family: Georgia, serif;
+      line-height: 1.7;
+      color: #333;
+      background: var(--parchment) !important;
+      border: 1px solid #d4c9a8;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .wp-block-button__link,
+    .button {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      background: var(--link-blue);
+      color: white;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    blockquote {
+      margin: 24px auto;
+      padding: 18px 22px;
+      border-left: 6px solid var(--dark-blue);
+      background: rgba(255,255,255,0.22);
+      border-radius: 12px;
+    }
+
+    .wp-block-spacer {
+      max-height: 42px;
+    }
+
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding: 16px 12px 44px;
+        border-radius: 0;
+      }
+
+      .wp-block-group,
+      .content-card {
+        padding: 18px;
+        margin: 22px auto;
+        border-radius: 14px;
+      }
+
+      .wp-block-heading.has-text-align-center {
+        border-radius: 18px !important;
+        padding: 14px 16px !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-wrap">
+    <h1 class="site-title-clean">Zion Coalition</h1>
+    <div class="entry-content clear" data-ast-blocks-layout="true" itemprop="text">
+<div class="wp-block-group">
+
+  
+
+  
+
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-9e042a348a03917c9a8f01ea2250d8e5" 
+  style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">Jesus says, 
+  “Greg. One of the most important soul stretches that you will do is found below....it addresses that which afflicts nearly everyone.”</h2>  
+
+  
+ <figure class="card-image">
+  <a href="02-pre-flight-checklist.html">
+    <img
+      src="images/01-stretch.png"
+      alt="Stretch Pre-Flight"
+      style="max-width:100%; height:auto; border-radius:12px;"
+    />
+  </a>
+</figure>
+
+  
+  
+
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+  
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-9e042a348a03917c9a8f01ea2250d8e5" 
+  style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">Jesus says, “Look, Greg.  See what me and Axl did in 1992?”</h2>  
+<figure class="wp-block-image size-large"><img alt="Jesus and Axl" class="wp-image-2085" src="images/01-jesus-n-axl.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+  
+
+<h2 class="wp-block-heading has-text-align-center"
+style="
+  background:#1e3a5f;
+  color:white;
+  padding:30px;
+  border-radius:100px;
+  line-height:1.5;
+  box-shadow:0 4px 12px rgba(0,0,0,0.12);
+">
+
+Jesus and Pauline said,
+<span style="
+  font-style:italic;
+  font-weight:normal;
+  opacity:0.9;
+">
+“...and then what happened, Greg?”
+</span>
+
+<br><br>
+
+<span style="
+  display:block;
+  font-size:1.25em;
+  font-weight:bold;
+  font-family:Georgia, serif;
+  color:#ffe9a8;
+  text-shadow:1px 1px 3px rgba(0,0,0,0.25);
+">
+...and then, 30 years later
+(so that I would learn to love Jesus MORE than before)…
+well, a piece of Zion came forth!
+</span>
+
+</h2>
+
+
+
+  
+ <figure class="card-image">
+  <a href="01-and-then-zion.html">
+    <img
+      src="images/01-axl-and-greg.png"
+      alt="axl and greg"
+      style="max-width:100%; height:auto; border-radius:12px;"
+    />
+  </a>
+</figure>
+
+
+  
+  
+  <h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-10e18b7af26e801bcce5e27a1f480b25" 
+    style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px"><strong>ON JESUS TV</strong> – I look, I see God’s Choir: learning to harmonize</h2>
+<figure class="wp-block-image size-full"><img alt="choir2" class="wp-image-2100" src="images/01-choir2.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  
+  
+  
+  <p class="has-small-font-size">LOOOOK: <strong>JESUS GIVES ME CHOIR GLASSES</strong></p>
+<p class="has-large-font-size">When he puts Jesus-Axl <a href="https://zioncoalition.org/01-mud.html">mud</a> on my eyes, I can see the brighter day…</p>
+
+
+
+
+  
+<p class="has-black-color has-text-color has-link-color has-medium-font-size wp-elements-821eba4bf99faedf866a321b2ae9ce2e" style="padding-right:0;padding-left:0">When you become a member of Zion Coalition you <strong>automatically</strong> become a member of the <strong>Book of Mormon Tabernacle Choir</strong>, like Axl Rose did in 2025. Plus, other member benefits: including access to redeemed classic rock songs, membership in Babylon Anonymous (BA), free entry to Jesusdance events, discounts in Jesus Marketplace, free meals at Jesus Restaurant, (and a story about what Jesus had Greg seeking in Maine)… and much much MORE.</p>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-32428484c50cc6e81141d40cc9d588d6" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">Axl Rose: inductee</h2>
+<p class="has-border-color has-ast-global-color-8-border-color has-luminous-vivid-amber-color has-midnight-gradient-background has-text-color has-background has-link-color has-medium-font-size wp-elements-607b52db99d42dafe2adbe668de427ba" style="border-width:22px">“And the light shineth in darkness<strong>[mud]</strong>; and the darkness<strong>[mud]</strong> comprehended it not.” (John 1:5)</p>
+
+  
+  <figure class="wp-block-image size-full"><img alt="repent swords" class="wp-image-1311" src="images/01-repent-swords.jpg" style="max-width:100%; height:auto" title="Home"/></figure>
+
+
+<figure class="wp-block-image size-full"><img alt="drafted" class="wp-image-35" src="images/01-drafted.jpg" style="max-width:100%; height:auto" title="Home"/></figure>
+  
+<figure class="wp-block-image size-full"><img alt="axl drafted" class="wp-image-1291" src="images/01-axl-drafted.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+  <h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-113845e04b83debdeb339ce4f2f4128f" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">conversion</h2>
+<div style="
+  max-width: 820px;
+  margin: 2.5em auto 1.5em auto;
+  padding: 1.6em 2em;
+  background: linear-gradient(135deg, #7a9f3d, #4f7c4f, #3f6f6f);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  text-align: center;
+">
+<h1 style="
+    margin: 0;
+    font-family: 'Palatino Linotype', 'Georgia', serif;
+    font-size: 3.4em;
+    letter-spacing: 1px;
+    color: #f9fbf7;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  ">
+    Welcome Ye <br/>(Muddy) Swords
+  </h1>
+<div style="
+    margin-top: 0.6em;
+    font-size: 2.05em;
+    color: #e6f0e6;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  ">
+    Come be remade into ploughshares
+  </div>
+</div>
+<div style="
+  max-width: 820px;
+  margin: 2em auto;
+  padding: 2em;
+  background: linear-gradient(135deg, #f7f9fc, #eef3f8);
+  border-left: 6px solid #6b8e23;
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  font-family: 'Georgia', 'Palatino Linotype', serif;
+  color: #2f3a40;
+">
+<h2 style="
+    margin-top: 0;
+    margin-bottom: 1em;
+    font-size: 1.8em;
+    color: #3f5f3f;
+    letter-spacing: 0.5px;
+  ">
+    Enter The Machine, The Practice
+  </h2>
+<ol style="
+    padding-left: 1.4em;
+    line-height: 1.65;
+    font-size: 1.35em;
+  ">
+<li><strong>Swords</strong> → Ye tools once meant to defend or attack</li>
+<li style="
+      background: #fff3a0;
+      padding: 0.25em 0.4em;
+      border-radius: 6px;
+    ">
+<strong>Jesus-less memories</strong> → Ye recollections awaiting His presence
+    </li>
+<li style="
+  background: #7CFF7A;
+  padding: 0.25em 0.4em;
+  border-radius: 6px;
+">
+<strong>Secular songs</strong> → Ye melodies reclaimed as vessels of praise
+</li>
+<li><strong>Weaknesses</strong> → Ye places where grace can enter</li>
+<li><strong>Failed dreams</strong> → Ye compost for wiser hopes</li>
+<li style="
+      background: #fff3a0;
+      padding: 0.25em 0.4em;
+      border-radius: 6px;
+    ">
+<strong>Molehills</strong> → Ye least of things, come become mountains
+    </li>
+<li><strong>Mundane habits</strong> → Ye ordinary repetitions made holy</li>
+<li><strong>Wounds</strong> → Ye wells of compassion</li>
+<li style="
+      background: #fff3a0;
+      padding: 0.25em 0.4em;
+      border-radius: 6px;
+    ">
+<strong>Lovely/Good/Praiseworthy Things</strong> → Ye things meant to become MORE lovely, MORE good, MORE praiseworthy
+    </li>
+<li><strong>Shame</strong> → Ye humility that keeps us human</li>
+<li><strong>Fear</strong> → Ye attentiveness and reverence</li>
+<li><strong>Anger</strong> → Ye energy redirected toward justice</li>
+<li><strong>Pride</strong> → Ye confidence refined by truth</li>
+<li><strong>Losses</strong> → Ye deeper capacity to love</li>
+<li><strong>Mistakes</strong> → Ye hard-earned teachers</li>
+<li><strong>Mortals</strong> → Ye regulars hiding the Christ incognito (per Mt. 25:40)</li>
+<li><strong>Doubts</strong> → Ye doorways to honest faith</li>
+<li><strong>Secular Institutions</strong> → Ye structures now called to service</li>
+<li><strong>Regrets</strong> → Ye signposts pointing forward</li>
+<li><strong>Broken plans</strong> → Ye openness to better ones</li>
+<li><strong>Suffering</strong> → Ye fellowship with others in pain</li>
+<li><strong>Limitations</strong> → Ye boundaries that shape beauty</li>
+<li><strong>Disappointments</strong> → Ye recalibration of desire</li>
+<li><strong>Old identities</strong> → Ye soil for truer selves</li>
+<li><strong>Conflicts</strong> → Ye invitations to peacemaking</li>
+<li><strong>Exile / loneliness</strong> → Ye listening spaces for God</li>
+<li><strong>Death-like endings</strong> → Ye seeds of resurrection</li>
+<li><strong>Wasted time</strong> → Ye hidden preparation, waiting that ripens purpose</li>
+<li><strong>White-washed sepulchers</strong> → Ye exposed facades becoming honest, living temples</li>
+</ol>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-4d8a44516a32bb7ce883ff7f6ad181c2" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">unwitting participant</h2>
+<div class="wp-block-group has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained" style="padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20)">
+<h2 class="wp-block-heading has-ast-global-color-4-color has-black-background-color has-text-color has-background has-link-color has-x-large-font-size wp-elements-4d57b7aef30e13295603a19be69fa422" style="padding-top:0;padding-right:var(--wp--preset--spacing--40);padding-bottom:0;padding-left:var(--wp--preset--spacing--40)">Axl, you didn’t sign up. Didn’t click “Join”.</h2>
+<p class="has-cyan-bluish-gray-background-color has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">(Neither did Russel M. Nelson)</p>
+<h2 class="wp-block-heading has-ast-global-color-4-color has-black-background-color has-text-color has-background has-link-color has-x-large-font-size wp-elements-fe26269b573b9b9a96b69e368bb3a75a" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">But Axl, the King noticed your work.  Called it worthy.</h2>
+<p class="has-cyan-bluish-gray-background-color has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">Welcome to Zion Coalition, brother Rose.</p>
+<div class="wp-block-spacer" style="height:16px"></div>
+</div>
+<div style="
+  max-width: 820px;
+  margin: 2.5em auto 1.5em auto;
+  padding: 1.6em 2em;
+  background: linear-gradient(135deg, #3a7bd5, #2b5fa8, #244b7a);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  text-align: center;
+">
+<h1 style="
+    margin: 0;
+    font-family: 'Palatino Linotype', 'Georgia', serif;
+    font-size: 3.4em;
+    letter-spacing: 1px;
+    color: #f4f8ff;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.35);
+  ">
+    Surprise!
+  </h1>
+<div style="
+    margin-top: 0.6em;
+    font-size: 2.05em;
+    color: #dbe8f7;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  ">
+    You’re a member
+  </div>
+</div>
+<div class="wp-block-group has-background is-layout-constrained wp-block-group-is-layout-constrained" style="background:radial-gradient(rgb(238,238,238) 0%,rgb(169,184,195) 100%)">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Dear brother Rose, Jesus is using you to build Zion</strong></h1>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"> — aka the Kingdom of God on Earth.</h2>
+<p class="has-medium-font-size" style="border-width:25px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">For those who have eyes to see (Jesus TV), much of Zion has been, is now being, and will yet be built by people who are — <strong>mostly unwittingly</strong> — guided <strong>(S-h-e-p-h-e-r-d-e-d)</strong> by the careful, mysterious, often <strong>unseen</strong> <em>orchestrations of Jesus</em><strong> </strong><strong>(The Good Shepherd)</strong> just as with the Fall, the Atonement, and every other <em>heaven-orchestrated</em> event on earth.</p>
+
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Unwitting Zion-Building Pattern
+  <img
+    src="images/01-movie-camera.png"
+    alt="Movie Camera"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-unwitting-pattern.html">Revealed</a>
+</h2>
+
+  
+  <hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+  
+  <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Also see the movie
+  <img
+    src="images/01-movie-camera.png"
+    alt="mud"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-mud.html">Mud</a>
+</h2>
+  
+
+  <hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+  
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-cover is-light"><img alt="urim thummim" class="wp-block-cover__image-background wp-image-938 size-large" src="images/01-urim-thummim.jpg" style="max-width:100%; height:auto" title="Home"/><span class="wp-block-cover__background has-background-dim" style="background-color:#8a8382"></span><div class="wp-block-cover__inner-container is-layout-flow wp-block-cover-is-layout-flow">
+<p class="has-text-align-center has-large-font-size"></p>
+</div></div>
+
+
+
+
+
+  
+<div class="wp-block-group has-light-green-cyan-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="border-width:9px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>♬ You Can’t Hide ♬</strong></h1>
+<h2 class="wp-block-heading" style="border-width:7px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">Cuz we see you! (On Jesus TV)</h2>
+<p class="has-black-color has-text-color has-link-color has-medium-font-size wp-elements-1fa918cc111d602eab1750bee93b22ee" style="border-width:25px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em><strong>Jesus’ coming for you, all you lost sheep<br/>You can’t hide from Jesus, there is no retreat<br/>Try to run fool, away from Him<br/>Jesus took the punishment for all ‘o your sins</strong></em></p>
+
+    
+  <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Jesus:
+  <img
+    src="images/01-movie-camera.png"
+    alt="mud"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-jesus-coming.html">Relentless Pursuer</a>
+</h2>
+  
+
+  
+<div class="wp-block-group has-blush-light-purple-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Possessed</strong></h1>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">How did we <em>I-spy you?</em></h2>
+<p class="has-medium-font-size" style="border-width:22px;border-top-left-radius:59px;border-top-right-radius:59px;border-bottom-left-radius:59px;border-bottom-right-radius:59px;padding-top:var(--wp--preset--spacing--50);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--40)">Well. Besides loving classic rock songs that Jesus has ‘born again,’ we at Zion Coalition (ZC) are people Jesus has taken full hold of—‘Jesus People.’” <strong><em>We are literally possessed</em></strong> by the Spirit of Jesus Christ (<em>per Alma 34:34</em>). He is in us. We sing this song and take it literally: <strong>♬ “I have a little light inside, I’m going to let it shine” ♬</strong></p>
+<p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em><strong><em>We #HearHim.</em></strong> He directs this work. If we were a car, He has the wheel. Oh my.</em></p>
+
+</div>
+
+ <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  We got possessed and we stay possessed by Jesus’ Spirit by watching TV…
+  <img
+    src="images/01-movie-camera.png"
+    alt="mud"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-possession-tv.html">Jesus TV - Possession TV</a>
+</h2>
+
+
+
+  
+<figure class="wp-block-image size-large"><img alt="angels bro axel" class="wp-image-86" src="images/01-angels-bro-axl.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+
+  
+<div class="wp-block-group has-white-color has-midnight-gradient-background has-text-color has-background has-link-color wp-elements-beb3629d67696fbf80e087a825614fb7 is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading has-ast-global-color-4-color has-text-color has-link-color wp-elements-b096d351e4a7ede8379042046dedade3" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>Unbidden Chosen</strong></strong></h1>
+<h2 class="wp-block-heading has-ast-global-color-4-color has-text-color has-link-color wp-elements-a7f0dcab31b25a0e94817321a535bade" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">WHO TOLD ON ME?</h2>
+<p class="has-medium-font-size" style="border-width:34px;border-top-left-radius:68px;border-top-right-radius:68px;border-bottom-left-radius:68px;border-bottom-right-radius:68px;padding-top:var(--wp--preset--spacing--30);padding-right:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--30);padding-left:var(--wp--preset--spacing--40)">In short, you were identified (drafted) by one of our <strong>“Seers”</strong> (mortal or immortal members) who serve within Zion Coalition. <strong>They saw you on Jesus TV.</strong> And then <em>they reported you.</em></p>
+
+  
+ <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  You are being watched by… 
+  <img
+     src="images/01-movie-camera.png"
+    alt="seers of seed"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-seers-of-the-seed.html">Seers Of The Seed</a>
+</h2>
+
+
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-445238285a5d2ac5358cc1b1151f5f2c" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">what the ?!#*</h2>
+<div class="wp-block-group has-white-color has-pale-ocean-gradient-background has-text-color has-background has-link-color wp-elements-ebee2fb2cea2220680b3029878d796a1 is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading has-black-color has-text-color has-link-color wp-elements-9ab62eda1524e9ce3d72180f68cb0ae8" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong><strong>(un)Sensible</strong></strong></strong></h1>
+<h2 class="wp-block-heading has-ast-global-color-1-color has-text-color has-link-color wp-elements-9b18d9326a396eae981158004d5682c7" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>This Doesn’t Make (Normal) Sense.</strong></h2>
+<p class="has-vivid-cyan-blue-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-1c33c24bfa68bddf6e6705a32d4ade7e" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Yep.</strong>  So, if you are trying to make “normal” sense of what we are doing here at Zion Coalition… good luck. God’s ways are not man’s ways. Zion will be 180 degrees different than Babylon. Get used to different. Jesus is having us build <em>a different world, a different way</em><strong> </strong>. It is time.</p>
+<h2 class="wp-block-heading has-ast-global-color-1-color has-text-color has-link-color wp-elements-97c8ef372a7e4aa091e72700922c550c" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>Can You Be More Clear?</strong></strong></h2>
+<p class="has-vivid-cyan-blue-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-4649939a9783c3555ab062a6e151ce1d" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Nope.</strong> Much of this is esoteric — because Jesus wants it to be. Consider it a sign or token of its authenticity, its otherworldly origin.</p>
+
+  
+
+   <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Jesus often presents His best works in an esoteric way, 
+  <img
+     src="images/01-movie-camera.png"
+    alt="seers of seed"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-jesus-esoteric.html">as revealed here.</a>
+</h2>
+  
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+</div>
+
+
+  
+<figure class="wp-block-image size-full is-resized"><img alt="Download 26" class="wp-image-93" src="images/01-nephi-ship-moon.png" style="aspect-ratio:4/3;object-fit:cover;width:1000px; max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  
+  <p class="has-ast-global-color-4-color has-midnight-gradient-background has-text-color has-background has-link-color has-medium-font-size wp-elements-f77c2ca4b5912467293b0364952aca53"><em>“Now I, Nephi, did not work the timbers after the manner which was learned by men, neither did I build the ship after the manner of men; but I did build it after the manner which the Lord had shown unto me; </em><strong><em>wherefore,</em></strong><em> </em><strong><em>it was not after the manner of men.”<br/></em></strong>—1 Nephi 18:2</p>
+<div class="wp-block-group has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>To see what Jesus is doing here, you may need a <em>seer stone</em></strong></h1>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">Heaven knows I do – I need <strong>a “crutch”</strong></h2>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+
+  
+  
+   <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Zion Coalition is a 
+  <img
+     src="images/01-movie-camera.png"
+    alt="seer stone approx"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-jtv-new-seer-stone.html">Seer Stone Approximation</a>
+</h2>
+
+  
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-aebc614951325b6de507f0578d3d6cd9" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">fold in (His Fold)</h2>
+<div class="wp-block-group has-background is-layout-constrained wp-block-group-is-layout-constrained" style="background:radial-gradient(rgb(238,238,238) 0%,rgb(169,184,195) 100%)">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);font-size:37px"><strong>Jesus loves you. He won’t leave you out of the greatest work upon the earth.</strong></h1>
+
+  
+  <figure class="wp-block-image size-full"><img alt="Screenshot 2025 12 24 10.22.36 AM" class="wp-image-109" src="images/01-leave-out.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  
+  <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">— <strong>He Didn’t Leave Out Guns N’ Roses</strong></h2>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em>Axel – Inaugural Member </em></h2>
+<p class="has-ast-global-color-5-background-color has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>“When He puts mud on my eyes, I can see the brighter day…”</strong></p>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">When Axl Rose wrote <strong>“November Rain”</strong> (with Jesus and angels), he was almost certainly unaware that he was laying down a musical track destined to become part of Zion. He didn’t know that the same song would one day be <em>redeemed</em>—that it would repent— receive <strong>MORE Jesus</strong> than it ever carried before (and it would get a new name, “Jesus Christ Now Reign”—and that Jesus would use it as the <strong>Zion Coalition theme song</strong>. His bandmates, likewise, were <strong>unwitting Zion builders</strong>. Had you pressed them, they might have admitted that God had given them musical gifts—<strong>Gifts of God</strong>. And they certainly might have sensed something special, even <em>Heavenly,</em> about “November Rain.” But they would have been <strong>stunned</strong> to learn from Jesus that their song would one day be <strong>born again in Christ</strong> and become an example of what Jesus is doing with the entire world (and everything in it, and upon it): <strong>Redeeming it</strong> (help it repent). Turning swords into ploughshares. Taking what is good and making it better, and then best. Mashing it up. Blending it. Filling it with Christ so thoroughly that what was once lovely, of good report, and praiseworthy (“November Rain”) becomes <strong>even more lovely, more good report, more praiseworthy</strong>—because it becomes <strong>more Jesus-centric, more worshipful, more holy</strong>. And in that process, Axl Rose and all his bandmates find themselves mysteriously, beautifully, <strong>drafted into the Zion Coalition</strong>—a far greater honor than being inducted into the Rock &amp; Roll Hall of Fame, and one they now carry <strong>unwittingly</strong>, yet no less truly.</p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-e7f72045f3b188e0bcfb694101e50347" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">by their fruits</h2>
+<div class="wp-block-group has-ast-global-color-4-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:100px"></div>
+  
+<figure class="wp-block-image size-full"><img alt="repent axl" class="wp-image-113" src="images/01-repent-axl.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+  <h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>ZC Theme Song (#1)</strong></h1>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-black-background-color has-text-color has-background has-link-color wp-elements-67bbdf6f2a3841ae3c4274b239743429"><strong>Jesus Christ Now Reign</strong></h2>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>A brand new song from King Jesus that reminds us that Jesus is not waiting for some distant day. but now. now. now….’REPENT ALL YE ENDS OF THE EARTH’….repent all ye classic rock songs….be born again</strong></p>
+<p class="has-text-align-center has-medium-font-size" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><em>“When he had thus spoken, he spat on the ground, and made clay of the spittle, and he anointed the eyes of the blind man with the clay,” John 9:6</em><br/></p>
+<p class="has-text-align-center has-medium-font-size" style="border-width:42px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px;padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)"><strong>When he puts mud on my eyes<br/>I can see the brighter day</strong><br/><em>Since Jesus came and saved me<br/>I’ve never been the same</em><br/><br/>Redemption lasts forever<br/>And we both know hearts can change<br/>Come let us bow before him<br/>Let Jesus Christ now reign<br/><br/>We’ve been through this such a long long time<br/>Just tryin’ to kill the pain, ooh yeah<br/>His love is finally coming<br/>His love is finally showing<br/>The one who really will come save the day<br/>He’s walking this way<br/>Now let us take the time<br/>To lay it on the line<br/>We can rest our head<br/>Just knowin’ that Jesus wins<br/>All the time (all the time)<br/>So if you want to be free<br/>Heart of mine don’t refrain<br/>Or I’ll just end up walkin’<br/>In the cold November rain<br/><br/>Now you need some time t’worship God<br/>Let my people go t’worship God<br/>Everybody needs some time t’worship God<br/>Don’t you know you need some time t’worship God<br/><br/>I know it’s hard to keep an open heart<br/>When even friends seem out to harm you<br/>But if Jesus heals your wounded heart<br/>Wouldn’t time be out to charm you<br/>(Bridge 1)<br/>Now I need some time t’worship God<br/>Let my people go t’worship God<br/>Everybody needs some time t’worship God<br/>Don’t you know you need some time t’worship God<br/>(Bridge 2)<br/><br/>And when my fears subside<br/>But shadows still remain, oh yeah<br/>I know that Jesus loves me<br/>On the cross he took my shame<br/>So never mind the darkness<br/>We still can find the way<br/>‘Cause redemption lasts forever<br/>So let Jesus Christ now reign<br/><br/>on’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody…..<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody<br/>Jesus Christ is the one<br/>He is the only one<br/>Don’t ya think that you need somebody<br/>Don’t ya think that you need someone<br/>Everybody needs somebody…..<br/><br/><a href="https://youtu.be/StDODd-HdjM">https://youtu.be/StDODd-HdjM</a></p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-f9dfbf264c828f5918f8841507f6bae9" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">you know how</h2>
+<div class="wp-block-group has-blush-light-purple-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>How Can I Know If This Is True or Not?</strong></strong></h1>
+
+  
+  <p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);font-size:22px">Most people who come to Zion Coalition deep down believe that God (indeed) really does answer prayers. <a href="https://zioncoalition.org/01-pray-about-it.html">Click here to remind yourself that <strong>you can pray</strong> to know if Jesus really did found Zion Coalition and redeem Guns-n-Roses songs and so much more.</a></p>
+
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+
+  <figure class="wp-block-image size-full"><img alt="think pray" class="wp-image-123" src="images/01-think-pray.jpg" style="max-width:100%; height:auto" title="Home"/></figure>
+
+
+</div>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-abb661a4059973dde4e5e2861c03228a" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">treasure hunt</h2>
+<div style="
+  max-width: 820px;
+  margin: 2.5em auto 1.5em auto;
+  padding: 1.6em 2em;
+  background: linear-gradient(135deg, #e0e0e0, #cfcfcf, #bdbdbd);
+  border-radius: 16px;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+  text-align: center;
+">
+<h1 style="
+    margin: 0;
+    font-family: 'Palatino Linotype', 'Georgia', serif;
+    font-size: 3.4em;
+    letter-spacing: 1px;
+    color: #000000;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  ">
+    We Seek These Things
+  </h1>
+<div style="
+    margin-top: 0.6em;
+    font-size: 2.05em;
+    color: #111111;
+    font-style: italic;
+    letter-spacing: 0.5px;
+  ">
+    a Treasure Hunt based on Matthew 25:38
+  </div>
+</div>
+<div class="wp-block-group has-background is-layout-constrained wp-block-group-is-layout-constrained" style="background:radial-gradient(rgb(238,238,238) 0%,rgb(169,184,195) 100%)">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Jesus is using you in a treasure hunt that He is conducting with us….</strong>If there is anything virtuous, lovely, or of good report or praiseworthy— (we) think on these things… for they have <strong>the power to possess us</strong> with the most wonderful feeling.</h1>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">— Jesus the very thought of thee</h2>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">— <strong>It’s a MORE-Jesus feeling</strong></h2>
+<p class="has-electric-grass-gradient-background has-background has-large-font-size" style="border-width:39px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">it’s a game. a holy. one. a r~e~v~o~l~u~t~i~o~n~a~r~y one. we’re playing it. daily. all day long. with Jesus. seriously. (Philippians 4:8ish)</p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">(Find Waldo? Nope. Find Jesus!)<em><br/></em></h2>
+<p class="has-electric-grass-gradient-background has-background has-large-font-size" style="border-width:33px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">“Oh look!, there He is (in 1991) with the band Guns-n-Roses, writing a song for me and Jesus, and the Zion Coalition.”</p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-white-color has-midnight-gradient-background has-text-color has-background has-link-color wp-elements-0bd8b1fe144ecafd0068fc53e8c70812 is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-text-color has-link-color wp-elements-90e06e4b8ba9a6111a6d7eae34b6504e" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong><strong>We Reveal Hidden Treasure</strong></strong></strong></h1>
+
+  <figure class="wp-block-image size-full is-resized"><img alt="hidden reveal" class="wp-image-128" src="images/01-hidden-reveal.jpeg" style="width:779px;height:auto; max-width:100%; height:auto" title="Home"/></figure>
+
+  <h2 class="wp-block-heading has-ast-global-color-4-color has-vivid-cyan-blue-to-vivid-purple-gradient-background has-text-color has-background has-link-color wp-elements-95124c8c6cafc7398562de97ff37dade" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">“Jesus is using you to build Zion… whether you know it or not, whether you acknowledge it or not”</h2>
+<p class="has-ast-global-color-6-color has-pale-cyan-blue-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-931f778970f43a2a6f7daeb53e7aa1b2" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">Count your many blessings, name them one by one.  Or don’t.</p>
+<h2 class="wp-block-heading has-ast-global-color-4-color has-text-color has-link-color wp-elements-228678f8cba1b7b53981219f247dc113" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);font-size:32px">Jesus counts things that are often not counted in Babylon. </h2>
+
+  
+  <figure class="wp-block-image size-full"><img alt="new accounting" class="wp-image-986" src="images/01-new-accounting.png" style="max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-dd89d34d0568704fe9708566de87773a" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">2,000 possession points</h2>
+
+  
+  <figure class="wp-block-image size-full is-resized"><img alt="2,000 gratitude statements"" class="wp-image-140" src="images/01-2k-grateful.png" style="width:581px;height:auto; max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  
+  <div class="wp-block-group has-light-green-cyan-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>Building a new world</strong></strong></h1>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">a WORLD OF GRATITUDE “Jesus, thank you Lord, for…</h2>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color wp-elements-a85b4a81304c6df772277421d607ba8e" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">2,000 Gratitude Statements (RE-reinforced)</h2>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">As we hunt— as we go on these Zion Coalition sponsored “Jesus Treasure Hunts” —- we are specifically looking for people and things (actual pieces of Zion) that authentically, sustainably and repeatedly evoke inside of us feelings of deep gratitude to Jesus. <strong>We intend to reconfigure our lives (structure our Jesus world) so that we repeatedly, explicitly express gratitude</strong> (in word, in deed and in song) <strong><em>directly to Jesus, Himself.</em></strong><br/></p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-light-green-cyan-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+
+  
+  <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  ZC Gratitude
+  <img
+    src="images/01-movie-camera.png"
+    alt="Movie Camera"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-altar-gen.html">Altar Generator</a>
+</h2>
+
+  
+  
+  <div class="wp-block-spacer" style="height:9px"></div>
+</div>
+
+  
+  <h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-015b23a4528fd0839703d4cd6dcf5a68" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">song #2 repents</h2>
+
+  
+
+<h2 class="wp-block-heading">
+  <img alt="🔥" class="emoji" src="images/01-1f525-fire.svg"
+       style="width:1.6em; height:auto; vertical-align:middle;"/>
+  <strong>Redeeming.</strong>
+</h2>
+
+<h2 class="wp-block-heading">
+  <img alt="⚡" class="emoji" src="images/01-26a1-electric.svg"
+       style="width:1.6em; height:auto; vertical-align:middle;"/>
+  <strong>Turning.</strong>
+</h2>
+
+<h2 class="wp-block-heading">
+  <img alt="♻️" class="emoji" src="images/01-267b-recycle.svg"
+       style="width:1.6em; height:auto; vertical-align:middle;"/>
+  <strong>Converting.</strong>
+</h2>
+
+<h2 class="wp-block-heading">
+  <img alt="👑" class="emoji" src="images/01-1f451-crown.svg"
+       style="width:1.6em; height:auto; vertical-align:middle;"/>
+  <strong>Colonizing.</strong>
+</h2>
+
+<h2 class="wp-block-heading">
+  <img alt="❤️" class="emoji" src="images/01-2764-heart.svg"
+       style="width:1.6em; height:auto; vertical-align:middle;"/>
+  <strong>Zionizing.</strong>
+</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+  
+<div class="wp-block-group has-ast-global-color-4-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:30px"></div>
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>ZC Theme Song (#2)</strong></h1>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-black-background-color has-text-color has-background has-link-color wp-elements-9b7dd8951bf68760a3a3ecef4bad4a5c"><strong><strong>♫ Our (2nd) Theme Song (An Example Of Redeeming)</strong></strong></h2>
+<p class="has-text-align-center has-ast-global-color-6-color has-text-color has-link-color has-medium-font-size wp-elements-b8cb99b2000cf1f6cf882dbd90d1a114" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">While Jesus could certainly use actual swords to teach us how to redeem things (into ploughshares), <strong>Jesus has instead chosen, of all things, classic rock songs, to demonstrate how Zion is to be redeemed</strong> (built). The upcoming Zion Coalition theme song (#2) was once a secular (sword) classic rock song. Then, Jesus redeemed it (ploughshare) — (RE)purposed it for Zion Coalition.<br/>This song (like the other 2,000 redeemed classic rock songs) <strong>is a reminder of how the rest of Zion will be built. </strong><em>Spoiler: we don’t build it—Jesus does. We just help. </em>For example, Jesus is the one who chooses what songs (swords) to redeem and when; He chooses what the new (better, more Jesusy) redeeming lyrics will be; He also chooses which humans He will reveal the new songs to, and what their labours shall be (and what gifts they will use to download said songs).<br/><strong>Jesus does the heavy (est) lifting in the building of His Kingdom.</strong> We’re learning (and being continually reminded by Jesus) that <strong>His “yoke is easy”, and His “burden is light”.</strong> This theme song is a perfect example: it came to us effortlessly.<br/>Or, to put it another way—<strong><em>we used “The Force.” </em></strong>(Translation for the religious crowd: Jesus gave it to us through revelation.) It felt more like a download from heaven than a composition session.<br/>Yep, Jesus Himself handed us a redeemed, colonized, born-again classic rock song to serve as the anthem of the Zion Coalition. Meaning: the heavy lifting was already done by others. All we had to do was receive it, reword it, rename it and repurpose it. Days, not weeks, months or years, of work. Fast. <br/><br/>Easy. Light. Fun.<br/><br/></p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>One</strong></h1>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>♫ ♪ ONE IS THE LONLIEST NUMBER THAT YOU’LL EVER DO ♫ ♪<br/></strong>And—because Jesus is Jesus—He didn’t stop at one. Zion always comes with a <strong>witness</strong>. If November Rain is the thunder rolling in from the distance, then this next song is the sunrise breaking open the sky. A second anthem. <strong>A second redeemed classic.</strong> Another ploughshare hammered out of a sword. Together they form a pair— <strong>a two-fold testimony</strong> of how Jesus builds the Zion Coalition: <em>He redeems what already exists… and He hands us the pieces of Zion already in motion.</em></p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-ast-global-color-4-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:30px"></div>
+<blockquote class="wp-block-quote is-layout-flow wp-block-quote-is-layout-flow">
+<p class="has-medium-font-size">The result is a new prayer-song (hymn) that mirrors both our mission and our method. Originally born in 1972 under the name <em>“Pieces of April,”</em> written by Jesus (with some help from Three Dog Night), it’s now been Christened <strong>“Pieces of Zion.”</strong></p>
+</blockquote>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-black-background-color has-text-color has-background has-link-color wp-elements-e72a88776d480e25d8ff92b6aec8b72f"><strong><strong>Behold</strong></strong></h2>
+<p class="has-text-align-center has-ast-global-color-6-color has-ast-global-color-5-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-d376559ee47998346f944629ff569a4e" style="padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">The following lyrics remind us: every person, place, thing, group, or organization is just one piece of the million-piece puzzle called Zion. And now, Jesus—the Puzzle Master—is putting it all together.</p>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)"><strong>So come on. Let’s sing along with the angels:</strong></p>
+<p class="has-text-align-center has-ast-global-color-6-color has-text-color has-link-color has-medium-font-size wp-elements-25d7646101c564bde26af91bc07d86ff" style="border-width:51px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px;padding-right:var(--wp--preset--spacing--50);padding-left:var(--wp--preset--spacing--50)">Jesus give us springtime<br/>And the promise of new flowers<br/>And the feeling of revival<br/>And the love that we call ours<br/><br/>God take away our sadness<br/>Open roads we each must cross<br/>We’re now livin’ a time meant for us<br/>To build Zion in the open at any cost<br/><br/>I build pieces of Zion<br/>I keep them in a memory bouquet<br/>I build pieces of Zion<br/>God is starting to reign<br/><br/>We stand on the crest of history<br/>Called by Jesus, The King of kings<br/>Feeling dawn of a revival<br/>Not really knowin’ what it means<br/>But it must be then that<br/>God stands beside me now<br/>To make me feel this way<br/>Like I’m building Zion<br/>And God is starting to reign<br/><br/>Bridge<br/><br/>I build pieces of Zion<br/>I keep them in a memory bouquet<br/>I build pieces of Zion<br/>God is starting to reign<br/><br/>I build pieces of Zion<br/>I keep them in a memory bouquet<br/>I build pieces of Zion<br/>God is starting to reign<br/><br/>God is starting<br/>God is starting to reign<br/><br/>God is starting<br/>God is starting<br/>God is starting to reign<br/><br/>Now, God is starting<br/>starting to reign<br/>starting to reign<br/><br/></p>
+<div class="wp-block-spacer" style="height:18px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-cc9f984001841d41b3cf62913faed71e" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">the call</h2>
+<div class="wp-block-group has-ast-global-color-4-color has-vivid-red-background-color has-text-color has-background has-link-color has-large-font-size wp-elements-b4ca3104b684a21530ad81d1b717e794 is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:54px"></div>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<p class="has-text-align-center" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em>“We are called by Jesus to build Zion in the open, like Noah built the ARK in the open (not in the closet). We build Zion now—through joyful creation, and sacred collaboration.”</em></p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-ast-global-color-4-color has-light-green-cyan-to-vivid-green-cyan-gradient-background has-text-color has-background has-link-color has-large-font-size wp-elements-ebe96393643650a882d54ba4968842f3 is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:54px"></div>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<p class="has-text-align-center has-black-color has-vivid-green-cyan-background-color has-text-color has-background has-link-color wp-elements-e9520f4f5777f1eb33018455042937cc" style="border-width:46px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em>“If there is anything virtuous, lovely, or of good report or praiseworthy, we seek after these things”…</em></p>
+<p class="has-black-color has-vivid-green-cyan-background-color has-text-color has-background has-link-color wp-elements-b37b5b68d3d332d29d6670dcad316a3a" style="border-width:57px;padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em>…and when we find them, we make them members of the Zion Coalition…</em><em><br/></em><em>with or without their permission.”</em></p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-bff9f1599f053e551512858a50b6c8f2" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">use the force (Luke)</h2>
+<div class="wp-block-group has-blush-light-purple-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<div class="wp-block-spacer" style="height:27px"></div>
+
+  
+  
+  <figure class="wp-block-image size-full is-resized"><img alt="praise jesus" class="wp-image-1007" src="images/01-praise-jesus.jpg" style="aspect-ratio:1.3351075245739794;width:746px;height:auto; max-width:100%; height:auto" title="Home"/></figure>
+
+  
+  
+  
+  <h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong><strong>Zion is built by the act of praising Jesus.</strong></strong></strong></h1>
+<p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);font-size:22px">And Jesus is found in anything virtuous, lovely, or of good report or praiseworthy.</p>
+<p class="has-text-align-center has-large-font-size" style="border-width:30px;border-top-left-radius:59px;border-top-right-radius:59px;border-bottom-left-radius:59px;border-bottom-right-radius:59px">Seek after these things… for they are Zion.</p>
+<p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40);font-size:22px">— Something that Jesus said to me, and I believe.”</p>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--70);padding-left:var(--wp--preset--spacing--70)">“To a great extent our job is quite easy: look and see it (Zion!), claim and own it (Zion!), praise Jesus for it (Zion!). <strong>Jesus does the rest… using other people who have been, wittingly or unwittingly, bearing our burdens; those who have been intentionally or inadvertently building pieces of our beloved Zion. Sword by sword. Or ploughshare by ploughshare. </strong><em>Our job is to inherit it. </em>When we are Christ’s, our lives intertwine. Our stories braid together into one heart and one mind. Zion is not a solo masterpiece but a collective inheritance. ‘<strong>When one does it, it’s like we are all doing it.’ </strong>Jesus lets us stand on ground someone else prayed over. He lets others rest in shade grown by our obedience. In His Kingdom, no act of faith is wasted, no sacrifice stored in a private vault. Every ploughshare swung in secret becomes soil we all inherit. Every sword laid down becomes peace we all enjoy. In Christ, we inherit each other’s efforts (thanks Jesus and Axl Rose)—and others quietly inherit ours (thanks Jesus and Greg Muller). This is the miracle of Zion: shared burden, shared blessing, shared becoming.”</p>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-a867e98b6f5eac8646a906de9e3e1358" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">vicarious</h2>
+<figure class="wp-block-image size-full is-resized"><img alt="we believe in vicarious salvation" class="wp-image-1230" src="images/01-vic-salvation.jpg" style="width:759px;height:auto; max-width:100%; height:auto" title="Home"/></figure>
+<div class="wp-block-group has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">THE PRECEDENT: <strong><strong>Vicarious Work for the Dead</strong></strong> (<em>and the living</em>!!!)</h1>
+<p class="has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>Jesus Has Us Bear One Another’s Burdens<br/></strong>“Again: in Christ, we inherit each other’s efforts — because He first let us inherit His own.<strong> This is the pattern He established: the righteous laboring vicariously for those who cannot lift themselves</strong>. Jesus worked for the spiritually dead — for us — so we could rise into life we did not build, peace we did not forge, and a Kingdom we did not construct. His grace is the ultimate ‘shared burden, shared blessing.’ Zion simply continues that pattern. We step into ground others prayed over. Others step into blessings shaped by our obedience. None of us stands alone, because Christ stood alone once — for all. </p>
+<p class="has-text-align-center has-very-light-gray-to-cyan-bluish-gray-gradient-background has-background has-medium-font-size" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><em><strong>Inheriting each other’s efforts isn’t a side-feature of Zion. It is the very nature of Christ’s work, extended through His people.”</strong></em></p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<div class="wp-block-spacer" style="height:43px"></div>
+
+
+ <h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Inherit This!!
+  <img
+    src="images/01-movie-camera.png"
+    alt="mud"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-vicarious-work.html">Vicarious Work Principle</a>
+</h2>
+
+  
+
+  
+  <div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<h2 class="wp-block-heading has-text-align-center has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-49c844fe56235ea5f5aaf8c6a27fd314" style="border-width:37px;border-top-left-radius:100px;border-top-right-radius:100px;border-bottom-left-radius:100px;border-bottom-right-radius:100px">inheritance</h2>
+<div class="wp-block-group has-light-green-cyan-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong><strong>The Doctrine of Inheritance</strong></strong></strong></h1>
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">working the system…. by working for Jesus</h2>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<h2 class="wp-block-heading has-ast-global-color-4-color has-ast-global-color-6-background-color has-text-color has-background has-link-color wp-elements-5353cbea96f549c90add09ef71c7c7fa" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong>“Come, everyone who thirsts,<br/>come to the waters;<br/>and he who has no money,<br/>come, buy and eat!<br/>Come, buy wine and milk<br/>without money and without price.”</strong><br/><em>(Isaiah 55:1, ESV)</em></h2>
+<p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+1. Natural / Worldly Inheritance: Definition: Passing down wealth, property, status, or rights from one generation to another. Principle: You don’t earn it; you’re born into it or adopted into it. Application: Many who inherit wealth didn’t work for it, yet walk in the benefits of what someone else built.<br/><br/>
+
+2. Spiritual Inheritance (Kingdom of God): Biblical concept: We are ‘heirs of God and co-heirs with Christ’ (Romans 8:17). Through Jesus: We inherit eternal life, peace, power, and relationship — <strong>not because we earned it, but because of our relationship with Him.</strong> Zion framing: Being part of Zion is not about achievement. It’s about willingness to inherit — it’s gifted through covenant and belonging.<br/><br/>
+
+3. The Doctrine in Action: In Zion: Those who belong inherit the blessings — not because they built Zion, but <strong>because they recognized and aligned with what God is doing</strong>. ‘Not much’ required: Inheritance is not effort-based — it’s about identity, lineage, trust, and faith.
+</p>
+
+<h2 class="wp-block-heading" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+  Jesus will have His people inherit Zion, piece by piece:
+  <img
+    src="images/01-movie-camera.png"
+    alt="movie camera"
+    style="width:84px; vertical-align:middle;"
+  >
+  <a href="01-yo-yoke-easy.html">Yo, The Yoke Is Easy</a>
+</h2>
+
+<p style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)">
+<em><strong>‘Blessed are the meek, for they shall inherit the earth.’ — Matthew 5:5.</strong></em><br/><br/>
+
+4. Implications: Inheritance humbles the achiever. Inheritance elevates the unqualified. Inheritance requires trust, not toil. <strong>Inheritance shifts the focus from doing to receiving — and from earning to belonging.”</strong>
+</p>
+  
+  <hr class="wp-block-separator has-alpha-channel-opacity"/>
+<figure class="wp-block-image size-full has-custom-border is-style-default" style="margin-top:var(--wp--preset--spacing--30);margin-right:var(--wp--preset--spacing--20);margin-bottom:var(--wp--preset--spacing--30);
+  margin-left:var(--wp--preset--spacing--20)"><img alt="wealth" class="wp-image-1015" src="images/01-what-do-wealth.png" style="border-width:13px; max-width:100%; height:auto" title="Home"/></figure>
+
+  <hr class="wp-block-separator has-alpha-channel-opacity"/>
+<div class="wp-block-spacer" style="height:48px"></div>
+</div>
+<div class="wp-block-group has-light-green-cyan-background-color has-background is-layout-constrained wp-block-group-is-layout-constrained">
+<h1 class="wp-block-heading has-electric-grass-gradient-background has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>Learn more about ‘The Easiness’ </strong></strong><br/><strong><strong>here: <strong><strong><strong><strong><em><em><img alt="🎥" class="emoji" src="images/1f3a5.svg" style="max-width:100%; height:auto"/></em></em></strong></strong><em><em> </em></em></strong></strong><a href="https://zioncoalition.org/01-the-easiness.html">https://zioncoalition.org/01-the-easiness.html”</a></strong></strong></h1>
+<h1 class="wp-block-heading has-electric-grass-gradient-background has-background" style="padding-right:var(--wp--preset--spacing--40);padding-left:var(--wp--preset--spacing--40)"><strong><strong>Easy like Repentance – <strong><strong><em><em><img alt="🎥" class="emoji" src="images/1f3a5.svg" style="max-width:100%; height:auto"/></em></em></strong></strong> </strong></strong><a href="https://zioncoalition.org/01-new-repentance.html">https://zioncoalition.org/01-new-repentance.html”</a></h1>
+<p class="has-text-align-center">A Jesus-WORLD is built by repentance <br/></p>
+<div class="wp-block-spacer" style="height:9px"></div>
+</div>
+<h2 class="wp-block-heading has-pale-pink-background-color has-background"><strong><strong>ZC Part of a: <em><em><img alt="🎥" class="emoji" src="images/1f3a5.svg" style="max-width:100%; height:auto"/></em></em> <a href="https://zioncoalition.org/01-hidden-world.html">Hidden World</a></strong></strong></h2>
+<p>xx</p>
+<p class="has-medium-font-size">Developer notes: “ZC Logo — <strong>The Jesus Orange (But Sweeter Still) </strong>The logo for Zion Coalition is an orange — a seemingly simple fruit, yet rich with meaning. Just as the orange is made up of many juicy segments, the JesusVerse is composed of countless interconnected sections, each contributing to the fullness of the whole. Within even the smallest segment, there are layers, membranes, and textures — reminding us that every part of creation, every act of goodness, carries its own depth and purpose. To me personally, Jesus smells like an orange — fresh, vibrant, and full of life. The fruit evokes a sense of divine craftsmanship, like a ball of curious workmanship, reminiscent of the Liahona, which guided ancient travelers with wisdom and purpose. In this way, the orange symbolizes My Jesus-Greg WORLD: a guiding, radiant sphere of goodness, directing hearts toward truth, love, and joy. And beyond its symbolism, the orange is sweet to taste — a perfect reminder that following Jesus brings delight, nourishment, and satisfaction to the soul. In every sense — its form, its fragrance, its flavor — the orange points us toward the fullness, creativity, and sweetness of Christ.”</p>
+<p class="has-medium-font-size">“<strong>Watching Jesus TV, We Got Possessed… Then This Came — My Working Theory with Jesus — A Manifesto — </strong>‘When He puts mud on my eyes, I can see the brighter day…’<strong> I accept that in this mortal life, I will never hold the full, unfiltered truth. Not scientists, not theologians, not me — no one in flesh gets that prize. All we have are working theories, stories, best guesses — our sacred imaginations. I choose to build mine with Jesus. I honour the wisdom passed down from tradition, but I am not chained to it. I will borrow what fits, discard what doesn’t, and let Jesus and I craft something uniquely ours — wild if need be, but alive and true to our relationship. I refuse the illusion that any single theory captures Him. Instead, I will treat every belief as a map, not the territory — always ready to redraw the lines when He shows me more. I will live in the tension between mystery and clarity, certainty and surprise, tradition and revelation — because that is where Jesus and I meet (until we meet again, in the flesh). And if my Jesus-theory looks strange to others, I will wear that strangeness as a sign that it was not mass-produced, but hand-made with Him. So let it be known — to my family, my church, and to anyone else concerned — that my path is not careless but deliberate. I will test, try, wrestle, and experiment. I will prove all things in the light of Jesus and hold fast to what is truly good. I will not cling to a belief just because it is familiar, nor reject one just because it is unusual. I will believe boldly, even wildly, until the believing shows itself false, hollow, or unfruitful — and then I will lay it down without regret. This is not rebellion; it is devotion to truth, to life, and to the living Jesus who walks with me. — Jesus and Greg, August 14, 2025 (an Article of Faith #11-inspired manifesto and foundational document for Zion Coalition). RE: The document above — among other assignments, Jesus has us (ZC) maintain a special collection of founding documents. These are special documents of a new world Jesus is building, of which Zion Coalition is a part.”</strong></p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+<p class="has-white-background-color has-background has-large-font-size"><strong>Greg, here’s some additional things Jesus wants you to (<em>look at</em>) feed your head, to memorize and believe: </strong><a href="01-z-header-stuff.html">https://zioncoalition.org/01-z-header-stuff.html</a>…………………<br/><br/>and this <strong>WITTING WORLD BUILDERS TIPS</strong>: <a href="https://zioncoalition.org/top-100/">https://zioncoalition.org/top-100/</a>……………..<br/><br/>and this: <a href="https://zioncoalition.org/one-hundred-altars/">one hundred altars</a><br/><br/></p>
+<p class="has-pale-cyan-blue-background-color has-background has-medium-font-size">CORRELATE PROJECT: correlate Zion Coalition and JesusVerse: The Documentary: <a href="https://docs.google.com/document/d/1MQbYPTncsZM6TN6bHxglGCJWl6qtN2MZadvE2qd9xso/edit?usp=sharing">HERE HERE HERE</a>./….. I sense that maybe (over time) Jesus is going to have me take the underlying principles of one altar and blend them into all the other altars (same principles, different stories).  He has me start with this project.</p>
+<p class="has-black-color has-ast-global-color-4-background-color has-text-color has-background has-link-color has-medium-font-size wp-elements-fc2710c161772cf909d5b908fcd81f80"><strong>Witting Jesus – WORLD Builders Meeting Sundays at 5:00 p.m. MST (weekly) </strong><br/>Join Zoom Meeting with this link: <a href="https://us05web.zoom.us/j/82698119781?pwd=mmA8wpP4ub9ViePkpTbyzQYbzumQ8e.1&amp;fbclid=IwZXh0bgNhZW0CMTAAYnJpZBExWUFzM0VLV0VsSjBSbDhiUHNydGMGYXBwX2lkEDIyMjAzOTE3ODgyMDA4OTIAAR4wHmN8QPbxFu8j08KyCVog8JfW0e5CkuY-ksQzevMkgvz14-NVtjOhpNhWVg_aem_kV7tfr-J34Yf2s-I8m5t7Q" rel="noreferrer noopener" target="_blank">https://us05web.zoom.us/j/82698119781?pwd=mmA8wpP4ub9ViePkpTbyzQYbzumQ8e.1</a><br/><br/>Everyone welcome.</p>
+<p>eye is symbol for world &amp; symbol for Jesus TV…. <strong>eye is glass (made out of mud)</strong>…. glass is hook…. that points to <em>glass of my smartphon</em>e, where plays Jesus channel 1: Zion Coalition (an altar and a channel)</p>
+<hr class="wp-block-separator has-alpha-channel-opacity"/>
+</div>
+<p class="has-x-large-font-size">Greg – – see <a href="https://zioncoalition.org/workouts/">https://zioncoalition.org/workouts/</a></p>
+<p>Witting Jesus – WORLD Builders Meeting<br/>Sundays at 5:00 p.m. MST (weekly)<br/>Join Zoom Meeting: <a href="https://us05web.zoom.us/j/82698119781?pwd=mmA8wpP4ub9ViePkpTbyzQYbzumQ8e.1">https://us05web.zoom.us/j/82698119781?pwd=mmA8wpP4ub9ViePkpTbyzQYbzumQ8e.1</a><br/></p>
+<p>MadriX <a href="https://zioncoalition.org/madrix/">https://zioncoalition.org/madrix/</a></p>
+<p></p>
+</div>
+  </main>
+</body>
+</html>
