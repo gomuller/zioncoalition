@@ -287,12 +287,156 @@
   padding: 0 4px;
   font-weight: 600;
 }
+
+
+.ornate-notes-box {
+  background:
+    radial-gradient(
+      ellipse at center,
+      #0c3d73 0%,
+      #08284c 60%,
+      #051a31 100%
+    );
+}
+
+.ornate-notes-box {
+  max-width: 900px;
+  margin: 34px auto;
+  padding: 42px 58px 46px;
+  min-height: 420px;
+
+  background: radial-gradient(
+      ellipse at center,
+      #0c3d73 0%,
+      #08284c 60%,
+      #051a31 100%
+    );
+
+  border: 5px solid #d5a947;
+  border-radius: 28px;
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,.28),
+    inset 0 0 0 4px #071d34,
+    inset 0 0 0 7px #f3d27a,
+    inset 0 0 32px rgba(255,220,120,.18);
+
+  position: relative;
+}
+
+.ornate-notes-box::before,
+.ornate-notes-box::after {
+  content: "❦";
+  position: absolute;
+  color: #f3d27a;
+  font-size: 54px;
+  top: -18px;
+}
+
+.ornate-notes-box::before {
+  left: 30px;
+}
+
+.ornate-notes-box::after {
+  right: 30px;
+}
+
+.ornate-notes-title {
+  max-width: 620px;
+  margin: 0 auto 36px;
+  padding: 16px 24px;
+
+  text-align: center;
+  font-family: Georgia, serif;
+  font-size: 2.2rem;
+  font-weight: bold;
+
+  color: #071d34;
+
+  background: linear-gradient(
+    180deg,
+    #ffe89a,
+    #c9962f
+  );
+
+  border: 3px solid #f6d777;
+  border-radius: 999px;
+
+  box-shadow: 0 8px 18px rgba(0,0,0,.35);
+}
+
+.ornate-note-line {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin: 20px 0;
+
+  color: #f8f0d0;
+  font-size: 1.08rem;
+  font-style: italic;
+  font-family: Georgia, serif;
+}
+
+.ornate-note-line::before {
+  content: "";
+  width: 28px;
+  height: 28px;
+
+  border: 3px solid #d5a947;
+  border-radius: 5px;
+
+  flex: 0 0 28px;
+}
+
+.ornate-note-line span {
+  flex: 1;
+  padding-bottom: 8px;
+  border-bottom: 2px dashed rgba(243,210,122,.65);
+}
     
   </style>
 </head>
 <body>
   <main class="page-wrap">
 
+    <!-- Notes box -->
+<div class="ornate-notes-box">
+  <div class="ornate-notes-title">✦ Greg's Notes / Task List ✦</div>
+
+  <div class="ornate-note-line">
+    <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Excepteur sint occaecat cupidatat non proident, sunt in culpa.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue.</span>
+  </div>
+
+  <div class="ornate-note-line">
+    <span>Integer vitae libero ac risus egestas placerat.</span>
+  </div>
+</div>
+
+    
     <!-- MORE JESUS Banner -->
 <div class="top-banner">
   <img
@@ -334,7 +478,7 @@
 
        
 <div class="mystery-intro-box">
-  <h3><strong>Zion Coalition</strong>is a Visionary, Mud-enriched Orchestration Tool</h3>
+  <h3><strong>Zion Coalition</strong> is a Visionary, Mud-enriched Orchestration Tool</h3>
   <p>
     That Jesus gave to me to <span class="yellow-highlight">help me see</span> Him bring forth Zion---which kind of  
           <span class="yellow-highlight">prophetic WATCHING induces me into a deep meditative state</span>, described in Alma 34:34 and Alma 18:34-35, and hinted at  
