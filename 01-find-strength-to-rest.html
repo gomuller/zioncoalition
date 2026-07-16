@@ -22,93 +22,164 @@ h1,h2{color:#1e3a5f}h1{text-align:center;font-size:2.8rem}
     margin:-8px 0 48px;
     font-style:italic;
 }
-   .epigraph-box{
+ .epigraph-box{
     max-width:760px;
     margin:-20px auto 34px;
-    padding:28px 34px;
-    background:rgba(12,48,87,.88);
+    padding:34px 42px 38px;
+    background:rgba(12,48,87,.92);
     color:#ffffff;
     border:2px solid rgba(255,255,255,.65);
     border-radius:14px;
     box-shadow:0 12px 28px rgba(0,25,55,.28);
     text-align:center;
     font-family:Georgia,serif;
-    font-size:1.35rem;
-    line-height:1.65;
-    font-style:italic;
-    letter-spacing:.02em;
+    font-size:1.18rem;
+    line-height:1.7;
+    font-style:normal;
+    letter-spacing:.01em;
 }
 
-.epigraph-box strong{
-    display:block;
-    margin-top:12px;
-    color:#d9efff;
-    font-family:Arial,sans-serif;
-    font-size:.9rem;
-    font-style:normal;
-    letter-spacing:.12em;
-    text-transform:uppercase;
+.epigraph-opening,
+.epigraph-narrative{
+    max-width:680px;
+    margin:18px auto;
+}
+
+.epigraph-opening{
+    font-style:italic;
+}
+
+.father-blessing{
+    display:inline-block;
+    padding:1px 8px 2px;
+    background:#fff59d;
+    color:#0b2f5b;
+    border-radius:4px;
+    font-weight:700;
 }
 
 .blessing{
+    max-width:620px;
     margin:28px auto;
-    max-width:82%;
-    padding:18px 24px;
+    padding:20px 26px;
     background:linear-gradient(135deg,#d9ffd9,#bff5cb);
     color:#0b2f5b;
     border-left:8px solid #f3c96b;
     border-radius:10px;
-    font-size:1.45rem;
+    box-shadow:0 8px 18px rgba(0,0,0,.18);
+    font-size:1.38rem;
+    line-height:1.5;
     font-style:italic;
     font-weight:700;
-    text-align:center;
-    box-shadow:0 8px 18px rgba(0,0,0,.18);
 }
 
-   .conversation{
+.ornament{
+    margin:22px auto;
+    color:#f3c96b;
+    font-family:Georgia,serif;
+    font-size:.95rem;
+    letter-spacing:.08em;
+}
+
+.conversation{
     width:72%;
-    margin:28px auto;
-    padding:18px;
+    margin:24px auto;
+    padding:20px 24px;
     background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.2);
     border-radius:12px;
-    text-align:center;
+}
+
+.conversation-entry{
+    display:flex;
+    flex-direction:column;
+    gap:3px;
+}
+
+.conversation-label{
+    color:#9fdcff;
+    font-family:Arial,sans-serif;
+    font-size:.78rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+}
+
+.conversation-words{
+    font-size:1.15rem;
+    font-style:italic;
 }
 
 .divider{
     width:60px;
     height:2px;
+    margin:18px auto;
     background:#f3c96b;
-    margin:16px auto;
 }
 
 .manual-banner{
-    margin:32px auto;
     display:inline-block;
-    padding:10px 22px;
-    border-radius:999px;
+    margin:16px auto 24px;
+    padding:12px 25px;
     background:#173f72;
+    color:#ffffff;
     border:2px solid #f3c96b;
-    color:#fff;
+    border-radius:12px;
+    box-shadow:0 7px 15px rgba(0,0,0,.18);
+    font-family:Arial,sans-serif;
+    font-size:.88rem;
+    font-weight:700;
+    line-height:1.55;
     letter-spacing:.08em;
     text-transform:uppercase;
-    font-weight:700;
 }
 
-   .game-announcement{
-    margin-top:38px;
+.game-announcement{
+    margin-top:34px;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.22);
     text-align:center;
-    letter-spacing:.08em;
-    line-height:1.8;
+}
+
+.announcement-small{
+    font-family:Arial,sans-serif;
+    font-size:.78rem;
     font-weight:700;
+    line-height:1.7;
+    letter-spacing:.12em;
+    text-transform:uppercase;
 }
 
 .game-announcement span{
     display:block;
-    margin-top:18px;
-    font-size:2rem;
+    margin-top:15px;
     color:#f3c96b;
-    letter-spacing:.18em;
+    font-size:1.9rem;
+    font-weight:700;
+    letter-spacing:.16em;
+    line-height:1.2;
+    text-transform:uppercase;
+}
+
+@media(max-width:650px){
+    .epigraph-box{
+        padding:26px 20px 30px;
+        font-size:1.05rem;
+    }
+
+    .conversation{
+        width:auto;
+    }
+
+    .blessing{
+        max-width:100%;
+        padding:17px 18px;
+        font-size:1.15rem;
+    }
+
+    .game-announcement span{
+        font-size:1.45rem;
+    }
 }
    
   </style>
@@ -124,58 +195,75 @@ h1,h2{color:#1e3a5f}h1{text-align:center;font-size:2.8rem}
     Playing the Jesus Game
 </h2>
 
-<div class="epigraph-box">
 
-    
-<p>
-    I got a <span style="background:#fff59d; color:#0b2f5b; padding:3px 8px; border-radius:4px; font-weight:bold;">
-        Father's blessing
-    </span> from Jesus, in which He promised me,
-</p>
+   
+   <div class="epigraph-box">
 
- 
-   <div class="blessing">
-    "Greg, ye shall run, and not be weary;
-    ye shall walk, and not faint."
-</div>
-──────── ❦ ────────
-  <div class="conversation">
-    <div><strong>#AskHim</strong><br>
-    "Is this for real, Jesus!?"</div>
-
-    <div class="divider"></div>
-
-    <div><strong>#HearHim</strong><br>
-    "Yes it is, Greg."</div>
-</div>
- ──────── ❦ ────────
-    <p>
-        Later, so I could make better sense of this blessing&mdash;so that I could more fully
-        understand what it actually (probably) means when the King of Kings tells you
-        that you shall run and not be weary (and gives you other similar blessings)&mdash;
-       <div class="manual-banner">
-        ──────── ❦ ────────
-Jesus began to write for me a kind of
-"Jesus Game Manual."
-</div>
+    <p class="epigraph-opening">
+        I got a
+        <span class="father-blessing">
+            Father's blessing
+        </span>
+        from Jesus, in which He promised me:
     </p>
 
-    <p>
-        And, so that the King and I would have something fun to do together, Jesus had me help Him write
-        this manual thing (this, I sacredly imagine/believe).
+    <div class="blessing">
+        “Greg, ye shall run, and not be weary;<br>
+        ye shall walk, and not faint.”
+    </div>
+
+    <div class="ornament">──────── ❦ ────────</div>
+
+    <div class="conversation">
+
+        <div class="conversation-entry">
+            <span class="conversation-label">#AskHim</span>
+            <span class="conversation-words">
+                “Is this for real, Jesus!?”
+            </span>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="conversation-entry">
+            <span class="conversation-label">#HearHim</span>
+            <span class="conversation-words">
+                “Yes it is, Greg.”
+            </span>
+        </div>
+
+    </div>
+
+    <div class="ornament">──────── ❦ ────────</div>
+
+    <p class="epigraph-narrative">
+        Later, so I could make better sense of this blessing—so that I could
+        more fully understand what it actually (probably) means when the King
+        of Kings tells you that you shall run and not be weary, and gives you
+        other similar blessings—
     </p>
 
-<div class="game-announcement">
+    <div class="manual-banner">
+        Jesus began to write for me a kind of<br>
+        “Jesus Game Manual.”
+    </div>
 
-YOU ARE ABOUT TO BEHOLD<br>
-THE RULES OF A VERY IMPORTANT GAME
+    <p class="epigraph-narrative">
+        And, so that the King and I would have something fun to do together,
+        Jesus had me help Him write this manual thing
+        <em>(this, I sacredly imagine/believe).</em>
+    </p>
 
-<span>THE JESUS GAME</span>
+    <div class="game-announcement">
+        <div class="announcement-small">
+            You are about to behold and guess with me<br>
+            the rules of a very important game.
+        </div>
+
+        <span>The Jesus Game</span>
+    </div>
 
 </div>
-
-</div>
-
 <section class="card">
     <h2>
         Introduction
