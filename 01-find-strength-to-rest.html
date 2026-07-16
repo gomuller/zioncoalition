@@ -84,10 +84,17 @@ h1,h2{color:#1e3a5f}h1{text-align:center;font-size:2.8rem}
 .conversation{
     width:72%;
     margin:24px auto;
-    padding:20px 24px;
-    background:rgba(255,255,255,.08);
-    border:1px solid rgba(255,255,255,.2);
+    padding:22px 26px;
+    background:linear-gradient(
+        to bottom,
+        #416891,
+        #355b86
+    );
+    border:1px solid rgba(255,255,255,.25);
     border-radius:12px;
+    box-shadow:
+        inset 0 1px 0 rgba(255,255,255,.08),
+        0 6px 16px rgba(0,0,0,.18);
 }
 
 .conversation-entry{
@@ -111,10 +118,11 @@ h1,h2{color:#1e3a5f}h1{text-align:center;font-size:2.8rem}
 }
 
 .divider{
-    width:60px;
+    width:70px;
     height:2px;
-    margin:18px auto;
+    margin:20px auto;
     background:#f3c96b;
+    opacity:.9;
 }
 
 .manual-banner{
