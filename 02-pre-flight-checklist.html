@@ -19,6 +19,11 @@
 
     * { box-sizing: border-box; }
 
+    img {
+  max-width: 100%;
+  height: auto;
+}
+
     body {
       margin: 0;
       background: var(--outer);
@@ -119,13 +124,14 @@
     }
 
     figure img {
-      display: block;
-      width: 100%;
-      border-radius: 14px;
-      background: rgba(255,255,255,0.45);
-      aspect-ratio: 4 / 3;
-      object-fit: cover;
-    }
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.45);
+  object-fit: contain;
+}
 
     figcaption {
       margin-top: 10px;
