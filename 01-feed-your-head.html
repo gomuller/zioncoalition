@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feeding Myself Jesus Hope Nuggets</title>
+    <style>
+        :root {
+            --bg: #0b2f55;
+            --bg-deep: #082541;
+            --card: #123f6b;
+            --card-alt: #174b7d;
+            --text: #f4f8fc;
+            --muted: #c8d8e8;
+            --accent: #ffd84d;
+            --accent-soft: #fff1a8;
+            --quote: #0f365d;
+            --border: rgba(255, 255, 255, 0.14);
+            --shadow: rgba(0, 0, 0, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.05), transparent 34%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.75;
+        }
+
+        .page {
+            width: min(100% - 32px, 980px);
+            margin: 0 auto;
+            padding: 38px 0 60px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 34px;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 1000px;
+            height: auto;
+            display: block;
+            margin: 0 auto 28px;
+            border-radius: 26px;
+            box-shadow: 0 18px 45px var(--shadow);
+        }
+
+        h1,
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.15;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.25rem, 7vw, 4.6rem);
+            letter-spacing: -0.035em;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            color: var(--accent);
+        }
+
+        p {
+            margin: 0 0 1.2em;
+            font-size: clamp(1.06rem, 2.3vw, 1.23rem);
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        .card {
+            background: linear-gradient(180deg, var(--card-alt), var(--card));
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: clamp(24px, 5vw, 46px);
+            margin: 0 0 28px;
+            box-shadow: 0 16px 38px var(--shadow);
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .pellets {
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            font-size: clamp(1.2rem, 4vw, 1.75rem);
+            color: var(--accent);
+            margin: 1.7em 0;
+        }
+
+        .quote-box {
+            margin: 30px 0;
+            padding: 26px 28px;
+            background: var(--quote);
+            border: 1px solid var(--border);
+            border-left: 7px solid var(--accent);
+            border-radius: 22px;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.025);
+        }
+
+        .quote-box p {
+            margin: 0.35em 0;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.2rem, 3vw, 1.55rem);
+        }
+
+        .stack {
+            margin: 24px 0;
+            padding: 0;
+            list-style: none;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.08rem, 2.5vw, 1.3rem);
+        }
+
+        .stack li {
+            margin: 8px 0;
+        }
+
+        .highlight-line {
+            display: inline;
+            background: linear-gradient(transparent 58%, rgba(255, 216, 77, 0.36) 58%);
+        }
+
+        .ending {
+            text-align: center;
+            padding-top: 8px;
+        }
+
+        .ending p {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            font-size: clamp(1.25rem, 3.5vw, 1.8rem);
+        }
+
+        .home-link-wrap {
+            text-align: center;
+            margin-top: 38px;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #102f4a;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .home-link:hover,
+        .home-link:focus {
+            transform: translateY(-1px);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 980px);
+                padding-top: 18px;
+            }
+
+            .card {
+                border-radius: 22px;
+                padding: 22px 20px;
+            }
+
+            .quote-box {
+                padding: 22px 20px;
+            }
+
+            .hero-image {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+
+        <header class="hero">
+            <img
+                class="hero-image"
+                src="images/01-feed-your-head.png"
+                alt="Feeding Myself Jesus Hope Nuggets"
+            >
+            <h1>Feeding Myself Jesus Hope Nuggets</h1>
+        </header>
+
+        <section class="card">
+            <p>
+                I watched a short commentary about <em>The Truman Show</em> that got me thinking about <strong>pellets</strong>.
+            </p>
+
+            <p>
+                The commentator's point, as I understood it, was that Truman isn't the only person being programmed.
+            </p>
+
+            <p>
+                So is the audience.
+            </p>
+
+            <p>
+                And so are we.
+            </p>
+
+            <p>
+                We wake up, grab the little rectangle beside our bed, and begin eating.
+            </p>
+
+            <ul class="stack">
+                <li>A war.</li>
+                <li>An outrage.</li>
+                <li>A tragedy.</li>
+                <li>A political enemy.</li>
+                <li>A beautiful body.</li>
+                <li>A frightening prediction.</li>
+                <li>Somebody crying in a parked car.</li>
+                <li>Something we should buy.</li>
+                <li>Something we should fear.</li>
+                <li>Something we should be angry about.</li>
+                <li>Something everybody else apparently believes.</li>
+            </ul>
+
+            <p class="pellets">
+                <strong>Pellet. Pellet. Pellet. Pellet. Pellet.</strong>
+            </p>
+
+            <p>
+                By lunchtime we may have swallowed hundreds of tiny instructions about what deserves our attention, what kind of world we're living in, what we should desire, what we should fear, and how we should feel.
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                Which made me think:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>YOU ARE HUMAN.</strong></p>
+                <p><strong>YOU ARE GOING TO EAT PELLETS.</strong></p>
+            </div>
+
+            <p>
+                The question is:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>Whose pellets?</strong></p>
+                <p><strong>On what schedule?</strong></p>
+            </div>
+
+            <p>
+                I don't think I get to choose whether the world gets inside my head.
+            </p>
+
+            <p>
+                I'm alive.
+            </p>
+
+            <p>
+                I have eyes.
+            </p>
+
+            <p>
+                I have ears.
+            </p>
+
+            <p>
+                I have memory.
+            </p>
+
+            <p>
+                I have imagination.
+            </p>
+
+            <p>
+                I am going to look at something.
+            </p>
+
+            <p>
+                I am going to rehearse something.
+            </p>
+
+            <p>
+                I am going to remember something.
+            </p>
+
+            <p>
+                I am going to inhabit <em>some</em> world.
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                So perhaps the goal isn't to somehow become an <strong>unprogrammed Greg</strong>.
+            </p>
+
+            <p>
+                Maybe there is no such creature.
+            </p>
+
+            <p>
+                Maybe the more interesting possibility is to become increasingly conscious—<strong>witting</strong>—about what I repeatedly put into my head.
+            </p>
+
+            <p>
+                And that suddenly helps me understand something Jesus seems to have been doing with me for years.
+            </p>
+
+            <p>
+                Jesus is giving me <strong>Hope Nuggets</strong>.
+            </p>
+
+            <p>
+                Little Jesus pellets.
+            </p>
+
+            <ul class="stack">
+                <li>Eat this when you wake up, Greg.</li>
+                <li>Eat this when you stretch.</li>
+                <li>Eat this when you take a shower.</li>
+                <li>Eat this when you drink water.</li>
+                <li>Eat this when you eat bread.</li>
+                <li>Eat this when you drive.</li>
+                <li>Eat this when you lie down.</li>
+                <li>Eat this when you wake up again.</li>
+            </ul>
+
+            <p>
+                And increasingly, my Jesus-Greg WORLD is becoming a gigantic collection of these little things.
+            </p>
+
+            <ul class="stack">
+                <li>Songs.</li>
+                <li>Scriptures.</li>
+                <li>Pictures.</li>
+                <li>Objects.</li>
+                <li>Rooms.</li>
+                <li>Scenes.</li>
+                <li>Phrases.</li>
+                <li>Stories.</li>
+                <li>Cheerios.</li>
+                <li>Pillows.</li>
+                <li>Showers.</li>
+                <li>Bread.</li>
+                <li>Water.</li>
+                <li>Doors.</li>
+                <li>Toasters.</li>
+            </ul>
+
+            <p>
+                Each one says, in its own peculiar way:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>Remember Jesus.</strong></p>
+                <p><strong>Look again.</strong></p>
+                <p><strong>Get MORE Jesus.</strong></p>
+                <p><strong>Try again.</strong></p>
+                <p><strong>Be Born Again, Again.</strong></p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Witting World-Building Is Self-Feeding</h2>
+
+            <p>
+                That may be one way for me to understand what I have been building.
+            </p>
+
+            <p>
+                It is <strong>witting world-building</strong>.
+            </p>
+
+            <p>
+                And witting world-building is partly <strong>self-feeding</strong>.
+            </p>
+
+            <p>
+                Instead of merely accepting whatever emotional weather happens to be broadcast into my consciousness that morning, I can participate in constructing the little world of reminders through which I will walk.
+            </p>
+
+            <p>
+                I can leave food for my future self.
+            </p>
+
+            <p>
+                Today-Greg can put a Jesus pellet beside the bed for Tomorrow-Morning-Greg.
+            </p>
+
+            <p>
+                Shower-Greg can find another one waiting in the shower.
+            </p>
+
+            <p>
+                Driving-Greg can discover one in the car.
+            </p>
+
+            <p>
+                Sacrament-Meeting-Greg can find a Cheerio waiting for him at church.
+            </p>
+
+            <p>
+                And this is where the whole strange architecture of my Jesus-Greg WORLD begins making more sense to me.
+            </p>
+
+            <div class="quote-box">
+                <p><strong>I am not merely decorating my environment.</strong></p>
+                <p><strong>I am feeding myself.</strong></p>
+            </div>
+
+            <p>
+                Or, more precisely, I am trying to let Jesus teach me <strong>how to feed myself Jesus</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Jesus TV Is Programming</h2>
+
+            <p>
+                Which brings me back to <strong>Jesus TV</strong>.
+            </p>
+
+            <p>
+                I keep calling it <em>programming</em>.
+            </p>
+
+            <p>
+                That word now seems increasingly important.
+            </p>
+
+            <p>
+                Programming.
+            </p>
+
+            <p>
+                Maybe the question isn't:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>“Greg, are you being programmed?”</strong></p>
+            </div>
+
+            <p>
+                Of course I am.
+            </p>
+
+            <p>
+                The more useful question might be:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>“Greg, what programming are you repeatedly watching?”</strong></p>
+            </div>
+
+            <p>
+                And then an even better question:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>“Jesus, what do You want me to feed my head?”</strong></p>
+            </div>
+
+            <p>
+                That changes everything.
+            </p>
+
+            <p>
+                Because now Jesus TV isn't merely something I watch.
+            </p>
+
+            <p>
+                It is an attempt to consciously participate with Jesus in arranging what I will repeatedly encounter.
+            </p>
+
+            <ul class="stack">
+                <li>What will Morning Greg see?</li>
+                <li>What will Shower Greg remember?</li>
+                <li>What will Driving Greg hear?</li>
+                <li>What will Sacrament Greg rehearse?</li>
+                <li>What will Tired Greg encounter?</li>
+                <li>What will Frightened Greg be reminded of?</li>
+                <li>What will Lonely Greg eat?</li>
+            </ul>
+
+            <p class="pellets">
+                <strong>Hope Nuggets.</strong>
+            </p>
+
+            <p>
+                Tiny pieces of Jesus programming scattered throughout the day.
+            </p>
+
+            <p>
+                Not because I imagine I can completely control my mind or manufacture my own reality.
+            </p>
+
+            <p>
+                And not because everything outside my Jesus-Greg WORLD is somehow bad.
+            </p>
+
+            <p>
+                Rather, because I increasingly understand something very simple:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Whatever I repeatedly attend to helps build the world I experience.</strong>
+                </p>
+            </div>
+
+            <p>
+                So I want to become more intentional about my attention.
+            </p>
+
+            <p>
+                I want Jesus involved in the programming schedule.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>“What Do You Want Me to Eat, Jesus?”</h2>
+
+            <p>
+                Maybe that becomes one of the recurring questions of my Jesus Groundhog Day:
+            </p>
+
+            <div class="quote-box">
+                <p><strong>Jesus, what do You want me to feed my head today?</strong></p>
+            </div>
+
+            <p>
+                And then I listen.
+            </p>
+
+            <ul class="stack">
+                <li>Maybe He says:</li>
+                <li>Eat this scripture again.</li>
+                <li>Listen to this song again.</li>
+                <li>Remember this conversation.</li>
+                <li>Look at this picture.</li>
+                <li>Touch this object.</li>
+                <li>Eat this bread.</li>
+                <li>Notice this water.</li>
+                <li>Remember this Cheerio.</li>
+                <li>Rehearse this scene.</li>
+                <li>Tell yourself this story again.</li>
+            </ul>
+
+            <div class="quote-box">
+                <p><strong>Take another Hope Nugget, Greg.</strong></p>
+            </div>
+
+            <p>
+                Because tomorrow morning the world will be waiting with its pellets.
+            </p>
+
+            <ul class="stack">
+                <li>Fear pellets.</li>
+                <li>Outrage pellets.</li>
+                <li>Comparison pellets.</li>
+                <li>Despair pellets.</li>
+                <li>Buy-this pellets.</li>
+                <li>Hate-them pellets.</li>
+                <li>You-are-not-enough pellets.</li>
+            </ul>
+
+            <p>
+                And I will still encounter plenty of them.
+            </p>
+
+            <p>
+                But they don't have to be the only food in the bowl.
+            </p>
+
+            <p>
+                I can leave something else there.
+            </p>
+
+            <p>
+                Something deliberately planted.
+            </p>
+
+            <p>
+                Something hopeful.
+            </p>
+
+            <p>
+                Something that points toward Jesus.
+            </p>
+
+            <p>
+                Something Jesus and I put there yesterday for the Greg who would wake up today.
+            </p>
+
+            <p>
+                And then perhaps tomorrow I will wake from my little nightly death, open my eyes, and discover that Jesus and Yesterday-Greg have already left breakfast waiting for me.
+            </p>
+        </section>
+
+        <section class="card ending">
+            <p>
+                <strong>A bowl full of Jesus Hope Nuggets.</strong>
+            </p>
+
+            <p>
+                Eat up, Greg.
+            </p>
+
+            <p>
+                We've got a WORLD to build.
+            </p>
+        </section>
+
+        <div class="home-link-wrap">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </div>
+
+    </main>
+</body>
+</html>
