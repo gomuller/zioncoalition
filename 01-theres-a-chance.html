@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>So You're Telling Me There's a Chance</title>
+    <style>
+        :root {
+            --bg: #0b2f4a;
+            --bg-deep: #08263c;
+            --card: #123e5c;
+            --card-2: #174a6d;
+            --text: #f6fbff;
+            --muted: #c9dbea;
+            --accent: #fff176;
+            --accent-2: #8fd3ff;
+            --border: rgba(255, 255, 255, 0.14);
+            --shadow: rgba(0, 0, 0, 0.24);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, #154d70 0%, var(--bg) 38%, var(--bg-deep) 100%);
+            color: var(--text);
+            font-family: Arial, Helvetica, sans-serif;
+            line-height: 1.75;
+        }
+
+        .page {
+            width: min(960px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 56px 0 72px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 14px;
+            padding: 7px 12px;
+            border: 1px solid var(--border);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--accent-2);
+            font-size: 0.88rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.2rem, 6vw, 4.6rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            margin-top: 0;
+            color: var(--accent);
+            font-size: clamp(1.45rem, 3vw, 2.15rem);
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0 0 1.15rem;
+        }
+
+        strong {
+            color: #ffffff;
+        }
+
+        em {
+            color: #e9f6ff;
+        }
+
+        .card {
+            margin: 24px 0;
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            background: linear-gradient(180deg, rgba(23, 74, 109, 0.96), rgba(18, 62, 92, 0.96));
+            box-shadow: 0 14px 36px var(--shadow);
+        }
+
+        .quote-box {
+            margin: 24px 0;
+            padding: 22px 24px;
+            border-left: 6px solid var(--accent);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 1.06rem;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight {
+            display: inline;
+            padding: 0.08em 0.28em;
+            background: var(--accent);
+            color: #15344a;
+            border-radius: 0.24em;
+            box-decoration-break: clone;
+            -webkit-box-decoration-break: clone;
+        }
+
+        .picture-placeholder {
+            margin: 30px 0;
+            padding: 26px;
+            border: 2px dashed rgba(255, 255, 255, 0.35);
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            text-align: center;
+        }
+
+        .picture-placeholder code {
+            display: inline-block;
+            padding: 8px 10px;
+            border-radius: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            color: var(--accent);
+            font-family: Consolas, Monaco, monospace;
+            font-size: 0.94rem;
+        }
+
+        .divider {
+            width: 80px;
+            height: 4px;
+            margin: 34px auto;
+            border-radius: 999px;
+            background: var(--accent);
+            opacity: 0.9;
+        }
+
+        .return-home {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .return-home a {
+            display: inline-block;
+            padding: 12px 18px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #15344a;
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .return-home a:hover {
+            filter: brightness(0.97);
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 960px);
+                padding-top: 34px;
+            }
+
+            .card {
+                padding: 21px;
+                border-radius: 20px;
+            }
+
+            .quote-box {
+                padding: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <div class="eyebrow">A Thought Piece</div>
+            <h1>SO YOU’RE TELLING ME THERE’S A CHANCE</h1>
+        </header>
+
+        <section class="card">
+            <p>
+                The other morning, before I woke up, I had a dream.
+            </p>
+
+            <p>
+                My childhood friend Berry Bennion was in it. We were doing some kind of dreamy nonsense—the sort of thing that makes perfect sense while you're asleep and almost no sense whatsoever five minutes after you wake up.
+            </p>
+
+            <p>
+                But two things remained:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Berry Bennion.</strong>
+                </p>
+
+                <p>
+                    And a guitar backing track playing Heart's <strong>“Dog &amp; Butterfly.”</strong>
+                </p>
+            </div>
+
+            <p>
+                That's it.
+            </p>
+
+            <p>
+                Normally, perhaps, I would wake up, think <em>Well, that was weird</em>, and get on with my morning.
+            </p>
+
+            <p>
+                But something different happened.
+            </p>
+
+            <p>
+                And <strong>the different is the point of this thought piece.</strong>
+            </p>
+
+            <p>
+                Because I have a growing suspicion that Jesus is getting me used to <strong>different</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>I Woke Up and Wondered</h2>
+
+            <p>
+                I woke up and <strong>wondered</strong>.
+            </p>
+
+            <p>
+                And lately I have been doing a whole lot more wondering as I wander with Jesus.
+            </p>
+
+            <p>
+                <em>I wonder as I wander...</em>
+            </p>
+
+            <p>
+                And, to borrow and bend another familiar hymn:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <em>Oh, it is wonderful that I should care what Jesus has me dream.</em>
+                </p>
+            </div>
+
+            <p>
+                I wondered:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Jesus, did You want me to do something with that?</strong>
+                </p>
+            </div>
+
+            <p>
+                Was Berry simply random dream furniture? Was “Dog &amp; Butterfly” merely some old song floating around the strange jukebox of my sleeping brain?
+            </p>
+
+            <p>
+                Entirely possible.
+            </p>
+
+            <p>
+                Most of my dreams are weird, interesting stuff.
+            </p>
+
+            <p>
+                But then another possibility presented itself:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Maybe Jesus wanted me to contact Berry.</strong>
+                </p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>So I Chose</h2>
+
+            <p>
+                And here is where something important happened.
+            </p>
+
+            <p>
+                I chose.
+            </p>
+
+            <p>
+                I essentially said:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Okay, Jesus. I'm going to assume You had me dream about Berry because You want me to reach out to him.”</strong>
+                </p>
+            </div>
+
+            <p>
+                So I did.
+            </p>
+
+            <p>
+                Within minutes I went to Berry's Facebook page and left a comment on one of his posts. I told him I had dreamed about him. I told him about the song. And I ended with some lyrics from my Jesus-redeemed version of “Dog &amp; Butterfly.”
+            </p>
+
+            <p>
+                Now comes the interesting question:
+            </p>
+
+            <p>
+                <strong>Do I know Jesus told me to do that?</strong>
+            </p>
+
+            <p>
+                No.
+            </p>
+
+            <p>
+                Do I believe I may have been doing God's will?
+            </p>
+
+            <p>
+                Sure.
+            </p>
+
+            <p>
+                I might say, using conventional religious language:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“I believe I was supposed to reach out to Berry.”</strong>
+                </p>
+            </div>
+
+            <p>
+                But there is another phrase I increasingly like because it leaves room for both <strong>faith and humility</strong>:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>I sacredly imagined that Jesus wanted me to do it.</strong>
+                </p>
+            </div>
+
+            <p>
+                Could I be wrong?
+            </p>
+
+            <p>
+                Absolutely.
+            </p>
+
+            <p>
+                Jesus can be hard for me to hear sometimes. Especially in dreams.
+            </p>
+
+            <p>
+                But I think that uncertainty may actually be part of what Jesus and I are working on.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Choose, Choose, Choose</h2>
+
+            <p>
+                Because apparently Jesus isn't merely teaching me to <strong>hear</strong>.
+            </p>
+
+            <p>
+                He's teaching me to <strong>choose</strong>.
+            </p>
+
+            <p>
+                Choose.
+            </p>
+
+            <p>
+                Choose.
+            </p>
+
+            <p>
+                Choose.
+            </p>
+
+            <p>
+                Choose to believe.
+            </p>
+
+            <p>
+                Choose to wonder.
+            </p>
+
+            <p>
+                Choose to make careful guesses.
+            </p>
+
+            <p>
+                Choose, more and more often, to sacredly imagine that Jesus really is with me—that He really is inviting, enticing, persuading, whispering, nudging; that His Spirit really can be <strong>wrought upon</strong> me and other people in the ordinary little movements of an ordinary day.
+            </p>
+
+            <p>
+                Which brings us to this ridiculous picture:
+            </p>
+
+            <div class="picture-placeholder">
+                <p>
+                    <strong>PICTURE PLACEHOLDER</strong>
+                </p>
+
+                <p>
+                    Insert the Jesus-and-Greg “So you’re telling me there’s a chance” image here.
+                </p>
+
+                <code>
+                    &lt;img src="images/so-youre-telling-me-theres-a-chance.png" alt="Greg looking up at Jesus and saying, So you're telling me there's a chance. YEAH!"&gt;
+                </code>
+            </div>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“So you're telling me there's a chance. YEAH!”</strong>
+                </p>
+
+                <p>
+                    And Jesus replies:
+                </p>
+
+                <p>
+                    <strong>“Yes, Greg, and a choice. Believe!”</strong>
+                </p>
+            </div>
+
+            <p>
+                That's increasingly how I understand belief.
+            </p>
+
+            <p>
+                Not:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Greg, you have incontrovertible evidence that I caused this.”</strong>
+                </p>
+            </div>
+
+            <p>
+                But:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Greg, there is a possibility that I am doing something here. What are you going to do with that possibility?”</strong>
+                </p>
+            </div>
+
+            <p>
+                And sometimes I choose:
+            </p>
+
+            <p>
+                <strong>YEAH!</strong>
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>JESUS, THE GOOD OPERATOR</h2>
+
+            <p>
+                This practice has even started changing something as mundane as making a telephone call.
+            </p>
+
+            <p>
+                I sometimes tell close friends:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Only answer my phone calls if Jesus tells you to.”</strong>
+                </p>
+            </div>
+
+            <p>
+                Fortunately, some of them play along.
+            </p>
+
+            <p>
+                And I love that they do.
+            </p>
+
+            <p>
+                Because it lets me practice imagining Jesus not only as the <strong>Good Shepherd</strong>, but as something much more peculiar:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>The Good Operator.</strong>
+                </p>
+            </div>
+
+            <p>
+                Remember telephone operators?
+            </p>
+
+            <p>
+                Well, in my Jesus-Greg WORLD, apparently Jesus sometimes works the switchboard.
+            </p>
+
+            <p>
+                I pick up my phone because I think Jesus might be telling me to call somebody.
+            </p>
+
+            <p>
+                I dial.
+            </p>
+
+            <p>
+                And then I let go of the outcome.
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <em>Jesus, if You want us to talk, let them answer.</em>
+                </p>
+
+                <p>
+                    <em>If You don't, fine.</em>
+                </p>
+
+                <p>
+                    <em>Four rings and I'm hanging up, Lord—unless You tell me otherwise.</em>
+                </p>
+
+                <p>
+                    <em>If You want me to leave a message, I'll leave a message.</em>
+                </p>
+
+                <p>
+                    <strong>Thy will be done. I'm Your servant. I'm Your call-maker.</strong>
+                </p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Trust Instead of Anxiety</h2>
+
+            <p>
+                That little imaginative practice has brought me a surprising amount of peace.
+            </p>
+
+            <p>
+                Because I don't have to sit there wondering:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <em>Why aren't they answering?</em>
+                </p>
+
+                <p>
+                    <em>Are they avoiding me?</em>
+                </p>
+
+                <p>
+                    <em>Do they not like me anymore?</em>
+                </p>
+
+                <p>
+                    <em>Did I do something wrong?</em>
+                </p>
+            </div>
+
+            <p>
+                Maybe.
+            </p>
+
+            <p>
+                Or maybe they're taking a shower.
+            </p>
+
+            <p>
+                Or maybe their phone is underneath the couch.
+            </p>
+
+            <p>
+                There are a thousand perfectly ordinary explanations.
+            </p>
+
+            <p>
+                <strong>But I can also choose to leave room for Jesus.</strong>
+            </p>
+
+            <p>
+                Maybe this simply isn't the moment for us to talk.
+            </p>
+
+            <p>
+                And if Jesus doesn't want me talking to somebody right now, then I don't want to talk to them right now either.
+            </p>
+
+            <p>
+                We've both got Jesus-business to do.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>The Practice Works in Reverse Too</h2>
+
+            <p>
+                The practice works in reverse too.
+            </p>
+
+            <p>
+                My phone rings.
+            </p>
+
+            <p>
+                Now I get to wonder:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Jesus, do You want me to answer this?</strong>
+                </p>
+            </div>
+
+            <p>
+                There it is again.
+            </p>
+
+            <p>
+                The choice.
+            </p>
+
+            <p>
+                The guess.
+            </p>
+
+            <p>
+                The sacred imagination.
+            </p>
+
+            <p>
+                The possibility that an apparently ordinary interruption might contain an invitation.
+            </p>
+
+            <p>
+                And sometimes I call someone I haven't spoken with for years. Maybe they don't particularly like me anymore. Maybe they never did. Maybe life simply carried us in different directions.
+            </p>
+
+            <p>
+                The old Greg could worry about all that.
+            </p>
+
+            <p>
+                The emerging practice says:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Make the call if you think Jesus is telling you to make the call. Then leave the other person's agency—and Jesus' work with that person—to them.</strong>
+                </p>
+            </div>
+
+            <p>
+                They don't owe me an answer.
+            </p>
+
+            <p>
+                They don't owe me a return call.
+            </p>
+
+            <p>
+                They don't owe me anything.
+            </p>
+
+            <p>
+                Even if I called one of the Twelve Apostles or President Nelson or somebody else I dearly loved, the principle would be exactly the same.
+            </p>
+
+            <p>
+                I make my little faithful guess.
+            </p>
+
+            <p>
+                They make theirs.
+            </p>
+
+            <p>
+                And Jesus gets to be King.
+            </p>
+
+            <p>
+                I think.
+            </p>
+
+            <p>
+                I guess.
+            </p>
+
+            <p>
+                <strong>I believe.</strong>
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>An Experiment in Belief</h2>
+
+            <p>
+                That's important.
+            </p>
+
+            <p>
+                This isn't certainty masquerading as revelation.
+            </p>
+
+            <p>
+                It's an experiment in belief.
+            </p>
+
+            <p>
+                Some people might look at this and call it sign-seeking. Some might think the whole thing is nuts.
+            </p>
+
+            <p>
+                Fair enough.
+            </p>
+
+            <p>
+                This kind of wild believing isn't everybody's cup of tea.
+            </p>
+
+            <p>
+                So here's my standing disclaimer:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Only do it if Jesus tells you to.</strong>
+                </p>
+            </div>
+
+            <p>
+                And please—
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>only answer my phone calls if Jesus tells you to answer my phone calls.</strong>
+                </p>
+            </div>
+
+            <p>
+                I'll probably choose to believe that's your modus operandi whether it actually is or not.
+            </p>
+
+            <p>
+                Which also allows me to torment my brother and friends whenever they <em>do</em> pick up:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Oh! You answered! Either Jesus allowed you to answer—or Jesus MADE you answer and told you you'd go to hell if you didn't.”</strong>
+                </p>
+            </div>
+
+            <p>
+                Either way:
+            </p>
+
+            <p>
+                <strong>I'm glad you picked up.</strong>
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Leave Room for Jesus</h2>
+
+            <p>
+                And underneath all the silliness is something quite serious.
+            </p>
+
+            <p>
+                I'm practicing living in a world in which Jesus might be closer than I ordinarily imagine.
+            </p>
+
+            <p>
+                A world in which a dream might prompt a Facebook comment.
+            </p>
+
+            <p>
+                A song might prompt a memory.
+            </p>
+
+            <p>
+                A memory might prompt a phone call.
+            </p>
+
+            <p>
+                A ringing telephone might prompt a prayer.
+            </p>
+
+            <p>
+                And an unanswered telephone might prompt trust instead of anxiety.
+            </p>
+
+            <p>
+                Do I know Jesus orchestrated any particular one of those things?
+            </p>
+
+            <p>
+                No.
+            </p>
+
+            <p>
+                But...
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>So You're Telling Me There's a Chance?</strong>
+                </p>
+
+                <p>
+                    <strong>YEAH!</strong>
+                </p>
+            </div>
+
+            <p>
+                And apparently Jesus is teaching me that where there is a chance—
+            </p>
+
+            <p>
+                <span class="highlight"><strong>there is also a choice.</strong></span>
+            </p>
+
+            <p>
+                <strong>Believe.</strong>
+            </p>
+        </section>
+
+        <div class="return-home">
+            <a href="index.html">Return to Home</a>
+        </div>
+    </main>
+</body>
+</html>
