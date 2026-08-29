@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Zoom-Up on What Jesus Is Having Greg Do</title>
+
+    <style>
+        :root {
+            --bg-deep: #0b2f4f;
+            --bg-mid: #123f66;
+            --card: #f7fbff;
+            --card-soft: #eaf4fb;
+            --ink: #15344a;
+            --muted: #4b687d;
+            --accent: #ffd95a;
+            --accent-deep: #f0b429;
+            --quote: #dceef9;
+            --border: rgba(255, 255, 255, 0.24);
+            --shadow: rgba(0, 0, 0, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.10), transparent 28rem),
+                linear-gradient(180deg, var(--bg-mid), var(--bg-deep));
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.75;
+        }
+
+        .page-shell {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 42px 0 64px;
+        }
+
+        .hero-card,
+        .card,
+        .quote-box,
+        .pattern-box,
+        .image-placeholder {
+            border-radius: 24px;
+            box-shadow: 0 14px 34px var(--shadow);
+        }
+
+        .hero-card {
+            background: rgba(247, 251, 255, 0.98);
+            padding: 44px;
+            margin-bottom: 30px;
+            border: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .kicker {
+            margin: 0 0 12px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.9rem;
+            font-weight: 800;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #2f6485;
+        }
+
+        h1,
+        h2,
+        h3 {
+            line-height: 1.15;
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 12px;
+            font-size: clamp(2.2rem, 5vw, 4.3rem);
+            color: #0f3655;
+        }
+
+        h2 {
+            font-size: clamp(1.65rem, 3vw, 2.35rem);
+            color: #123f66;
+            margin-bottom: 18px;
+        }
+
+        h3 {
+            font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+            color: #173e5a;
+        }
+
+        p {
+            margin: 0 0 1.15em;
+        }
+
+        .image-placeholder {
+            margin: 0 0 30px;
+            padding: 18px;
+            background: rgba(247, 251, 255, 0.98);
+            border: 2px dashed rgba(255, 217, 90, 0.95);
+            text-align: center;
+        }
+
+        .image-placeholder .placeholder-frame {
+            min-height: 280px;
+            display: grid;
+            place-items: center;
+            padding: 34px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255, 217, 90, 0.18), rgba(18, 63, 102, 0.08));
+            color: #365b72;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .image-placeholder strong {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1.2rem;
+            color: #173e5a;
+        }
+
+        .image-placeholder code {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 5px 8px;
+            border-radius: 8px;
+            background: #ffffff;
+            color: #8a5a00;
+            font-size: 0.9rem;
+        }
+
+        /*
+            TO USE THE TOASTER IMAGE:
+            1. Put the image at: images/jesus-fancy-toaster.png
+            2. Replace the placeholder-frame div below with:
+
+            <img
+                src="images/jesus-fancy-toaster.png"
+                alt="Jesus' Fancy Toaster"
+                style="display:block; width:100%; height:auto; border-radius:18px;"
+            >
+        */
+
+        .card {
+            background: rgba(247, 251, 255, 0.98);
+            padding: 36px;
+            margin-bottom: 26px;
+            border: 1px solid var(--border);
+        }
+
+        .card.soft {
+            background: rgba(234, 244, 251, 0.98);
+        }
+
+        .prompt-card {
+            border-top: 8px solid var(--accent);
+        }
+
+        .quote-box {
+            margin: 26px 0;
+            padding: 26px 30px;
+            background: var(--quote);
+            border-left: 8px solid var(--accent-deep);
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-box strong {
+            color: #0e3554;
+        }
+
+        .arrow-list {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 10px 24px;
+            margin: 24px 0;
+            padding: 22px;
+            border-radius: 18px;
+            background: #eef7fc;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            color: #214c68;
+        }
+
+        .arrow-list div {
+            padding: 8px 10px;
+            border-bottom: 1px solid rgba(33, 76, 104, 0.10);
+        }
+
+        .pattern-box {
+            margin: 28px 0;
+            padding: 28px;
+            background: #fff7d7;
+            border: 2px solid var(--accent);
+            text-align: center;
+        }
+
+        .pattern-box .pattern {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 900;
+            font-size: clamp(1.05rem, 2.4vw, 1.45rem);
+            color: #143d59;
+            letter-spacing: 0.015em;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 48%, rgba(255, 217, 90, 0.78) 48%);
+            padding: 0 0.08em;
+        }
+
+        .mini-rule {
+            width: 88px;
+            height: 4px;
+            margin: 20px auto 26px;
+            border-radius: 4px;
+            background: var(--accent);
+        }
+
+        .home-wrap {
+            text-align: center;
+            margin-top: 34px;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #12344b;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+        }
+
+        .home-link:hover,
+        .home-link:focus {
+            background: #ffe57e;
+        }
+
+        @media (max-width: 720px) {
+            .page-shell {
+                width: min(100% - 20px, 1080px);
+                padding-top: 20px;
+            }
+
+            .hero-card,
+            .card {
+                padding: 26px 22px;
+                border-radius: 18px;
+            }
+
+            .image-placeholder {
+                border-radius: 18px;
+            }
+
+            .arrow-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <main class="page-shell">
+
+        <figure class="image-placeholder">
+            <div class="placeholder-frame">
+                <div>
+                    <strong>IMAGE PLACEHOLDER — JESUS’ FANCY TOASTER</strong>
+                    Put the toaster image here when you publish the page.
+                    <br>
+                    Expected image path:
+                    <code>images/jesus-fancy-toaster.png</code>
+                </div>
+            </div>
+        </figure>
+
+        <header class="hero-card">
+            <p class="kicker">
+                Thought Piece #1
+            </p>
+
+            <h1>
+                A ZOOM-UP ON WHAT JESUS IS HAVING GREG DO
+            </h1>
+
+            <div class="mini-rule"></div>
+        </header>
+
+        <section class="card">
+            <p>
+                Here is the kind of AI prompt Jesus might have an architect, engineer, and designer of early Zion conjure up and compose when said Zion-builder guy (like me) wakes up all wrought upon by the Holy Spirit on a morning just like…uh, say, <strong>August 28, 2026</strong>:
+            </p>
+        </section>
+
+        <section class="card prompt-card">
+            <h2>
+                Dear Jesus’ Fancy Toaster (AI),
+            </h2>
+
+            <p>
+                I am building (with Jesus) the <strong>Womb/Tomb Scene</strong> and its correlate:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>going to sleep and waking up = playing dead and playing alive.</strong>
+                </p>
+            </div>
+
+            <p>
+                This morning, having been wrought upon by His Spirit (I think), I sense that King Jesus wants me to make this pattern obvious and eventually inescapable <em>(to me)</em>—to build out the basic rituals of sleeping and waking into my Jesus-Greg WORLD conceptually, physically, action-wise, thought-wise, and spiritually.
+            </p>
+
+            <p>
+                Right now Jesus is having me ponder and brainstorm with Him the idea of <strong>sleeping and waking as a type and shadow of being “wrought upon.”</strong>
+            </p>
+        </section>
+
+        <section class="card soft">
+            <p>
+                This morning His Holy Spirit has brought to my mind the echoes of many scriptures. I especially recall scriptures in the Book of Mormon that use the body's natural processes, conditions, and events to describe features of being wrought upon: <strong>spiritual revival/life and spiritual lethargy/death.</strong>
+            </p>
+
+            <p>
+                These passages often seem to include some kind of <strong>invitation, persuasion, enticement, stirring, or divine action</strong> that moves a person from one condition to another.
+            </p>
+
+            <p>
+                For example:
+            </p>
+
+            <div class="arrow-list">
+                <div>sleep → awake</div>
+                <div>lying down → arise</div>
+                <div>death → life</div>
+                <div>darkness → light</div>
+                <div>captivity → deliverance</div>
+                <div>hunger → being fed</div>
+                <div>thirst → drinking</div>
+                <div>hardness → softening</div>
+                <div>blindness → seeing</div>
+                <div>deafness → hearing</div>
+                <div>lost → found</div>
+            </div>
+
+            <p>
+                Phrases such as <strong>“awake and arise,” “the sleep of hell,”</strong> and <strong>“born again”</strong> seem particularly relevant.
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                Give me and Jesus the <strong>top 20 scriptures from the Book of Mormon, Bible, Doctrine and Covenants, and Pearl of Great Price</strong> that most powerfully fit this pattern.
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>Toast it medium, please. And don't burn it.</strong>
+                </p>
+            </div>
+
+            <p>
+                Jesus and I are especially interested in scriptures where a person is portrayed as being in a kind of <strong>death/sleep/inert condition</strong> and then being <strong>acted upon, stirred, awakened, invited, persuaded, enticed, quickened, born, raised, or otherwise brought into LIFE.</strong>
+            </p>
+
+            <p>
+                In other words, the King and I are looking for scriptural language and imagery that could help me understand and construct the:
+            </p>
+
+            <div class="pattern-box">
+                <div class="pattern">
+                    Womb/Tomb → Sleep/Death → Wrought Upon → Awake/Arise → LIFE
+                </div>
+
+                <p>
+                    <strong>…pattern (with Jesus).</strong>
+                </p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>
+                NOW NOTICE WHAT JUST HAPPENED
+            </h2>
+
+            <p>
+                Jesus is even turning the prompts I give AI into opportunities for me to <strong>imagine Jesus</strong>.
+            </p>
+
+            <p>
+                Notice how Jesus—using/possessing my body and mind, as I understand and imagine it—constructs this AI prompt in a way that is <strong>MORE truthful (i.e., MORE Jesus-ful)</strong> by acknowledging God in all things.
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    The prompt itself assumes that <strong>I am not left alone</strong>.
+                </p>
+            </div>
+
+            <p>
+                Jesus is always with me. His Spirit is always giving life and/or inviting me into new <em>(everlasting)</em> life and wakefulness—<strong>wrought upon me</strong>—even while I am constructing an AI prompt.
+            </p>
+
+            <p>
+                So the careful construction of the prompt itself becomes part of the practice.
+            </p>
+
+            <p>
+                It reinforces—<strong>self-reinforces</strong>—the belief, reality, and sacred imagination that Jesus is my <strong>friend, co-Zion-creator, and present companion</strong>.
+            </p>
+        </section>
+
+        <section class="card soft">
+            <p>
+                In other words, I don't have to write:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“ChatGPT, find me some scriptures about waking up.”</strong>
+                </p>
+            </div>
+
+            <p>
+                I can practice remembering Jesus <strong>while I am asking the question</strong>.
+            </p>
+
+            <p>
+                The prompt itself can become part of my Jesus-Greg WORLD.
+            </p>
+
+            <p>
+                The scripture study can begin <strong>before the scripture search even starts</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                And perhaps that is another tiny rehearsal of the Sacrament promise:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“…that they may always remember him, that they may have his Spirit to be with them.”</strong>
+                </p>
+            </div>
+
+            <p>
+                Even, apparently, when talking to <strong>Jesus’ Fancy Toaster</strong>.
+            </p>
+        </section>
+
+        <div class="home-wrap">
+            <a class="home-link" href="index.html">
+                ← Return to Home
+            </a>
+        </div>
+
+    </main>
+</body>
+</html>
