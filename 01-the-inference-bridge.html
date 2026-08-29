@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Inference Bridge</title>
+    <style>
+        :root {
+            --bg: #0b2e4f;
+            --bg-deep: #071f36;
+            --card: #f8fbff;
+            --card-soft: #eaf4ff;
+            --ink: #17324d;
+            --muted: #52708a;
+            --gold: #f1c75b;
+            --gold-soft: #fff3c4;
+            --line: rgba(255, 255, 255, 0.14);
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.24);
+            --radius: 24px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 34%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.72;
+        }
+
+        .page {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 38px 0 56px;
+        }
+
+        .hero {
+            margin-bottom: 28px;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.18);
+        }
+
+        .title-card {
+            margin-top: 24px;
+            padding: 34px 34px 30px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.98), rgba(233,243,255,0.98));
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            color: #0c3155;
+            font-size: clamp(2.2rem, 5vw, 4.8rem);
+            line-height: 0.98;
+            letter-spacing: 0.025em;
+        }
+
+        .subtitle {
+            margin: 16px auto 0;
+            max-width: 820px;
+            color: #34536d;
+            font-size: clamp(1rem, 2vw, 1.35rem);
+            font-style: italic;
+        }
+
+        .divider {
+            width: 110px;
+            height: 4px;
+            margin: 24px auto 0;
+            border-radius: 999px;
+            background: var(--gold);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .card {
+            grid-column: span 6;
+            background: var(--card);
+            border-radius: var(--radius);
+            padding: 30px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.42);
+        }
+
+        .card:nth-child(3n) {
+            background: var(--card-soft);
+        }
+
+        .card:nth-child(5n) {
+            background: #fffdf7;
+        }
+
+        .card p {
+            margin: 0 0 1.05em;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-box {
+            margin: 24px 0;
+            padding: 22px 24px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, var(--gold-soft), #fffaf0);
+            border-left: 6px solid var(--gold);
+            color: #17324d;
+            font-size: 1.08em;
+            box-shadow: 0 10px 24px rgba(62, 74, 85, 0.09);
+        }
+
+        .quote-box p {
+            margin: 0;
+        }
+
+        strong {
+            color: #0f3c68;
+        }
+
+        em {
+            color: #395b76;
+        }
+
+        .card-1,
+        .card-4,
+        .card-7,
+        .card-10,
+        .card-13 {
+            grid-column: span 12;
+        }
+
+        .home-wrap {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 14px 22px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #0d3b66;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.2);
+        }
+
+        .home-link:hover {
+            background: #fff7d6;
+        }
+
+        @media (max-width: 800px) {
+            .page {
+                width: min(100% - 20px, 1120px);
+                padding-top: 18px;
+            }
+
+            .title-card,
+            .card {
+                padding: 22px;
+            }
+
+            .card,
+            .card-1,
+            .card-4,
+            .card-7,
+            .card-10,
+            .card-13 {
+                grid-column: span 12;
+            }
+        }
+
+        /* =========================================================
+           BRIDGEWORKS APPENDIX
+           Deliberately looks "tagged onto" the finished bridge essay.
+           ========================================================= */
+
+        .bridgeworks {
+            position: relative;
+            margin: 54px 0 10px;
+            padding: 42px 26px 30px;
+            color: #f7efcf;
+            background:
+                linear-gradient(rgba(5, 26, 49, 0.96), rgba(7, 38, 70, 0.98)),
+                repeating-linear-gradient(
+                    135deg,
+                    rgba(241, 199, 91, 0.05) 0,
+                    rgba(241, 199, 91, 0.05) 12px,
+                    transparent 12px,
+                    transparent 24px
+                );
+            border: 2px dashed rgba(241, 199, 91, 0.78);
+            border-radius: 18px;
+            box-shadow:
+                0 22px 55px rgba(0, 0, 0, 0.34),
+                inset 0 0 0 1px rgba(255,255,255,0.05);
+        }
+
+        .bridgeworks::before {
+            content: "TAGGED ONTO THE BRIDGE";
+            position: absolute;
+            top: -17px;
+            left: 28px;
+            padding: 7px 16px;
+            color: #071f36;
+            background: #f1c75b;
+            border: 2px solid #071f36;
+            border-radius: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 900;
+            letter-spacing: 0.14em;
+            transform: rotate(-1.5deg);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+        }
+
+        .bridgeworks-header {
+            max-width: 820px;
+            margin: 0 auto 28px;
+            text-align: center;
+        }
+
+        .bridgeworks-kicker {
+            margin: 0 0 8px;
+            color: #f1c75b;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.8rem;
+            font-weight: 900;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .bridgeworks-title {
+            margin: 0;
+            color: #ffffff;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.08;
+        }
+
+        .bridgeworks-subtitle {
+            max-width: 720px;
+            margin: 14px auto 0;
+            color: #dcecff;
+            font-size: 1.02rem;
+            font-style: italic;
+        }
+
+        .bridgeworks-links {
+            max-width: 860px;
+            margin: 26px auto 34px;
+            padding: 24px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(241,199,91,0.34);
+            border-radius: 14px;
+        }
+
+        .bridgeworks-links p {
+            margin: 0 0 12px;
+            color: #edf6ff;
+        }
+
+        .bridgeworks-links p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bridgeworks-links a {
+            color: #ffe38a;
+            font-weight: 700;
+            text-decoration-color: rgba(255,227,138,0.6);
+            text-underline-offset: 3px;
+        }
+
+        .bridgeworks-stage {
+            max-width: 900px;
+            margin: 28px auto;
+            padding: 28px;
+            color: #17324d;
+            background: #f5f9fe;
+            border-radius: 16px;
+            border-left: 7px solid #f1c75b;
+            box-shadow: 0 10px 28px rgba(0,0,0,0.20);
+        }
+
+        .bridgeworks-stage p {
+            margin: 0 0 1.05em;
+        }
+
+        .bridgeworks-stage p:last-child {
+            margin-bottom: 0;
+        }
+
+        .bridgeworks-stage blockquote {
+            margin: 24px auto;
+            padding: 18px 22px;
+            color: #17324d;
+            background: #fff3c4;
+            border-left: 6px solid #d5a947;
+            border-radius: 12px;
+        }
+
+        .bridgeworks-stage strong {
+            color: #0f3c68;
+        }
+
+        .bridgeworks .yellow-highlight {
+            background: #fff176;
+            color: #17324d;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 700;
+        }
+
+        .bridgeworks-callout {
+            max-width: 860px;
+            margin: 30px auto 18px;
+            padding: 22px 28px;
+            color: #ffffff;
+            background: linear-gradient(135deg, #163f69, #0b2e4f);
+            border: 2px solid #f1c75b;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 26px rgba(0,0,0,0.24);
+        }
+
+        .bridgeworks-callout strong,
+        .bridgeworks-callout .yellow-highlight {
+            color: #071f36;
+        }
+
+        .bridgeworks-callout .yellow-highlight {
+            display: inline;
+        }
+
+        .bridgeworks-image {
+            margin: 22px auto 34px;
+            text-align: center;
+        }
+
+        .bridgeworks-image img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 16px;
+            box-shadow: 0 14px 35px rgba(0,0,0,0.30);
+        }
+
+        .bridgeworks-divider {
+            width: min(620px, 84%);
+            margin: 34px auto;
+            border: 0;
+            border-top: 2px dashed rgba(241,199,91,0.55);
+        }
+
+        @media (max-width: 800px) {
+            .bridgeworks {
+                padding: 38px 14px 20px;
+            }
+
+            .bridgeworks-stage {
+                padding: 20px;
+            }
+
+            .bridgeworks-callout {
+                padding: 18px;
+                border-radius: 16px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <img
+                class="hero-image"
+                src="images/01-bridge.png"
+                alt="A symbolic stone bridge crossing a deep chasm from a dark landscape into a radiant new land."
+            >
+
+            <div class="title-card">
+                <h1>THE INFERENCE BRIDGE</h1>
+                <p class="subtitle">
+                    How a deeply held worldview might be fulfilled rather than destroyed
+                </p>
+                <div class="divider"></div>
+            </div>
+        </header>
+
+        <div class="content-grid">
+            <section class="card card-1">
+                <p>I have a sense that Jesus is preparing me to receive—to actually <strong>accept, rather than resist—a new belief</strong>.</p>
+                <p>And not a small one.</p>
+                <p>A huge one. A <strong>paradigm shift</strong>.</p>
+                <p>Truly changing a deeply held belief is no small thing. These beliefs aren't furniture that can simply be rearranged. They're more like <strong>tectonic plates</strong> underneath the world I've been standing on. Move them, and everything built on top of them moves too.</p>
+            </section>
+            <section class="card card-2">
+                <p>Looking back over the past year, I can see what feels like a long preparatory process. It's as though Jesus has been laying down a conceptual framework—a <strong>bridge</strong> from where I have been, grounded in a fairly normal LDS worldview, toward someplace new.</p>
+                <p>And <em>bridge</em> seems important.</p>
+                <p>Because I don't sense Him asking me to blow up the old world behind me. The pattern feels more like Jesus' own language about the law: He did not come to destroy, but <strong>to fulfill</strong>.</p>
+                <p>So the bridge connects rather than severs.</p>
+                <p>Piece by piece, Jesus seems to be building enough conceptual continuity—and enough trust—that I can consider something new without feeling that He is asking me to abandon reason, common sense, or everything I've previously known to be good.</p>
+            </section>
+            <section class="card card-3">
+                <p>Instead, perhaps the strange new country on the other side is actually an <strong>inference from things I already believe</strong>.</p>
+                <p>For example:</p>
+                <blockquote class="quote-box">
+                    <p><strong>If Jesus really is involved in everything that is lovely, of good report, and praiseworthy—then just how far do the implications of that belief extend?</strong></p>
+                </blockquote>
+                <p>Perhaps much, much farther than traditional, conventional, present company has generally supposed.</p>
+                <p>And that may explain why the bridge has needed to be built slowly.</p>
+            </section>
+            <section class="card card-4">
+                <p>It needs to be sturdy enough that I can walk out onto it while still holding onto the things that are dear and practical to me: <strong>my health, my sanity, my marriage, my work, my friendships, my reputation, my ability to function in the ordinary world.</strong></p>
+                <p>Because crossing such a bridge may have costs.</p>
+                <p>Some friendships may change. Some people may decide I've gone too far. What feels to me like following an unfolding spiritual logic may look strange—or even dangerous—to somebody standing back on the familiar shore. Some of my old social status may not survive the crossing.</p>
+            </section>
+            <section class="card card-5">
+                <p>But here's where this gets particularly interesting:</p>
+                <p><strong>What I am describing has precedents.</strong></p>
+                <p>Not necessarily precedents proving that Jesus is doing this particular thing with me—that remains something for me to discern—but precedents for this <em>kind</em> of enormous religious and intellectual transition.</p>
+                <p>There is a recognizable pattern by which human beings come to inhabit radically enlarged worlds.</p>
+                <p>And Christianity itself provides one of the biggest examples.</p>
+            </section>
+            <section class="card card-6">
+                <p>The New Testament repeatedly presents something new as the surprising <strong>fulfillment of something already believed</strong>, rather than merely its destruction.</p>
+                <p>Jesus' words are almost the perfect bridge formula:</p>
+                <blockquote class="quote-box">
+                    <p><strong>“I am not come to destroy, but to fulfil.”</strong></p>
+                </blockquote>
+                <p>Peter in Acts 10 is an especially interesting example. Peter doesn't begin as somebody wanting to discard Judaism. His inherited categories are very strong.</p>
+                <p>Yet experiences accumulate that stretch those categories until the Cornelius episode forces a much larger conclusion about Gentiles.</p>
+                <p>So schematically, something like this happens:</p>
+                <p><strong>Old belief → stretching experiences → apparent contradiction → deeper principle → old belief reinterpreted → enlarged worldview.</strong></p>
+                <p>That is very close to what I mean by an <strong>inference bridge</strong>.</p>
+            </section>
+            <section class="card card-7">
+                <p>There's another remarkable religious parallel in John Henry Newman.</p>
+                <p>Newman spent enormous effort thinking about precisely this problem:</p>
+                <blockquote class="quote-box">
+                    <p><strong>How can an idea undergo enormous development and nevertheless remain organically connected to what came before?</strong></p>
+                </blockquote>
+                <p>He argued that ideas can contain implications that aren't initially apparent. Over time, people compare, connect, generalize and draw consequences from them until something that was latent becomes explicit.</p>
+                <p>An idea can remain in the mind, become clearer as its relationships are perceived, lead to further implications, and eventually produce an entire interconnected body of thought—sometimes <strong>before the person fully recognizes what is happening</strong>.</p>
+                <p>That sounds remarkably like an inference bridge.</p>
+                <p>But Newman also gives me an important safeguard:</p>
+                <p><strong>Not every development is a legitimate development.</strong></p>
+                <p>There is such a thing as corruption.</p>
+                <p>Among the tests for authentic development are continuity of principles, logical sequence, preservation of what came before, and what Newman called the <strong>“conservative action upon its past.”</strong></p>
+                <p>In other words, fulfillment doesn't simply annihilate everything that preceded it.</p>
+            </section>
+            <section class="card card-8">
+                <p>And the secular world has its own version of this process.</p>
+                <p>In psychology and education there is an entire literature called <strong>conceptual change</strong>.</p>
+                <p>Jean Piaget distinguished between something like:</p>
+                <p><strong>Assimilation:</strong> I incorporate new information into my existing mental world.</p>
+                <p>and</p>
+                <p><strong>Accommodation:</strong> the new information eventually requires me to modify the mental structure itself.</p>
+                <p>Deeply interconnected beliefs can be remarkably resistant to change. Major changes can occur because discrepancies accumulate until the old conceptual structure has to be reorganized rather than merely patched.</p>
+            </section>
+            <section class="card card-9">
+                <p>And then there's Thomas Kuhn, which is where my <strong>tectonic plates</strong> metaphor becomes especially apt.</p>
+                <p>Kuhn argued that science ordinarily operates within a paradigm—an interconnected set of theories, assumptions, methods and examples.</p>
+                <p>Anomalies gradually accumulate.</p>
+                <p>Eventually, sometimes, the framework itself changes.</p>
+                <p>That's the famous <strong>paradigm shift</strong>.</p>
+                <p>Copernicus, Einstein, Darwin and others didn't simply decide one morning:</p>
+                <p><strong>EVERYTHING I BELIEVED YESTERDAY WAS WRONG!</strong></p>
+                <p>Rather, observations, problems, partial solutions, new concepts and implications accumulate until a formerly almost-unthinkable model becomes <strong>thinkable</strong>, then plausible, and perhaps eventually more coherent than the old one.</p>
+                <p>That is an inference bridge.</p>
+            </section>
+            <section class="card card-10">
+                <p>And this suggests an important refinement to my metaphor.</p>
+                <p>The bridge isn't necessarily there merely to <strong>persuade me to believe the thing on the other side</strong>.</p>
+                <p>It can also make it possible for me to <strong>inspect the thing on the other side without prematurely accepting it</strong>.</p>
+                <p>That's crucial.</p>
+                <p>A radical proposition presented without preparation can produce:</p>
+                <p><strong>“That's crazy. No.”</strong></p>
+                <p>But after a long conceptual bridge:</p>
+                <p><strong>“Whoa. I see how somebody could get there from here. Now—is that inference actually warranted?”</strong></p>
+                <p>Those are very different mental positions.</p>
+            </section>
+            <section class="card card-11">
+                <p>And that gives the inference bridge a built-in protection against exactly the dangers I worry about—losing sanity, relationships, practical judgment, etc.</p>
+                <p>If the process really is an <strong>inference bridge</strong>, every plank remains inspectable.</p>
+                <p>I can ask:</p>
+                <blockquote class="quote-box">
+                    <p><strong>Does plank 7 actually follow from plank 6?</strong></p>
+                </blockquote>
+                <p>I don't have to say, <em>“Because I believe Jesus constructed this bridge, therefore I must run across whatever appears in front of me.”</em></p>
+                <p>In my own LDS/Christian vocabulary:</p>
+                <blockquote class="quote-box">
+                    <p><strong>“Prove all things; hold fast that which is good.”</strong></p>
+                </blockquote>
+                <p>That belongs on the bridge too.</p>
+            </section>
+            <section class="card card-12">
+                <p>So perhaps the preparation isn't merely about teaching me <strong>what to believe</strong>.</p>
+                <p>It's also about making the bridge strong enough—and building enough trust—that if the invitation really does come to walk farther out, I can examine it carefully, test it, and move without either reflexively retreating to the old shore <strong>or recklessly throwing away everything valuable that Jesus has already helped me build.</strong></p>
+                <p>The bridge does not require me to burn the old world.</p>
+                <p>It asks whether I am willing to discover what that old world might become <strong>when fulfilled</strong>.</p>
+            </section>
+            <section class="card card-13">
+                <p>So I might describe what I sense happening this way:</p>
+                <p><strong>Jesus isn't asking me to make an irrational leap across a canyon. I have a sense that He has spent a year building an inference bridge across it—one conceptual plank at a time. And perhaps the reason for the bridge is precisely so that I don't have to abandon reason, my previous experience, or everything I have learned on the old shore in order to investigate the new one.</strong></p>
+                <p>And if my intuition about a <strong>very large belief waiting at the other end</strong> is right, then perhaps the year of apparently disconnected themes Jesus and I have been working through will make considerably more sense in retrospect.</p>
+                <p>The startling conclusion may only become recognizable <strong>after enough of its premises are already underneath my feet.</strong></p>
+                <p>Maybe that is what the bridge is for.</p>
+                <p>Not to destroy the old shore.</p>
+                <p>Not to force me to leap.</p>
+                <p>But to make it possible for me to walk carefully from <strong>“I could never believe that”</strong></p>
+                <p>to</p>
+                <p><strong>“Wait a minute. If all of these things I already believe are true…where do they actually lead?”</strong></p>
+            </section>
+        </div>
+
+
+        <!-- ======================================================
+             BRIDGEWORKS: PREPARATORY MATERIAL TAGGED ONTO THE ESSAY
+             ====================================================== -->
+        <section class="bridgeworks">
+
+            <header class="bridgeworks-header">
+                <p class="bridgeworks-kicker">Bridgeworks • Preparatory Material</p>
+                <h2 class="bridgeworks-title">The Stretch Before the Crossing</h2>
+                <p class="bridgeworks-subtitle">
+                    Preliminary pieces and exercises that belong to the preparatory work leading toward the world on the other side of the bridge.
+                </p>
+            </header>
+
+            <div class="bridgeworks-links">
+                <p>
+                    The following documents will eventually be recreated by Jesus and Greg into various forms of art, including improv opera performances:
+                </p>
+                <p>
+                    <a href="https://zioncoalition.org/01-wroughtodd.html">Wrought Upon Differently</a>
+                </p>
+                <p>
+                    <a href="https://zioncoalition.org/01-rehearsals-of-resurrection.html">Rehearsals Of Resurrection</a>
+                </p>
+                <p>
+                    <a href="https://zioncoalition.org/01-feed-your-head.html">Feed Your Head (God's Love In You)</a>
+                </p>
+                <p>
+                    <a href="https://zioncoalition.org/01-scripture-reenactment.html">The Spirit Wrought Upon Me Scripture Reenactments</a>
+                </p>
+                <p>
+                    <a href="https://zioncoalition.org/01-theres-a-chance.html">I imagine Jesus and Abba singing, "Greg, Take A Chance On Me"</a>
+                </p>
+            </div>
+
+            <div class="bridgeworks-stage">
+                <p>
+                    Jesus told me, “Greg, what you watch—what you give <strong>sustained attention</strong> to—will eventually have power to possess you. What you watch invokes and strengthens one of two spirits within you: the <strong>Spirit of Babylon</strong> (the WORLD) or the <strong>Spirit of Christ</strong> (the Kingdom).
+                </p>
+
+                <p>
+                    Think of whatever holds your attention as a kind of <strong>show</strong> you are watching. And, basically, there are two shows being broadcast on earth: the <strong>Babylon Show</strong>, on Babylon TV, and the <strong>Jesus Show</strong>, on Jesus TV.
+                </p>
+
+                <p>
+                    Right now, <strong>Babylon TV</strong> is the popular, default channel. Many people don’t even realize they can change the channel. They don’t know another broadcast is available.
+                </p>
+
+                <p>
+                    You have to <strong>stretch</strong> to tune into <strong>Jesus TV</strong>.”
+                </p>
+
+                <p>
+                    Jesus said, "Greg, to help you tune into Jesus TV more easily,
+                    <span class="yellow-highlight">I am helping you
+                    put episodes of the Jesus Show on your phone and into other mysterious devices—your pillow,
+                    your shower, your bread, your water, your car, and many more things.</span> I am doing this because
+                    you seek my rest. You will find that Jesus TV has the power to put you into a restful,
+                    possessed/flowing state of mind—a way of moving through your day something like Nephi described:
+                </p>
+
+                <blockquote>
+                    <p>
+                        “I was led by the Spirit, <strong>not knowing beforehand</strong> the things which I should do.
+                        Nevertheless I went forth.”
+                    </p>
+                    <p>
+                        <strong>—1 Nephi 4:6–7</strong>
+                    </p>
+                </blockquote>
+
+                <p>.............</p>
+
+                <blockquote>
+                    <p>
+                        “Watching Jesus TV means being led by the Spirit—<strong>not knowing beforehand</strong>
+                        what I will think, believe, do, say, or discover. Nevertheless, I go forth.
+                        <strong>I tune in.</strong>”
+                    </p>
+                    <p>
+                        <strong>—Jesus and Greg's take on 1 Nephi 4:6–7</strong>
+                    </p>
+                </blockquote>
+
+                <p>
+                    Jesus also seems to say to me, "Greg, as you get better at watching, the
+                    <strong>Jesus Show</strong>
+                    <span class="yellow-highlight">(i.e., imagining your reality from a MORE Jesusy,
+                    other-worldly perspective than before)</span> begins to unfold this way—full of surprise,
+                    intrigue, miracles, angels, demons, strange coincidences, unexpected turns, and things
+                    you could not have known beforehand.
+                </p>
+
+                <p>
+                    You don't know exactly what will happen or what you will be led to do.
+                    <strong>Nevertheless, you go forth.</strong> You keep watching because what you are
+                    watching has your interest and your attention. It becomes more and more intriguing,
+                    compelling, and important."
+                </p>
+
+                <p>
+                    In short, based on what Jesus has told me, I like to imagine that Jesus is continually
+                    broadcasting an exciting, immersive, important reality program—one that becomes increasingly
+                    visible to those who seek it and thereby develop <strong>better eyes to see it</strong>.
+                </p>
+
+                <p>
+                    I call it <strong>Jesus TV</strong>, because that is what Jesus taught me to call it.
+                </p>
+
+                <p>
+                    He may have you call it something else, so <strong>#HearHim (not #HearGreg).</strong>
+                </p>
+
+                <p>
+                    What you see here is one way Jesus has me <strong>tune in to His Show</strong>.
+                </p>
+            </div>
+
+            <div class="bridgeworks-callout">
+                Jesus says,
+                <strong>
+                    <span class="yellow-highlight">“Greg, don't miss the Jesus Show:</span>
+                </strong>
+                You need to really stretch to see it,
+                you need to get
+                <strong>
+                    <span class="yellow-highlight">MORE Jesus Imaginations</span>
+                </strong>
+                inside of you, we need to RE-calibrate your mind. So, you need to stretch first.
+                Go here, to our Jesus/Greg pre-flight checklist.”
+            </div>
+
+            <figure class="bridgeworks-image">
+                <a href="02-pre-flight-checklist.html">
+                    <img
+                        src="images/01-stretch.png"
+                        alt="Stretch Pre-Flight"
+                    >
+                </a>
+            </figure>
+
+            <hr class="bridgeworks-divider">
+
+            <div class="bridgeworks-callout">
+                Jesus says,
+                <strong>
+                    “Greg, sing this song.
+                    <span class="yellow-highlight">use your voice to tap into Jesus TV</span>
+                    if you are to see the Jesus Show.
+                </strong>
+                Listen.
+            </div>
+
+            <figure class="bridgeworks-image">
+                <img
+                    src="images/01-axlphone.png"
+                    alt="Axl Phone"
+                    title="Home"
+                >
+            </figure>
+
+        </section>
+
+        <div class="home-wrap">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </div>
+    </main>
+</body>
+</html>
