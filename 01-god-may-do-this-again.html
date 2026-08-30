@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>God May Do This Again</title>
+    <style>
+        :root {
+            --bg-deep: #071a33;
+            --bg-mid: #0c2f59;
+            --card: #123f73;
+            --accent: #f5d76e;
+            --accent-soft: #fff0a8;
+            --text: #f5f8ff;
+            --muted: #c7d8ee;
+            --line: rgba(255, 255, 255, 0.14);
+            --shadow: 0 18px 45px rgba(0, 0, 0, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top left, rgba(56, 120, 190, 0.22), transparent 34rem),
+                linear-gradient(180deg, var(--bg-mid) 0%, var(--bg-deep) 100%);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.75;
+        }
+
+        .page {
+            width: min(980px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 52px 0 72px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 34px 22px 10px;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent-soft);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 7vw, 5rem);
+            line-height: 1.02;
+            letter-spacing: -0.035em;
+        }
+
+        .card,
+        .quote-box,
+        .scripture-box,
+        .postlude {
+            border: 1px solid var(--line);
+            border-radius: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .card {
+            margin: 28px 0;
+            padding: 34px 36px;
+            background: linear-gradient(180deg, rgba(19, 64, 113, 0.97), rgba(13, 51, 91, 0.97));
+        }
+
+        .card h2,
+        .postlude h2 {
+            margin: 0 0 18px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.15rem;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        .card p,
+        .postlude p {
+            margin: 0 0 1.15em;
+            font-size: 1.08rem;
+        }
+
+        .card p:last-child,
+        .postlude p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-box,
+        .scripture-box {
+            margin: 34px 0;
+            padding: 30px 34px;
+            background: linear-gradient(180deg, rgba(24, 68, 109, 0.96), rgba(15, 48, 82, 0.96));
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-box::before,
+        .scripture-box::before {
+            content: "“";
+            position: absolute;
+            top: -34px;
+            left: 10px;
+            font-size: 9rem;
+            line-height: 1;
+            color: rgba(245, 215, 110, 0.12);
+        }
+
+        .quote-box p,
+        .scripture-box p {
+            margin: 0;
+            position: relative;
+            z-index: 1;
+            white-space: pre-line;
+            font-size: 1.16rem;
+        }
+
+        .scripture-box {
+            background: linear-gradient(180deg, rgba(90, 70, 20, 0.32), rgba(20, 58, 92, 0.96));
+            border-color: rgba(245, 215, 110, 0.35);
+        }
+
+        .scripture-box strong {
+            color: var(--accent-soft);
+        }
+
+        .dream-lines {
+            display: grid;
+            gap: 12px;
+            margin: 26px 0;
+        }
+
+        .dream-line {
+            margin: 0;
+            padding: 16px 18px;
+            border-left: 4px solid var(--accent);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.055);
+            font-style: italic;
+        }
+
+        .highlight-quote {
+            margin: 26px 0;
+            padding: 22px 24px;
+            background: rgba(0, 0, 0, 0.16);
+            border: 1px solid rgba(245, 215, 110, 0.24);
+            border-radius: 18px;
+            font-size: 1.16rem;
+        }
+
+        .highlight-quote strong {
+            color: var(--accent-soft);
+        }
+
+        .postlude {
+            margin-top: 36px;
+            padding: 36px;
+            background: linear-gradient(180deg, rgba(99, 76, 19, 0.24), rgba(12, 47, 85, 0.98));
+            border-color: rgba(245, 215, 110, 0.34);
+        }
+
+        .postlude h3 {
+            margin: 26px 0 14px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.02rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--accent-soft);
+        }
+
+        .postlude li {
+            margin-bottom: 14px;
+        }
+
+        .home-wrap {
+            text-align: center;
+            margin-top: 44px;
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 14px 22px;
+            border: 1px solid rgba(245, 215, 110, 0.55);
+            border-radius: 999px;
+            color: var(--accent-soft);
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            background: rgba(0, 0, 0, 0.16);
+        }
+
+        @media (max-width: 640px) {
+            .page {
+                width: min(100% - 20px, 980px);
+                padding-top: 28px;
+            }
+
+            .card,
+            .quote-box,
+            .scripture-box,
+            .postlude {
+                padding: 24px 22px;
+                border-radius: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <p class="eyebrow">Zion Coalition Thought Piece</p>
+            <h1>God May Do This Again</h1>
+        </header>
+        <section class="quote-box" aria-label="Opening rock and roll quotation">
+            <p>Well, there&#39;s a young man in a t-shirt
+Listenin&#39; to a rock &#39;n&#39; roll station
+He&#39;s got a greasy hair, greasy smile
+He says, &quot;Lord, this must be my destination&quot;
+
+&#39;Cause they told me, when I was younger
+
+Sayin&#39; &quot;Boy, you&#39;re gon&#39; be president&quot;
+But just like everything else, those old crazy dreams
+Just kinda came and went</p>
+        </section>
+
+        <section class="scripture-box" aria-label="Jacob scripture">
+            <p>“<strong><em>our lives</em></strong> passed away like as it were unto us a <strong><em>dream</em></strong>, a lonesome and a solemn people, wanderers” (Jacob 7:26)</p>
+        </section>
+
+        <section class="card">
+            <h2>Dream Bigly</h2>
+            <p>I think Jesus sometimes lets us keep our big dreams for a while.</p>
+            <p>There is something almost childlike about it—something like the innocence we have as children and even as tweens, before life becomes more complicated and ambiguous. There can be a little sadness when that innocence disappears. We begin qualifying everything. We learn how unlikely things are. We become reasonable.</p>
+            <p>But I truly believe Jesus sometimes delights in letting His children <strong>dream bigly</strong> before all those qualifications arrive.</p>
+
+            <div class="dream-lines">
+                <p class="dream-line">This book I&#39;m writing—I have this feeling it&#39;s going to be huge. Maybe Harry Potter huge.</p>
+                <p class="dream-line">This movie I&#39;m making—I can almost see the theater filled with people watching it.</p>
+                <p class="dream-line">This song I&#39;m writing—maybe thousands of people will someday sing it.</p>
+                <p class="dream-line">This little thing I&#39;m building—maybe it will eventually change something much bigger than me.</p>
+            </div>
+
+            <p>Maybe sometimes those dreams come true exactly as imagined. Maybe sometimes they come true differently. And maybe sometimes the enormous dream was never a prediction at all. Maybe it was simply a beautiful place Jesus allowed us to live for a while—a place where hope, imagination, faith and possibility could grow before experience taught us to see things with more complexity.</p>
+            <p>I think something like that may have happened to me with my redeemed rock songs.</p>
+        </section>
+
+        <section class="card">
+            <h2>An Old Precedent</h2>
+            <p>There is an interesting precedent in the early Latter-day Saint tradition. William W. Phelps took existing melodies—folk tunes and other familiar music—and gave them new words and new religious meaning. Some of those songs were sung by the early Saints, and some eventually became part of the continuing musical tradition of the Church. Others did not.</p>
+            <p>I find something suggestive in that.</p>
+            <p>God can take something that already exists in the culture and use it again for another purpose. A melody may have meant one thing to the person who originally wrote or sang it, and then, in another setting, that same melody can become the vehicle for an entirely different message.</p>
+            <p>For those who have eyes to see, perhaps God still does this.</p>
+        </section>
+
+        <section class="card">
+            <h2>The Songs I Thought Were for Zion</h2>
+            <p>Based partly on that precedent, and partly on impressions I believe I have received from the Spirit, I am beginning to wonder whether what has been happening to me with rock songs is not primarily about creating a new collection of songs that everyone will someday sing in Zion.</p>
+            <p>For a while, that is how I imagined it. Jesus was “redeeming” these songs for me—changing words, redirecting meanings, turning familiar rock songs toward Him—and I wondered whether these might actually become songs sung by others in Zion.</p>
+            <div class="highlight-quote">Now I am having second thoughts.</div>
+            <p>The possibility remains that some of these songs could someday find their way—perhaps with a little revision—into an actual Zion songbook. But I am beginning to doubt that this is their primary purpose. Instead, I sometimes imagine a museum in Zion where these redeemed songs from the 2020s are preserved, not primarily because everyone is supposed to sing them, but because they illustrate the principle I am describing: <em>Here was a guy who initially thought God was giving him songs for the masses, only to discover that perhaps God was showing through him something He is willing to do personally for anyone who seeks.</em></p>
+        </section>
+
+        <section class="card">
+            <h2>A More Personal Possibility</h2>
+            <p>Maybe the principle is much broader, much more decentralized, and much more personal.</p>
+            <p>Maybe God is no respecter of persons in this either.</p>
+            <p>Maybe He can pour out His Spirit upon His children and speak to them through the music already embedded in their lives. Maybe one person hears a Billy Joel song and suddenly certain words carry a message meant especially for him. Someone else hears Tom Petty, Billy Idol, Aerosmith, or some entirely different artist, and an impression comes: <em>change that word; hear that line differently; listen to what this reminds you of.</em></p>
+            <p>And perhaps, for some people, the words themselves begin to change in their minds. The old song becomes something new—not necessarily a hymn for everybody, but something like a <strong>personal hymn</strong>, a message shaped to the individual who needs to hear it.</p>
+            <p>If that is true, then what I am doing is not necessarily assembling <strong>the songs of Zion</strong>.</p>
+            <div class="highlight-quote">I may simply be demonstrating <strong>a way God can make songs of Zion for individuals.</strong></div>
+        </section>
+
+        <section class="card">
+            <h2>Seek, and Ye Shall Find</h2>
+            <p><em>Seek, and ye shall find.</em></p>
+            <p>Perhaps that applies even here. Seek Jesus in the music and perhaps, sometimes, you will find Him there. Seek what the Spirit might say through the songs already stored inside you, and perhaps the Spirit will “wrought upon” them too.</p>
+            <p>Do I know that this is what God is doing?</p>
+            <p>No.</p>
+            <p>I believe it. And, as with nearly every belief I have, there is unbelief mixed in with it. I could be misunderstanding what is happening. I could be seeing the pattern too broadly.</p>
+            <p>But for now, this is what I believe.</p>
+            <p>And I am going to go with it.</p>
+        </section>
+
+        <section class="postlude">
+            <h2>Postlude</h2>
+            <p>Across centuries, subcultures, and scriptures, the chorus remains remarkably unchanged: the sting of the gap between the promised horizon and the quiet, everyday reality.</p>
+
+            <h3>The Anatomy of the Quiet Dream</h3>
+            <ul>
+                <li><strong>The Promised Ideal:</strong> Thoreau’s famous framing of &quot;quiet desperation,&quot; Springsteen&#39;s &quot;Factory&quot; lines you quoted, and the prophecy of <em>“Boy, you&#39;re gon&#39; be president”</em> all sell the myth of eventual grandeur. Youth is built on the assumption that life is a straight line toward a monumental destination.</li>
+                <li><strong>The Existential Drift:</strong> Jacob’s ancient reflection in the Book of Mormon captures the temporal slip—life passing away &quot;as it were unto us a dream.&quot; It isn&#39;t necessarily a tragedy of grand ruin, but of subtle, solemn wandering where time moves faster than purpose.</li>
+                <li><strong>The Everyday Sanctuary:</strong> The young man with greasy hair listening to the rock &#39;n&#39; roll station finds a momentary, gritty grace. When the grand dreams &quot;came and went,&quot; the human condition adapts. The radio becomes the cathedral; the greasy smile becomes the quiet defiance against the noise of unfulfilled expectations.</li>
+            </ul>
+
+            <p>We trade the myth of universal presidency for the reality of a late-night rock station—learning that surviving the drift, and finding a small beat to dance to within it, might be the real destination after all.</p>
+        </section>
+
+        <div class="home-wrap">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </div>
+    </main>
+</body>
+</html>
