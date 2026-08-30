@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sacrament Book — Bread, Soul, and Spiritual Nourishment</title>
+    <style>
+        :root {
+            --bg: #0a2f57;
+            --bg-deep: #082540;
+            --card: #123f6b;
+            --card-alt: #174b7d;
+            --text: #f5f8fb;
+            --muted: #c8d8e8;
+            --accent: #ffd84d;
+            --line: rgba(255, 255, 255, 0.14);
+            --quote: #0d355f;
+            --shadow: 0 18px 50px rgba(0, 0, 0, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.06), transparent 34rem),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+            color: var(--text);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.7;
+        }
+
+        .page {
+            width: min(980px, calc(100% - 36px));
+            margin: 0 auto;
+            padding: 42px 0 64px;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            border-radius: 24px;
+            margin: 0 0 28px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--line);
+        }
+
+        .card {
+            background: linear-gradient(180deg, rgba(24, 77, 126, 0.98), rgba(16, 61, 104, 0.98));
+            border: 1px solid var(--line);
+            border-radius: 24px;
+            padding: 30px;
+            margin: 0 0 26px;
+            box-shadow: var(--shadow);
+        }
+
+        .intro-note {
+            color: var(--muted);
+            font-style: italic;
+            text-align: center;
+            margin: 0;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2rem, 5vw, 3.65rem);
+            line-height: 1.08;
+            text-align: center;
+            letter-spacing: 0.01em;
+        }
+
+        h2 {
+            margin: 0 0 16px;
+            font-size: clamp(1.45rem, 3vw, 2rem);
+            line-height: 1.2;
+        }
+
+        p {
+            margin: 0 0 1.15em;
+            font-size: 1.08rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .yellow {
+            color: var(--accent);
+        }
+
+        .quote-box {
+            background: var(--quote);
+            border-left: 6px solid var(--accent);
+            border-radius: 18px;
+            padding: 22px 24px;
+            margin: 24px 0;
+            box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+        }
+
+        .quote-box p {
+            margin-bottom: 0.9em;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .big-idea {
+            text-align: center;
+            font-size: clamp(1.35rem, 3vw, 2rem);
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 0.01em;
+        }
+
+        .parse-line {
+            margin-bottom: 14px;
+        }
+
+        .parse-line strong {
+            color: var(--accent);
+        }
+
+        ul {
+            margin: 0;
+            padding-left: 1.4em;
+        }
+
+        li {
+            margin: 0 0 14px;
+            font-size: 1.05rem;
+        }
+
+        .sequence {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .sequence span {
+            background: rgba(255, 216, 77, 0.12);
+            border: 1px solid rgba(255, 216, 77, 0.42);
+            color: var(--accent);
+            border-radius: 999px;
+            padding: 8px 14px;
+            font-weight: 700;
+            font-size: 0.98rem;
+        }
+
+        .home-link {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid rgba(255, 216, 77, 0.5);
+            border-radius: 999px;
+            padding: 12px 20px;
+            transition: background 0.2s ease;
+        }
+
+        .home-link:hover {
+            background: rgba(255, 216, 77, 0.1);
+        }
+
+        @media (max-width: 680px) {
+            .page {
+                width: min(100% - 22px, 980px);
+                padding-top: 22px;
+            }
+
+            .card {
+                padding: 22px;
+                border-radius: 20px;
+            }
+
+            .hero-image {
+                border-radius: 18px;
+            }
+
+            p,
+            li {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+
+        <!-- CHANGE ONLY THE FILENAME BELOW -->
+        <img
+            class="hero-image"
+            src="YOUR-IMAGE-FILENAME.png"
+            alt="Featured image"
+        >
+
+        <section class="card">
+            <p class="intro-note">
+                (In Spring City, in the “Womb/Tomb” cave, Jesus and I just added a new writing to <strong>The Sacrament Book</strong>.)
+            </p>
+        </section>
+
+        <section class="card">
+            <h1>
+                TODAY, WITH JESUS AND ANGELS (I IMAGINE), I PARTICIPATED IN AN ANCIENT BREAD-AND-WATER POSSESSION RITUAL (ALMA 34:34), TARGETING MY SOUL FOR SPIRITUAL NOURISHMENT.
+            </h1>
+        </section>
+
+        <section class="card center">
+            <h2>Did/Does/Will it make a difference?</h2>
+            <p>
+                Yes, I think so. I guess so. I imagine so. I believe so.
+            </p>
+            <p class="yellow">
+                <strong>We’ll see.</strong>
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                Anyway, during the meeting (yes, He is chatty—#HearHim), Jesus whispered something like this to me:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    “Greg, in the sacrament prayer, this phrase can be parsed like this:
+                </p>
+
+                <p>
+                    <strong>‘to bless and sanctify this bread to the souls of all those who partake of it’</strong>
+                </p>
+            </div>
+
+            <p class="parse-line">
+                <strong>Bless</strong> = to invoke God’s blessing upon the bread; to set it apart for a sacred purpose.
+            </p>
+
+            <p class="parse-line">
+                <strong>Sanctify</strong> = to make holy, consecrate, or dedicate to God.
+            </p>
+
+            <p class="parse-line">
+                <strong>This bread</strong> = the physical bread, which is about to function sacramentally as a symbol of Christ’s body.
+            </p>
+
+            <p>
+                <strong>“to the souls”</strong> is especially interesting. It does <strong>not</strong> simply say <em>“sanctify this bread.”</em> It says:
+            </p>
+
+            <div class="quote-box">
+                <p class="center">
+                    <strong>sanctify this bread → to the souls → of those who partake</strong>
+                </p>
+            </div>
+
+            <p>
+                So <strong>“to” can be heard as carrying something like the sense of “for the spiritual benefit of”</strong> the people receiving it.
+            </p>
+
+            <p>
+                <strong>“All those who partake of it”</strong> = everyone who actually receives/eats the bread.
+            </p>
+
+            <p>
+                Put into more contemporary English:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Please bless and consecrate this bread so that it may be holy and spiritually beneficial to every person who receives it.”</strong>
+                </p>
+            </div>
+
+            <p>
+                Or, more literally:
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    <strong>“Bless this bread and set it apart as sacred for the souls of everyone who eats it.”</strong>
+                </p>
+            </div>
+
+            <p>
+                And there is a potentially important distinction here: the prayer isn't merely asking God to make <strong>the bread</strong> holy as an object.
+            </p>
+
+            <div class="quote-box">
+                <p class="big-idea">
+                    The sanctification has a destination: the human soul.
+                </p>
+            </div>
+
+            <p>
+                The bread is blessed and sanctified <em>to them</em>—toward what God intends to accomplish in the souls of those who partake.”
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                Jesus then widened the lens.
+            </p>
+
+            <div class="quote-box">
+                <p>
+                    “Greg, think about the act itself. You aren't merely <em>eating bread</em>. You are <strong>breaking bread</strong>—an ancient human action loaded with meanings of life, dependence, hospitality, covenant, fellowship and communion.”
+                </p>
+            </div>
+
+            <p>
+                Jesus added, “Greg, before it became a common idiom for sharing a meal, <strong>breaking bread was a sacred, literal ritual rooted in survival, trust, and spiritual devotion</strong>.
+            </p>
+
+            <p>
+                For thousands of years, people have torn, divided, shared and eaten bread together. Because bread was a basic food of life, sharing it naturally accumulated meanings of hospitality, fellowship, dependence and sacred communion.
+            </p>
+
+            <p>
+                Across history and geography, this simple gesture evolved into several distinct ritualistic forms.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Sacred Hospitality and Alliances</h2>
+
+            <p>
+                In the ancient Near East and Mediterranean, bread was the ultimate symbol of life. Offering bread to a traveler wasn't just polite; it was a sacred duty.
+            </p>
+
+            <ul>
+                <li>
+                    <strong>The Law of Hospitality:</strong> Once a guest broke bread at a host's table, an unspoken, inviolable pact of mutual protection was formed.
+                </li>
+                <li>
+                    <strong>Covenant Sealing:</strong> Shared meals—including bread—could accompany covenants, alliances, agreements and acts of reconciliation. Eating together could signify that former strangers or adversaries had entered a new relationship.
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Religious and Spiritual Communions</h2>
+
+            <p>
+                The physical act of tearing bread holds foundational importance in major world religions:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>The Jewish Sabbath and Havdalah:</strong> The weekly Sabbath meal traditionally begins with a blessing and the breaking of Challah—a braided loaf symbolizing the manna that sustained ancient Israelites in the desert. Historically, breaking bread by hand was also a practical necessity.
+                </li>
+                <li>
+                    <strong>The Christian Eucharist:</strong> Drawing from the Passover tradition, Christian scripture details Jesus breaking bread during the Last Supper to symbolize his body and the unity of his followers. For the early Christian church, meeting in homes to “break bread” served as both a communal meal and a core act of worship.
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <h2>Folk Magic and Milestones</h2>
+
+            <p>
+                Beyond formal religion, bread-breaking heavily influenced folklore and major life transitions:
+            </p>
+
+            <ul>
+                <li>
+                    <strong>Ancient Roman and Slavic Weddings:</strong> In ancient Rome, bread was broken or crumbled over the bride's head to guarantee fertility and abundance. Similarly, Slavic cultures still practice a “bread and salt” welcoming ritual where newlyweds break a ceremonial loaf to ensure prosperity.
+                </li>
+            </ul>
+        </section>
+
+        <section class="card">
+            <div class="big-idea">
+                BREAD → BLESSING → SANCTIFICATION → SOUL → NOURISHMENT → CHANGE
+            </div>
+
+            <div class="sequence">
+                <span>BREAD</span>
+                <span>BLESSING</span>
+                <span>SANCTIFICATION</span>
+                <span>SOUL</span>
+                <span>NOURISHMENT</span>
+                <span>CHANGE</span>
+            </div>
+        </section>
+
+        <section class="card center">
+            <h2>Did/Does/Will it make a difference?</h2>
+
+            <p>
+                We’ll see.
+            </p>
+
+            <p>
+                But making a difference in the soul is precisely what the ritual is asking for.
+            </p>
+        </section>
+
+        <section class="card center">
+            <a class="home-link" href="index.html">
+                ← Return to Home
+            </a>
+        </section>
+
+    </main>
+</body>
+</html>
