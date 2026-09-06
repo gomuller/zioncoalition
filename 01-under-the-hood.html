@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Under the Hood — The Inference Bridge & Dangerous Beliefs</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top, rgba(77, 165, 220, 0.28), transparent 32rem),
+                linear-gradient(180deg, #0c4f7a 0%, #083d61 52%, #062f4d 100%);
+            color: #eef7ff;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.75;
+        }
+
+        .page-shell {
+            width: min(1120px, calc(100% - 28px));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero {
+            overflow: hidden;
+            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.28);
+            border: 1px solid rgba(255, 255, 255, 0.16);
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .title-block {
+            text-align: center;
+            padding: 34px 22px 18px;
+        }
+
+        .title-block h1 {
+            margin: 0;
+            font-size: clamp(2.4rem, 7vw, 5.4rem);
+            line-height: 1;
+            letter-spacing: 0.02em;
+            text-shadow: 0 4px 18px rgba(0, 0, 0, 0.3);
+        }
+
+        .title-block .subtitle {
+            margin: 14px 0 0;
+            font-size: clamp(1.05rem, 2.5vw, 1.5rem);
+            font-style: italic;
+            color: #dceeff;
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 24px;
+            margin-top: 26px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            color: #17344b;
+            border-radius: 22px;
+            padding: clamp(24px, 5vw, 44px);
+            box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .card h2 {
+            margin: 0 0 22px;
+            color: #0a4f7a;
+            font-size: clamp(1.6rem, 4vw, 2.35rem);
+            line-height: 1.15;
+        }
+
+        .card p {
+            margin: 0 0 1.08em;
+            font-size: 1.08rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .quote-box {
+            margin: 24px 0;
+            padding: 22px 26px;
+            border-left: 6px solid #0e6fa8;
+            border-radius: 16px;
+            background: linear-gradient(135deg, #edf8ff 0%, #dcefff 100%);
+            color: #103a58;
+            box-shadow: inset 0 0 0 1px rgba(14, 111, 168, 0.12);
+        }
+
+        .quote-box p {
+            margin: 0;
+            font-size: clamp(1.15rem, 2.7vw, 1.45rem);
+            line-height: 1.55;
+        }
+
+        .quote-label {
+            margin-top: 22px !important;
+            margin-bottom: 6px !important;
+            color: #0a4f7a;
+            font-size: 0.95rem !important;
+            font-weight: bold;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .sequence-box {
+            margin: 26px 0;
+            padding: 28px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(10, 79, 122, 0.96), rgba(17, 101, 150, 0.96));
+            color: #ffffff;
+            text-align: center;
+            box-shadow: 0 12px 26px rgba(6, 47, 77, 0.18);
+        }
+
+        .sequence-box p {
+            margin: 0;
+            font-size: clamp(1.12rem, 2.5vw, 1.35rem);
+        }
+
+        .footer-card {
+            margin-top: 26px;
+            text-align: center;
+            padding: 28px 20px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #0a4f7a;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+        }
+
+        .home-link:hover,
+        .home-link:focus {
+            background: #e9f6ff;
+        }
+
+        @media (max-width: 700px) {
+            .page-shell {
+                width: min(100% - 18px, 1120px);
+                padding-top: 14px;
+            }
+
+            .hero,
+            .card {
+                border-radius: 16px;
+            }
+
+            .title-block {
+                padding-top: 26px;
+            }
+
+            .card {
+                padding: 22px 20px;
+            }
+
+            .quote-box {
+                padding: 18px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <section class="hero">
+            <img src="images/01-example.png" alt="Under the Hood: The Inference Bridge and Dangerous Beliefs">
+        </section>
+
+        <header class="title-block">
+            <h1>Under the Hood</h1>
+            <p class="subtitle">The Inference Bridge & Dangerous Beliefs</p>
+        </header>
+
+        <div class="content-grid">
+            <section class="card">
+                <p>I have two pieces that sit very close to one another.</p>
+                <p>They share some of the same language. They use the same bridge. They circle many of the same questions. From a distance, they can look like they are doing the same work.</p>
+                <p>They are not.</p>
+                <p>They are asking two different questions.</p>
+                <p class="quote-label">The Inference Bridge</p>
+                <blockquote class="quote-box">
+                    <p>How could I responsibly get from something I already believe to something I presently find almost unbelievable?</p>
+                </blockquote>
+                <p class="quote-label">Dangerous Beliefs</p>
+                <blockquote class="quote-box">
+                    <p>What happens when I actually put my weight on that new belief?</p>
+                </blockquote>
+                <p>That distinction matters to me.</p>
+                <p>The first piece is mostly about <strong>how belief develops</strong>.</p>
+                <p>The second is about <strong>what belief does once it becomes lived</strong>.</p>
+            </section>
+            <section class="card">
+                <h2>Building the bridge</h2>
+                <p>The Inference Bridge is concerned with the movement from one idea to another.</p>
+                <p>If I already believe something is true, what might reasonably follow from it?</p>
+                <p>If plank 6 is solid, does plank 7 actually follow?</p>
+                <p>If it does, am I willing to consider it?</p>
+                <p>And if plank 7 holds, what does that make possible next?</p>
+                <p>That is why I think of the bridge as an inference bridge.</p>
+                <p>It is not supposed to be a machine for talking myself into anything I want.</p>
+                <p>It is supposed to slow me down enough to inspect the path.</p>
+                <p>One plank at a time.</p>
+                <p>One implication at a time.</p>
+                <p>One question at a time.</p>
+                <p>The bridge is useful precisely because I am allowed to stop on it.</p>
+                <p>I can look backward.</p>
+                <p>I can look forward.</p>
+                <p>I can ask whether the next plank actually belongs there.</p>
+                <p>I can decide that I have gone too far.</p>
+                <p>Or I can discover that the thing that once seemed impossible now looks less like a rejection of what I believed before and more like an implication of it.</p>
+                <p>So The Inference Bridge is fundamentally asking a question about <strong>truth</strong>:</p>
+                <blockquote class="quote-box">
+                    <p><strong>Does this conclusion actually follow?</strong></p>
+                </blockquote>
+            </section>
+            <section class="card">
+                <h2>Walking the bridge</h2>
+                <p>Dangerous Beliefs begins where that question becomes more uncomfortable.</p>
+                <p>Suppose I come to believe that the next plank really is there.</p>
+                <p>Then what?</p>
+                <p>It is one thing to entertain a possibility.</p>
+                <p>It is another thing to step onto it.</p>
+                <p>Beliefs become dangerous when they stop being abstract.</p>
+                <p>They begin changing choices.</p>
+                <p>Relationships.</p>
+                <p>Money.</p>
+                <p>Time.</p>
+                <p>Identity.</p>
+                <p>Obligations.</p>
+                <p>Risk.</p>
+                <p>And sometimes they affect people other than the person holding the belief.</p>
+                <p>That is where another kind of discernment becomes necessary.</p>
+                <p>It is not enough to ask:</p>
+                <blockquote class="quote-box">
+                    <p>Do I believe this is true?</p>
+                </blockquote>
+                <p>I also have to ask:</p>
+                <blockquote class="quote-box">
+                    <p>What am I justified in doing because I believe it is true?</p>
+                </blockquote>
+                <p>Those are not the same question.</p>
+                <p>A person can be willing to suffer for a belief and still need to think carefully about whether other people should be required to suffer because of it.</p>
+                <p>A person can mistake courage for recklessness.</p>
+                <p>A person can also mistake fear for wisdom.</p>
+                <p>That is why Dangerous Beliefs has two edges.</p>
+                <p>There can be danger in walking the bridge too quickly.</p>
+                <p>There can also be danger in refusing to walk at all.</p>
+                <p>So Dangerous Beliefs is fundamentally asking a question about <strong>faithfulness</strong>:</p>
+                <blockquote class="quote-box">
+                    <p><strong>What should I do if I think the conclusion really does follow?</strong></p>
+                </blockquote>
+            </section>
+            <section class="card">
+                <h2>Build it. Inspect it. Walk it.</h2>
+                <p>That is the simplest way I know to hold the two pieces in my mind.</p>
+                <div class="sequence-box">
+                    <p><strong>Build the bridge.</strong><br><br>Follow the implications.<br><br><strong>Inspect the bridge.</strong><br><br>Test the planks.<br><br><strong>Walk the bridge.</strong><br><br>Decide what I am actually willing—and called—to place my weight on.</p>
+                </div>
+                <p>The Inference Bridge is mostly about the first two.</p>
+                <p>Dangerous Beliefs is mostly about the third.</p>
+                <p>That is why I want both pieces.</p>
+                <p>One helps me think.</p>
+                <p>The other helps me remember that thinking eventually has consequences.</p>
+            </section>
+            <section class="card">
+                <h2>And then the bridge changes again</h2>
+                <p>There is another possibility emerging underneath both pieces.</p>
+                <p>At some point, the Inference Bridge begins to look like an <strong>Inheritance Bridge</strong>.</p>
+                <p>That changes the image.</p>
+                <p>Maybe I am not building everything from scratch.</p>
+                <p>Maybe I am arriving at structures that were already under construction long before I got here.</p>
+                <p>Ideas.</p>
+                <p>Music.</p>
+                <p>Stories.</p>
+                <p>Technology.</p>
+                <p>Institutions.</p>
+                <p>Language.</p>
+                <p>Art.</p>
+                <p>Religious traditions.</p>
+                <p>People.</p>
+                <p>Maybe some of the things I am being asked to receive were carried toward me by people who had no idea what role their work might eventually play.</p>
+                <p>Maybe Zion is not only something to be constructed.</p>
+                <p>Maybe much of it is something to be <strong>recognized, received, redeemed, and inherited</strong>.</p>
+                <p>That possibility changes the emotional tone of the bridge.</p>
+                <p>It becomes less about heroic invention.</p>
+                <p>More about gratitude.</p>
+                <p>Less about forcing something new into existence.</p>
+                <p>More about learning to see what has already been prepared.</p>
+                <p>And perhaps that is one reason the bridge matters so much to me.</p>
+                <p>It helps me ask whether something that first appears strange might actually belong to a larger story I have not yet learned how to see.</p>
+            </section>
+            <section class="card">
+                <h2>Under the hood</h2>
+                <p>None of this has to be visible every time I encounter one of these pieces.</p>
+                <p>The bridge can simply be a bridge.</p>
+                <p>The image can simply work.</p>
+                <p>The thought piece can simply be experienced.</p>
+                <p>But sometimes I want to open the hood.</p>
+                <p>I want to know what the parts are doing.</p>
+                <p>I want to understand why two pieces that look similar are actually carrying different loads.</p>
+                <p>That is what this page is for.</p>
+                <p>A map of the machinery.</p>
+                <p>A reminder to myself:</p>
+                <blockquote class="quote-box">
+                    <p><strong>The Inference Bridge asks whether the next plank is really there.</strong><br><strong>Dangerous Beliefs asks what happens when I step on it.</strong></p>
+                </blockquote>
+                <p>And somewhere beyond both questions may be another one:</p>
+                <blockquote class="quote-box">
+                    <p><strong>What if the bridge I am crossing was being built for me long before I arrived?</strong></p>
+                </blockquote>
+                <p>You do not have to open the hood to take the ride.</p>
+                <p>But sometimes I want to know how the machine works.</p>
+            </section>
+        </div>
+
+        <footer class="footer-card">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </footer>
+    </main>
+</body>
+</html>
