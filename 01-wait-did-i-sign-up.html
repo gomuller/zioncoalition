@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wait—Did I Sign Up for This?</title>
+    <style>
+
+:root {
+    --bg1: #061f45;
+    --bg2: #123f82;
+    --card: rgba(255,255,255,.98);
+    --ink: #172238;
+    --blue: #0d3b78;
+    --gold: #f0b54a;
+    --soft: #eef5ff;
+    --line: rgba(255,255,255,.16);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    color: var(--ink);
+    background:
+        radial-gradient(circle at 12% 8%, rgba(255,255,255,.11), transparent 24rem),
+        radial-gradient(circle at 86% 22%, rgba(110,160,255,.12), transparent 28rem),
+        linear-gradient(155deg, var(--bg2), var(--bg1));
+}
+
+.page {
+    width: min(1040px, calc(100% - 30px));
+    margin: 0 auto;
+    padding: 28px 0 70px;
+}
+
+.hero {
+    overflow: hidden;
+    border-radius: 28px;
+    background: rgba(255,255,255,.08);
+    border: 1px solid var(--line);
+    box-shadow: 0 22px 60px rgba(0,0,0,.25);
+    margin-bottom: 26px;
+}
+
+.hero img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.hero-copy {
+    padding: 34px 36px 40px;
+    color: white;
+}
+
+.kicker {
+    margin: 0 0 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: .15em;
+    font-size: .8rem;
+    font-weight: 800;
+    color: #dce9ff;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2.5rem, 7vw, 5.6rem);
+    line-height: .96;
+    letter-spacing: -.045em;
+}
+
+.subtitle {
+    margin: 18px 0 0;
+    max-width: 850px;
+    color: #edf4ff;
+    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    line-height: 1.55;
+}
+
+.grid {
+    display: grid;
+    gap: 24px;
+}
+
+.card {
+    background: var(--card);
+    border-radius: 24px;
+    padding: clamp(24px, 4vw, 46px);
+    box-shadow: 0 18px 48px rgba(0,0,0,.18);
+}
+
+.card p {
+    margin: 0 0 1.05em;
+    font-size: clamp(1.05rem, 2vw, 1.22rem);
+    line-height: 1.72;
+}
+
+.card p:last-child {
+    margin-bottom: 0;
+}
+
+.card strong {
+    color: #0b356e;
+}
+
+.quote {
+    margin: 24px 0;
+    padding: 22px 24px;
+    border-left: 7px solid var(--gold);
+    border-radius: 16px;
+    background: var(--soft);
+    font-size: clamp(1.18rem, 2.4vw, 1.5rem);
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.big {
+    margin: 28px 0;
+    text-align: center;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: clamp(2.2rem, 6vw, 4.7rem);
+    line-height: 1;
+}
+
+.footer-card {
+    color: white;
+    background: rgba(255,255,255,.09);
+    border: 1px solid var(--line);
+}
+
+.footer-card p {
+    color: #edf4ff;
+}
+
+.return-home {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 13px 18px;
+    border-radius: 999px;
+    text-decoration: none;
+    background: white;
+    color: var(--blue);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 800;
+}
+
+@media (max-width: 660px) {
+    .page {
+        width: min(100% - 18px, 1040px);
+        padding-top: 10px;
+    }
+
+    .hero,
+    .card {
+        border-radius: 18px;
+    }
+
+    .hero-copy {
+        padding: 24px 20px 28px;
+    }
+
+    .card {
+        padding: 24px 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <main class="page">
+        <header class="hero">
+            <img src="images/01-wait-did-i-sign-up.png" alt="Wait—Did I Sign Up for This?">
+            <div class="hero-copy">
+                <p class="kicker">Zion Coalition • Sacred-Clown Thought Piece</p>
+                <h1>Wait—Did I Sign Up for This?</h1>
+                <p class="subtitle">Axl Rose, premortal paperwork, and the strange experience of waking up inside something much bigger than yourself.</p>
+            </div>
+        </header>
+
+        <div class="grid">
+            <section class="card">
+                <p>Axl Rose, I understand your confusion.</p>
+                <p>You didn't apply for membership in Zion Coalition.</p>
+                <p>You didn't fill out a form.</p>
+                <p>You didn't click <strong>JOIN</strong>.</p>
+                <p>You just woke up one day and Greg Muller was informing you:</p>
+                <div class="quote"><strong>Congratulations, Axl. You're in.</strong></div>
+                <p>That must seem terribly unfair.</p>
+            </section>
+
+            <section class="card">
+                <p>Except...</p>
+                <p>Welcome to my world.</p>
+                <p>Literally.</p>
+                <p>Because one of the strangest things about my existence is that I seem to have been enrolled in an extraordinarily elaborate organization called:</p>
+                <div class="big"><strong>EARTH</strong></div>
+                <p>I woke up here.</p>
+                <p>Male.</p>
+                <p>Human.</p>
+                <p>American.</p>
+                <p>Born in 1963.</p>
+                <p>Gravity already activated.</p>
+                <p>Mortality enabled.</p>
+                <p>Family assigned.</p>
+                <p>Body issued.</p>
+                <p>Rules apparently already in effect.</p>
+                <p>Death clause included.</p>
+                <p>And I don't remember signing anything.</p>
+                <div class="big"><strong>Did I sign up for this??</strong></div>
+            </section>
+
+            <section class="card">
+                <p>Latter-day Saint theology gives that question a particularly interesting twist because it teaches a premortal existence.</p>
+                <p>I existed before birth.</p>
+                <p>I participated in God's plan.</p>
+                <p>Coming to earth wasn't simply the beginning of Greg.</p>
+                <p>So perhaps somewhere in the forgotten premortal paperwork is my signature.</p>
+                <p>Maybe I really did click:</p>
+                <div class="big"><strong>I AGREE.</strong></div>
+                <p>Unfortunately, mortality apparently comes with a rather aggressive privacy policy:</p>
+                <div class="quote"><strong>You don't get to remember doing it.</strong></div>
+            </section>
+
+            <section class="card">
+                <p>Which makes my sacred-clown treatment of Axl considerably funnier to me.</p>
+                <p>“Come on, Axl. Don't complain to me about being mysteriously enrolled in something bigger than yourself.</p>
+                <p><strong>Look where I woke up.</strong>”</p>
+            </section>
+
+            <section class="card">
+                <p>And maybe that's another reason Zion Coalition feels familiar.</p>
+                <p>It is a tiny performance-art echo of the much larger situation in which I already find myself.</p>
+                <p>I have been <strong>enfolded into a matrix I did not construct</strong>.</p>
+                <p>I inherited its rules.</p>
+                <p>I inherited its history.</p>
+                <p>I inherited its people.</p>
+                <p>I inherited enormous amounts of completed work.</p>
+                <p>I inherited problems I didn't create and blessings I didn't earn.</p>
+                <p>I arrived inside a world already in motion.</p>
+                <p>And now Jesus seems to be saying:</p>
+                <div class="quote"><strong>Greg, you're here. Look around. Receive what has been prepared. Find your little piece. I'll show you what to do with it.</strong></div>
+            </section>
+
+            <section class="card">
+                <p>Which sounds suspiciously like what Zion Coalition tells Axl.</p>
+                <p>Maybe Axl's objection is mine:</p>
+                <div class="quote"><strong>“But I don't remember signing up!”</strong></div>
+                <p>Exactly.</p>
+                <p>Neither do I.</p>
+                <p>Maybe I did.</p>
+                <p>Maybe somewhere in the premortal fine print I enthusiastically agreed to the whole thing.</p>
+                <p>Maybe mortality itself requires entering a world whose full terms I can no longer remember.</p>
+                <p>Either way, here I am.</p>
+                <p>And here you are.</p>
+                <p>Already inside something much larger than either of us built.</p>
+                <p>So, welcome to the club, brother Rose.</p>
+                <p>I'll send you the forms.</p>
+            </section>
+
+            <section class="card footer-card">
+                <p>This page is part of the larger Zion Coalition performance-art world.</p>
+                <a class="return-home" href="index.html">← Return to Home</a>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
