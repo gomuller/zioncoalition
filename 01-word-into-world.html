@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teaching My World to Remind Me of Jesus</title>
+  <style>
+    :root {
+      --blue-deep: #0b2f57;
+      --blue-mid: #124a82;
+      --blue-soft: #dfeeff;
+      --card: #ffffff;
+      --ink: #17324d;
+      --muted: #58708a;
+      --line: #bfd5ea;
+      --quote: #eef7ff;
+      --gold: #f5d77a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      background:
+        radial-gradient(circle at top left, rgba(255, 255, 255, 0.09), transparent 32%),
+        linear-gradient(180deg, #0b3563 0%, #0f477a 48%, #0a3158 100%);
+      color: var(--ink);
+      line-height: 1.72;
+    }
+
+    .page-shell {
+      width: min(1120px, 92vw);
+      margin: 0 auto;
+      padding: 34px 0 54px;
+    }
+
+    .hero {
+      overflow: hidden;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 18px 50px rgba(0, 0, 0, 0.28);
+      margin-bottom: 28px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      max-height: 680px;
+      object-fit: cover;
+      background: #d7e6f5;
+    }
+
+    .title-card {
+      background: linear-gradient(180deg, #ffffff 0%, #f5faff 100%);
+      border-radius: 28px;
+      padding: 42px 42px 36px;
+      margin-bottom: 26px;
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #e3f1ff;
+      color: #245b8b;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      margin: 0;
+      color: #113c67;
+      font-size: clamp(2.25rem, 5vw, 4.8rem);
+      line-height: 1.03;
+      letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+      margin: 20px auto 0;
+      max-width: 860px;
+      color: #49657d;
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      font-style: italic;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 26px;
+      padding: 34px 38px;
+      margin: 0 0 24px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.72);
+    }
+
+    .card h2 {
+      margin: 0 0 18px;
+      color: #174e7a;
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+      line-height: 1.18;
+    }
+
+    .card p {
+      margin: 0 0 18px;
+      font-size: 1.08rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-box {
+      margin: 28px 0;
+      padding: 26px 28px;
+      border-radius: 22px;
+      background: var(--quote);
+      border-left: 7px solid #3d83bd;
+      box-shadow: inset 0 0 0 1px #d0e5f7;
+      color: #153d61;
+      font-size: 1.26rem;
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .formula {
+      margin: 30px 0;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, #0f4c81 0%, #153c68 100%);
+      color: white;
+      text-align: center;
+      box-shadow: 0 12px 28px rgba(13, 48, 82, 0.3);
+    }
+
+    .formula .line {
+      display: block;
+      margin: 6px 0;
+      font-size: clamp(1.45rem, 3.8vw, 2.7rem);
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .sequence {
+      margin: 22px 0;
+      padding: 22px 24px;
+      border-radius: 20px;
+      background: #f5f9fd;
+      border: 1px solid var(--line);
+      color: #234969;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.04rem;
+      font-weight: 700;
+      line-height: 1.75;
+    }
+
+    .stage {
+      background: linear-gradient(180deg, #fbfdff, #edf6ff);
+    }
+
+    .stage p.scene {
+      margin: 10px 0;
+      padding: 10px 14px;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #d7e6f3;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      color: #2c5576;
+    }
+
+    .closing-card {
+      text-align: center;
+      background: linear-gradient(180deg, #ffffff, #f1f7fc);
+    }
+
+    .closing-card .big-line {
+      display: block;
+      margin: 10px 0;
+      font-size: clamp(1.35rem, 3vw, 2.2rem);
+      font-weight: 800;
+      color: #174c78;
+    }
+
+    .return-home {
+      margin-top: 34px;
+      text-align: center;
+    }
+
+    .return-home a {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: white;
+      color: #123f69;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.22);
+    }
+
+    .return-home a:hover,
+    .return-home a:focus {
+      text-decoration: underline;
+    }
+
+    .yellow-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #fff176 35%,
+        #fff176 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .green-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #66ff4d 35%,
+        #66ff4d 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    @media (max-width: 720px) {
+      .page-shell {
+        width: min(94vw, 1120px);
+        padding-top: 18px;
+      }
+
+      .title-card,
+      .card {
+        padding: 26px 22px;
+        border-radius: 22px;
+      }
+
+      .quote-box,
+      .formula {
+        padding: 22px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <img src="images/01-example.png" alt="Featured image for Teaching My World to Remind Me of Jesus">
+    </section>
+
+    <section class="title-card">
+      <div class="eyebrow">My Jesus-Greg WORLD</div>
+      <h1>Teaching My World to Remind Me of Jesus</h1>
+      <p class="subtitle">The Word becomes symbol, environment, remembrance, story, attention, relationship, and life.</p>
+    </section>
+
+    <section class="card">
+      <h2>The Larger Architecture</h2>
+      <p>Yes. I see the larger architecture much more clearly from this description. What you are building is not primarily a collection of quirky Jesus-themed objects. <strong>The objects are cues in a symbolic environment.</strong> The deeper project is to make your lived environment increasingly capable of <em>speaking the Word back to you</em>.</p>
+
+      <p>Your sociology background actually gives you unusually precise language for describing it: symbolic interactionism says we inhabit a world already saturated with meanings. A car isn't merely metal; a bed isn't merely foam; a song isn't merely sound. Meanings accumulate through language, memory, interaction, culture, and biography. Your project says, in effect: <strong>if meanings are going to surround me anyway, I want to participate deliberately in what those meanings become.</strong></p>
+
+      <p>And the Christian layer adds something stronger than merely "positive reframing."</p>
+
+      <div class="quote-box">The Word becomes flesh—and then the Word begins inhabiting Greg's world.</div>
+
+      <p>Not literally in the Johannine sense in which Christ is the Word made flesh, of course. But as an artistic/devotional metaphor, that's what ties together an enormous amount of what you've been doing.</p>
+    </section>
+
+    <section class="card">
+      <h2>Ordinary Things Become Reminders</h2>
+      <p>The <strong>Jesus Pillow</strong> isn't important because pillows are intrinsically religious. The pillow becomes an embodied reminder of something Jesus has taught you about rest.</p>
+
+      <p>The <strong>Jesus Shower</strong> becomes a recurring scene carrying remembered words, music, gratitude, cleansing, awakening.</p>
+
+      <p>The <strong>Jesus Bread</strong> becomes both food and sign: ordinary matter capable of pointing beyond itself toward life, sacrament, Christ, dependence.</p>
+
+      <p>Your <strong>mattress-as-Bible</strong> image takes the same operation further: <em>I wake upon the Word.</em></p>
+
+      <p>Your <strong>river-bed/Huck Finn</strong> variation adds movement: <em>I don't merely rest upon the Word; the Word carries me somewhere.</em></p>
+    </section>
+
+    <section class="card">
+      <h2>Redeemed Songs as Vessels</h2>
+      <p>And the 260+ redeemed songs may be the most developed version because music can carry the symbolic meaning <strong>through time</strong>. The melody becomes a reusable vessel into which you've placed words that recall Jesus, conversations with Him as you understand them, scripture, commitments, warnings, hopes, and directions. The old melody isn't destroyed. <strong>It gets another life and another purpose.</strong></p>
+
+      <p>That's why <em>resurrection</em> is such an interesting governing metaphor for your project. You're not necessarily declaring the original thing evil or worthless. You're saying something closer to:</p>
+
+      <div class="quote-box">
+        Lovely → lovelier.<br>
+        Alive → more alive.<br>
+        Meaningful → redirected toward Christ.<br>
+        Ordinary → capable of reminding me of Jesus.<br>
+        Old story → redeemed story.
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>The Core Formula</h2>
+      <p>And that connects directly to your deceptively simple formula:</p>
+
+      <div class="formula">
+        <span class="line">This X reminds me of Jesus.</span>
+        <span class="line">X = eventually everything.</span>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>A Narrative Operating System</h2>
+      <p>There is another important piece in what you just described. You're not merely attaching Christian labels to objects. You're building a <strong>narrative operating system</strong>.</p>
+
+      <p>Every person already encounters:</p>
+
+      <div class="sequence">event → interpretation → story → meaning → response.</div>
+
+      <p>Your project deliberately inserts another question into that sequence:</p>
+
+      <div class="sequence">event → "What does this mean with Jesus?" → remembered Word → story → response.</div>
+
+      <p>So an earthquake can become more than geology <em>within your personal symbolic world</em> without requiring you to claim that you know God's objective reason for causing a particular earthquake. A Tom Petty song can become more than a recording. A shower can become more than plumbing. A loaf can become more than calories.</p>
+
+      <p>They become <strong>prompts for interpretation and remembrance</strong>.</p>
+    </section>
+
+    <section class="card">
+      <h2>Who Gets to Narrate the Story?</h2>
+      <p>And this is where your "Narrate Your Life Story" observation fits beautifully. Humans don't have a choice between living inside a story and living outside stories. We interpret. We name. We categorize. We remember selectively. We connect events. We assign significance.</p>
+
+      <p>The real choice is partly <strong>which story gets interpretive authority</strong>.</p>
+
+      <p>Your answer is:</p>
+
+      <div class="quote-box">I want Jesus increasingly narrating mine.</div>
+    </section>
+
+    <section class="card">
+      <h2>A Mnemonic World</h2>
+      <p>That also helps explain why your project can appear strange from outside while being internally coherent. Someone sees "Jesus Shower," "Jesus Pillow," "Jesus Car," "Jesus Toaster," and thinks you're randomly Christianizing household objects.</p>
+
+      <p>But zoom out far enough and something quite systematic appears:</p>
+
+      <div class="quote-box">You're constructing a mnemonic world.</div>
+
+      <p>The physical world becomes a memory palace.</p>
+
+      <p>The memory palace becomes a stage.</p>
+
+      <p>The stage becomes an opera.</p>
+
+      <p>The opera becomes a rehearsal.</p>
+
+      <p>And what is being rehearsed is a particular way of <strong>seeing</strong>.</p>
+    </section>
+
+    <section class="card stage">
+      <h2>The Improvisational Opera</h2>
+      <p>That's where your AI/karaoke idea gets especially interesting. Until now you've mostly been manually constructing the symbolic associations. But AI could eventually make the environment <em>responsive</em>.</p>
+
+      <p>You approach the car.</p>
+      <p class="scene">Scene recognized: CAR.</p>
+
+      <p>The environment knows that your Jesus-Car material belongs to this scene. A backing track begins. Maybe the familiar redeemed song starts.</p>
+
+      <p>You sing.</p>
+
+      <p>Tomorrow perhaps another appropriate song appears.</p>
+
+      <p>Another morning you sense, <em>No. Silence.</em></p>
+
+      <p>And silence becomes part of the opera too.</p>
+
+      <p>You approach the shower.</p>
+      <p class="scene">Scene recognized: SHOWER.</p>
+
+      <p>Different symbolic repertoire.</p>
+
+      <p>You sit at the table.</p>
+      <p class="scene">Scene recognized: BREAD / TABLE / EATING.</p>
+
+      <p>Different repertoire.</p>
+
+      <p>You lie down.</p>
+      <p class="scene">Scene recognized: REST / DEATH / TOMB / WORD.</p>
+
+      <p>You wake.</p>
+      <p class="scene">Scene recognized: RESURRECTION / BORN AGAIN / ARISE.</p>
+
+      <p>So <strong>My Jesus-Greg WORLD becomes an improvisational opera whose stage is your actual life.</strong></p>
+    </section>
+
+    <section class="card">
+      <h2>AI Suggests. Greg Chooses.</h2>
+      <p>And "improvisational" matters enormously. Otherwise the whole thing could deteriorate into automation: car = song 17, shower = song 32, bed = song 81. Eventually you'd stop hearing any of it.</p>
+
+      <p>Instead the repertoire supplies possibilities while you retain agency and discernment:</p>
+
+      <div class="quote-box">
+        AI suggests.<br>
+        Greg chooses.<br>
+        Greg listens for the Spirit.<br>
+        The scene unfolds.
+      </div>
+
+      <p>That makes your karaoke metaphor much richer than I previously understood it. You're not trying to create background music for your life.</p>
+
+      <p>You're trying to create a world in which <strong>your surroundings continually hand you the next line—but you remain free to sing it, change it, improvise, or remain silent.</strong></p>
+    </section>
+
+    <section class="card">
+      <h2>The Word That Does Surround</h2>
+      <p>And I think your final phrase gets very close to the heart of the whole project:</p>
+
+      <div class="quote-box">the Word of God that Greg does surround.</div>
+
+      <p>I'd sharpen the underlying idea just slightly:</p>
+
+      <div class="quote-box">My Jesus-Greg WORLD is an attempt to surround myself with the Word until the world itself becomes a reminder of Jesus.</div>
+
+      <p>Or compressed all the way down:</p>
+
+      <div class="quote-box">
+        I am not putting Jesus stickers on my world.<br>
+        I am teaching my world to remind me of Jesus.
+      </div>
+    </section>
+
+    <section class="card closing-card">
+      <h2>One Project</h2>
+      <p>And <em>that</em> finally makes the 260 songs, pillow, bread, shower, mattress, river, car, earthquake, tomb, chapel, Visitor Center, Jesus TV, memory palace, and eventually AI-triggered karaoke look less like separate projects.</p>
+
+      <p>They're <strong>one project</strong>:</p>
+
+      <span class="big-line">Word → symbol → environment → remembrance → story → attention → relationship → life.</span>
+
+      <p>Or, in your resurrection vocabulary:</p>
+
+      <div class="quote-box">Take what is already here. Breathe the Word into it. Give it another life. Then let that newly alive thing remind you where Life came from.</div>
+    </section>
+
+    <div class="return-home">
+      <a href="index.html">Return to Home</a>
+    </div>
+  </main>
+</body>
+</html>
