@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Rooms: Preparing a World in Which to Notice Jesus</title>
+    <style>
+        :root {
+            --bg-deep: #082f5d;
+            --bg-mid: #0d4f8f;
+            --bg-light: #1474bd;
+            --card: #f7fbff;
+            --card-soft: #eaf4ff;
+            --ink: #17324d;
+            --muted: #5f7590;
+            --white: #ffffff;
+            --gold: #f4c95d;
+            --border: rgba(255,255,255,0.24);
+            --shadow: 0 18px 50px rgba(1, 28, 58, 0.26);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at 15% 10%, rgba(87, 172, 255, 0.24), transparent 27rem),
+                linear-gradient(180deg, var(--bg-light) 0%, var(--bg-mid) 32%, var(--bg-deep) 100%);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.78;
+        }
+
+        .page-shell {
+            width: min(100% - 28px, 1040px);
+            margin: 0 auto;
+            padding: 28px 0 64px;
+        }
+
+        .featured-image {
+            width: 100%;
+            display: block;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
+            margin-bottom: 24px;
+        }
+
+        .hero {
+            background: rgba(255, 255, 255, 0.97);
+            border-radius: 28px;
+            padding: 42px 46px;
+            margin-bottom: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.7);
+        }
+
+        h1 {
+            margin: 0 0 10px;
+            color: #0b3d6e;
+            font-size: clamp(2.35rem, 6vw, 4.5rem);
+            line-height: 1.04;
+            letter-spacing: -0.035em;
+        }
+
+        .subtitle {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.05rem;
+            line-height: 1.6;
+            color: var(--muted);
+            margin: 0 0 26px;
+            font-weight: 700;
+        }
+
+        .card {
+            background: rgba(248, 252, 255, 0.98);
+            border-radius: 24px;
+            padding: 34px 38px;
+            margin: 22px 0;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255,255,255,0.68);
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            color: #0b4c84;
+            font-size: clamp(1.65rem, 3vw, 2.35rem);
+            line-height: 1.17;
+        }
+
+        p {
+            margin: 0 0 1.05rem;
+            font-size: 1.075rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #123f6b;
+        }
+
+        em {
+            color: #2d5a7f;
+        }
+
+        .quote-box,
+        .pull-quote {
+            margin: 26px 0;
+            padding: 22px 26px;
+            border-radius: 18px;
+            background:
+                linear-gradient(135deg, rgba(255,255,255,0.98), rgba(226,242,255,0.98));
+            border-left: 6px solid var(--gold);
+            box-shadow: 0 10px 24px rgba(11, 74, 125, 0.12);
+            font-size: 1.18rem;
+            line-height: 1.6;
+        }
+
+        .quote-box p {
+            margin: 0;
+            font-size: 1.18rem;
+        }
+
+        .pull-quote {
+            text-align: center;
+            font-size: clamp(1.25rem, 2.8vw, 1.75rem);
+            font-weight: 700;
+            color: #0c477a;
+        }
+
+        .section-break {
+            width: 88px;
+            height: 5px;
+            margin: 36px auto;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, #f4c95d, transparent);
+        }
+
+        .yellow-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #fff176 35%,
+                #fff176 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .green-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #66ff4d 35%,
+                #66ff4d 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .return-home {
+            display: flex;
+            justify-content: center;
+            margin-top: 34px;
+        }
+
+        .return-home a {
+            display: inline-block;
+            padding: 14px 24px;
+            border-radius: 999px;
+            background: #ffffff;
+            color: #0b4c84;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .return-home a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 46px rgba(1, 28, 58, 0.32);
+        }
+
+        @media (max-width: 700px) {
+            .page-shell {
+                width: min(100% - 18px, 1040px);
+                padding-top: 14px;
+            }
+
+            .hero,
+            .card {
+                padding: 26px 22px;
+                border-radius: 20px;
+            }
+
+            .featured-image {
+                border-radius: 20px;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+
+        <!--
+        FEATURED IMAGE:
+        All project images must remain inside the images/ folder.
+        -->
+        <img
+            class="featured-image"
+            src="images/01-example.png"
+            alt="Watch Rooms and Zion Coalition watch party"
+        >
+
+        <section class="hero">
+            <h1>Watch Rooms: Preparing a World in Which to Notice Jesus</h1>
+
+<p class="subtitle">My Jesus-Greg WORLD as Memory Palace, Jesus TV Studio, and an Experiment in Deliberately Preparing Attention</p>
+
+<p>I have recently decided that the various scenes and locations I am constructing in <strong>My Jesus-Greg WORLD</strong> should have a collective name:</p>
+
+<div class="pull-quote"><strong>Watch Rooms.</strong></div>
+
+<p>The phrase is intentionally playful.</p>
+
+<p>Traditionally, a watch room is a place for monitoring, receiving alarms, keeping lookout, or standing guard. Fire stations have had watch rooms. Lighthouses have watch rooms. Military and security facilities have watch rooms.</p>
+
+<p>My Jesus-Greg WORLD has them too.</p>
+
+<p>But mine are designed for a somewhat different kind of watching.</p>
+
+<p>I am watching for Jesus.</p>
+
+<p>And because this is My Jesus-Greg WORLD, there is another joke hiding inside the first one:</p>
+
+<div class="pull-quote"><strong>Jesus TV.</strong></div>
+
+<p>A Watch Room is simultaneously a place from which I watch the world, a place in which I watch for Jesus, and one of the studios—or perhaps theaters—from which I receive the strange programming I have come to call Jesus TV.</p>
+
+<p>Naturally, once you have Watch Rooms and Jesus TV, something else becomes almost inevitable.</p>
+
+<p>We are preparing for a <strong>Watch Party</strong>.</p>
+
+<p>And I have apparently been doing party prep for years.</p>
+        </section>
+
+        
+        <section class="card">
+            <h2>Earth: The Ultimate Interactive Television</h2>
+
+<p>Behind this silliness is an idea I take quite seriously.</p>
+
+<p>Why are we here?</p>
+
+<p>One answer within my religious tradition is that Heavenly Father placed His children on earth because we are intelligent, eternal beings capable of learning, choosing, experiencing, changing, and becoming.</p>
+
+<p>We don't merely receive information.</p>
+
+<p>We <strong>experience things</strong>.</p>
+
+<p>Earth, from this perspective, is an astonishingly sophisticated form of interactive television.</p>
+
+<p>Except “television” doesn't begin to describe it.</p>
+
+<p>You don't watch somebody else become hungry. You become hungry.</p>
+
+<p>You don't watch a documentary about falling in love. You fall in love.</p>
+
+<p>You don't watch actors portray disappointment, pain, friendship, fear, aging, work, beauty, temptation, forgiveness, birth and death.</p>
+
+<p>You get the visceral version.</p>
+
+<p>You smell it. Taste it. Touch it. Lose it. Want it. Fear it. Remember it.</p>
+
+<p>Earth makes the holodeck look primitive.</p>
+
+<p>The experiences feel real because they <strong>are real</strong>.</p>
+
+<p>And through those experiences, intelligent beings acquire something considerably richer than information. We acquire lived knowledge.</p>
+
+<p>So perhaps one way of describing mortal life is:</p>
+
+<div class="pull-quote"><strong>God has placed us inside the program.</strong></div>
+        </section>
+        <section class="card">
+            <h2>But What Are We Watching?</h2>
+
+<p>There is an immediate complication.</p>
+
+<p>Two people can inhabit approximately the same physical environment and nevertheless experience remarkably different worlds.</p>
+
+<p>Human beings do not simply receive reality like cameras.</p>
+
+<p>We attend.</p>
+
+<p>We select.</p>
+
+<p>We interpret.</p>
+
+<p>We remember.</p>
+
+<p>We associate.</p>
+
+<p>We tell stories about what happened.</p>
+
+<p>We bring expectations to what we encounter, and those expectations influence what becomes salient.</p>
+
+<p>In other words, watching is never entirely passive.</p>
+
+<p>That observation provides the theoretical foundation for the Watch Rooms of My Jesus-Greg WORLD.</p>
+
+<p>A Watch Room is a <strong>deliberately prepared location designed to influence how I interpret what I encounter there.</strong></p>
+
+<p>Its architecture, objects, words, songs, rituals, memories, images, jokes, quotations and associations operate as interpretive cues.</p>
+
+<p>They do not necessarily change what happens.</p>
+
+<p>They change what I am prepared to <strong>notice, imagine, remember, ask about, acknowledge and talk about when something happens.</strong></p>
+
+<p>That distinction is crucial.</p>
+        </section>
+        <section class="card">
+            <h2>Architecture as Watching Apparatus</h2>
+
+<p>Consider an ordinary bed.</p>
+
+<p>It is a mattress.</p>
+
+<p>But suppose I deliberately construct associations around that mattress.</p>
+
+<p>I wake from something resembling death each morning. “Awake.” “Arise.” Born again. Womb and tomb. Resurrection.</p>
+
+<p>Then perhaps the mattress becomes associated with scripture—the Word upon which I rest.</p>
+
+<p>Then perhaps the bed becomes a raft floating upon a river—the Word carrying me somewhere I cannot entirely predict.</p>
+
+<p>Nothing physically miraculous has necessarily happened to the mattress.</p>
+
+<p>The mattress has become <strong>interpretively dense</strong>.</p>
+
+<p>It has become part of my watching apparatus.</p>
+
+<p>The same thing can happen to a doorway.</p>
+
+<p>Door.</p>
+
+<p>Veil.</p>
+
+<p>Threshold.</p>
+
+<p>Portkey.</p>
+
+<p>Christ as the door.</p>
+
+<p>Entering.</p>
+
+<p>Leaving.</p>
+
+<p>Passing from one world into another.</p>
+
+<p>Or bread.</p>
+
+<p>Bread becomes meal, body, sacrament, manna, dependence, remembrance, Christ.</p>
+
+<p>Water becomes drink, cleansing, baptism, life, sacrament, living water.</p>
+
+<p>Sleeping becomes death.</p>
+
+<p>Waking becomes resurrection.</p>
+
+<p>A chapel becomes womb and tomb.</p>
+
+<p>A table becomes altar, gathering place, Last Supper and ordinary dinner simultaneously.</p>
+
+<p>The physical object remains stubbornly ordinary.</p>
+
+<p>What changes is the <strong>density of possible Jesus associations surrounding it</strong>.</p>
+
+<p>That is what I am building.</p>
+        </section>
+        <section class="card">
+            <h2>Party Preparation</h2>
+
+<p>This is why the Watch Party metaphor works better than I initially realized.</p>
+
+<p>A conventional watch party requires preparation.</p>
+
+<p>Someone chooses what will be watched.</p>
+
+<p>Someone prepares the room.</p>
+
+<p>Someone arranges the chairs.</p>
+
+<p>Someone adjusts the lighting.</p>
+
+<p>Someone invites people.</p>
+
+<p>Someone makes the popcorn.</p>
+
+<p>My preparation is different, but structurally similar.</p>
+
+<p>I have been preparing an <strong>interpretive environment</strong>.</p>
+
+<p>I have been installing architectural features, signs, objects, songs, rituals, phrases, jokes, memories and Easter eggs that increase the probability that ordinary encounters will generate thoughts about Jesus.</p>
+
+<p>I have been preparing the place from which I watch.</p>
+
+<p>That suggests an important principle:</p>
+
+<div class="pull-quote"><strong>If what we repeatedly watch helps form what we notice, love, remember and become, then preparing the place from which we watch matters.</strong></div>
+
+<p>The Watch Rooms therefore aren't primarily collections of religious decorations.</p>
+
+<p>They are attempts at <strong>attention engineering</strong>.</p>
+
+<p>They intentionally bias my attention.</p>
+
+<p>And I use the word <em>bias</em> deliberately.</p>
+        </section>
+        <section class="card">
+            <h2>Biasing the World Toward Jesus</h2>
+
+<p>“Bias” usually sounds like something undesirable.</p>
+
+<p>But human attention is necessarily selective.</p>
+
+<p>I cannot consciously attend to everything simultaneously. Something will occupy the foreground. Something else will remain background.</p>
+
+<p>So the practical question isn't whether my attention will be selective.</p>
+
+<p>It is:</p>
+
+<div class="pull-quote"><strong>Toward what do I want it selected?</strong></div>
+
+<p>My answer is Jesus.</p>
+
+<p>I am deliberately constructing an environment that makes Jesus increasingly difficult for me to overlook.</p>
+
+<p>That puts an interesting spin on 2 Nephi 25:26:</p>
+
+<blockquote class="quote-box">
+    <p>“We talk of Christ, we rejoice in Christ, we preach of Christ, we prophesy of Christ…”</p>
+</blockquote>
+
+<p>That sounds remarkably like deliberate amplification.</p>
+
+<p>Talk about Christ.</p>
+
+<p>Rejoice in Christ.</p>
+
+<p>Preach Christ.</p>
+
+<p>Write about Christ.</p>
+
+<p>Remember Christ.</p>
+
+<p>Build reminders of Christ.</p>
+
+<p>Sing about Christ.</p>
+
+<p>Notice Christ.</p>
+
+<p>One could describe this, using my strange vocabulary, as <strong>turning up the Jesus signal in the interpretive environment</strong>.</p>
+
+<p>The signal was perhaps already there.</p>
+
+<p>The Watch Room helps the watcher notice it.</p>
+        </section>
+        <section class="card">
+            <h2>Jesus TV</h2>
+
+<p>This is where Jesus TV becomes more than a joke.</p>
+
+<p>Jesus TV is not primarily a television network transmitting religious programming into My Jesus-Greg WORLD.</p>
+
+<p>The world itself supplies the programming.</p>
+
+<p>Breakfast supplies programming.</p>
+
+<p>A shower supplies programming.</p>
+
+<p>A stranger supplies programming.</p>
+
+<p>A song supplies programming.</p>
+
+<p>A mistake supplies programming.</p>
+
+<p>A nap supplies programming.</p>
+
+<p>A storm supplies programming.</p>
+
+<p>A chicken supplies programming.</p>
+
+<p>Bread supplies programming.</p>
+
+<p>A door supplies programming.</p>
+
+<p>The Watch Room affects how the programming is received.</p>
+
+<p>In that sense, the Watch Rooms function somewhat like studios, theaters, receivers and editing rooms simultaneously.</p>
+
+<p>They help determine what appears on Jesus TV because they help determine <strong>what the watcher notices</strong>.</p>
+
+<p>And that leads directly to the simplest formula I have yet discovered for My Jesus-Greg WORLD:</p>
+
+<div class="pull-quote"><strong>This X reminds me of Jesus.</strong></div>
+
+<p>Where:</p>
+
+<div class="pull-quote"><strong>X = everything.</strong></div>
+
+<p>Not necessarily because every object secretly contains an objectively discoverable Christian message.</p>
+
+<p>Rather, almost anything can potentially become material for remembering, thinking about, questioning, talking about or moving toward Jesus.</p>
+
+<p>The world becomes raw footage.</p>
+        </section>
+        <section class="card">
+            <h2>The Inference Bridge</h2>
+
+<p>There is an additional step.</p>
+
+<p>I call it the <strong>Inference Bridge</strong>.</p>
+
+<p>If repeated watching affects attention…</p>
+
+<p>and attention affects remembering…</p>
+
+<p>and remembering affects conversation…</p>
+
+<p>and conversation affects affection…</p>
+
+<p>and affection affects identity and behavior…</p>
+
+<p>then preparing what and <strong>how</strong> we watch may participate in preparing what we become.</p>
+
+<p>This is where Jesus TV and the Watch Rooms connect with the first great commandment.</p>
+
+<p>If I want to love God with more of my heart, might it matter how frequently my heart encounters reminders of Him?</p>
+
+<p>If I want Christ occupying more of my mind, might it matter what my mind repeatedly practices associating with Christ?</p>
+
+<p>If I want to remember Him always, might I deliberately construct an environment that helps me remember?</p>
+
+<p>My Jesus-Greg WORLD is, among other things, an experiment in answering those questions.</p>
+        </section>
+        <section class="card">
+            <h2>An Important Disclaimer</h2>
+
+<p>There is, however, an important epistemological restraint built into this experiment.</p>
+
+<p>A Watch Room should not automatically declare:</p>
+
+<div class="pull-quote"><strong>“This is objectively what Jesus means by X.”</strong></div>
+
+<p>That would confuse my interpretive activity with divine revelation.</p>
+
+<p>The more defensible claim is:</p>
+
+<div class="pull-quote"><strong>“This room has been prepared to help Greg watch X with Jesus in mind.”</strong></div>
+
+<p>That leaves imagination where it belongs.</p>
+
+<p>It leaves interpretation where it belongs.</p>
+
+<p>And most importantly, it leaves Jesus free to disagree with Greg.</p>
+
+<p>The architecture biases my attention toward Jesus.</p>
+
+<p>It does not certify every inference I make about Jesus.</p>
+
+<p>That is one reason My Jesus-Greg WORLD requires its Disclaimer Room.</p>
+
+<p>This is Greg's world—with Jesus.</p>
+
+<p>It isn't yours.</p>
+
+<p>Take whatever points you toward Jesus.</p>
+
+<p>And ultimately:</p>
+
+<div class="pull-quote"><strong>#HearHim, not #HearGreg.</strong></div>
+        </section>
+        <section class="card">
+            <h2>Welcome to the Watch Party</h2>
+
+<p>So I find myself preparing a peculiar party.</p>
+
+<p>The rooms are being decorated.</p>
+
+<p>The signs are going up.</p>
+
+<p>The props are being positioned.</p>
+
+<p>The songs have been selected.</p>
+
+<p>The Easter eggs are hidden everywhere.</p>
+
+<p>The theaters are open.</p>
+
+<p>And visitors who enter My Jesus-Greg WORLD may gradually discover that they have walked into an environment in which somebody has been very deliberately preparing them to notice something.</p>
+
+<p>Or Someone.</p>
+
+<p>The Watch Rooms whisper:</p>
+
+<div class="pull-quote"><strong>Look again.</strong></div>
+
+<p>The mattress might be more than a mattress.</p>
+
+<p>The doorway might be more than a doorway.</p>
+
+<p>The bread might be more than bread.</p>
+
+<p>The water might be more than water.</p>
+
+<p>The song might be more than a song.</p>
+
+<p>Not because Greg gets to declare what everything ultimately means.</p>
+
+<p>But because everything can become an invitation to remember.</p>
+
+<p>Perhaps that is the strange little experiment taking place here.</p>
+
+<p>I am building a memory palace out of ordinary life.</p>
+
+<p>I am turning its rooms into Watch Rooms.</p>
+
+<p>I am filling those rooms with interpretive cues.</p>
+
+<p>I am using those cues to increase the probability that encounters with ordinary things will remind me of Jesus.</p>
+
+<p>And then I am watching what happens to the watcher.</p>
+
+<p>Because perhaps the deepest question behind Jesus TV has never been:</p>
+
+<div class="pull-quote"><strong>What's on?</strong></div>
+
+<p>Perhaps it is:</p>
+
+<div class="pull-quote"><strong>What is all this watching doing to me?</strong></div>
+
+<p>That makes My Jesus-Greg WORLD one enormous Watch Room—and mortal life one astonishingly immersive Watch Party already underway.</p>
+
+<p>The world is playing.</p>
+
+<p>The watcher is inside the program.</p>
+
+<p>And I've been doing party prep.</p>
+
+<div class="pull-quote"><strong>WATCH ROOM</strong></div>
+
+<p><em>A place prepared for watching the world with Jesus.</em></p>
+
+<div class="pull-quote"><strong>WATCH PARTY</strong></div>
+
+<p><em>People gathering inside a world prepared to notice Jesus.</em></p>
+
+<p>Welcome.</p>
+
+<p>The show has already started.</p>
+
+<div class="section-break" aria-hidden="true"></div>
+
+<h1>Epilogue: Watch for Zion</h1>
+
+<p>There is one more thing I am watching for.</p>
+
+<div class="pull-quote"><strong>Zion.</strong></div>
+
+<p>If the first purpose of these Watch Rooms is formative—to train my attention toward Jesus and, ultimately, to train me to love Him—there appears to me to be another purpose operating alongside it.</p>
+
+<p>The Watch Rooms train me to <strong>anticipate</strong>.</p>
+
+<p>Again and again, I have the sense that one of the interpretive questions Jesus wants me to practice asking is not merely:</p>
+
+<div class="pull-quote"><strong>“Greg, how does this remind you of Me?”</strong></div>
+
+<p>But:</p>
+
+<div class="pull-quote"><strong>“Greg, how might this foreshadow Zion?”</strong></div>
+
+<p>Guess, Greg.</p>
+
+<p>Imagine, Greg.</p>
+
+<p>Prophesy, Greg.</p>
+
+<p>Believe, Greg.</p>
+
+<div class="pull-quote"><strong>Watch, Greg.</strong></div>
+
+<p>That changes the nature of the experiment.</p>
+
+<p>A Watch Room becomes not only a device for interpreting the present but a place for imaginatively rehearsing the future.</p>
+        </section>
+        <section class="card">
+            <h2>Watching Forward</h2>
+
+<p>Normally we think of remembering as looking backward.</p>
+
+<p>Memory retrieves something that has already happened.</p>
+
+<p>But prophecy introduces a strange reversal.</p>
+
+<p>It asks us to <strong>remember forward</strong>.</p>
+
+<p>It asks us to hold an anticipated world vividly enough in the imagination that pieces of the present begin to be evaluated in relation to it.</p>
+
+<p>What might survive?</p>
+
+<p>What might be redeemed?</p>
+
+<p>What might be discarded?</p>
+
+<p>What primitive thing around me might be the ancestor of something magnificent?</p>
+
+<p>What apparently secular invention might someday become part of the infrastructure of Zion?</p>
+
+<p>What is Jesus already preparing?</p>
+
+<p>This is where My Jesus-Greg WORLD becomes more than a memory palace.</p>
+
+<p>It becomes, at least for me, a <strong>Zion imagination laboratory</strong>.</p>
+        </section>
+        <section class="card">
+            <h2>The 500-Year Question</h2>
+
+<p>Sometimes I deliberately extend the horizon.</p>
+
+<p>Five hundred years.</p>
+
+<p>Suppose Zion is not merely a somewhat kinder version of the civilization we presently inhabit.</p>
+
+<p>Suppose it develops institutions, architecture, technologies, educational practices and cultural forms appropriate to a civilization profoundly centered upon Christ.</p>
+
+<p>What would such a place do differently?</p>
+
+<p>Especially:</p>
+
+<div class="pull-quote"><strong>How would Zion train a child?</strong></div>
+
+<p>Babylon already understands something enormously important:</p>
+
+<div class="pull-quote"><strong>Environments teach.</strong></div>
+
+<p>Buildings teach.</p>
+
+<p>Screens teach.</p>
+
+<p>Bedrooms teach.</p>
+
+<p>Schools teach.</p>
+
+<p>Advertisements teach.</p>
+
+<p>Phones teach.</p>
+
+<p>Music teaches.</p>
+
+<p>Stories teach.</p>
+
+<p>Algorithms teach.</p>
+
+<p>The organization of space and time teaches.</p>
+
+<p>A civilization does not educate its children only when somebody stands in front of a classroom and announces that the lesson has begun.</p>
+
+<div class="pull-quote"><strong>The architecture itself is part of the curriculum.</strong></div>
+
+<p>So what happens when Zion understands that principle?</p>
+
+<p>What happens when a Christ-centered people intentionally construct immersive environments that help train a child in the way he or she should go?</p>
+
+<p>Perhaps the future of Christian education isn't merely better religious information.</p>
+
+<p>Perhaps it includes <strong>better environments for Christian formation</strong>.</p>
+        </section>
+        <section class="card">
+            <h2>The Training Facility</h2>
+
+<p>That possibility makes me look differently at My Jesus-Greg WORLD.</p>
+
+<p>Perhaps I am not merely decorating Greg's house with religious associations.</p>
+
+<p>Perhaps I am fumbling around with extremely primitive versions of what might someday become sophisticated <strong>training instruments, facilities and concepts</strong>.</p>
+
+<p>My Jesus Pillow is crude.</p>
+
+<p>My Jesus Mattress is crude.</p>
+
+<p>My Womb/Tomb Scene is crude.</p>
+
+<p>My Jesus Shower is crude.</p>
+
+<p>My Jesus Table is crude.</p>
+
+<p>My Watch Rooms are crude.</p>
+
+<p>Jesus TV is certainly crude.</p>
+
+<p>They are Greg-built prototypes assembled from whatever is lying around.</p>
+
+<p>But prototypes are supposed to be crude.</p>
+
+<p>The interesting question is not whether the prototype resembles the final product.</p>
+
+<p>It is whether the prototype contains a <strong>principle worth developing</strong>.</p>
+
+<p>And I increasingly wonder whether that principle is this:</p>
+
+<div class="pull-quote"><strong>The physical, symbolic and technological environment surrounding a person can be deliberately designed to increase remembrance of Christ and provide repeated opportunities to practice seeing the world through Him.</strong></div>
+
+<p>If that principle is sound, imagine what becomes possible when it is combined with technologies only now beginning to emerge.</p>
+
+<p>Artificial intelligence.</p>
+
+<p>Interactive media.</p>
+
+<p>Responsive environments.</p>
+
+<p>Immersive storytelling.</p>
+
+<p>Personalized instruction.</p>
+
+<p>Augmented physical spaces.</p>
+
+<p>Tools that can recognize what a learner is doing and respond intelligently.</p>
+
+<p>Perhaps these technologies are not merely new screens upon which Babylon can become more entertaining.</p>
+
+<p>Perhaps some of them are raw materials waiting to be inherited.</p>
+
+<p>Ploughshares still hiding inside swords.</p>
+        </section>
+        <section class="card">
+            <h2>A Child Wakes Up in Zion</h2>
+
+<p>So I sometimes try to watch five hundred years forward.</p>
+
+<p>A child wakes up in Zion.</p>
+
+<p>The child does not merely have a pillow.</p>
+
+<p>The child has some distant descendant of the <strong>Jesus Pillow</strong>.</p>
+
+<p>The child does not merely have a mattress.</p>
+
+<p>The child wakes upon some astonishingly sophisticated descendant of the <strong>Jesus Mattress</strong>.</p>
+
+<p>The bedroom itself participates in the child's education.</p>
+
+<p>Waking means something.</p>
+
+<p>Light means something.</p>
+
+<p>Doors mean something.</p>
+
+<p>Water means something.</p>
+
+<p>Clothing means something.</p>
+
+<p>Breakfast means something.</p>
+
+<p>The architecture, technology, stories, rituals and ordinary objects of the child's environment have been thoughtfully constructed so that encounters with the physical world repeatedly open pathways toward Christ.</p>
+
+<p>Not coercively.</p>
+
+<p>Not as propaganda.</p>
+
+<p>Not by eliminating agency.</p>
+
+<p>Quite the opposite.</p>
+
+<p>The environment presents invitations.</p>
+
+<p>Associations.</p>
+
+<p>Questions.</p>
+
+<p>Stories.</p>
+
+<p>Choices.</p>
+
+<p>Easter eggs.</p>
+
+<div class="pull-quote"><strong>Watch this.</strong></div>
+
+<div class="pull-quote"><strong>What does it remind you of?</strong></div>
+
+<div class="pull-quote"><strong>What might Jesus be teaching you?</strong></div>
+
+<div class="pull-quote"><strong>What do you think?</strong></div>
+
+<div class="pull-quote"><strong>Guess.</strong></div>
+
+<p>The child isn't merely being told about a Christ-centered civilization.</p>
+
+<p>The child is <strong>living inside one</strong>.</p>
+
+<p>And perhaps that is one meaning of “train up a child in the way he should go.”</p>
+
+<p>The training is not confined to the lesson.</p>
+
+<div class="pull-quote"><strong>The world participates in the training.</strong></div>
+        </section>
+        <section class="card">
+            <h2>Prototype Studio</h2>
+
+<p>That gives me another possible description of My Jesus-Greg WORLD:</p>
+
+<div class="pull-quote"><strong>Prototype Studio.</strong></div>
+
+<p>It is not Zion.</p>
+
+<p>It is certainly not a blueprint for Zion.</p>
+
+<p>And Greg's imaginative guesses about the future should not be confused with knowledge of what Jesus will actually build.</p>
+
+<p>But I can experiment.</p>
+
+<p>I can build.</p>
+
+<p>I can imagine.</p>
+
+<p>I can watch.</p>
+
+<p>I can ask what happens when a mattress becomes a theological instrument.</p>
+
+<p>I can ask what happens when a doorway becomes a teaching device.</p>
+
+<p>I can ask whether artificial intelligence can help transform ordinary surroundings into interactive invitations to remember Christ.</p>
+
+<p>I can watch what these experiments do to <strong>me</strong>.</p>
+
+<p>And then I can ask the prophetic question:</p>
+
+<div class="pull-quote"><strong>Could some principle hiding inside this ridiculous little experiment belong to something much larger?</strong></div>
+
+<p>Maybe the answer is no.</p>
+
+<p>Maybe the Jesus Pillow disappears with Greg.</p>
+
+<p>That is allowed.</p>
+
+<p>But perhaps some tiny principle survives.</p>
+
+<p>Perhaps somebody improves it.</p>
+
+<p>Then somebody else improves that.</p>
+
+<p>Rough.</p>
+
+<p>Medium rough.</p>
+
+<p>Less rough.</p>
+
+<p>Almost smooth.</p>
+
+<p>And perhaps five hundred years from now something exists that Greg would scarcely recognize—but whose genealogy contains one tiny, primitive ancestor sitting in a strange little house in twenty-first-century Utah.</p>
+
+<p>That possibility changes how I watch the present.</p>
+
+<p>I am no longer looking only for Jesus reminders.</p>
+
+<p>I am looking for <strong>Zion seeds</strong>.</p>
+
+<p>Things already growing.</p>
+
+<p>Technologies waiting to be redeemed.</p>
+
+<p>Ideas waiting to be inherited.</p>
+
+<p>Artifacts waiting to become something else.</p>
+
+<p>Principles waiting for somebody to notice them.</p>
+
+<p>Which brings me back to the Watch Room.</p>
+
+<p>A Watch Room faces in two directions.</p>
+
+<p>It helps me look at the world around me and ask:</p>
+
+<div class="pull-quote"><strong>“How does this remind me of Jesus?”</strong></div>
+
+<p>And it helps me look through the world around me toward an imagined future and ask:</p>
+
+<div class="pull-quote"><strong>“How might this foreshadow Zion?”</strong></div>
+
+<p>Remember backward.</p>
+
+<p>Watch forward.</p>
+
+<p>Learn to love Jesus now.</p>
+
+<p>Practice seeing the world that might someday emerge from that love.</p>
+
+<p>And keep watching.</p>
+
+<p>Because perhaps some of the programming on Jesus TV isn't a rerun.</p>
+
+<p>Perhaps it's a preview.</p>
+        </section>
+
+        <div class="return-home">
+            <a href="index.html">Return to Home</a>
+        </div>
+
+    </main>
+
+    <!--
+    IMAGE PATH REQUIREMENT:
+    Every image src path in this page must begin with:
+    images/
+    -->
+
+    <!--
+    OPTIONAL FUTURE IMAGE EDIT NOTE:
+    If a vintage movie-film reel/clapperboard graphic is added to a future
+    featured image, the reel/clapperboard itself should use a fully transparent
+    background and preserve the underlying picture unchanged except for that
+    added foreground graphic.
+    -->
+</body>
+</html>
