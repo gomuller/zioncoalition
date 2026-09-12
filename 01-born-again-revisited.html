@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Born Again Revisited</title>
+    <style>
+        :root {
+            --blue-deep: #0f3f73;
+            --blue-mid: #185891;
+            --blue-light: #2f74ad;
+            --card: #f8fbff;
+            --ink: #17324d;
+            --muted: #536b82;
+            --quote: #e9f4ff;
+            --border: #bfd7ec;
+            --white: #ffffff;
+            --shadow: 0 12px 28px rgba(4, 30, 58, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, rgba(255, 255, 255, 0.10), transparent 34%),
+                linear-gradient(180deg, var(--blue-mid) 0%, var(--blue-deep) 58%, #0a315d 100%);
+            color: var(--ink);
+            line-height: 1.75;
+        }
+
+        .page-shell {
+            width: min(1040px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 56px;
+        }
+
+        .hero {
+            overflow: hidden;
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+            background: rgba(255, 255, 255, 0.10);
+            margin-bottom: 26px;
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .title-card,
+        .card,
+        .quote-box,
+        .footer-card {
+            background: var(--card);
+            border: 1px solid rgba(255, 255, 255, 0.58);
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .title-card {
+            padding: 42px 44px;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 0.78rem;
+            font-weight: 700;
+            color: var(--blue-light);
+        }
+
+        h1,
+        h2 {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #153c63;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: clamp(2.5rem, 7vw, 4.8rem);
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+        }
+
+        h2 {
+            margin: 0 0 18px;
+            font-size: clamp(1.55rem, 4vw, 2.35rem);
+            line-height: 1.15;
+        }
+
+        .lede {
+            max-width: 760px;
+            margin: 18px auto 0;
+            font-size: 1.17rem;
+            color: var(--muted);
+        }
+
+        .card {
+            padding: 34px 38px;
+            margin-bottom: 22px;
+        }
+
+        p {
+            margin: 0 0 1.15em;
+            font-size: 1.08rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #143f69;
+        }
+
+        em {
+            color: #355a7b;
+        }
+
+        .quote-box {
+            margin: 28px 0;
+            padding: 26px 30px;
+            background: var(--quote);
+            border-left: 8px solid #2d75ad;
+        }
+
+        .quote-box p {
+            margin: 0 0 0.85em;
+            font-size: 1.18rem;
+            font-weight: 700;
+            color: #173e64;
+        }
+
+        .quote-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .center-line {
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            color: #1b4f7d;
+        }
+
+        .stacked-lines {
+            text-align: center;
+            margin: 18px 0 24px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            color: #174b7a;
+            line-height: 1.5;
+        }
+
+        .yellow-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #fff176 35%,
+                #fff176 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .green-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #66ff4d 35%,
+                #66ff4d 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .footer-card {
+            padding: 24px;
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .home-link {
+            display: inline-block;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 700;
+            color: #ffffff;
+            background: #1d5d94;
+            padding: 12px 20px;
+            border-radius: 999px;
+            border: 2px solid rgba(255, 255, 255, 0.48);
+        }
+
+        .home-link:hover,
+        .home-link:focus {
+            background: #174a76;
+        }
+
+        @media (max-width: 700px) {
+            .page-shell {
+                width: min(100% - 20px, 1040px);
+                padding-top: 14px;
+            }
+
+            .title-card,
+            .card {
+                padding: 26px 22px;
+            }
+
+            .quote-box {
+                padding: 22px 20px;
+            }
+
+            p {
+                font-size: 1.02rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===================== -->
+    <!-- Produce a single standalone HTML page in my Zion Coalition style for the attached essay.
+
+    Requirements:
+
+    Preserve 100% of the essay. Do not summarize, rewrite, or omit anything.
+    Use the Zion Coalition visual style: blue background, multiple rounded cards, quote boxes, generous spacing, attractive typography, and visual pacing.
+    Include a featured image at the very top of the page using the placeholder filename: 01-example.png.
+    Break the essay into logical cards/sections for readability. Do not place the entire essay in one card.
+    Highlight important quotations in quote boxes.
+    Output human-readable HTML, not minified. Every tag should be properly indented and on its own line so it can be edited easily in GitHub.
+    Make it completely standalone (no external CSS, JavaScript, fonts, or libraries).
+    Include a Return to Home link at the bottom (index.html).
+    Create both:
+    the standalone .html file
+    a .zip containing exactly that one HTML file. Do not output the HTML into the chat window. Instead, generate the downloadable files.....Treat this as a designed publication, not a document conversion. -->
+    <!-- ===================== -->
+
+    <!--
+    Add the provided vintage movie-film graphic to the existing picture.
+
+    Reproduce the film graphic as closely as possible to the reference image:
+    the same large silver metal film reel with five large dark openings,
+    small center holes, black-and-white movie clapperboard positioned behind
+    and slightly to the upper left of the reel, and a short curling strip of
+    photographic film coming out beneath it.
+
+    Preserve the proportions, arrangement, metallic appearance, highlights,
+    shadows, and overall realistic 3D look of the reference graphic.
+
+    IMPORTANT:
+    The film-reel/clapperboard graphic itself must have a completely transparent
+    background—no gold foliage, scenery, rectangular background, border, glow,
+    colored box, or backdrop from the reference image.
+
+    Only the reel, clapperboard, and curling film strip should remain.
+
+    Place this transparent film graphic naturally on the provided picture as a
+    foreground graphic element.
+
+    Do not otherwise alter the underlying picture.
+
+    Keep all existing people, bridge, landscape, signs, words, lighting,
+    composition, and other elements exactly as they currently appear.
+
+    The only change should be the addition of this film-reel/clapperboard graphic.
+    -->
+
+    <!--
+    IMAGE PATH REQUIREMENT:
+
+    All image files used by this page/project must be located in the "images/" folder.
+
+    Always reference image files using this relative path format:
+
+    images/filename.png
+
+    Example:
+
+    images/01-dangerous-beliefs.png
+
+    Do NOT use:
+    01-dangerous-beliefs.png
+    /01-dangerous-beliefs.png
+    ./01-dangerous-beliefs.png
+
+    Every image src path must begin with:
+
+    images/
+
+    Example HTML:
+
+    <img src="images/01-dangerous-beliefs.png" alt="Dangerous Beliefs">
+
+    Apply this rule to every image used anywhere in the page.
+    -->
+
+    <!--
+    YELLOW AND GREEN HIGHLIGHT CSS:
+
+    so that I can use this: <span class="yellow-highlight">(prelude)</span>
+      and this:  <span class="green-highlight">(prelude)</span>
+
+    be sure to add to the css these:
+
+    .yellow-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #fff176 35%,
+        #fff176 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .green-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #66ff4d 35%,
+        #66ff4d 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+    -->
+
+    <main class="page-shell">
+        <div class="hero">
+            <img src="images/01-example.png" alt="Featured image for Born Again Revisited">
+        </div>
+
+        <section class="title-card">
+            <p class="eyebrow">A Jesus-Greg WORLD Thought Piece</p>
+            <h1>Born Again Revisited</h1>
+            <p class="lede">
+                Jesus is teaching me to become a watcher of things that are quite nuanced.
+            </p>
+        </section>
+
+        <section class="card">
+            <p>
+                Jesus is teaching me to become a watcher of things that are quite nuanced.
+            </p>
+            <p>
+                That matters because if I am to <strong>get MORE Jesus</strong>—meaning, in this case, <strong>SEE MORE JESUS IN MY LIFE = HAVE MORE JESUS PRESENCE</strong>—then He has to instruct me about what I am seeing.
+            </p>
+            <p>
+                Sometimes that instruction expands a scripture for me. Sometimes it seems to give an old scripture new birth.
+            </p>
+            <p>
+                Lately, that scripture is the invitation—and admonition—to <strong>be born again</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Born Again—Kept at Arm’s Length?</h2>
+            <p>
+                As a Latter-day Saint, I was raised in a religious culture that did not dive especially deeply into the language of being “born again.”
+            </p>
+            <p>
+                Of course, virtually all of the restored gospel relates to the concept. Repentance. Baptism. Receiving the Holy Ghost. Becoming sanctified. Experiencing a mighty change of heart. Becoming a new creature in Christ.
+            </p>
+            <p>
+                It is all there.
+            </p>
+            <p>
+                But the phrase <strong>born again</strong> itself seems to me to have been kept somewhat at arm’s length.
+            </p>
+            <p>
+                That is at least my observation.
+            </p>
+            <p>
+                When somebody goes in for a temple recommend interview, for example, the bishop does not ask:
+            </p>
+            <div class="quote-box">
+                <p>Have you been born again? Have you been born of God?</p>
+            </div>
+            <p>
+                Instead, we are asked questions that certainly relate to that transformation without directly framing the interview around those words.
+            </p>
+            <p>
+                I can imagine another question:
+            </p>
+            <div class="quote-box">
+                <p>Do you love Jesus more than you did before?</p>
+            </div>
+            <p>
+                And because I spent much of my career as an evaluator, I can even imagine the follow-up:
+            </p>
+            <div class="quote-box">
+                <p>
+                    On a scale from 1 to 10—where 1 means “I don't love Him at all” and 10 means “I love Him with all my heart, might, mind, and strength”—where do you think you are today?
+                </p>
+            </div>
+            <p>
+                But that's my evaluator bias showing.
+            </p>
+            <p>
+                I trust that temple recommend interviews are exactly as Jesus wants them to be—for now.
+            </p>
+            <p>
+                What I also believe, or at least strongly suspect, is that Jesus is pouring down His Spirit upon individuals, if not upon the Church more broadly, inviting us to pay more attention to this concept:
+            </p>
+            <div class="quote-box">
+                <p>You must be born again.</p>
+            </div>
+            <p>
+                I am at least one person He has been doing this to.
+            </p>
+            <p>
+                And the core of this thought piece is something Jesus showed me within the last hour.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Cast a Larger Net</h2>
+            <p>
+                To understand what He was showing me about being born again, I needed to cast a larger net.
+            </p>
+            <p>
+                I understand why people put boundaries around concepts. We classify things as being <strong>in</strong> or <strong>out</strong>, as <strong>counting</strong> or <strong>not counting</strong>.
+            </p>
+            <p>
+                Boundaries preserve meaning.
+            </p>
+            <p>
+                But boundaries can also cause us to lose nuance.
+            </p>
+            <p>
+                Consider something as ordinary as <strong>exercise</strong>.
+            </p>
+            <p>
+                Suppose someone asks:
+            </p>
+            <div class="quote-box">
+                <p>Do you exercise?</p>
+            </div>
+            <p>
+                What counts?
+            </p>
+            <p>
+                Does a marathon count?
+            </p>
+            <p>
+                Obviously.
+            </p>
+            <p>
+                Does running a mile count?
+            </p>
+            <p>
+                Sure.
+            </p>
+            <p>
+                Walking around the block?
+            </p>
+            <p>
+                Probably.
+            </p>
+            <p>
+                Walking to the mailbox?
+            </p>
+            <p>
+                Standing up ten times from a chair because your physical therapist told you to?
+            </p>
+            <p>
+                Where exactly does exercise begin?
+            </p>
+            <p>
+                This matters because Jesus seems to be taking me somewhere similar with the concept of <strong>being born again</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>The Born-Again Marathon</h2>
+            <p>
+                Christian culture contains some spectacular born-again stories—the <strong>mighty-change-of-heart</strong> experiences.
+            </p>
+            <p>
+                Paul on the road to Damascus.
+            </p>
+            <p>
+                Alma the Younger.
+            </p>
+            <p>
+                People whose lives seem to divide dramatically into:
+            </p>
+            <div class="stacked-lines">
+                BEFORE<br>
+                and<br>
+                AFTER.
+            </div>
+            <p>
+                That is top-end born-again stuff.
+            </p>
+            <p>
+                That's the marathon.
+            </p>
+            <p>
+                But within Latter-day Saint teaching, there has also been an emphasis on something more incremental—and, I think, enormously useful: conversion as an ongoing process.
+            </p>
+            <p>
+                Maybe most of us should not expect to run the traditional Born-Again Marathon every Tuesday.
+            </p>
+            <p>
+                Maybe much of life consists of running the <strong>Born-Again Nano-Marathon</strong>.
+            </p>
+            <p>
+                Imagine the bishop asking:
+            </p>
+            <div class="quote-box">
+                <p>Have you run the nano-marathon lately?</p>
+            </div>
+            <p>
+                Or, translated:
+            </p>
+            <div class="quote-box">
+                <p>Have you had experiences with the Spirit that moved you even a little way toward a better place than you were before?</p>
+            </div>
+            <p>
+                Or translated once more:
+            </p>
+            <div class="quote-box">
+                <p>Have you repented?</p>
+            </div>
+            <p>
+                And that raises an interesting question.
+            </p>
+            <p>
+                <strong>Is every genuine act of repentance—every genuine change toward the good—a form of being born again?</strong>
+            </p>
+            <p>
+                Yeah.
+            </p>
+            <p>
+                Probably.
+            </p>
+            <p>
+                At least if every genuine encounter with exercise, however small, still counts as exercise.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>The Slippery Slope</h2>
+            <p>
+                This is where people begin guarding sacred language.
+            </p>
+            <p>
+                And I understand why.
+            </p>
+            <p>
+                If we make <strong>born again</strong> too broad, doesn't the phrase eventually mean almost nothing?
+            </p>
+            <p>
+                If every little improvement counts, then everybody is being born again.
+            </p>
+            <p>
+                Just as, if walking twenty feet counts as exercise, virtually everybody exercises.
+            </p>
+            <p>
+                Well...
+            </p>
+            <p>
+                That's exactly the slippery slope Jesus took me down.
+            </p>
+            <p>
+                And I don't think He intends to take me somewhere darker with it.
+            </p>
+            <p>
+                Quite the opposite.
+            </p>
+            <p>
+                What He showed me makes sense to me, and that sense-making itself feels like an indication that there is some light and truth here worth watching.
+            </p>
+            <p>
+                Here is what I think Jesus wants me to see:
+            </p>
+            <div class="quote-box">
+                <p>Everybody is in some state of being born again.</p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Look at That, Greg</h2>
+            <p>
+                I know someone who has struggled in a marriage for more than thirty years.
+            </p>
+            <p>
+                Patterns developed.
+            </p>
+            <p>
+                Yelling.
+            </p>
+            <p>
+                Arguments.
+            </p>
+            <p>
+                Contention.
+            </p>
+            <p>
+                Ways of relating to one another that probably should have changed decades ago.
+            </p>
+            <p>
+                And now something is changing.
+            </p>
+            <p>
+                They are doing difficult work that they probably should have done many years earlier. They are trying to formalize a different kind of life together—a relationship less governed by those old patterns.
+            </p>
+            <p>
+                Hopefully they are moving toward greater peace.
+            </p>
+            <p>
+                Greater kindness.
+            </p>
+            <p>
+                Greater love.
+            </p>
+            <p>
+                And Jesus seems to be saying to me:
+            </p>
+            <div class="quote-box">
+                <p>Look at that, Greg.</p>
+                <p>That is being born again.</p>
+                <p>That is the work of God.</p>
+            </div>
+            <p>
+                That caught my attention.
+            </p>
+            <p>
+                Because this is not necessarily what we would ordinarily label a “born-again experience.”
+            </p>
+            <p>
+                There may be no revival meeting.
+            </p>
+            <p>
+                No missionary lesson.
+            </p>
+            <p>
+                No baptismal font.
+            </p>
+            <p>
+                No dramatic religious testimony accompanying it.
+            </p>
+            <p>
+                From the outside, it could look like an almost entirely <strong>secular event</strong>.
+            </p>
+            <p>
+                Two people finally learning a better way to live together.
+            </p>
+            <p>
+                And yet Jesus seems to be inviting me to apply religious language to what I am seeing.
+            </p>
+            <p class="center-line">
+                Born again.
+            </p>
+            <p>
+                And almost immediately I thought:
+            </p>
+            <p>
+                <em>That makes sense.</em>
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Secular Born Again</h2>
+            <p>
+                People can be born again without surrounding the experience with a great deal of religious context.
+            </p>
+            <p>
+                They can simply choose a better way.
+            </p>
+            <p>
+                That possibility fits beautifully with another restored-gospel idea: <strong>the Light of Christ is given to everyone.</strong>
+            </p>
+            <p>
+                People can recognize something better.
+            </p>
+            <p>
+                They can move toward it.
+            </p>
+            <p>
+                They can choose <strong>less worse</strong>.
+            </p>
+            <p>
+                They can choose <strong>more better</strong>.
+            </p>
+            <p>
+                They can leave something darker and move toward something lighter without necessarily having the theological vocabulary to describe what is happening to them.
+            </p>
+            <p>
+                And perhaps Jesus is asking me to recognize what I am watching.
+            </p>
+            <p class="center-line">
+                Birth.
+            </p>
+            <p>
+                Someone was one thing.
+            </p>
+            <p>
+                Something happens.
+            </p>
+            <p>
+                They struggle.
+            </p>
+            <p>
+                They labor.
+            </p>
+            <p>
+                They choose.
+            </p>
+            <p>
+                And gradually—or sometimes suddenly—something different begins living where the old thing lived.
+            </p>
+            <p>
+                That's birth.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>The Labor of Being Born</h2>
+            <p>
+                And maybe the metaphor becomes even more interesting when we remember that birth isn't effortless.
+            </p>
+            <p>
+                There is <strong>labor</strong> involved.
+            </p>
+            <p>
+                Sometimes intense labor.
+            </p>
+            <p>
+                So perhaps I have been looking for “born again” experiences in places that are too obviously religious.
+            </p>
+            <p>
+                Maybe Jesus wants me watching the intense labor people everywhere go through trying to find a better way.
+            </p>
+            <p>
+                The addict trying again.
+            </p>
+            <p>
+                The angry person learning gentleness.
+            </p>
+            <p>
+                The frightened person choosing courage.
+            </p>
+            <p>
+                The estranged family beginning reconciliation.
+            </p>
+            <p>
+                The selfish person discovering generosity.
+            </p>
+            <p>
+                The couple replacing contention with kindness.
+            </p>
+            <p>
+                The person who has lived inside one destructive pattern for thirty years finally saying:
+            </p>
+            <div class="quote-box">
+                <p>I don't want to live this way anymore.</p>
+            </div>
+            <p>
+                Something is dying.
+            </p>
+            <p>
+                Something else is being born.
+            </p>
+            <p>
+                And I am increasingly willing to call that <strong>being born again</strong>.
+            </p>
+        </section>
+
+        <section class="card">
+            <h2>Everybody Is Getting Born Again</h2>
+            <p>
+                This doesn't erase Alma the Younger.
+            </p>
+            <p>
+                It doesn't diminish Paul.
+            </p>
+            <p>
+                It doesn't weaken the scriptural commandment to be born of God.
+            </p>
+            <p>
+                Jesus said He did not come to destroy the law but to fulfill it.
+            </p>
+            <p>
+                Maybe something similar is happening here.
+            </p>
+            <p>
+                The spectacular born-again experience remains spectacular.
+            </p>
+            <p>
+                The marathon is still a marathon.
+            </p>
+            <p>
+                But recognizing the marathon doesn't require me to pretend the nano-marathon isn't movement.
+            </p>
+            <p>
+                And that is where the idea becomes extraordinarily hopeful to me.
+            </p>
+            <p>
+                Because suddenly I can look out across the world and see something different.
+            </p>
+            <p>
+                Not merely Christians having Christian experiences.
+            </p>
+            <p>
+                Not merely Latter-day Saints having Latter-day Saint experiences.
+            </p>
+            <p>
+                Not merely formally religious people doing formally religious things.
+            </p>
+            <p>
+                I can see human beings everywhere struggling toward light.
+            </p>
+            <p>
+                And Jesus is teaching me to watch.
+            </p>
+            <p>
+                To notice.
+            </p>
+            <p>
+                To recognize His fingerprints even when nobody has put His name on what is happening.
+            </p>
+            <p>
+                Perhaps that is part of what it means for me to <strong>SEE MORE JESUS</strong>.
+            </p>
+            <p>
+                If somebody is genuinely moving from darkness toward light, from cruelty toward kindness, from contention toward peace, from bondage toward freedom, from a worse way toward a better way—
+            </p>
+            <p>
+                I don't have to ask first whether they know the correct religious vocabulary.
+            </p>
+            <p>
+                I can simply watch what is being born.
+            </p>
+            <p>
+                They may be very far from the formal Church.
+            </p>
+            <p>
+                But if they are being born again <strong>into the light</strong>—
+            </p>
+            <p>
+                perhaps they are not nearly as far from the Light as they appear.
+            </p>
+            <p>
+                And perhaps that is the good news Jesus wanted me to see today:
+            </p>
+            <div class="quote-box">
+                <p>The world is full of delivery rooms.</p>
+                <p>God is doing His work in more places than I knew how to recognize.</p>
+                <p>Everybody is getting born again.</p>
+            </div>
+        </section>
+
+        <section class="footer-card">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </section>
+    </main>
+</body>
+</html>
