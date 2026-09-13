@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inhabiting Zion — Zion Coalition</title>
+    <style>
+        :root {
+            --bg: #0b3d66;
+            --bg-deep: #082f50;
+            --card: #f8fbff;
+            --card-soft: #edf6ff;
+            --ink: #17324d;
+            --quote: #e3f1fb;
+            --accent: #b98514;
+            --shadow: 0 16px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.72;
+        }
+
+        .page {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 28px 0 60px;
+        }
+
+        .hero,
+        .title-card,
+        .card {
+            border-radius: 26px;
+            box-shadow: var(--shadow);
+        }
+
+        .hero {
+            overflow: hidden;
+            margin-bottom: 28px;
+            background: #dfeaf2;
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .title-card,
+        .card {
+            background: var(--card);
+        }
+
+        .title-card {
+            margin-bottom: 28px;
+            padding: 42px 38px;
+            text-align: center;
+        }
+
+        .title-card h1 {
+            margin: 0;
+            color: #133b61;
+            font-size: clamp(2.5rem, 6vw, 4.7rem);
+            line-height: 1.03;
+        }
+
+        .subtitle {
+            margin: 16px auto 0;
+            max-width: 800px;
+            color: #45627d;
+            font-size: clamp(1.08rem, 2.5vw, 1.45rem);
+            font-style: italic;
+        }
+
+        .card {
+            margin: 26px 0;
+            padding: 34px 38px;
+        }
+
+        .card.soft {
+            background: var(--card-soft);
+        }
+
+        .card h2 {
+            margin: 0 0 18px;
+            color: #153f66;
+            font-size: clamp(1.55rem, 3vw, 2.2rem);
+            line-height: 1.18;
+        }
+
+        p {
+            margin: 0 0 1.05em;
+            font-size: 1.08rem;
+        }
+
+        .quote {
+            margin: 24px 0;
+            padding: 24px 28px;
+            background: var(--quote);
+            border-left: 6px solid var(--accent);
+            border-radius: 16px;
+            color: #173a59;
+            font-size: 1.13rem;
+        }
+
+        .quote p:last-child,
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .sequence {
+            margin: 22px 0;
+            padding: 20px 22px;
+            text-align: center;
+            background: #143f65;
+            color: white;
+            border-radius: 16px;
+            font-weight: 700;
+            letter-spacing: 0.03em;
+        }
+
+        .mini-lines p {
+            margin: 0.18em 0;
+        }
+
+
+        .book-nav {
+            margin-top: 34px;
+            padding: 28px;
+            border-radius: 22px;
+            background: rgba(255,255,255,0.965);
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .book-nav h2 {
+            margin: 0 0 8px;
+            color: #153f66;
+            font-size: clamp(1.45rem, 4vw, 2rem);
+        }
+
+        .book-nav p {
+            margin: 0 0 20px;
+            color: #45627d;
+        }
+
+        .book-nav-links {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        .book-nav-link {
+            display: block;
+            padding: 13px 18px;
+            border-radius: 14px;
+            background: #eef6ff;
+            color: #0b3d66;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            border: 1px solid rgba(11,61,102,0.14);
+        }
+
+        .book-nav-link:hover,
+        .book-nav-link:focus {
+            background: #dcecff;
+        }
+
+        .book-nav-link.current {
+            background: #0b3d66;
+            color: #ffffff;
+            border-color: #0b3d66;
+            cursor: default;
+        }
+
+        .book-parent-link {
+            display: inline-block;
+            margin-top: 22px;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: #d4a63b;
+            color: #17324d;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+        }
+
+        .return-wrap {
+            margin-top: 34px;
+            text-align: center;
+        }
+
+        .return-home {
+            display: inline-block;
+            padding: 13px 20px;
+            background: white;
+            color: #153f66;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: var(--shadow);
+        }
+
+        .yellow-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #fff176 35%,
+                #fff176 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .green-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #66ff4d 35%,
+                #66ff4d 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        @media (max-width: 700px) {
+            .page {
+                width: min(100% - 18px, 1100px);
+                padding-top: 14px;
+            }
+
+            .title-card,
+            .card {
+                padding: 26px 22px;
+                border-radius: 20px;
+            }
+
+            .hero {
+                border-radius: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <div class="hero">
+            <img src="images/01-inhabiting-zion-no-reel.png" alt="Inhabiting Zion">
+        </div>
+
+        <section class="title-card">
+            <h1>Inhabiting Zion</h1>
+            <p class="subtitle">What Would I Do Differently Today If I Actually Believed This?</p>
+        </section>
+
+        <section class="card soft">
+            <h2>Maybe the temple has been teaching me this pattern all along.</h2>
+
+            <p>Before going any farther, I notice something.</p>
+
+            <p>As a Latter-day Saint, I already participate in a ritual that looks remarkably like the pattern I have been describing.</p>
+
+            <p>I go to the temple to <strong>receive my endowment</strong>.</p>
+
+            <p>Receive.</p>
+
+            <p>Even the language sounds like inheritance.</p>
+
+            <p>I don't go there primarily to manufacture something. I go to be <strong>given</strong> something—to receive instruction, covenant, promises, clothing, names, signs, symbols, and ultimately a symbolic inheritance associated with entering the presence of God.</p>
+
+            <p>But then something else happens.</p>
+
+            <p>For a little while, I <strong>inhabit the world the temple is showing me</strong>.</p>
+
+            <p>Maybe that's worth noticing.</p>
+
+            <p>The temple doesn't merely give me a lecture about heaven and send me home.</p>
+
+            <p>It creates a world.</p>
+
+            <p>I enter it.</p>
+
+            <p>I move through it.</p>
+
+            <div class="mini-lines">
+                <p>Creation.</p>
+                <p>A garden.</p>
+                <p>A fallen world.</p>
+                <p>A veil.</p>
+                <p>And finally, symbolically, the presence of God.</p>
+            </div>
+
+            <p>For a couple of hours, ordinary life is interrupted and I am invited to <strong>live inside the story</strong>.</p>
+
+            <p>In a sense—and I mean this reverently—the temple lets me <em>pretend heaven</em> for a little while.</p>
+
+            <p>Not <em>pretend</em> in the sense that heaven is unreal.</p>
+
+            <p>Pretend in the way a rehearsal is pretend.</p>
+
+            <p>A rehearsal is real activity oriented toward a reality not yet fully present.</p>
+
+            <div class="quote">
+                <p><strong>“Here, practice living in the world you hope eventually to inhabit.”</strong></p>
+            </div>
+
+            <p>That's fascinating to me.</p>
+
+            <p>Because perhaps the temple pattern isn't simply:</p>
+
+            <div class="sequence">ENTER → RECEIVE ENDOWMENT → LEAVE.</div>
+
+            <p>Maybe it is closer to:</p>
+
+            <div class="sequence">ENTER → RECEIVE → INHABIT → RETURN.</div>
+
+            <p>I receive something.</p>
+
+            <p>I symbolically inhabit another world.</p>
+
+            <p>Then I walk back through the temple doors into ordinary life—my town, Walmart, my house, my computer, my mattress, my music, my problems, and Tuesday afternoon.</p>
+
+            <p>And perhaps <em>that</em> is where the endowment becomes especially interesting.</p>
+
+            <div class="quote">
+                <p><strong>What do I bring home?</strong></p>
+            </div>
+
+            <p>Surely the point isn't that I can inhabit something resembling heaven for two hours only to return to an entirely unrelated world.</p>
+
+            <p>Maybe I am supposed to bring something of that world <strong>with me</strong>.</p>
+
+            <p>Maybe the temple is a kind of <strong>Zion rehearsal</strong>.</p>
+
+            <div class="mini-lines">
+                <p>I practice receiving.</p>
+                <p>I practice covenant.</p>
+                <p>I practice moving toward God.</p>
+                <p>I practice inhabiting sacred space.</p>
+            </div>
+
+            <p>And then Jesus sends me back into ordinary space.</p>
+
+            <p>Perhaps with an invitation:</p>
+
+            <div class="quote">
+                <p><strong>“Now, Greg, what would it look like to live a little more like that out here?”</strong></p>
+            </div>
+
+            <p>That suddenly connects the temple with <strong>My Jesus-Greg WORLD</strong> in a way I hadn't quite seen before.</p>
+
+            <p>Maybe my Jesus Pillow, Jesus Shower, Jesus Table, Jesus Bread, Jesus Water, Jesus Nap, Jesus TV, and all these other experiments are, in their own tiny and very different way, attempts to <strong>carry sacred inhabitation home</strong>.</p>
+
+            <p>The temple says:</p>
+
+            <div class="quote">
+                <p><strong>Here is sacred space. Enter it.</strong></p>
+            </div>
+
+            <p>And perhaps Jesus has also been teaching me:</p>
+
+            <div class="quote">
+                <p><strong>Now learn to recognize and create reminders of sacred space everywhere.</strong></p>
+            </div>
+
+            <p>Not because my bedroom becomes a temple.</p>
+
+            <p>Not because my rituals become temple ordinances.</p>
+
+            <p>They don't.</p>
+
+            <p>But perhaps the temple has been tutoring my imagination in a larger principle:</p>
+
+            <div class="quote mini-lines">
+                <p><strong>Receive something from God.</strong></p>
+                <p><strong>Enter it.</strong></p>
+                <p><strong>Experience it.</strong></p>
+                <p><strong>Practice living there.</strong></p>
+                <p><strong>Then carry what you learned back into ordinary life.</strong></p>
+            </div>
+
+            <p>Maybe I have been practicing <strong>INHABIT</strong> for decades without having that word for it.</p>
+
+            <p>And maybe Zion asks me to take the lesson seriously.</p>
+        </section>
+
+        <section class="card">
+            <h2>Maybe I have been imagining Zion mostly as a destination.</h2>
+
+            <p>Something ahead.</p>
+
+            <p>Something to build.</p>
+
+            <p>Something Jesus and I are moving toward.</p>
+
+            <p>But <em>My Inheritance</em> introduces a strange complication.</p>
+
+            <p>What if some of Zion is already here?</p>
+
+            <p>Not finished Zion.</p>
+
+            <p>Not the fulness of Zion.</p>
+
+            <p>But pieces.</p>
+
+            <p>Raw materials.</p>
+
+            <p>Treasures carried out of Egypt.</p>
+
+            <p>Manna lying on the ground.</p>
+
+            <p>Vineyards I didn't plant.</p>
+
+            <p>Wells I didn't dig.</p>
+
+            <p>Things Jesus may have been preparing through millions of people long before Greg arrived.</p>
+
+            <p>If that's true, then eventually I have to do more than <strong>believe</strong> it.</p>
+
+            <p>I have to live there.</p>
+
+            <div class="quote">
+                <p><strong>Maybe that's the next verb:</strong></p>
+                <p><strong>INHABIT.</strong></p>
+            </div>
+        </section>
+
+        <section class="card soft">
+            <h2>Greg, what would you do differently today if you actually believed this?</h2>
+
+            <p>I imagine Jesus asking me that.</p>
+
+            <p>And that's an uncomfortable question.</p>
+
+            <p>Because I can write an essay about inheritance without actually behaving like an heir.</p>
+
+            <p>I can say:</p>
+
+            <div class="quote"><p><strong>“Jesus has already prepared so much.”</strong></p></div>
+
+            <p>And then spend the rest of the day behaving as though absolutely everything depends upon Greg.</p>
+
+            <p>I can say:</p>
+
+            <div class="quote"><p><strong>“The burden is light.”</strong></p></div>
+
+            <p>And then carry it like it's crushingly heavy.</p>
+
+            <p>I can say:</p>
+
+            <div class="quote"><p><strong>“Zion is hiding in plain sight.”</strong></p></div>
+
+            <p>And spend the day looking somewhere else for it.</p>
+
+            <p>So maybe Jesus asks:</p>
+
+            <div class="quote"><p><strong>“Greg, if you really believe what I've been teaching you, what changes at 10:17 Tuesday morning?”</strong></p></div>
+
+            <p>That's where theology gets interesting.</p>
+        </section>
+
+        <section class="card">
+            <h2>Maybe Zion begins with my pillow.</h2>
+
+            <p>That sounds ridiculous.</p>
+
+            <p>Which is one reason I like it.</p>
+
+            <p>If Zion is only a civilization somewhere over the horizon, I can spend my entire life preparing for it without ever actually living in it.</p>
+
+            <p>But I already have a pillow.</p>
+
+            <p>And Jesus and I have turned an ordinary pillow into my <strong>Jesus Pillow</strong>.</p>
+
+            <p>The pillow didn't physically change.</p>
+
+            <p><strong>My relationship with it changed.</strong></p>
+
+            <p>Now it can remind me of Jesus.</p>
+
+            <p>The same thing can happen with a shower.</p>
+
+            <p><strong>Jesus Shower.</strong></p>
+
+            <p>A nap.</p>
+
+            <p><strong>Jesus Nap.</strong></p>
+
+            <p>Bread.</p>
+
+            <p>Water.</p>
+
+            <p>A lamp.</p>
+
+            <p>A table.</p>
+
+            <p>A mattress.</p>
+
+            <p>A doorway.</p>
+
+            <p>A room.</p>
+
+            <p>Maybe this is more significant than I have understood.</p>
+
+            <p>Perhaps Jesus has been teaching me how to <strong>inhabit a world differently</strong>.</p>
+
+            <p>The ordinary world doesn't necessarily disappear.</p>
+
+            <p>It gets another layer of meaning.</p>
+
+            <p>It gets pointed toward Jesus.</p>
+
+            <p>It gets born again.</p>
+
+            <div class="quote">
+                <p><strong>And suddenly Zion isn't only something I am trying to reach.</strong></p>
+                <p><strong>A little piece of it is happening in my bedroom.</strong></p>
+            </div>
+        </section>
+
+        <section class="card soft">
+            <h2>Greg, inhabit the inheritance.</h2>
+
+            <p>Suppose somebody gives me a house.</p>
+
+            <p>I can stand outside admiring it.</p>
+
+            <p>I can study the blueprints.</p>
+
+            <p>I can write essays about its architecture.</p>
+
+            <p>I can defend the proposition that the house really belongs to me.</p>
+
+            <p>I can create a website explaining the house.</p>
+
+            <p>But eventually somebody might reasonably ask:</p>
+
+            <div class="quote"><p><strong>“Greg, are you ever going to go inside?”</strong></p></div>
+
+            <p>Inheritance is incomplete until it becomes inhabited.</p>
+
+            <p>Maybe that is what Jesus is teaching me now.</p>
+
+            <p>I have been noticing the inheritance.</p>
+
+            <div class="mini-lines">
+                <p>Music.</p>
+                <p>Scripture.</p>
+                <p>Technology.</p>
+                <p>Art.</p>
+                <p>Science.</p>
+                <p>Ideas.</p>
+                <p>People.</p>
+                <p>Language.</p>
+                <p>Stories.</p>
+                <p>Tools.</p>
+                <p>Rooms.</p>
+                <p>Food.</p>
+                <p>My body.</p>
+                <p>The earth.</p>
+                <p>Grace.</p>
+            </div>
+
+            <p>Okay.</p>
+
+            <p>Now:</p>
+
+            <div class="quote mini-lines">
+                <p><strong>Use them.</strong></p>
+                <p><strong>Enjoy them.</strong></p>
+                <p><strong>Consecrate them.</strong></p>
+                <p><strong>Share them.</strong></p>
+                <p><strong>Live among them with Me.</strong></p>
+            </div>
+
+            <p>Maybe receiving the inheritance was never supposed to end with:</p>
+
+            <div class="quote"><p><strong>“Look what Jesus gave me.”</strong></p></div>
+
+            <p>Maybe it continues:</p>
+
+            <div class="quote"><p><strong>“Jesus, show me how to live here.”</strong></p></div>
+        </section>
+
+        <section class="card">
+            <h2>Inhabit the music.</h2>
+
+            <p>Take classic rock.</p>
+
+            <p>For years Jesus and I have been redeeming songs.</p>
+
+            <p>That's more than an argument that secular culture can contain treasure.</p>
+
+            <p>I actually <strong>live with the treasure</strong>.</p>
+
+            <p>The song enters My Jesus-Greg WORLD.</p>
+
+            <p>It becomes part of Jesus Radio.</p>
+
+            <p>It can become part of Jesus TV.</p>
+
+            <p>It becomes part of my spiritual vocabulary.</p>
+
+            <p>The melody that once reminded me of one thing can now remind me of Jesus.</p>
+
+            <p>That is inhabiting.</p>
+
+            <p>I don't merely carry the treasure out of Egypt.</p>
+
+            <div class="quote"><p><strong>I unpack it.</strong></p></div>
+
+            <p>I put it in the house.</p>
+
+            <p>I use it.</p>
+
+            <p>Maybe that's an important distinction.</p>
+
+            <div class="quote mini-lines">
+                <p>Exodus says:</p>
+                <p><strong>Carry the treasure out.</strong></p>
+                <p>Inheritance says:</p>
+                <p><strong>Receive the treasure.</strong></p>
+                <p>Inhabiting says:</p>
+                <p><strong>Now find out what the treasure is for.</strong></p>
+            </div>
+        </section>
+
+        <section class="card soft">
+            <h2>Inhabit the technology.</h2>
+
+            <p>Consider how much technology I use that Greg did not create.</p>
+
+            <div class="mini-lines">
+                <p>Computer.</p>
+                <p>Phone.</p>
+                <p>Internet.</p>
+                <p>HTML.</p>
+                <p>GitHub.</p>
+                <p>AI.</p>
+                <p>Video.</p>
+                <p>Audio.</p>
+                <p>Digital images.</p>
+            </div>
+
+            <p>None of that originated with me.</p>
+
+            <p>Inheritance.</p>
+
+            <p>But what happens next?</p>
+
+            <p>I can complain about what technology has become.</p>
+
+            <p>I can call it Babylon.</p>
+
+            <p>I can run away from it.</p>
+
+            <p>Or I can ask:</p>
+
+            <div class="quote"><p><strong>“Jesus, what can this become?”</strong></p></div>
+
+            <p>A computer can help build Zion Coalition.</p>
+
+            <p>A website can become a field guide.</p>
+
+            <p>AI can become a thinking partner.</p>
+
+            <p>A camera can become Jesus TV.</p>
+
+            <p>Audio technology can turn a thought piece into something I can hear while resting.</p>
+
+            <p>A phone can deliver scripture, music, conversation, and reminders of Jesus.</p>
+
+            <p>The technology doesn't automatically become Zion simply because I use it.</p>
+
+            <p>Discernment remains necessary.</p>
+
+            <p>But perhaps inhabiting Zion means refusing to surrender every useful tool to Babylon.</p>
+
+            <div class="quote"><p><strong>Receive it. Discern it. Redeem it. Then live with it differently.</strong></p></div>
+        </section>
+
+        <section class="card">
+            <h2>Inhabit my Church.</h2>
+
+            <p>This may be another real-world test.</p>
+
+            <p>If Exodus means leaving an old worldview, that does not necessarily mean I must despise the world that formed me.</p>
+
+            <p>My LDS inheritance is enormous.</p>
+
+            <div class="mini-lines">
+                <p>Scripture.</p>
+                <p>Hymns.</p>
+                <p>Sacrament.</p>
+                <p>Temple.</p>
+                <p>Covenant.</p>
+                <p>Service.</p>
+                <p>Community.</p>
+                <p>Language.</p>
+                <p>Stories.</p>
+                <p>Practices.</p>
+                <p>Questions.</p>
+                <p>Even tensions that forced me to seek Jesus more deeply.</p>
+            </div>
+
+            <p>Some things I may understand differently now.</p>
+
+            <p>Some things I may question.</p>
+
+            <p>Some things I may eventually leave behind.</p>
+
+            <p>Some things I may treasure more than ever.</p>
+
+            <p>But inhabiting means I don't have to reduce my choices to:</p>
+
+            <div class="sequence">ACCEPT EVERYTHING</div>
+
+            <p style="text-align: center;"><strong>or</strong></p>
+
+            <div class="sequence">REJECT EVERYTHING.</div>
+
+            <p>I can bring the treasure with me.</p>
+
+            <p>I can continue asking:</p>
+
+            <div class="quote mini-lines">
+                <p><strong>Does this point me toward Jesus?</strong></p>
+                <p><strong>What is good here?</strong></p>
+                <p><strong>What needs examining?</strong></p>
+                <p><strong>What has Jesus already given me through these people?</strong></p>
+                <p><strong>What should I carry forward?</strong></p>
+            </div>
+
+            <p>Maybe that's another way of refusing to leave Egypt empty-handed.</p>
+        </section>
+
+        <section class="card soft">
+            <h2>Inhabit other people's gifts.</h2>
+
+            <p>This one could radically change how I see people.</p>
+
+            <p>Suppose Jesus really has been wrought upon people far beyond the boundaries where I previously expected Him to work.</p>
+
+            <p>Then the question when I encounter somebody becomes less:</p>
+
+            <div class="quote"><p><strong>“Are they one of us?”</strong></p></div>
+
+            <p>And more:</p>
+
+            <div class="quote"><p><strong>“Jesus, what might You have placed in them?”</strong></p></div>
+
+            <p>The scientist may know something I need.</p>
+
+            <p>The carpenter may have already solved my problem.</p>
+
+            <p>The programmer may have built my tool.</p>
+
+            <p>The musician may have written my melody.</p>
+
+            <p>The neighbor may see something I don't.</p>
+
+            <p>The unbeliever may possess a gift I desperately need.</p>
+
+            <p>The believer may need something I possess.</p>
+
+            <p>Suddenly Zion starts looking less like Greg assembling everything himself and more like a gigantic exchange of gifts.</p>
+
+            <div class="quote mini-lines">
+                <p><strong>You have something I need.</strong></p>
+                <p><strong>I have something you need.</strong></p>
+                <p><strong>Neither of us has everything.</strong></p>
+            </div>
+
+            <p>Maybe that's why Zion requires people.</p>
+        </section>
+
+        <section class="card">
+            <h2>Inhabit enoughness.</h2>
+
+            <p>This may be harder for me.</p>
+
+            <p>There is always another thing I could make.</p>
+
+            <div class="mini-lines">
+                <p>Another essay.</p>
+                <p>Another webpage.</p>
+                <p>Another image.</p>
+                <p>Another redeemed song.</p>
+                <p>Another idea.</p>
+                <p>Another improvement.</p>
+                <p>Another room.</p>
+                <p>Another plank on the bridge.</p>
+            </div>
+
+            <p>And creativity is wonderful.</p>
+
+            <p>But if I actually believe in inheritance, then perhaps occasionally I have to look at what already exists and say:</p>
+
+            <div class="quote"><p><strong>Enough.</strong></p></div>
+
+            <p>Not:</p>
+
+            <div class="quote"><p><strong>“Everything is finished.”</strong></p></div>
+
+            <p>But:</p>
+
+            <div class="quote"><p><strong>“Enough for today.”</strong></p></div>
+
+            <p>That could be a profoundly Zion-like sentence.</p>
+
+            <p>Because it means I trust that Jesus is still working when Greg stops working.</p>
+
+            <p>Somebody else is carrying something.</p>
+
+            <p>Something has already been prepared.</p>
+
+            <p>Tomorrow has manna too.</p>
+
+            <div class="quote"><p><strong>I don't have to gather tomorrow's portion tonight.</strong></p></div>
+        </section>
+
+        <section class="card soft">
+            <h2>Inhabit rest.</h2>
+
+            <p>Now the inheritance idea gets very practical.</p>
+
+            <p>Take the nap.</p>
+
+            <p>Really take it.</p>
+
+            <p>Not:</p>
+
+            <div class="quote"><p><strong>“I am technically lying down while mentally supervising the construction of Zion.”</strong></p></div>
+
+            <p>Rest.</p>
+
+            <p>Maybe my Jesus Nap is not time stolen from Zion.</p>
+
+            <p>Maybe it is part of Zion.</p>
+
+            <p>If I believe Jesus has gone ahead of me, then rest becomes an act of trust.</p>
+
+            <p>The world continues while Greg sleeps.</p>
+
+            <div class="mini-lines">
+                <p>Artists keep creating.</p>
+                <p>Programmers keep programming.</p>
+                <p>Parents keep raising children.</p>
+                <p>Scientists keep discovering.</p>
+                <p>Trees keep growing.</p>
+                <p>The earth keeps turning.</p>
+            </div>
+
+            <p>Jesus does not need Greg awake twenty-four hours a day.</p>
+
+            <p>That's almost embarrassingly obvious.</p>
+
+            <p>But perhaps I don't always live as though I believe it.</p>
+
+            <div class="quote"><p><strong>Inhabiting inheritance may require inhabiting rest.</strong></p></div>
+        </section>
+
+        <section class="card">
+            <h2>Inhabit relationships.</h2>
+
+            <p>Zion cannot just be Greg and Jesus having interesting ideas.</p>
+
+            <p>Eventually another human being walks into the room.</p>
+
+            <p>What happens then?</p>
+
+            <p>Maybe inhabiting Zion means I listen a little longer.</p>
+
+            <p>Judge a little slower.</p>
+
+            <p>Give someone more room to be different.</p>
+
+            <p>Ask what gift they are carrying.</p>
+
+            <p>Let them help.</p>
+
+            <p>Receive something without needing to improve it.</p>
+
+            <p>Offer something without needing them to accept it.</p>
+
+            <p>Forgive.</p>
+
+            <p>Apologize.</p>
+
+            <p>Laugh.</p>
+
+            <p>Eat together.</p>
+
+            <p>Sit together.</p>
+
+            <p>Do nothing productive together.</p>
+
+            <p>Maybe some of the most important Zion-building moments don't look remotely like Zion-building.</p>
+
+            <p>Maybe they look like:</p>
+
+            <div class="quote"><p><strong>“Come sit down.”</strong></p></div>
+        </section>
+
+        <section class="card soft">
+            <h2>Inhabit my daily work.</h2>
+
+            <p>Maybe I need a different question at the end of the day.</p>
+
+            <p>Instead of:</p>
+
+            <div class="quote"><p><strong>“Greg, how much did you accomplish?”</strong></p></div>
+
+            <p>perhaps:</p>
+
+            <div class="quote"><p><strong>“Greg, what did you receive?”</strong></p></div>
+
+            <div class="mini-lines">
+                <p>What did I notice?</p>
+                <p>What did someone give me?</p>
+                <p>What was already here?</p>
+                <p>What did Jesus invite me to do?</p>
+                <p>What did I discern?</p>
+                <p>What did I redeem?</p>
+                <p>What did I enjoy?</p>
+                <p>What did I give away?</p>
+            </div>
+
+            <p>And perhaps occasionally:</p>
+
+            <div class="quote"><p><strong>What did I wisely leave undone?</strong></p></div>
+
+            <p>That changes the scoreboard.</p>
+
+            <p>A successful day might produce a new webpage.</p>
+
+            <p>Or a redeemed song.</p>
+
+            <p>Or a repaired gutter.</p>
+
+            <p>Or a conversation.</p>
+
+            <p>Or a nap.</p>
+
+            <p>Or one sentence.</p>
+
+            <p>Or nothing I can presently identify.</p>
+
+            <p>Maybe I don't always know what scene I'm in while I'm living it.</p>
+        </section>
+
+        <section class="card">
+            <h2>Inhabit the ordinary.</h2>
+
+            <p>This may be the part I love most.</p>
+
+            <p>I keep looking for Jesus in extraordinary things.</p>
+
+            <div class="mini-lines">
+                <p>Revelation.</p>
+                <p>Paradigm shifts.</p>
+                <p>Zion.</p>
+                <p>Prophecy.</p>
+                <p>Miracles.</p>
+                <p>Big ideas.</p>
+            </div>
+
+            <p>And meanwhile:</p>
+
+            <div class="mini-lines">
+                <p>Water.</p>
+                <p>Toast.</p>
+                <p>A mattress.</p>
+                <p>A song.</p>
+                <p>A shower.</p>
+                <p>A friend.</p>
+                <p>A computer.</p>
+                <p>A tree.</p>
+                <p>A room.</p>
+                <p>Tuesday morning.</p>
+            </div>
+
+            <p>Maybe Jesus keeps saying:</p>
+
+            <div class="quote"><p><strong>“Greg, I'm already here.”</strong></p></div>
+
+            <p>Perhaps inhabiting Zion is partly learning to stop requiring the world to become spectacular before I recognize it as holy.</p>
+
+            <p>The spectacular may come.</p>
+
+            <p>Great.</p>
+
+            <p>But perhaps Zion also has dishes.</p>
+
+            <p>And laundry.</p>
+
+            <p>And broken things.</p>
+
+            <p>And tired people.</p>
+
+            <p>And lunch.</p>
+
+            <p>If Jesus is there too, maybe I can live there too.</p>
+        </section>
+
+        <section class="card soft">
+            <h2>Inhabit discernment.</h2>
+
+            <p>None of this means everything becomes Zion because Greg puts the word <strong>Jesus</strong> in front of it.</p>
+
+            <p>That would be easy.</p>
+
+            <div class="mini-lines">
+                <p>Jesus Pillow.</p>
+                <p>Jesus Computer.</p>
+                <p>Jesus Song.</p>
+                <p>Jesus Whatever.</p>
+                <p>Done.</p>
+            </div>
+
+            <p>No.</p>
+
+            <p>The Inference Bridge still matters.</p>
+
+            <p><strong>Inspect the plank.</strong></p>
+
+            <p>My Exodus still matters.</p>
+
+            <p><strong>Some things stay in Egypt.</strong></p>
+
+            <p>My Inheritance still matters.</p>
+
+            <p><strong>Not everything I encounter belongs to me or is good for me.</strong></p>
+
+            <p>So inhabiting Zion isn't decorating ordinary life with religious labels.</p>
+
+            <p>It is continually asking:</p>
+
+            <div class="quote mini-lines">
+                <p><strong>Jesus, what is this?</strong></p>
+                <p><strong>What does it become when I bring it toward You?</strong></p>
+                <p><strong>Does it increase love?</strong></p>
+                <p><strong>Does it increase truth?</strong></p>
+                <p><strong>Does it increase freedom?</strong></p>
+                <p><strong>Does it help me serve?</strong></p>
+                <p><strong>Does it help me rest when I should rest?</strong></p>
+                <p><strong>Does it bring me closer to You?</strong></p>
+            </div>
+
+            <p>Maybe Zion is not merely a place.</p>
+
+            <p>Maybe it is also a way of relating to everything.</p>
+        </section>
+
+        <section class="card">
+            <h2>And then: give it away.</h2>
+
+            <p>Inheritance could become selfish very quickly.</p>
+
+            <p><strong>Look what I inherited.</strong></p>
+
+            <div class="mini-lines">
+                <p>My songs.</p>
+                <p>My ideas.</p>
+                <p>My world.</p>
+                <p>My Zion.</p>
+            </div>
+
+            <p>But inheritance contains another movement.</p>
+
+            <p>What I receive today may become somebody else's inheritance tomorrow.</p>
+
+            <p>Someone taught me to read.</p>
+
+            <p>Someone wrote the scripture.</p>
+
+            <p>Someone wrote the song.</p>
+
+            <p>Someone invented the computer.</p>
+
+            <p>Someone built the road.</p>
+
+            <p>Someone planted the tree.</p>
+
+            <p>Someone loved Greg.</p>
+
+            <p>Now Greg gets a turn.</p>
+
+            <p>Maybe I write something.</p>
+
+            <p>Maybe I redeem a song.</p>
+
+            <p>Maybe I build a webpage.</p>
+
+            <p>Maybe I encourage somebody.</p>
+
+            <p>Maybe I fix something.</p>
+
+            <p>Maybe I simply tell another person:</p>
+
+            <div class="quote"><p><strong>“You can use this.”</strong></p></div>
+
+            <p>And then I release it.</p>
+
+            <p>I don't have to control what happens next.</p>
+
+            <p>Maybe somebody coming after me will receive something Jesus and Greg worked on and do something with it that I cannot presently imagine.</p>
+
+            <p>Good.</p>
+
+            <p>That's inheritance too.</p>
+        </section>
+
+        <section class="card soft">
+            <h2>Maybe Zion is a verb before it is a noun.</h2>
+
+            <p>Or perhaps several verbs.</p>
+
+            <div class="quote mini-lines">
+                <p><strong>Believe.</strong></p>
+                <p>Something larger may be possible.</p>
+                <p><strong>Leave.</strong></p>
+                <p>I don't have to remain inside every old boundary.</p>
+                <p><strong>Follow.</strong></p>
+                <p>I don't need the complete itinerary.</p>
+                <p><strong>Receive.</strong></p>
+                <p>Much has already been prepared.</p>
+                <p><strong>Inhabit.</strong></p>
+                <p>Live today as though those things are actually true.</p>
+            </div>
+
+            <p>And perhaps inhabiting eventually produces another verb:</p>
+
+            <div class="quote"><p><strong>Give.</strong></p></div>
+
+            <p>Receive the inheritance.</p>
+
+            <p>Live inside it.</p>
+
+            <p>Add whatever small contribution Jesus asks of me.</p>
+
+            <p>Then leave the door open for somebody else.</p>
+        </section>
+
+        <section class="card">
+            <p>So maybe I don't need to ask every morning:</p>
+
+            <div class="quote"><p><strong>“Jesus, how do I build Zion today?”</strong></p></div>
+
+            <p>Maybe sometimes a better question is:</p>
+
+            <div class="quote"><p><strong>“Jesus, where is Zion already appearing today—and how would You have me live there?”</strong></p></div>
+
+            <p>Maybe the answer is enormous.</p>
+
+            <p>Maybe the answer is tiny.</p>
+
+            <div class="mini-lines">
+                <p>Maybe it is Zion Coalition.</p>
+                <p>Maybe it is a redeemed song.</p>
+                <p>Maybe it is another human being.</p>
+                <p>Maybe it is bread.</p>
+                <p>Maybe it is water.</p>
+                <p>Maybe it is my mattress.</p>
+                <p>Maybe it is rest.</p>
+                <p>Maybe it is the next thing immediately in front of me.</p>
+            </div>
+
+            <p>And perhaps that is how the Promised Land gradually stops being a place on my map.</p>
+
+            <div class="quote"><p><strong>It becomes somewhere I know how to live.</strong></p></div>
+
+            <p><strong>Believe.</strong></p>
+
+            <p><strong>Leave.</strong></p>
+
+            <p><strong>Follow.</strong></p>
+
+            <p><strong>Receive.</strong></p>
+
+            <p><strong>Inhabit.</strong></p>
+
+            <p><strong>Give.</strong></p>
+
+            <p>Maybe Zion isn't only ahead of me.</p>
+
+            <p>Maybe Jesus is teaching me how to live in little pieces of it <strong>now</strong>.</p>
+        </section>
+
+
+        <section class="book-nav" aria-label="Book of Zion Coalition navigation">
+            <h2>The Book of Zion Coalition</h2>
+            <p>Five major movements</p>
+
+            <nav class="book-nav-links">
+                <a class="book-nav-link" href="01-the-inference-bridge.html">The Inference Bridge</a>
+                <a class="book-nav-link" href="01-many-exoduses.html">My Jesus-Greg WORLD</a>
+                <a class="book-nav-link" href="01-my-exodus.html">My Exodus</a>
+                <a class="book-nav-link" href="01-my-inheritance.html">My Inheritance</a>
+                <span class="book-nav-link current" aria-current="page">Inhabiting Zion</span>
+            </nav>
+
+            <a class="book-parent-link" href="01-book-of-zion-coalition.html">← Back to The Book of Zion Coalition</a>
+        </section>
+
+        <div class="return-wrap">
+            <a class="return-home" href="index.html">← Return to Home</a>
+        </div>
+    </main>
+</body>
+</html>
