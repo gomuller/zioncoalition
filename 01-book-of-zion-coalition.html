@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Book of Zion Coalition</title>
+    <style>
+        :root {
+            --bg: #0b3a67;
+            --bg-deep: #072a4d;
+            --card: #f7fbff;
+            --card-soft: #eaf4ff;
+            --ink: #17324d;
+            --muted: #526d86;
+            --accent: #f2c14e;
+            --accent-2: #8fd3ff;
+            --quote: #dceeff;
+            --white: #ffffff;
+            --shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background:
+                radial-gradient(circle at top right, rgba(143, 211, 255, 0.16), transparent 30%),
+                linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+            color: var(--ink);
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.72;
+        }
+
+        .page-shell {
+            width: min(1120px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 36px 0 64px;
+        }
+
+        .hero {
+            overflow: hidden;
+            border-radius: 28px;
+            background: #082d53;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .title-card,
+        .card,
+        .quote-box,
+        .movement-box,
+        .footer-card {
+            border-radius: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .chapter-nav {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
+            width: min(760px, 100%);
+            margin: 34px auto;
+        }
+
+        .chapter-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 88px;
+            padding: 20px 24px;
+            border-radius: 20px;
+            background: linear-gradient(145deg, #ffffff 0%, #eaf5ff 100%);
+            color: #12385a;
+            text-align: center;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+            line-height: 1.25;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: transform 0.18s ease, background 0.18s ease;
+        }
+
+        .chapter-link:hover,
+        .chapter-link:focus {
+            transform: translateY(-3px);
+            background: #ffffff;
+        }
+
+        .chapter-link span {
+            display: block;
+        }
+
+        .chapter-number {
+            margin-bottom: 7px;
+            color: #2b6a9d;
+            font-size: 0.74rem;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+        }
+
+        .title-card {
+            background: linear-gradient(145deg, #ffffff 0%, #eaf5ff 100%);
+            padding: 54px clamp(26px, 6vw, 72px);
+            margin-bottom: 28px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.65);
+        }
+
+        .eyebrow {
+            margin: 0 0 14px;
+            color: #2b6a9d;
+            font-size: 0.86rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+        }
+
+        h1,
+        h2 {
+            margin-top: 0;
+            color: #12385a;
+            line-height: 1.15;
+        }
+
+        h1 {
+            margin-bottom: 14px;
+            font-size: clamp(2.3rem, 6vw, 5rem);
+            letter-spacing: 0.02em;
+        }
+
+        h2 {
+            margin-bottom: 18px;
+            font-size: clamp(1.75rem, 3vw, 2.7rem);
+        }
+
+        .subtitle {
+            margin: 0;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2vw, 1.35rem);
+            font-style: italic;
+        }
+
+        .card {
+            background: var(--card);
+            padding: clamp(28px, 5vw, 54px);
+            margin: 28px 0;
+            border: 1px solid rgba(255, 255, 255, 0.7);
+        }
+
+        .card.soft {
+            background: var(--card-soft);
+        }
+
+        p {
+            margin: 0 0 1.2em;
+            font-size: 1.08rem;
+        }
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        strong {
+            color: #123f67;
+        }
+
+        .quote-box {
+            margin: 30px 0;
+            padding: 30px clamp(24px, 5vw, 46px);
+            background: linear-gradient(135deg, #dceeff 0%, #f5fbff 100%);
+            border-left: 7px solid #4ea4d8;
+            color: #173f61;
+            font-size: clamp(1.16rem, 2.2vw, 1.45rem);
+            font-weight: 700;
+        }
+
+        .movement-box {
+            margin: 32px 0;
+            padding: 34px 22px;
+            background: #102f4e;
+            color: var(--white);
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: clamp(1.35rem, 3vw, 2.3rem);
+            font-weight: 800;
+            letter-spacing: 0.05em;
+        }
+
+        .yellow-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #fff176 35%,
+                #fff176 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .green-highlight {
+            background: linear-gradient(
+                transparent 35%,
+                #66ff4d 35%,
+                #66ff4d 88%,
+                transparent 88%
+            );
+            padding: 0 4px;
+            font-weight: 700;
+            color: #1e3a5f;
+        }
+
+        .footer-card {
+            margin-top: 34px;
+            padding: 26px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .home-link {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: #17324d;
+            text-decoration: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: 800;
+        }
+
+        .home-link:hover,
+        .home-link:focus {
+            background: #ffd873;
+        }
+
+        @media (max-width: 640px) {
+            .page-shell {
+                width: min(100% - 20px, 1120px);
+                padding-top: 18px;
+            }
+
+            .hero,
+            .title-card,
+            .card,
+            .quote-box,
+            .movement-box,
+            .footer-card {
+                border-radius: 18px;
+            }
+
+
+
+            .title-card {
+                padding: 36px 22px;
+            }
+
+            .card {
+                padding: 26px 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <div class="hero">
+            <img src="images/01-example.png" alt="The Book of Zion Coalition">
+        </div>
+
+        <section class="title-card">
+            <p class="eyebrow">A Book within the Jesus-Greg Version (JGV)</p>
+            <h1>THE BOOK OF ZION COALITION</h1>
+        </section>
+
+        <section class="card">
+            <p>Imagine opening a Bible and discovering a book you have never seen before.</p>
+
+            <div class="quote-box">Zion Coalition.</div>
+
+            <p>But this is not quite a Bible book in the conventional sense.</p>
+
+            <p>It is an <strong>interactive, multimedia, open-canon Bible book</strong>—part scripture, part field guide, part rehearsal book, part journal, part website, part performance art.</p>
+
+            <p>It contains words, images, music, hyperlinks, rooms, objects, experiments, revised songs, lived experiences, and things I don't yet know how to categorize.</p>
+
+            <div class="quote-box">And it is <strong>not finished</strong>.</div>
+
+            <p>That matters.</p>
+        </section>
+
+        <section class="card soft">
+            <p>Most of the Bible reaches us after centuries of transmission. The pages feel settled. The ink is dry. We encounter the finished artifact and rarely get to watch revelation, interpretation, mistakes, revisions, arguments, experiments, and lived experience accumulating in real time.</p>
+
+            <div class="quote-box"><strong>Zion Coalition is deliberately being encountered while the ink is still wet.</strong></div>
+
+            <p>Pages can change. Ideas can mature. Chapters can move. Conclusions can be reconsidered. New material can appear tomorrow.</p>
+
+            <p>This is not presented as a replacement for anyone else's Bible, nor as something anyone else is required to accept as scripture.</p>
+
+            <p>It is <strong>my Bible</strong>—the Jesus-Greg Version—and this particular book records an experiment:</p>
+
+            <div class="quote-box">What happens if I keep trying to follow Jesus toward Zion and document what happens along the way?</div>
+        </section>
+
+        <section class="card">
+            <p>That makes this book more than something to read.</p>
+
+            <p>It is something I am attempting to <strong>live</strong>.</p>
+
+            <p>A guidebook tells me where I might go.</p>
+
+            <p>A rehearsal book helps me practice what I am going to do.</p>
+
+            <p>An open canon allows me to record what I am learning.</p>
+
+            <p>And performance art makes the ideas physical: I walk through them, build them, sing them, revise them, inhabit them, and sometimes discover their meaning only after I have already begun doing them.</p>
+
+            <p>So don't approach the pages that follow as a finished theological system.</p>
+
+            <div class="quote-box">You are entering the workshop.</div>
+
+            <p>You are watching the Bible being written while the person writing it is also trying to <strong>live inside it</strong>.</p>
+        </section>
+
+        <section class="title-card">
+            <p class="eyebrow">Introduction</p>
+            <h2>What Am I Looking At Here?</h2>
+        </section>
+
+        <section class="card">
+            <p>These pages document an unfolding personal thought experiment about <strong>following Jesus into a larger understanding of Zion</strong>.</p>
+
+            <p>The starting idea is the <strong>Inference Bridge</strong>: rather than suddenly abandoning old beliefs, I am asking whether ideas I already believe might logically lead somewhere larger. Each “plank” can be examined, questioned, tested, accepted, revised, or rejected.</p>
+        </section>
+
+        <section class="card soft">
+            <p>That journey begins to resemble <strong>Exodus</strong>. Sometimes following Jesus means leaving a familiar way of seeing the world—not necessarily because it was bad, but because it may have prepared me for the next stage.</p>
+
+            <p>And this happens at many scales: an entire lifetime can be an Exodus, but so can moving from one room, activity, understanding, or moment to another.</p>
+        </section>
+
+        <section class="card">
+            <p>Then comes a surprising shift: perhaps Zion is not primarily something I must <strong>build from scratch</strong>. Much of what I need may already have been prepared through countless other people—music, technology, scripture, ideas, relationships, tools, and ordinary things.</p>
+
+            <p>My task may partly be to <strong>receive an inheritance</strong>.</p>
+        </section>
+
+        <section class="card soft">
+            <p>Finally, receiving isn't enough.</p>
+
+            <p>I have to <strong>inhabit</strong> what I receive—actually live differently because of it.</p>
+
+            <p>And eventually, what I receive and inhabit becomes something I can <strong>give</strong>.</p>
+
+            <p>So the movement is roughly:</p>
+
+            <div class="movement-box">BELIEVE → LEAVE → FOLLOW → RECEIVE → INHABIT → GIVE</div>
+
+            <p>That developing journey is what you are looking at.</p>
+
+            <p>The chapters that follow are not merely essays explaining that movement.</p>
+
+            <div class="quote-box"><strong>They are artifacts produced while moving through it.</strong></div>
+        </section>
+
+
+        <section class="title-card">
+            <p class="eyebrow">Continue through The Book of Zion Coalition</p>
+            <h2>Five Movements</h2>
+            <p class="subtitle">These pages form the next layer of the book.</p>
+        </section>
+
+        <nav class="chapter-nav" aria-label="Book of Zion Coalition chapters">
+            <a class="chapter-link" href="01-the-inference-bridge.html">
+                <span>
+                    <span class="chapter-number">Movement 1</span>
+                    The Inference Bridge
+                </span>
+            </a>
+
+            <a class="chapter-link" href="01-many-exoduses.html">
+                <span>
+                    <span class="chapter-number">Movement 2</span>
+                    My Jesus-Greg WORLD
+                </span>
+            </a>
+
+            <a class="chapter-link" href="01-my-exodus.html">
+                <span>
+                    <span class="chapter-number">Movement 3</span>
+                    My Exodus
+                </span>
+            </a>
+
+            <a class="chapter-link" href="01-my-inheritance.html">
+                <span>
+                    <span class="chapter-number">Movement 4</span>
+                    My Inheritance
+                </span>
+            </a>
+
+            <a class="chapter-link" href="01-inhabiting-zion.html">
+                <span>
+                    <span class="chapter-number">Movement 5</span>
+                    Inhabiting Zion
+                </span>
+            </a>
+        </nav>
+
+        <footer class="footer-card">
+            <a class="home-link" href="index.html">Return to Home</a>
+        </footer>
+    </main>
+</body>
+</html>
