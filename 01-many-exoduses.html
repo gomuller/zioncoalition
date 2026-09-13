@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Many Exoduses</title>
+  <style>
+    :root {
+      --bg: #0d3f73;
+      --bg-deep: #082b4d;
+      --card: #f8fbff;
+      --card-soft: #edf5fc;
+      --text: #17324d;
+      --muted: #4d6983;
+      --accent: #f2c14e;
+      --accent-2: #9fd3ff;
+      --line: rgba(23, 50, 77, 0.14);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(159, 211, 255, 0.16), transparent 28%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.72;
+    }
+
+    .page-shell {
+      width: min(1040px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 60px;
+    }
+
+    .hero {
+      overflow: hidden;
+      border-radius: 28px;
+      box-shadow: var(--shadow);
+      background: #092f55;
+      margin-bottom: 28px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .title-card,
+    .card,
+    .quote-box,
+    .closing-card {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 255, 255, 0.45);
+    }
+
+    .title-card {
+      padding: 42px 46px;
+      margin-bottom: 26px;
+      text-align: center;
+      background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(232, 244, 255, 0.98));
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--muted);
+      font-family: Arial, Helvetica, sans-serif;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-weight: 700;
+      font-size: 0.78rem;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.35rem, 6vw, 4.7rem);
+      line-height: 1.03;
+      color: #14385d;
+    }
+
+    .subtitle {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.18rem;
+      font-style: italic;
+    }
+
+    .card {
+      padding: 34px 38px;
+      margin: 24px 0;
+    }
+
+    .card.soft {
+      background: var(--card-soft);
+    }
+
+    .card p:first-child,
+    .quote-box p:first-child,
+    .closing-card p:first-child {
+      margin-top: 0;
+    }
+
+    .card p:last-child,
+    .quote-box p:last-child,
+    .closing-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin: 0 0 1.05em;
+      font-size: 1.12rem;
+    }
+
+    strong {
+      color: #0f4d7f;
+    }
+
+    .quote-box {
+      margin: 28px 0;
+      padding: 30px 34px;
+      border-left: 8px solid var(--accent);
+      background: #fffaf0;
+      position: relative;
+    }
+
+    .quote-box::before {
+      content: "“";
+      position: absolute;
+      top: 2px;
+      left: 18px;
+      font-size: 4.4rem;
+      line-height: 1;
+      color: rgba(15, 77, 127, 0.14);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .quote-box p {
+      position: relative;
+      margin-left: 22px;
+      font-size: 1.28rem;
+      font-weight: 700;
+      color: #1d466d;
+    }
+
+    .movement {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-top: 22px;
+    }
+
+    .movement div {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid var(--line);
+      font-weight: 700;
+      color: #214766;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(23, 50, 77, 0.08);
+    }
+
+    .closing-card {
+      margin-top: 28px;
+      padding: 38px 42px;
+      background: linear-gradient(135deg, #fffaf0, #f5fbff);
+      border: 2px solid rgba(242, 193, 78, 0.55);
+    }
+
+    .home-link {
+      margin-top: 34px;
+      text-align: center;
+    }
+
+    .home-link a {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      color: #0c3963;
+      background: #ffffff;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.16);
+    }
+
+    .home-link a:hover,
+    .home-link a:focus {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .yellow-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #fff176 35%,
+        #fff176 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .green-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #66ff4d 35%,
+        #66ff4d 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    @media (max-width: 700px) {
+      .page-shell {
+        width: min(100% - 18px, 1040px);
+        padding-top: 16px;
+      }
+
+      .title-card,
+      .card,
+      .quote-box,
+      .closing-card {
+        border-radius: 18px;
+      }
+
+      .title-card,
+      .card,
+      .closing-card {
+        padding: 26px 24px;
+      }
+
+      .quote-box {
+        padding: 26px 22px;
+      }
+
+      p {
+        font-size: 1.04rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero" aria-label="Featured image">
+      <img src="images/01-example.png" alt="Many Exoduses featured image">
+    </section>
+
+    <section class="title-card">
+      <p class="eyebrow">My Jesus-Greg WORLD</p>
+      <h1>Many Exoduses</h1>
+      <p class="subtitle">Many pilgrimages. Many departures from the Shire.</p>
+    </section>
+
+    <section class="card">
+      <p>My life is not one Exodus.</p>
+
+      <p>It is <strong>many exoduses. Many pilgrimages. Many departures from the Shire.</strong></p>
+
+      <p>Again and again, Jesus says, in effect:</p>
+    </section>
+
+    <section class="quote-box">
+      <p>Come. We are going somewhere.</p>
+    </section>
+
+    <section class="card soft">
+      <p>Sometimes the journey is enormous.</p>
+
+      <p>I was born in Provo, Utah, in 1963. From there begins the great arc of my mortal pilgrimage—birth, childhood, adulthood, conversion, wandering, discovering, creating, aging, dying, and ultimately, I trust, being born again into the great Promised Land beyond death.</p>
+
+      <p>That is the <strong>30,000-foot Exodus</strong>.</p>
+    </section>
+
+    <section class="card">
+      <p>But the same pattern appears all the way down.</p>
+
+      <p>Every morning I wake up and leave the little promised land of my bed.</p>
+
+      <div class="movement" aria-label="Daily pilgrimage movements">
+        <div>Bed to bathroom.</div>
+        <div>Bathroom to kitchen.</div>
+        <div>Kitchen to work.</div>
+        <div>Work to another room.</div>
+      </div>
+
+      <p style="margin-top: 24px;">One scene ends. Another begins.</p>
+
+      <p>I cross thresholds.</p>
+
+      <p>I open doors.</p>
+
+      <p>I travel hallways.</p>
+
+      <p>I sit down.</p>
+
+      <p>I stand up.</p>
+
+      <p>I leave.</p>
+
+      <p>I arrive.</p>
+    </section>
+
+    <section class="card soft">
+      <p>And because <strong>My Jesus-Greg WORLD is becoming an improvisational opera</strong>, these movements matter.</p>
+
+      <p>My life is becoming a musical <strong>line upon line, song upon song, here a little and there a little</strong>. The scenery changes. The music changes. Characters enter and exit. One number concludes and another begins.</p>
+
+      <p>Movement itself becomes part of the liturgy.</p>
+    </section>
+
+    <section class="quote-box">
+      <p>Life is a succession of <strong>nano-Exoduses</strong>.</p>
+    </section>
+
+    <section class="card">
+      <p>A succession of <strong>micro-pilgrimages</strong>.</p>
+
+      <p>A succession of moments in which Jesus invites me to leave one place and follow Him toward another.</p>
+
+      <p>This is why so many stories rhyme with Exodus.</p>
+
+      <p>Dorothy leaves home and follows the Yellow Brick Road: <strong>We're off to see the Wizard.</strong></p>
+
+      <p>Frodo leaves the Shire.</p>
+
+      <p>Neo takes the red pill and leaves the reality he thought he knew.</p>
+
+      <p>Israel leaves Egypt.</p>
+
+      <p>Lehi leaves Jerusalem.</p>
+
+      <p>The disciples leave their nets.</p>
+
+      <p>Abraham leaves his country.</p>
+
+      <p>Every one of them crosses a threshold.</p>
+
+      <p>Something familiar is left behind.</p>
+
+      <p>Something unknown lies ahead.</p>
+
+      <p>And somewhere within the movement comes the invitation:</p>
+    </section>
+
+    <section class="quote-box">
+      <p>Follow Me.</p>
+    </section>
+
+    <section class="card soft">
+      <p>That means my Groundhog Day is not really static repetition.</p>
+
+      <p>It is pilgrimage.</p>
+
+      <p>Morning to evening.</p>
+
+      <p>Wake to sleep.</p>
+
+      <p>Scene to scene.</p>
+
+      <p>Room to room.</p>
+
+      <p>Song to song.</p>
+
+      <p>Understanding to understanding.</p>
+
+      <p>And then tomorrow morning the curtain rises again.</p>
+
+      <p>Another Exodus begins.</p>
+    </section>
+
+    <section class="closing-card">
+      <p>Until eventually comes the largest departure of all:</p>
+
+      <p>I leave this mortal world.</p>
+
+      <p>And, if the promise holds, what looks from here like the ultimate Exodus becomes the ultimate arrival.</p>
+
+      <p><strong>Home.</strong></p>
+    </section>
+
+    <div class="home-link">
+      <a href="index.html">Return to Home</a>
+    </div>
+  </main>
+</body>
+</html>
