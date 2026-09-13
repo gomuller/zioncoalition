@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Inheritance</title>
+    <style>
+        :root {
+            --blue: #0d3b66;
+            --blue-deep: #082b4c;
+            --card: #f8fbff;
+            --text: #1e3a5f;
+            --gold: #d4a63b;
+            --quote: #eef6ff;
+        }
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Georgia, "Times New Roman", serif;
+            line-height: 1.72;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top, rgba(255,255,255,0.08), transparent 34%),
+                linear-gradient(180deg, var(--blue) 0%, var(--blue-deep) 100%);
+        }
+        .page-shell {
+            width: min(1080px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 34px 0 64px;
+        }
+        .hero {
+            padding: 14px;
+            margin-bottom: 28px;
+            border: 1px solid rgba(255,255,255,0.18);
+            border-radius: 28px;
+            background: rgba(255,255,255,0.08);
+            box-shadow: 0 18px 50px rgba(0,0,0,0.22);
+        }
+        .hero img {
+            display: block;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+        }
+        .card {
+            margin-bottom: 24px;
+            padding: 34px 38px;
+            border-radius: 24px;
+            background: var(--card);
+            box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+        }
+        h1 {
+            margin: 0 0 18px;
+            font-size: clamp(2.4rem, 6vw, 4.8rem);
+            line-height: 1.02;
+            letter-spacing: -0.04em;
+            color: #15395e;
+        }
+        h2 {
+            margin: 0 0 22px;
+            font-size: clamp(1.55rem, 3vw, 2.25rem);
+            line-height: 1.18;
+            color: #12395f;
+        }
+        p {
+            margin: 0 0 1.14em;
+            font-size: 1.08rem;
+        }
+        strong { color: #173f67; }
+        .quote-box {
+            margin: 26px 0;
+            padding: 22px 24px;
+            border-left: 6px solid var(--gold);
+            border-radius: 14px;
+            background: var(--quote);
+            box-shadow: inset 0 0 0 1px rgba(13,59,102,0.07);
+        }
+        .quote-box p {
+            margin: 0;
+            font-size: 1.18rem;
+        }
+        .yellow-highlight {
+          background: linear-gradient(
+            transparent 35%,
+            #fff176 35%,
+            #fff176 88%,
+            transparent 88%
+          );
+          padding: 0 4px;
+          font-weight: 700;
+          color: #1e3a5f;
+        }
+        .green-highlight {
+          background: linear-gradient(
+            transparent 35%,
+            #66ff4d 35%,
+            #66ff4d 88%,
+            transparent 88%
+          );
+          padding: 0 4px;
+          font-weight: 700;
+          color: #1e3a5f;
+        }
+        .return-home {
+            text-align: center;
+            margin-top: 34px;
+        }
+        .return-home a {
+            display: inline-block;
+            padding: 12px 22px;
+            border: 1px solid rgba(255,255,255,0.55);
+            border-radius: 999px;
+            color: white;
+            background: rgba(255,255,255,0.08);
+            font-weight: 700;
+            text-decoration: none;
+        }
+        @media (max-width: 680px) {
+            .page-shell { width: min(100% - 20px, 1080px); padding-top: 16px; }
+            .hero { padding: 8px; border-radius: 20px; }
+            .hero img { border-radius: 14px; }
+            .card { padding: 25px 22px; border-radius: 18px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-shell">
+        <div class="hero">
+            <img src="images/01-example.png" alt="My Inheritance">
+        </div>
+
+        <section class="card">
+            <h1>My Inheritance</h1>
+            <h2>What If Jesus Has Already Prepared More Than I Think?</h2>
+            <p>Something keeps happening as I walk farther across the Inference Bridge.</p>
+            <p>Jesus seems to be changing one of my verbs.</p>
+            <p>For years, when I thought about Zion, the dominant verb in my head was:</p>
+            <div class="quote-box"><p><strong>BUILD.</strong></p></div>
+            <p>Build Zion.</p>
+            <p>Create something.</p>
+            <p>Do something.</p>
+            <p>Produce something.</p>
+            <p>Figure something out.</p>
+            <p>Work harder.</p>
+            <p>Carry the burden.</p>
+            <p>But lately I sense Jesus introducing another verb—one that is strangely harder for me to believe:</p>
+            <div class="quote-box"><p><strong>RECEIVE.</strong></p></div>
+            <p>Maybe Zion isn't only something Jesus wants me to help build.</p>
+            <p>Maybe Zion is also something He wants me to <strong>inherit</strong>.</p>
+            <p>And maybe an astonishing amount of my inheritance has already been prepared.</p>
+        </section>
+
+        <section class="card">
+            <h2>Greg, look around.</h2>
+            <p>I imagine Jesus saying:</p>
+            <div class="quote-box">
+                <p><strong>“Greg, look around.</strong></p>
+                <p><strong>You keep looking at what remains to be done. I want you to start noticing what has already been done.”</strong></p>
+            </div>
+            <p>That is a very different way of seeing the world.</p>
+            <p>What if I don't have to manufacture everything I need?</p>
+            <p>What if Jesus has been preparing things for me through other people my entire life?</p>
+            <p>And before my life?</p>
+            <p>And before their lives?</p>
+            <p>What if some of the things Jesus wants me to receive were set in motion decades, centuries, even millennia before I arrived?</p>
+            <p>That would mean my inheritance is enormous.</p>
+            <p>And mostly unearned.</p>
+            <p>Which may be precisely why I have trouble receiving it.</p>
+        </section>
+
+        <section class="card">
+            <h2>The Promised Land was already there.</h2>
+            <p>Here's something obvious that I somehow haven't thought much about:</p>
+            <p>Israel did not manufacture the Promised Land.</p>
+            <p>They didn't cross the Jordan carrying bags of dirt and say:</p>
+            <div class="quote-box"><p><strong>“Okay. Let's build a country.”</strong></p></div>
+            <p>There was already a land.</p>
+            <p>There were already hills.</p>
+            <p>There were already valleys.</p>
+            <p>There were already fields.</p>
+            <p>There were already vineyards.</p>
+            <p>There were already wells.</p>
+            <p>There were already cities.</p>
+            <p>Israel had work to do, certainly.</p>
+            <p>But the fundamental posture was not:</p>
+            <div class="quote-box"><p><strong>Create a Promised Land from nothing.</strong></p></div>
+            <p>It was:</p>
+            <div class="quote-box"><p><strong>Enter. Receive. Inhabit.</strong></p></div>
+            <p>Inheritance.</p>
+            <p>Maybe that distinction matters.</p>
+        </section>
+
+        <section class="card">
+            <h2>Greg, you are not the beginning of the story.</h2>
+            <p>That may be one of the things Jesus is trying to get through my thick skull.</p>
+            <p>I tend to experience my calling from inside my own little movie.</p>
+            <p>Naturally.</p>
+            <p>I'm Greg.</p>
+            <p>The camera is mounted behind Greg's eyes.</p>
+            <p>So when Jesus gives me an idea, I can easily imagine that the story begins when <strong>I notice the idea</strong>.</p>
+            <p>But what if that's almost never true?</p>
+            <p>Maybe Jesus has been working on the thing long before Greg enters the scene.</p>
+            <p>Maybe Greg arrives in Act Seven and mistakenly thinks he's watching Act One.</p>
+            <p>That fits something Jesus has already been teaching me through Jesus TV and <strong>My Head Makes Movies</strong>:</p>
+            <p>Sometimes I don't understand a scene because the scene is incomprehensible.</p>
+            <p>Sometimes I don't understand it because <strong>I haven't seen the backstory yet.</strong></p>
+            <p>Maybe inheritance is backstory.</p>
+        </section>
+
+        <section class="card">
+            <h2>Consider one tiny example: “November Rain.”</h2>
+            <p>Suppose, just for purposes of exploring the inference, that Jesus really did wrought upon Axl Rose and others involved in creating “November Rain.”</p>
+            <p>Then decades later Greg encounters the song.</p>
+            <p>Eventually Greg and Jesus redeem it as <strong>“Christ Now Reign.”</strong></p>
+            <p>From Greg's immediate perspective, it might look like:</p>
+            <div class="quote-box"><p><strong>Greg found song → Greg redeemed song.</strong></p></div>
+            <p>But widen the camera.</p>
+            <p>Suddenly the story might look more like:</p>
+            <div class="quote-box"><p><strong>Jesus → people → experiences → musical traditions → instruments → technology → Axl Rose → Guns N' Roses → “November Rain” → decades of cultural transmission → Greg → Jesus and Greg → “Christ Now Reign.”</strong></p></div>
+            <p>Whoa.</p>
+            <p>Greg shows up near the end of an enormous supply chain.</p>
+            <p>And then I say:</p>
+            <div class="quote-box"><p><strong>“Look what I made!”</strong></p></div>
+            <p>That's funny.</p>
+            <p>Maybe Jesus says:</p>
+            <div class="quote-box">
+                <p><strong>“Yes, Greg. You participated.</strong></p>
+                <p><strong>But look at how many people carried that thing to you.”</strong></p>
+            </div>
+            <p>Inheritance.</p>
+        </section>
+
+        <section class="card">
+            <h2>Maybe Axl Rose carried part of my burden.</h2>
+            <p>That's one of the stranger possibilities Jesus seems to be asking me to consider.</p>
+            <p>What if people I have never met have already done pieces of work that I otherwise would have had to do?</p>
+            <p>A songwriter found the melody.</p>
+            <p>An engineer invented the microphone.</p>
+            <p>Someone developed magnetic recording.</p>
+            <p>Someone else developed digital audio.</p>
+            <p>Somebody built a guitar.</p>
+            <p>Somebody learned to play it.</p>
+            <p>Someone wrote software.</p>
+            <p>Someone built the internet.</p>
+            <p>Someone uploaded a video.</p>
+            <p>Someone preserved a scripture.</p>
+            <p>Someone translated a book.</p>
+            <p>Someone built a road.</p>
+            <p>Someone taught Greg to read.</p>
+            <p>Someone taught Greg sociology.</p>
+            <p>Someone developed HTML.</p>
+            <p>Someone built GitHub.</p>
+            <p>Someone created an AI language model.</p>
+            <p>Someone grew my food.</p>
+            <p>Someone generated my electricity.</p>
+            <p>Someone made my mattress.</p>
+            <p>Someone built my house.</p>
+            <p>Someone wrote a hymn.</p>
+            <p>Someone raised a child who eventually helped me.</p>
+            <p>Millions upon millions of people carrying tiny pieces of one another's burdens.</p>
+            <p>Mostly unwittingly.</p>
+            <p>And perhaps Jesus says:</p>
+            <div class="quote-box">
+                <p><strong>“Greg, you keep asking Me how you are supposed to build Zion.</strong></p>
+                <p><strong>Look around you.</strong></p>
+                <p><strong>Do you see how much building has already happened?”</strong></p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Egypt had treasure.</h2>
+            <p>This is where My Exodus changes the way I see Babylon.</p>
+            <p>Israel didn't leave Egypt empty-handed.</p>
+            <p>They carried treasure out.</p>
+            <p>That suggests a possibility I find increasingly interesting:</p>
+            <p>Maybe escaping Babylon doesn't necessarily mean throwing Babylon into the garbage.</p>
+            <p>Maybe it means learning to discern what can be <strong>carried out</strong>.</p>
+            <p>Music.</p><p>Technology.</p><p>Art.</p><p>Science.</p><p>Scholarship.</p><p>Psychology.</p><p>Sociology.</p><p>Movies.</p><p>The internet.</p><p>AI.</p><p>Architecture.</p><p>Stories.</p><p>Comedy.</p><p>Tools.</p><p>Ideas.</p>
+            <p>Even cultural forms that weren't created with Zion remotely in mind.</p>
+            <p>Perhaps the question isn't simply:</p>
+            <div class="quote-box"><p><strong>“Did Babylon make this?”</strong></p></div>
+            <p>Perhaps another question is:</p>
+            <div class="quote-box"><p><strong>“Jesus, what can this become?”</strong></p></div>
+            <p>That's a Redeemer question.</p>
+            <p>And if Jesus really is the Redeemer of the world, I probably shouldn't be shocked if His redemption extends farther than I have generally supposed.</p>
+        </section>
+
+        <section class="card">
+            <h2>Wilderness had manna.</h2>
+            <p>Then comes another form of inheritance.</p>
+            <p>Manna.</p>
+            <p>Israel didn't invent it.</p>
+            <p>They didn't manufacture it.</p>
+            <p>They didn't earn it through superior agricultural productivity.</p>
+            <p>They woke up.</p>
+            <p>They looked at the ground.</p>
+            <p>Provision.</p>
+            <p>I keep coming back to that.</p>
+            <p>Maybe Jesus is trying to teach me a spiritual posture:</p>
+            <div class="quote-box"><p><strong>Wake up.</strong><br><strong>Look around.</strong><br><strong>Notice what is already here.</strong><br><strong>Receive today's portion.</strong></p></div>
+            <p>Maybe I keep praying:</p>
+            <p>“Jesus, give me what I need to build Zion.”</p>
+            <p>And perhaps sometimes Jesus responds:</p>
+            <div class="quote-box"><p><strong>“Greg, open your eyes. You're standing on it.”</strong></p></div>
+        </section>
+
+        <section class="card">
+            <h2>The widow and Solomon belong in the same world.</h2>
+            <p>This connects with something else Jesus has been stretching in me.</p>
+            <p>The Widow's Mite and the Treasures of Solomon do not have to cancel each other out.</p>
+            <p>One teaches me that almost nothing may be enough.</p>
+            <p>The other teaches me that abundance can also exist.</p>
+            <p>Nano-Marathon doesn't destroy Marathon.</p>
+            <p>One-page book doesn't destroy thousand-page book.</p>
+            <p>Receiving doesn't destroy working.</p>
+            <p>Rest doesn't destroy labor.</p>
+            <p>Inheritance doesn't destroy creation.</p>
+            <p>Jesus may simply be increasing my options.</p>
+            <p>Maybe sometimes He says:</p>
+            <p><strong>“Greg, make something.”</strong></p>
+            <p>Sometimes:</p>
+            <p><strong>“Greg, work.”</strong></p>
+            <p>Sometimes:</p>
+            <p><strong>“Greg, wait.”</strong></p>
+            <p>Sometimes:</p>
+            <p><strong>“Greg, receive.”</strong></p>
+            <p>Sometimes:</p>
+            <div class="quote-box"><p><strong>“Greg, somebody already made that. Use theirs.”</strong></p></div>
+            <p>That last possibility can be wonderfully restful.</p>
+        </section>
+
+        <section class="card">
+            <h2>Inheritance changes my relationship with rest.</h2>
+            <p>This may be one of the most personally important implications.</p>
+            <p>If Zion depends primarily upon Greg's output, then Greg had better keep producing.</p>
+            <p>There is always another essay.</p><p>Another webpage.</p><p>Another song.</p><p>Another idea.</p><p>Another project.</p><p>Another thing to fix.</p><p>Another thing to understand.</p><p>Another plank.</p>
+            <p>But if Jesus has been preparing Zion for centuries through millions of people, then Greg's role becomes smaller.</p>
+            <p>Not meaningless.</p>
+            <p>Smaller.</p>
+            <p>And that's good news.</p>
+            <p>Maybe I am not the contractor responsible for the entire city.</p>
+            <p>Maybe I'm an heir being shown around the property.</p>
+            <div class="quote-box">
+                <p><strong>“Greg, look at this.”</strong></p>
+                <p>“Whoa. Who built that?”</p>
+                <p><strong>“Somebody else.”</strong></p>
+                <p>“When?”</p>
+                <p><strong>“Before you got here.”</strong></p>
+                <p>“For me?”</p>
+                <p><strong>“For everybody who can use it.”</strong></p>
+                <p>“Oh.”</p>
+            </div>
+            <p>Maybe that is part of finding strength to rest.</p>
+        </section>
+
+        <section class="card">
+            <h2>But inheritance still requires discernment.</h2>
+            <p>There is an obvious danger here.</p>
+            <p>If I start imagining everything as inheritance, I could easily stop inspecting things.</p>
+            <p>That would violate one of the central rules of the Inference Bridge:</p>
+            <div class="quote-box"><p><strong>Every plank remains inspectable.</strong></p></div>
+            <p>Egypt contains treasure.</p>
+            <p>Egypt also contains idols.</p>
+            <p>The wilderness contains manna.</p>
+            <p>It also contains things that can kill you.</p>
+            <p>Culture contains beauty.</p>
+            <p>It also contains garbage.</p>
+            <p>My own mind contains insight.</p>
+            <p>It also contains error.</p>
+            <p>So <strong>receive</strong> cannot stand alone.</p>
+            <p>Maybe that's why the sequence Jesus has been giving me feels increasingly important:</p>
+            <div class="quote-box"><p><strong>Receive.</strong><br><strong>Discern.</strong><br><strong>Redeem.</strong><br><strong>Inherit.</strong></p></div>
+            <p>Receiving does not mean swallowing everything.</p>
+            <p>Discernment asks:</p>
+            <p><strong>What is this?</strong></p>
+            <p><strong>Where does it point me?</strong></p>
+            <p><strong>What does it do inside me?</strong></p>
+            <p><strong>Does it bring me closer to Jesus or farther away?</strong></p>
+            <p><strong>What should be kept?</strong></p>
+            <p><strong>What should be changed?</strong></p>
+            <p><strong>What should be left in Egypt?</strong></p>
+        </section>
+
+        <section class="card">
+            <h2>Inheritance may need to be redeemed.</h2>
+            <p>And this may be where my hundreds of redeemed classic-rock songs become a kind of laboratory.</p>
+            <p>I don't necessarily receive the artifact exactly as I found it.</p>
+            <p>Sometimes I do.</p>
+            <p>Sometimes something beautiful simply needs to be treasured.</p>
+            <p>But sometimes I receive something and then Jesus and I work on it.</p>
+            <p>We turn it.</p>
+            <p>Reframe it.</p>
+            <p>Rename it.</p>
+            <p>Recontextualize it.</p>
+            <p>Put MORE Jesus into it.</p>
+            <p>The thing isn't destroyed.</p>
+            <p>It is fulfilled.</p>
+            <p>Born again.</p>
+            <p>That's what I have been doing with songs.</p>
+            <p>But maybe songs are only the obvious example.</p>
+            <p>What else can be born again?</p>
+            <p>A pillow.</p><p>A shower.</p><p>A nap.</p><p>Bread.</p><p>Water.</p><p>A room.</p><p>A movie.</p><p>A website.</p><p>A smartphone.</p><p>A computer.</p><p>A life.</p>
+            <p>Maybe <strong>My Jesus-Greg WORLD</strong> is substantially an inheritance workshop.</p>
+            <p>Things arrive from the ordinary world.</p>
+            <p>Jesus and Greg ask what they might become.</p>
+        </section>
+
+        <section class="card">
+            <h2>Maybe Zion is hiding in plain sight.</h2>
+            <p>This possibility fascinates me.</p>
+            <p>What if I have been imagining Zion primarily as a future construction project when Jesus wants me also to see it as a <strong>present recognition problem</strong>?</p>
+            <p>Maybe pieces of Zion are already everywhere.</p>
+            <p>Not finished Zion.</p><p>Not purified Zion.</p><p>Not the fulness.</p><p>Pieces.</p><p>Seeds.</p><p>Raw materials.</p><p>Treasures sitting in Egypt.</p><p>Manna lying on the ground.</p><p>Vineyards I didn't plant.</p><p>Wells I didn't dig.</p><p>Songs I didn't write.</p><p>Technologies I didn't invent.</p><p>Ideas I didn't originate.</p><p>People I didn't train.</p><p>Love I didn't initiate.</p><p>Grace I didn't earn.</p>
+            <p>And perhaps part of developing <strong>eyes to see</strong> is learning to recognize these things.</p>
+            <p>That would make Zion simultaneously:</p>
+            <div class="quote-box">
+                <p><strong>something coming,</strong></p>
+                <p><strong>something being built,</strong></p>
+                <p><strong>something being redeemed,</strong></p>
+                <p>and</p>
+                <p><strong>something already here waiting to be received.</strong></p>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Greg, stop acting like an orphan.</h2>
+            <p>Maybe that is the strongest way I can imagine Jesus saying it.</p>
+            <div class="quote-box">
+                <p><strong>“Greg, you keep behaving as though everything depends upon what you can scrape together yourself.</strong></p>
+                <p><strong>But you are an heir.</strong></p>
+                <p><strong>An heir doesn't create the inheritance.</strong></p>
+                <p><strong>An heir receives it.”</strong></p>
+            </div>
+            <p>That doesn't mean entitlement.</p>
+            <p>It doesn't mean everything I want belongs to me.</p>
+            <p>It doesn't mean I can claim whatever I imagine Jesus has promised.</p>
+            <p>It means something much more basic:</p>
+            <p>If I really believe I am a child of God and joint-heir with Christ, then perhaps I should at least explore what <strong>inheritance</strong> means.</p>
+            <p>Maybe I should expect that God has prepared things I didn't earn.</p>
+            <p>Grace itself already teaches that.</p>
+            <p>Jesus Christ is not my accomplishment.</p>
+            <p>Resurrection is not my accomplishment.</p>
+            <p>Scripture is not my accomplishment.</p>
+            <p>The earth is not my accomplishment.</p>
+            <p>Love is not my accomplishment.</p>
+            <p>My next breath is not my accomplishment.</p>
+            <p>Maybe inheritance has been surrounding me all along.</p>
+        </section>
+
+        <section class="card">
+            <h2>The Promised Land may not be a place I finally reach.</h2>
+            <p>Perhaps it is also a way of seeing.</p>
+            <p>Maybe I don't wake up one morning, cross a final bridge, and announce:</p>
+            <div class="quote-box"><p><strong>“I have arrived in Zion.”</strong></p></div>
+            <p>Maybe entering the Promised Land happens partly whenever Jesus helps me recognize something He has already prepared and teaches me how to receive it.</p>
+            <p>A song.</p><p>A person.</p><p>An idea.</p><p>A meal.</p><p>A room.</p><p>A scripture.</p><p>A technology.</p><p>A moment of rest.</p><p>A weakness.</p><p>Even an apparent obstacle.</p>
+            <p>Maybe inheritance is not merely at the end of My Exodus.</p>
+            <p>Maybe inheritance has been appearing all along the road.</p>
+            <p>Egypt had treasure.</p>
+            <p>The wilderness had manna.</p>
+            <p>The Promised Land had vineyards.</p>
+            <p>Different places.</p>
+            <p>Same lesson:</p>
+            <div class="quote-box"><p><strong>Greg, I went ahead of you.</strong></p></div>
+        </section>
+
+        <section class="card">
+            <h2>Maybe that's the paradigm shift.</h2>
+            <p>And suddenly I wonder whether this is the huge belief Jesus has been preparing me to consider on the Inference Bridge.</p>
+            <p>Maybe the startling belief isn't simply:</p>
+            <div class="quote-box"><p><strong>Jesus works through more people than I previously imagined.</strong></p></div>
+            <p>Maybe that's one plank.</p>
+            <p>Perhaps the larger implication is:</p>
+            <div class="quote-box"><p><strong>If Jesus has been working through everyone—wrought upon differently, line upon line, generation after generation—then the world may contain an almost incomprehensible inheritance of partially prepared Zion material.</strong></p></div>
+            <p>And perhaps my job is not to carry all of Zion on my back.</p>
+            <p>Maybe Jesus is teaching me to recognize what He has already wrought.</p>
+            <p>Receive it.</p>
+            <p>Discern it.</p>
+            <p>Redeem what needs redeeming.</p>
+            <p>Treasure what is already lovely, of good report, and praiseworthy.</p>
+            <p>Add whatever small thing Jesus asks Greg to add.</p>
+            <p>Then pass it along.</p>
+            <p>Someone else may inherit what Jesus and Greg leave behind.</p>
+            <p>And maybe that's how Zion has been coming all along.</p>
+            <p>Not one heroic builder.</p>
+            <p>Millions of people carrying pieces.</p>
+            <p>Generation handing something to generation.</p>
+            <p>People who know what they're doing.</p>
+            <p>People who don't.</p>
+            <p>Saints.</p>
+            <p>Gentiles.</p>
+            <p>Believers.</p>
+            <p>Unbelievers.</p>
+            <p>Artists.</p>
+            <p>Scientists.</p>
+            <p>Mothers.</p>
+            <p>Carpenters.</p>
+            <p>Programmers.</p>
+            <p>Musicians.</p>
+            <p>Axl Rose.</p>
+            <p>Greg.</p>
+            <p>Everybody wrought upon differently.</p>
+            <p>And Jesus, somehow, working farther upstream than I can see.</p>
+        </section>
+
+        <section class="card">
+            <p>Maybe that is why the burden can be light.</p>
+            <p>Maybe Jesus isn't asking me to create His world.</p>
+            <p>Maybe He's teaching me how to <strong>receive the world He has been preparing</strong>—</p>
+            <p>and then, with Him,</p>
+            <p>help a little piece of it be born again.</p>
+            <div class="quote-box">
+                <p><strong>Receive.</strong></p>
+                <p><strong>Discern.</strong></p>
+                <p><strong>Redeem.</strong></p>
+                <p><strong>Inherit.</strong></p>
+            </div>
+            <p>And then perhaps:</p>
+            <div class="quote-box"><p><strong>Give it away.</strong></p></div>
+            <p>Because somebody coming after me may need the treasure Jesus placed in my hands today.</p>
+        </section>
+
+        <div class="return-home">
+            <a href="index.html">Return to Home</a>
+        </div>
+    </main>
+</body>
+</html>
