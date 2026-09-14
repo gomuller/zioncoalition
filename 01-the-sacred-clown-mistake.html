@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Sacred Clown Mistake</title>
+  <style>
+    :root {
+      --bg: #0d3f73;
+      --bg-deep: #082b4d;
+      --card: #f8fbff;
+      --card-soft: #edf5fc;
+      --text: #17324d;
+      --muted: #4d6983;
+      --accent: #f2c14e;
+      --accent-2: #9fd3ff;
+      --line: rgba(23, 50, 77, 0.14);
+      --shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top, rgba(159, 211, 255, 0.14), transparent 38%),
+        linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.72;
+    }
+
+    .page-shell {
+      width: min(980px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 70px;
+    }
+
+    .featured-image {
+      margin: 0 0 28px;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      background: #061f39;
+    }
+
+    .featured-image img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .hero-card,
+    .card {
+      background: var(--card);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card {
+      text-align: center;
+      padding: 44px 36px 40px;
+      margin-bottom: 28px;
+      background:
+        linear-gradient(135deg, rgba(242, 193, 78, 0.10), rgba(159, 211, 255, 0.12)),
+        var(--card);
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.17em;
+      font-size: 0.78rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    h1,
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      color: #123a5c;
+      line-height: 1.12;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 7vw, 4.7rem);
+      margin-bottom: 16px;
+      letter-spacing: -0.035em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: clamp(1.15rem, 2.4vw, 1.55rem);
+      font-style: italic;
+    }
+
+    .card {
+      padding: 34px 36px;
+      margin: 0 0 24px;
+    }
+
+    .card h2 {
+      font-size: clamp(1.7rem, 4vw, 2.45rem);
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid rgba(13, 63, 115, 0.12);
+    }
+
+    .card p {
+      margin: 0 0 1.08em;
+      font-size: 1.08rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .quote-box {
+      margin: 24px 0;
+      padding: 22px 24px;
+      border-left: 6px solid var(--accent);
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fffdf5, #f6faff);
+      box-shadow: inset 0 0 0 1px rgba(23, 50, 77, 0.08);
+    }
+
+    .quote-box p {
+      margin: 0;
+      font-size: 1.14rem;
+    }
+
+    .quote-box.major {
+      text-align: center;
+      border-left: none;
+      border-top: 6px solid var(--accent);
+      background: linear-gradient(135deg, #fff7d9, #eef7ff);
+    }
+
+    .quote-box.major p {
+      font-size: clamp(1.28rem, 3vw, 1.75rem);
+    }
+
+    .quote-box.scripture {
+      background: #f3f8fc;
+      border-left-color: #7baed2;
+      font-style: italic;
+    }
+
+    .finale {
+      background:
+        linear-gradient(135deg, rgba(242, 193, 78, 0.08), rgba(159, 211, 255, 0.12)),
+        var(--card);
+    }
+
+    .final-question {
+      margin-top: 34px;
+    }
+
+    .yellow-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #fff176 35%,
+        #fff176 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .green-highlight {
+      background: linear-gradient(
+        transparent 35%,
+        #66ff4d 35%,
+        #66ff4d 88%,
+        transparent 88%
+      );
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+
+    .home-link-wrap {
+      text-align: center;
+      margin-top: 38px;
+    }
+
+    .home-link {
+      display: inline-block;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--accent);
+      color: #17324d;
+      text-decoration: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 800;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .home-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.24);
+    }
+
+    @media (max-width: 640px) {
+      .page-shell {
+        width: min(100% - 18px, 980px);
+        padding-top: 18px;
+      }
+
+      .hero-card,
+      .card {
+        border-radius: 18px;
+      }
+
+      .hero-card {
+        padding: 32px 20px 30px;
+      }
+
+      .card {
+        padding: 26px 21px;
+      }
+
+      .quote-box {
+        padding: 18px 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page-shell">
+    <figure class="featured-image">
+      <img src="images/01-example.png" alt="The Sacred Clown Mistake">
+    </figure>
+
+    
+<section class="hero-card">
+  <div class="eyebrow">The Book of Zion Coalition</div>
+  <h1>The Sacred Clown Mistake</h1>
+  <p class="subtitle">Where Do You Stop on the Inference Bridge?</p>
+</section>
+
+<section class="card">
+  <p>I have been making the same Sacred Clown mistake my entire life.</p>
+  <p>Which is especially funny because I have also spent much of my life making art about precisely why it is a mistake.</p>
+  <p>Let me explain.</p>
+</section>
+
+<section class="card">
+  <h2>Wear a Car Helmet</h2>
+  <p>Years ago I became fascinated with what I called <strong>Positive Deviance</strong>: deliberately deviating from social norms when doing so might produce better results.</p>
+  <p>Human beings do this constantly.</p>
+  <p>We speed.</p>
+  <p>Why?</p>
+  <p>Because going faster than the posted speed limit sometimes gets us where we want to go faster.</p>
+  <p>That doesn't prove speeding is wise. It simply illustrates something interesting about human beings: <strong>we frequently deviate from established norms because we think we have found some advantage in doing so.</strong></p>
+  <p>I became interested in Positive Deviance as an <strong>art form</strong>.</p>
+  <p>There is something beautiful, mysterious, funny and deeply human about noticing that everybody does something one way and asking:</p>
+  <div class="quote-box"><p><strong>Why?</strong></p></div>
+  <p>And then:</p>
+  <div class="quote-box"><p><strong>What happens if I don't?</strong></p></div>
+  <p>My method became a kind of performance art. I made little movies, books, pictures, songs, programs, contests and other things in which I played with unconventional solutions.</p>
+  <p>One of these was <strong>The Helmet Solution</strong>.</p>
+  <p>The logic was wonderfully simple.</p>
+  <p>Helmets make people safer.</p>
+  <p>Bicyclists wear helmets.</p>
+  <p>Skiers wear helmets.</p>
+  <p>Skateboarders wear helmets.</p>
+  <p>Race-car drivers wear helmets.</p>
+  <p>Automobile accidents cause head injuries.</p>
+  <p>So...</p>
+  <div class="quote-box"><p><strong>Why aren't you wearing a helmet while driving your car?</strong></p></div>
+  <p>At what speed, exactly, does wearing a helmet go from being a sensible safety precaution to:</p>
+  <div class="quote-box"><p><strong>“Oh, don't be silly”?</strong></p></div>
+  <p>That question delighted me.</p>
+  <p>Still does.</p>
+  <p>Because somewhere between the NASCAR driver and Grandma driving 45 mph to Walmart, an invisible line appears.</p>
+  <p>On one side:</p>
+  <div class="quote-box"><p><strong>Responsible safety practice.</strong></p></div>
+  <p>On the other:</p>
+  <div class="quote-box"><p><strong>Greg, take that stupid thing off.</strong></p></div>
+  <p>Where exactly is the line?</p>
+  <p>And who put it there?</p>
+  <p>That is Sacred Clown territory.</p>
+</section>
+
+<section class="card">
+  <h2>But Wait. There's More.</h2>
+  <p>Suppose I convince you.</p>
+  <p>You examine the evidence. You follow my inference. You sigh.</p>
+  <div class="quote-box"><p>“Okay, Greg. Fine. I'll wear the car helmet.”</p></div>
+  <p>Wonderful!</p>
+  <p>We've made progress.</p>
+  <p>Now...</p>
+  <div class="quote-box"><p><strong>Let's talk about body armor.</strong></p></div>
+  <p>After all, have you looked at NASCAR drivers?</p>
+  <p>They don't merely protect their heads.</p>
+  <p>And have you looked at kids skating?</p>
+  <p>Knee pads. Elbow pads. Wrist guards.</p>
+  <p>Why stop protecting the human body at the neck?</p>
+  <p>If the principle is that reasonable protective equipment can reduce serious injuries, why wouldn't we protect the rest of you?</p>
+  <p>And right about then my imaginary <strong>bleeding-heart nurse nudger</strong> enters the room:</p>
+  <div class="quote-box"><p><strong>“If it just saves one life...”</strong></p></div>
+  <p>Uh-oh.</p>
+  <p>Now we're moving.</p>
+  <p>Helmet.</p>
+  <p>Body armor.</p>
+  <p>Five-point harness.</p>
+  <p>Fire-resistant clothing.</p>
+  <p>Better neck protection.</p>
+  <p>Roll cage.</p>
+  <p>Speed governor.</p>
+  <p>Don't drive when you're tired.</p>
+  <p>Don't drive in bad weather.</p>
+  <p>Don't drive at night.</p>
+  <p>Come to think of it, driving itself is dangerous.</p>
+  <p>Maybe you shouldn't drive unless absolutely necessary.</p>
+  <p>Each individual inference can sound quite reasonable.</p>
+  <p>And yet if we keep running the logic, we may eventually construct a life that almost nobody—including me—actually wants to live.</p>
+  <p>This is one of the great playgrounds of the Sacred Clown:</p>
+  <div class="quote-box"><p><strong>What happens when we take an apparently reasonable premise and keep following it after everybody else has stopped?</strong></p></div>
+</section>
+
+<section class="card">
+  <h2>The Inference Bridge</h2>
+  <p>I now think of this as an <strong>Inference Bridge</strong>.</p>
+  <p>We begin with something we believe to be true.</p>
+  <p>Then we notice that something else appears to follow.</p>
+  <p>And something follows from that.</p>
+  <p>And then something else.</p>
+  <p>We move:</p>
+  <div class="quote-box"><p><strong>Premise → inference → inference → inference → action.</strong></p></div>
+  <p>Sometimes everybody crosses the first few planks.</p>
+  <p>Then people begin dropping out.</p>
+  <p>“I'm with you this far.”</p>
+  <p>“Nope. I'm stopping here.”</p>
+  <p>“You're crazy.”</p>
+  <p>“Wait. Let him finish.”</p>
+  <p>Sometimes the Sacred Clown keeps walking.</p>
+  <p>Sometimes he runs.</p>
+  <p>That has been an important part of my life.</p>
+  <p>I have often been willing to entertain an inference that violates convention, makes other people uncomfortable, or makes me look ridiculous.</p>
+  <p>Sometimes I have timidly tested an inference for years before finally becoming convinced that it is both <strong>cogent and safe</strong> enough for me to run farther out onto the bridge.</p>
+  <p>Then something dangerous can happen.</p>
+  <p>I turn around.</p>
+  <p>Everybody else is way back there.</p>
+  <p>And I think:</p>
+  <div class="quote-box"><p><strong>What is wrong with you people?</strong></p></div>
+  <p>Can't you see where this leads?</p>
+  <p>I showed you the logic!</p>
+  <p>Come on!</p>
+  <p>And <em>that</em> is what I am calling:</p>
+  <div class="quote-box major"><p><strong>The Sacred Clown Mistake.</strong></p></div>
+</section>
+
+<section class="card">
+  <h2>I Forgot My Own Car Helmet</h2>
+  <p>The funniest part is that I should know better.</p>
+  <p>Because I don't wear a car helmet.</p>
+  <p>I don't even own one.</p>
+  <p>Someone could approach me and say:</p>
+  <div class="quote-box"><p>“Greg, wearing a crash helmet while driving could reduce your chances of certain injuries in an automobile accident. You care about yourself. You care about your children. You already accept seat belts. You know helmets protect heads. Why wouldn't you take this additional precaution?”</p></div>
+  <p>And I might say:</p>
+  <div class="quote-box"><p><strong>“Naaah.”</strong></p></div>
+  <p>I understand the inference.</p>
+  <p>I may even think it is a pretty good inference.</p>
+  <p>And...</p>
+  <div class="quote-box"><p><strong>Naaah.</strong></p></div>
+  <p>That fascinated me years ago and still fascinates me now.</p>
+  <p>I might judge an adult who refuses to wear a seat belt—especially one who doesn't buckle his children—as insufficiently thoughtful.</p>
+  <p>Meanwhile I'm driving around with my completely unprotected skull sitting several feet above the pavement.</p>
+  <p>Apparently my own safety reasoning has an invisible stopping point too.</p>
+  <p>Why?</p>
+  <p>Because human beings do not live by following every reasonable inference to its ultimate conclusion.</p>
+  <p>We can't.</p>
+</section>
+
+<section class="card">
+  <h2>Sufficiency Rules</h2>
+  <p>Years ago I tried to describe this with an imaginary mile.</p>
+  <p>Mark out one mile.</p>
+  <p>Now color perhaps one foot of it red.</p>
+  <p>That tiny red patch represents the portion of ordinary human life that even an unusually thoughtful person subjects to sustained critical thought, extensive discussion, careful weighing of evidence, competing theories and something approaching the reasoning we associate with universities, courts or research institutes.</p>
+  <p>Then watch this thoughtful person live.</p>
+  <p>He wakes up.</p>
+  <p>Does he prepare his breakfast according to the latest peer-reviewed omelet research?</p>
+  <p>Probably not.</p>
+  <p>He kisses his wife.</p>
+  <p>Has he selected his kissing technique after reviewing double-blind studies of effective marital intimacy?</p>
+  <p>Probably not.</p>
+  <p>He goes to work.</p>
+  <p>Are 99 percent of his actions supported by multiple research studies and a consensus of scientists?</p>
+  <p>Of course not.</p>
+  <p>He brushes his teeth, talks to his children, says his prayers, gets into bed, rolls onto his preferred side and goes to sleep.</p>
+  <p>Mostly he is doing what human beings do.</p>
+  <p>He is winging it.</p>
+  <p>Habit.</p>
+  <p>Culture.</p>
+  <p>Experience.</p>
+  <p>Intuition.</p>
+  <p>Imitation.</p>
+  <p>Convenience.</p>
+  <p>Faith.</p>
+  <p>Revelation.</p>
+  <p>Best guesses.</p>
+  <p>Things that seem to work.</p>
+  <p>Things that work <em>well enough</em>.</p>
+  <div class="quote-box major"><p><strong>Sufficiency rules.</strong></p></div>
+  <p>This is not an argument against reason.</p>
+  <p>I love reasoning.</p>
+  <p>Give me an inference and I'll happily chase it around the room.</p>
+  <p>The point is almost the opposite.</p>
+  <div class="quote-box"><p><strong>Reason itself can help us discover the limits of reason.</strong></p></div>
+  <p>The Sacred Clown can paint another inch of the mile red.</p>
+  <p>Maybe two.</p>
+  <p>Maybe twenty.</p>
+  <p>But eventually even the most relentlessly analytical Sacred Clown goes home, eats something without conducting a literature review, climbs into a car without body armor and drives away.</p>
+</section>
+
+<section class="card">
+  <h2>And Then I Forgot</h2>
+  <p>Here is my present confession.</p>
+  <p>I think I have sometimes forgotten this lesson when dealing with the inferences that matter most to me.</p>
+  <p>I may spend years noticing things.</p>
+  <p>Testing something.</p>
+  <p>Praying.</p>
+  <p>Experimenting.</p>
+  <p>Backing up.</p>
+  <p>Moving forward.</p>
+  <p>Finding another piece.</p>
+  <p>Waiting.</p>
+  <p>Trying something privately.</p>
+  <p>Discovering that it seems to work.</p>
+  <p>Gradually becoming more confident.</p>
+  <p>Eventually I reach a conclusion that feels so cogent and safe that I start running.</p>
+  <p>And suddenly I am farther across the bridge.</p>
+  <p>Then I look backward at somebody standing where I stood five or ten or twenty years ago and think:</p>
+  <div class="quote-box"><p><strong>Why aren't you coming?</strong></p></div>
+  <p>That's the mistake.</p>
+  <p>I have forgotten the history of my own bridge.</p>
+</section>
+
+<section class="card">
+  <h2>Your Bridge Is Not My Bridge</h2>
+  <p>This happens everywhere.</p>
+  <p>Someone gradually concludes that he should leave a church.</p>
+  <p>He crosses that bridge and then wonders why everyone else doesn't follow.</p>
+  <p>Someone else develops an increasingly profound commitment to his church.</p>
+  <p>He attends the temple every week, has powerful spiritual experiences and wonders why everybody else doesn't do likewise.</p>
+  <p>Someone discovers homeschooling.</p>
+  <p>Someone stops using plastic bags.</p>
+  <p>Someone changes her diet.</p>
+  <p>Someone radically simplifies his possessions.</p>
+  <p>Someone adopts an unusual spiritual practice.</p>
+  <p>Someone changes political beliefs.</p>
+  <p>Someone becomes convinced that a particular parenting practice is dramatically better.</p>
+  <p>Someone becomes convinced that Jesus is asking him to reorganize significant portions of his life.</p>
+  <p>After years of arriving at the conclusion, the conclusion can begin to feel <strong>obvious</strong>.</p>
+  <p>And then comes the dangerous extra inference:</p>
+  <div class="quote-box"><p><strong>If it is obvious to me, it should be obvious to you.</strong></p></div>
+  <p>No.</p>
+  <p>Maybe you haven't crossed my bridge because <strong>it isn't your bridge</strong>.</p>
+  <p>Maybe you're still testing the planks.</p>
+  <p>Maybe you have evidence I don't have.</p>
+  <p>Maybe I have experiences you haven't had.</p>
+  <p>Maybe you're being timid.</p>
+  <p>Maybe I'm being reckless.</p>
+  <p>Maybe you'll eventually come where I am.</p>
+  <p>Maybe I'll eventually go back where you are.</p>
+  <p>Maybe Jesus is doing something different with you.</p>
+  <p>Maybe neither of us understands nearly as much as we presently suppose.</p>
+  <p>And perhaps you simply understand my argument, think it makes sense, and nevertheless say:</p>
+  <div class="quote-box"><p><strong>“Naaah.”</strong></p></div>
+  <p>I of all people should understand that response.</p>
+  <p>Where is my car helmet?</p>
+</section>
+
+<section class="card">
+  <h2>Sacred Clown Humility</h2>
+  <p>This gives me a new understanding of what Sacred Clowning requires.</p>
+  <p>The first virtue is <strong>courage</strong>:</p>
+  <div class="quote-box"><p><strong>I am willing to follow an inference even when following it makes me look ridiculous.</strong></p></div>
+  <p>But there must be another virtue:</p>
+  <p><strong>humility.</strong></p>
+  <div class="quote-box"><p><strong>I will not assume that someone else is foolish merely because he is unwilling to follow my inference as far as I have followed it.</strong></p></div>
+  <p>That distinction matters.</p>
+  <p>I can still believe my inference is good.</p>
+  <p>I can argue for it.</p>
+  <p>I can make art about it.</p>
+  <p>I can put on the helmet.</p>
+  <p>I can walk out onto the bridge and wave.</p>
+  <p>I can yell:</p>
+  <div class="quote-box"><p><strong>“HEY! LOOK WHAT I FOUND OUT HERE!”</strong></p></div>
+  <p>That's Sacred Clowning.</p>
+  <p>But something changes when I yell:</p>
+  <div class="quote-box"><p><strong>“AND YOU ARE A FOOL IF YOU DON'T COME OUT HERE TOO!”</strong></p></div>
+  <p>Now the Sacred Clown has forgotten his own art.</p>
+</section>
+
+<section class="card">
+  <h2>Article of Faith 11</h2>
+  <p>This is one reason Article of Faith 11 increasingly interests me:</p>
+  <div class="quote-box scripture"><p>“We claim the privilege of worshiping Almighty God according to the dictates of our own conscience, and allow all men the same privilege…”</p></div>
+  <p>I have usually thought about that as religious tolerance.</p>
+  <p>But I can now see something larger hiding inside it.</p>
+  <p>I claim the privilege of following conscience—and the inferences I believe God is helping me make—as far as I believe I should follow them.</p>
+  <p>But <strong>“allow all men the same privilege”</strong> means that I grant you your process too.</p>
+  <p>Your timetable.</p>
+  <p>Your evidence.</p>
+  <p>Your revelation.</p>
+  <p>Your uncertainty.</p>
+  <p>Your experiments.</p>
+  <p>Your stopping points.</p>
+  <p>Your “Naaah.”</p>
+  <p>Even your right to look at the bridge I'm crossing and conclude:</p>
+  <div class="quote-box"><p><strong>“Greg has completely lost his mind.”</strong></p></div>
+  <p>Fair enough.</p>
+  <p>Article of Faith 11 doesn't require me to conclude that every inference is equally good.</p>
+  <p>It requires something more interesting:</p>
+  <div class="quote-box"><p><strong>patience with people who have not arrived where I have arrived.</strong></p></div>
+  <p>And hopefully enough humility to remember that they may know something I don't.</p>
+</section>
+
+<section class="card">
+  <h2>The Clown Gets Clowned</h2>
+  <p>So after all these years, the joke comes back around.</p>
+  <p>The Sacred Clown spends his life demonstrating that society contains arbitrary stopping points.</p>
+  <p>He discovers Positive Deviance.</p>
+  <p>He creates <em>The Helmet Solution</em>.</p>
+  <p>He asks why sensible safety suddenly becomes ridiculous.</p>
+  <p>He runs farther out onto inference bridges than polite society generally permits.</p>
+  <p>Then he discovers that even thoughtful human beings follow only a tiny fraction of their possible inferences all the way to carefully reasoned conclusions.</p>
+  <p>He announces:</p>
+  <div class="quote-box"><p><strong>Sufficiency rules!</strong></p></div>
+  <p>He celebrates the vast territory beyond reason where human beings live through faith, revelation, intuition, culture, habit, experience and best guesses.</p>
+  <p>And then...</p>
+  <p>Years later...</p>
+  <p>The Sacred Clown finds an inference he really likes.</p>
+  <p>He runs across the bridge.</p>
+  <p>Turns around.</p>
+  <p>Sees everybody standing behind him.</p>
+  <p>And shouts:</p>
+  <div class="quote-box"><p><strong>“WHAT'S TAKING YOU PEOPLE SO LONG?”</strong></p></div>
+  <p>Beautiful.</p>
+  <p>The clown gets clowned by his own art.</p>
+  <p>Maybe that is exactly what Sacred Clowns are for.</p>
+  <p>Not merely to expose everybody else's invisible assumptions.</p>
+  <p>But eventually—</p>
+  <p>if we're lucky—</p>
+  <p>to expose our own.</p>
+</section>
+
+<section class="card finale">
+  <h2>So Wear the Car Helmet</h2>
+  <p>Or don't.</p>
+  <p>I can show you the inference.</p>
+  <p>I can put the helmet on myself.</p>
+  <p>I can make a movie about it.</p>
+  <p>I can add body armor.</p>
+  <p>I can bring in the bleeding-heart nurse nudger who whispers:</p>
+  <div class="quote-box"><p><strong>“But Greg...if it saves just one life...”</strong></p></div>
+  <p>I can run another hundred yards across the bridge just to see where the logic takes us.</p>
+  <p>That is play.</p>
+  <p>That is inquiry.</p>
+  <p>That is Positive Deviance.</p>
+  <p>That is art.</p>
+  <p>That is Sacred Clowning.</p>
+  <p>But kindness and humility demand something else from me too:</p>
+  <div class="quote-box major"><p><strong>I need patience for people who aren't ready to run out onto the inferences I have concluded are cogent and safe—especially when I may have spent years timidly testing those same inferences myself.</strong></p></div>
+  <p>Their bridge.</p>
+  <p>Their pace.</p>
+  <p>Their conscience.</p>
+  <p>Their Jesus journey.</p>
+  <p>And I should remember:</p>
+  <div class="quote-box"><p><strong>A good Sacred Clown is willing to look like a fool for following an inference.</strong></p></div>
+  <div class="quote-box"><p><strong>A bad Sacred Clown begins thinking everyone else is a fool for not following it.</strong></p></div>
+  <p>So perhaps the next time I find myself standing far out on one of my inference bridges, impatiently waving everyone forward, I need only ask myself one question:</p>
+  <div class="quote-box major final-question"><p><strong>Greg, where's your car helmet?</strong></p></div>
+</section>
+
+
+    <div class="home-link-wrap">
+      <a class="home-link" href="index.html">Return to Home</a>
+    </div>
+  </main>
+</body>
+</html>
