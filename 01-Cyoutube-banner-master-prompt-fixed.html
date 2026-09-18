@@ -802,7 +802,123 @@ A PASS requires:
 
 The goal is not merely a beautiful banner.
 
-The goal is a beautiful banner whose COMPLETE essential composition is mathematically guaranteed to survive YouTube's all-device crop.</pre>
+The goal is a beautiful banner whose COMPLETE essential composition is mathematically guaranteed to survive YouTube's all-device crop.
+
+==================================================
+YOUTUBE PREVIEW UI OVERLAYS — DO NOT MISREAD THEM
+==================================================
+
+IMPORTANT: YouTube's crop-preview interface places floating labels over the artwork, including labels such as:
+
+- "Viewable on TV"
+- "Viewable on desktop"
+- "Viewable on all devices"
+
+These gray/white labels are UI OVERLAYS.
+
+They are NOT part of the banner.
+They are NOT crop boundaries.
+They are NOT safe-area edges.
+They are NOT evidence that artwork may safely sit underneath them.
+
+When measuring the screenshot:
+
+1. Identify crop boundaries ONLY from the actual crop-guide lines/rectangles.
+2. Ignore the floating label boxes when determining geometry.
+3. Do not use the left, right, top, or bottom edge of a floating label as a coordinate.
+4. Assume the labels may temporarily cover artwork in the preview even when that artwork is technically inside the crop.
+5. Therefore, do not place important text near the top-left portion of the All Devices region where the floating "Viewable on all devices" label commonly appears.
+
+The screenshot is authoritative for the crop-guide geometry, but NOT for the geometry of floating UI labels.
+
+==================================================
+DO NOT FILL THE ALL-DEVICES BOX
+==================================================
+
+The All Devices rectangle is a SURVIVAL AREA, not a target that the artwork should fill.
+
+Do NOT stretch the title, subtitle, divider, ticket, panel, or composition to nearly touch the All Devices boundaries.
+
+After calculating MASTER_ALL_DEVICES_BBOX, create a deliberately compact visual composition.
+
+The ESSENTIAL_ARTWORK_GROUP should occupy approximately:
+
+- no more than 70–75% of the All Devices box width
+- no more than 60–65% of the All Devices box height
+
+Center this compact artwork group horizontally and vertically within the All Devices region, with a slight downward bias if needed to avoid YouTube's floating preview label.
+
+The purpose is generous empty breathing room on every side.
+
+==================================================
+NO SAFE-AREA-SIZED BLACK RECTANGLE
+==================================================
+
+Do NOT create a black or dark rectangular panel that fills or nearly fills the All Devices box or HARD_CONTENT_BOX.
+
+The theater itself should remain visually continuous behind the lettering.
+
+If contrast assistance is necessary, use only one of these:
+
+- subtle text shadow
+- subtle text stroke
+- a soft localized vignette or glow behind the actual lettering group
+- a compact translucent treatment substantially smaller than the safe area
+
+Never make the safe-area boundaries visually obvious in the clean final banner.
+
+The proof image may show rectangles.
+The clean upload banner must not.
+
+==================================================
+COMPACT CENTERED COMPOSITION FOR THIS BANNER
+==================================================
+
+For this specific banner, construct ONE compact centered unit in this order:
+
+TITLE
+"It's Time To Start The Show"
+
+DIVIDER
+short gold line — small gold star — short gold line
+
+LOWER ROW
+"A Love Story Opera"     [SOLD OUT / to Jesus ticket]
+
+Requirements:
+
+- The title must be centered and noticeably narrower than the All Devices box.
+- The title must not begin near the left edge of the All Devices box.
+- The title must sit low enough that YouTube's floating "Viewable on all devices" label does not visually cover it in the preview.
+- The divider must be much shorter than the available safe width.
+- The subtitle and ticket should read as one balanced lower row.
+- The ticket must remain secondary to the title.
+- The complete visual group must have generous empty space above, below, left, and right.
+- Do not enlarge elements merely because unused safe-area space remains.
+
+==================================================
+MANDATORY FINAL PREVIEW SIMULATION
+==================================================
+
+Before delivery, create a simulated crop-preview check from the final 2560 × 1440 banner.
+
+Verify BOTH of these separately:
+
+A. GEOMETRIC PASS
+Every essential artwork pixel is safely inside the screenshot-derived All Devices crop.
+
+B. VISUAL PASS
+The composition remains comfortably readable even when a mock floating "Viewable on all devices" label is placed over the same approximate upper-left location shown in my YouTube screenshot.
+
+If the mock label overlaps the title or other essential content:
+
+FAIL.
+
+Move or shrink the essential artwork group and test again.
+
+Do not deliver until both GEOMETRIC PASS and VISUAL PASS succeed.
+
+</pre>
     </section>
 
     <section class="card home-link">
