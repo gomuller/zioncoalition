@@ -142,789 +142,324 @@
       <h2>Copy-and-Paste Prompt</h2>
       <pre class="prompt-box">Please create youtube banner....
 
-YOUTUBE CHANNEL BANNER — PIXEL-EXACT MASTER PROMPT
+YOUTUBE BANNER — MASTER PRODUCTION PROMPT
 
-Construct ONE finished YouTube channel banner that will display correctly on ALL DEVICES.
+Create ONE finished YouTube channel banner at exactly:
 
-IMPORTANT:
-This is a precision layout and compositing task, not merely an image-generation task.
+2560 × 1440 pixels
 
-The final banner MUST NOT be generated as one finished AI image.
+The finished product must be ONE clean PNG ready to upload to YouTube.
 
-Image generation may be used ONLY to create a clean, text-free decorative background. All essential foreground content must then be added with exact programmatic image compositing.
+This is a TWO-STAGE production workflow.
 
-==================================================
-ONE-BANNER / ONE-DELIVERABLE RULE
-==================================================
-
-This request is for ONE YouTube banner design only.
-
-Do NOT generate multiple alternative banners.
-Do NOT generate multiple design variations.
-Do NOT make repeated image-generation calls that create additional finished-banner versions.
-
-The workflow is:
-
-1. Create or obtain ONE clean, text-free theater background asset.
-2. Use that ONE background to construct ONE finished banner programmatically.
-3. Produce ONE clean final banner PNG for upload to YouTube.
-4. Produce the safe-area proof only as a technical verification copy of that SAME banner.
-
-The safe-area proof is NOT a second design, variation, alternative, or image-generation attempt.
-
-IMPORTANT:
-
-Do not call image generation to create the finished banner.
-
-If image generation is necessary, call it ONLY ONCE for ONE clean, text-free background asset.
-
-Do not ask the image generator to add:
-- title
-- subtitle
-- divider
-- star
-- SOLD OUT ticket
-- logos
-- signs
-- stamps
-- any other essential foreground content
-
-After the ONE clean background asset exists, STOP using image generation completely.
-
-From that point forward, use only exact programmatic image editing/compositing to construct the banner.
-
-The final user-facing design is ONE banner.
+Do not combine the stages.
 
 ==================================================
-DO NOT CONFUSE IMAGE-EDITOR THUMBNAILS WITH DELIVERABLES
+STAGE 1 — GENERATE THE BACKGROUND ONLY
 ==================================================
 
-ChatGPT's image editor may display thumbnails or version-history previews in its interface.
+Use image generation ONLY to create the scenic background.
 
-Those UI thumbnails are not part of the banner file and cannot be controlled by the banner artwork.
+Generate ONE beautiful cinematic image of an empty grand opera theater viewed from the stage.
 
-However, do not unnecessarily create extra image-generation versions, because each generation may add another thumbnail/version to the image-editor history.
+Visual direction:
 
-Therefore:
-
-ONE image-generation call maximum for the clean background, if needed.
-
-ZERO image-generation calls for the final lettered/composited banner.
-
-ONE final banner design.
-
-==================================================
-MANDATORY EXECUTION METHOD — NO EXCEPTIONS
-==================================================
-
-The instructions in this prompt describe the REQUIRED TOOL WORKFLOW, not merely the desired appearance.
-
-A result is INVALID if the final title, subtitle, divider/star, or SOLD OUT / to Jesus ticket was rendered by an image generator, even if the result looks visually correct.
-
-The final foreground MUST be constructed programmatically.
-
-Do not silently substitute image generation for programmatic compositing.
-
-Do not interpret "create the banner" as permission to send the entire design to an image-generation tool.
-
-If a clean background is already available and suitable, reuse it and skip image generation entirely.
-
-Before delivering the result, confirm internally that:
-- the background is the only AI-generated visual asset, if generation was needed;
-- all essential foreground content was added after generation;
-- all essential foreground content was added programmatically;
-- the numerical safe-area tests were actually performed.
-
-==================================================
-FINAL FILE REQUIREMENTS
-==================================================
-
-1. Create the FINAL image programmatically as an EXACT:
-
-2560 × 1440 pixel PNG.
-
-2. The final PNG itself must be exactly 2560 × 1440 pixels.
-
-Do NOT create a short panoramic banner and simply place it inside a 2560 × 1440 canvas.
-
-The decorative background must fill the entire 2560 × 1440 canvas edge-to-edge.
-
-3. Create TWO final PNG files:
-
-FILE A — FINAL YOUTUBE BANNER
-Exact size: 2560 × 1440 pixels.
-This is the clean image I will upload to YouTube.
-It must contain NO crop guides, safe-area rectangles, measurements, coordinates, or instructional markings.
-
-FILE B — SAFE-AREA PROOF
-Exact size: 2560 × 1440 pixels.
-This must be identical to File A except that it visibly shows the hard safe-area rectangle used for the composition.
-
-==================================================
-CRITICAL GEOMETRY — MY ACTUAL YOUTUBE SCREENSHOT IS AUTHORITATIVE
-==================================================
-
-4. If I provide a screenshot of YouTube's actual "Customize banner art" upload preview, that screenshot is the FINAL AUTHORITY for the All Devices crop.
-
-DO NOT use a generic published safe-area rectangle instead of my screenshot.
-
-DO NOT reuse previously assumed coordinates such as:
-
-X = 555 to 2005
-Y = 530 to 910
-1450 × 380
-
-unless those exact values are freshly derived from the current screenshot.
-
-Previously used coordinates are NOT authoritative.
-
-5. Measure the actual YouTube preview screenshot programmatically.
-
-Identify:
-
-A. The complete displayed banner rectangle.
-B. The inner rectangle labeled "Viewable on all devices" or "All devices."
-
-Measure the pixel coordinates of both rectangles in the screenshot.
-
-Then convert the inner rectangle from screenshot coordinates into NORMALIZED coordinates relative to the displayed banner:
-
-safe_left_ratio   = (safe_left - banner_left) / banner_width
-safe_right_ratio  = (safe_right - banner_left) / banner_width
-safe_top_ratio    = (safe_top - banner_top) / banner_height
-safe_bottom_ratio = (safe_bottom - banner_top) / banner_height
-
-Then translate those ratios onto the exact 2560 × 1440 master canvas:
-
-MASTER_SAFE_LEFT   = round(safe_left_ratio × 2560)
-MASTER_SAFE_RIGHT  = round(safe_right_ratio × 2560)
-MASTER_SAFE_TOP    = round(safe_top_ratio × 1440)
-MASTER_SAFE_BOTTOM = round(safe_bottom_ratio × 1440)
-
-Do not eyeball this conversion.
-
-Do not infer it from memory.
-
-Actually calculate it.
-
-6. After calculating the screenshot-derived master safe rectangle, create an even SMALLER internal content box.
-
-Inset the screenshot-derived safe rectangle by approximately:
-
-5% of its width on the left
-5% of its width on the right
-5% of its height on the top
-5% of its height on the bottom
-
-Call this:
-
-HARD_CONTENT_BOX
-
-ALL essential foreground content must fit inside HARD_CONTENT_BOX.
-
-This deliberate inset provides extra protection from measurement error, UI scaling, antialiasing, and text edges.
-
-7. If no current YouTube crop-preview screenshot is supplied, then and only then verify YouTube's current official specifications and derive the safe area from them.
-
-But whenever my actual YouTube upload screenshot exists:
-
-MY SCREENSHOT OVERRIDES GENERIC SAFE-AREA ASSUMPTIONS.
-
-==================================================
-SCREENSHOT CALIBRATION PROOF
-==================================================
-
-Before constructing the banner, record the calculated values:
-
-SCREENSHOT_BANNER_BBOX
-SCREENSHOT_ALL_DEVICES_BBOX
-NORMALIZED_ALL_DEVICES_BBOX
-MASTER_ALL_DEVICES_BBOX
-HARD_CONTENT_BOX
-
-Do not proceed to final compositing until these values have been calculated.
-
-The proof PNG must show both:
-
-1. the screenshot-derived MASTER_ALL_DEVICES_BBOX
-2. the smaller HARD_CONTENT_BOX
-
-Use different visible outlines and label them clearly.
-
-==================================================
-MOST IMPORTANT RULE — DESIGN INSIDE THE BOX FIRST
-==================================================
-
-6. DO NOT create a normal wide banner composition and then try to shrink or reposition it afterward.
-
-Instead:
-
-FIRST establish the 1450 × 380 hard content box.
-
-THEN design the complete foreground composition inside that box.
-
-The ENTIRE combined foreground composition must fit inside the box simultaneously.
-
-For this banner, that combined composition includes:
-
-- the complete title
-- decorative divider/star
-- complete subtitle
-- complete SOLD OUT / to Jesus ticket
-
-The OUTERMOST PIXEL of every essential foreground element must remain inside the freshly calculated HARD_CONTENT_BOX.
-
-Nothing essential may cross its left boundary.
-Nothing essential may cross its right boundary.
-Nothing essential may cross its top boundary.
-Nothing essential may cross its bottom boundary.
-
-
-==================================================
-ABSOLUTE CLEAN-BACKGROUND REQUIREMENT
-==================================================
-
-Before adding ANY foreground content, inspect the chosen background asset.
-
-The background is acceptable ONLY if it contains ZERO pre-existing:
-
-- title text
-- subtitle text
-- SOLD OUT ticket
-- lettering
-- logos
-- stamps
-- signs
-- ghost text
-- faded text
-- partially obscured text
-- remnants of earlier compositions
-
-DO NOT use a previously lettered banner as the background.
-
-DO NOT cover old lettering with a translucent or blurred rectangle.
-
-DO NOT attempt to hide old text underneath the new composition.
-
-DO NOT reuse an AI-generated finished banner as a scenic base.
-
-If the available theater image contains ANY old essential foreground content, it is INVALID AS A BACKGROUND.
-
-Instead, generate or use a genuinely clean, text-free theater background.
-
-Before continuing, verify visually that no old text/sign/ticket remains anywhere beneath the future foreground area.
-
-This requirement is mandatory even if reusing an old image would be faster.
-
-
-==================================================
-NO AI-GENERATED FINAL LETTERING
-==================================================
-
-7. Image generation must create ONLY a CLEAN, TEXT-FREE theater background.
-
-The generated background must NOT contain:
-
-- title text
-- subtitle text
-- SOLD OUT text
-- ticket text
-- logos
-- lettering
-- divider
-- star
-- signs
-- stamps
-- people
-
-Do NOT ask an image generator to produce the finished banner.
-
-Do NOT ask an image generator to position the title inside the safe area.
-
-Do NOT ask an image generator to render the SOLD OUT ticket.
-
-The image generator's only job is to make the decorative theater scenery.
-
-After the clean background exists, STOP using image generation.
-
-==================================================
-PROGRAMMATIC FOREGROUND COMPOSITION
-==================================================
-
-8. Add ALL essential foreground content with exact programmatic image compositing.
-
-Programmatically control:
-
-- font
-- font size
-- rendered text width
-- rendered text height
-- horizontal position
-- vertical position
-- alignment
-- spacing
-- line spacing
-- divider dimensions
-- star dimensions
-- ticket dimensions
-- ticket rotation, if any
-- margins
-
-Measure the ACTUAL rendered pixel bounding box of every foreground element.
-
-Do not estimate text width by character count.
-
-Do not assume that centered text fits.
-
-Measure the rendered pixels.
-
-==================================================
-MANDATORY INTERNAL MARGIN
-==================================================
-
-9. HARD_CONTENT_BOX is already the deliberately inset working region.
-
-Do not enlarge it merely because the composition looks small.
-
-The exact numerical boundaries must come from the current screenshot-calibration calculation.
-
-All essential pixels must remain inside HARD_CONTENT_BOX.
-
-==================================================
-LAYOUT FOR THIS PARTICULAR BANNER
-===================================================================================================
-LAYOUT FOR THIS PARTICULAR BANNER
-==================================================
-
-10. BACKGROUND:
-
-Create a beautiful empty opera theater viewed from the stage.
-
-Include:
-
-- red velvet curtains
-- warm golden theatrical lighting
-- empty red theater seats
-- ornate theater architecture
-- stage lights
+- elegant red velvet curtains
+- warm theatrical spotlights
+- ornate balconies
+- rows of red theater seats
 - polished wooden stage
-- cinematic atmosphere
+- warm gold and deep-red palette
+- dramatic but inviting lighting
+- symmetrical composition
+- realistic/cinematic appearance
+- no people
 
-The theater scenery must fill the complete 2560 × 1440 canvas.
+CRITICAL:
 
-Decorative scenery may extend anywhere on the canvas and may be cropped differently by YouTube.
+The generated background must contain absolutely:
 
-DO NOT put people in this banner.
+- NO words
+- NO letters
+- NO title
+- NO subtitle
+- NO ticket
+- NO signs
+- NO logos
+- NO stamps
+- NO graphic panels
+- NO text of any kind
 
-DO NOT put Greg or Jesus in this banner.
+Generate ONE background only.
 
-The full Greg-and-Jesus theatrical picture will be used separately as the thumbnail for the channel introduction video.
+Once a clean background exists, STOP using image generation.
+
+Do not ask the image generator to create the finished banner.
 
 ==================================================
-ESSENTIAL FOREGROUND CONTENT
+STAGE 2 — BUILD THE BANNER PROGRAMMATICALLY
 ==================================================
 
-11. MAIN TITLE:
+Use Python/Pillow or another true programmatic image-compositing method for ALL remaining work.
+
+Resize/crop the clean theater background to exactly:
+
+2560 × 1440 pixels
+
+Then add the typography, divider, star, ticket, sizing, and positioning PROGRAMMATICALLY.
+
+Do not use an image generator for any of these elements.
+
+==================================================
+THEATER BACKGROUND MUST REMAIN CONTINUOUS
+==================================================
+
+The theater photograph must remain visually continuous across the entire 2560 × 1440 banner.
+
+The safe area is an INVISIBLE positioning constraint.
+
+It must NEVER become part of the visible design.
+
+ABSOLUTELY DO NOT create:
+
+- a black rectangle
+- a dark rectangle
+- a translucent rectangle
+- a panel
+- a card
+- a banner inside the banner
+- a vignette box
+- a tinted safe area
+- a blurred rectangle
+- a gradient box
+- a background plate
+- a framed center section
+- any other visible representation of the safe area
+
+Do not darken, lighten, blur, tint, mask, or otherwise visually distinguish the safe area from the surrounding theater.
+
+The exact same continuous theater image must remain visible behind and around the lettering.
+
+For readability, ONLY the individual letters themselves may receive subtle:
+
+- shadow
+- stroke
+- outline
+- glow
+
+The SOLD OUT ticket may have its own cream-colored ticket background because the ticket itself is a physical graphic element.
+
+==================================================
+ESSENTIAL CONTENT
+==================================================
+
+Programmatically add exactly:
 
 It's Time To Start The Show
 
-The complete title must fit inside the hard content box.
+Then:
 
-The title may need to be substantially smaller than it would normally appear on a theatrical poster.
+short gold line — small gold star — short gold line
 
-THAT IS CORRECT.
-
-Do not make the title larger merely because there is unused decorative space outside the hard content box.
-
-12. DECORATIVE DIVIDER:
-
-Use an elegant gold divider with a centered theatrical star or similar small ornament.
-
-The entire divider and ornament must fit inside the hard content box.
-
-13. SUBTITLE:
+Then:
 
 A Love Story Opera
 
-The complete subtitle must fit inside the hard content box.
-
-14. SIGN:
+and a small vintage ticket reading:
 
 SOLD OUT
 to Jesus
 
-Create this programmatically as a theatrical SOLD OUT ticket/stamp.
-
-The complete ticket, including its rotated corners if rotated, must remain inside the hard content box.
-
-IMPORTANT:
-Do NOT place a large ticket far to the right of the title.
-
-Prefer placing the ticket on the lower row near the subtitle, or otherwise arranging it so that the complete title + divider + subtitle + ticket composition fits comfortably inside the 1450 × 380 hard content box.
-
-If rotation causes any ticket corner to leave the hard content box, reduce the ticket size, reduce the rotation, reposition it, or remove the rotation.
-
 ==================================================
-DESIGN STYLE
+LAYOUT
 ==================================================
 
-15. Overall style:
+All essential content must remain comfortably inside YouTube's central "Viewable on all devices" safe region.
 
-Cinematic.
-Elegant.
-Warm.
-Theatrical.
-Red velvet.
-Golden stage lighting.
-Empty theater.
-Opening-night feeling.
+However:
 
-The title should feel like the marquee/title of an opera.
+DO NOT FILL THE SAFE AREA.
 
-The SOLD OUT / to Jesus element should look like a theatrical SOLD OUT stamp or ticket notice.
+The safe area is merely the maximum survival region.
 
-Visual drama comes from the theater background.
+Make the actual title/subtitle/ticket composition substantially SMALLER than the safe area.
 
-Foreground size is governed by safe-area geometry, NOT poster aesthetics.
+Leave generous empty space:
 
-==================================================
-MANDATORY BOUNDING-BOX TEST
-==================================================
+- above the title
+- below the lower row
+- to the left
+- to the right
 
-16. Before producing the final files, calculate bounding boxes for:
+The composition should be a compact centered group.
 
-TITLE_BBOX
-DIVIDER_BBOX
-SUBTITLE_BBOX
-TICKET_BBOX
+Use approximately this arrangement:
 
-Then calculate one combined rectangle containing ALL of them:
+             It's Time To Start The Show
 
-ESSENTIAL_CONTENT_BBOX
+                    —— ✦ ——
 
-The following tests are mandatory:
+       A Love Story Opera     [ SOLD OUT
+                                  to Jesus ]
 
-ESSENTIAL_CONTENT_BBOX.left &gt;= HARD_CONTENT_BOX.left
-ESSENTIAL_CONTENT_BBOX.right &lt;= HARD_CONTENT_BOX.right
-ESSENTIAL_CONTENT_BBOX.top &gt;= HARD_CONTENT_BOX.top
-ESSENTIAL_CONTENT_BBOX.bottom &lt;= HARD_CONTENT_BOX.bottom
+The title must remain on ONE line.
 
-Also test each individual element against those same boundaries.
+The title is the dominant element.
 
-If ANY test fails:
+The divider is decorative and secondary.
 
-DO NOT deliver the banner.
+The subtitle is smaller than the title.
 
-Instead:
+The SOLD OUT ticket is small and secondary.
 
-- reduce font size
-- reduce ticket size
-- reduce spacing
-- shorten the vertical stack
-- move elements
-- rearrange the subtitle/ticket row
-- reduce ticket rotation
-- redesign the foreground layout
+The subtitle and ticket should form a balanced lower row.
 
-Then measure again.
-
-Repeat until EVERY test passes.
+Do not enlarge any element simply because unused safe-area space remains.
 
 ==================================================
-PROGRAMMATIC CLIPPING SAFEGUARD
+IMPORTANT YOUTUBE PREVIEW CONSIDERATION
 ==================================================
 
-17. After screenshot calibration, calculate:
+YouTube may display floating interface labels such as:
 
-HARD_WIDTH = HARD_CONTENT_BOX.right - HARD_CONTENT_BOX.left
-HARD_HEIGHT = HARD_CONTENT_BOX.bottom - HARD_CONTENT_BOX.top
+"Viewable on TV"
+"Viewable on desktop"
+"Viewable on all devices"
 
-Create a separate transparent foreground layer exactly:
-
-HARD_WIDTH × HARD_HEIGHT pixels.
-
-All title, subtitle, divider, star, ticket, and other essential content must be drawn entirely inside that transparent layer.
-
-Then composite that completed foreground layer onto the 2560 × 1440 background at:
-
-X = HARD_CONTENT_BOX.left
-Y = HARD_CONTENT_BOX.top
-
-Nothing essential may be drawn directly outside this layer.
-
-This is a HARD implementation requirement.
-
-==================================================
-SAFE-AREA PROOF
-===================================================================================================
-SAFE-AREA PROOF
-==================================================
-
-18. Create a proof copy.
-
-On the proof copy ONLY, draw:
-
-1. the freshly calculated MASTER_ALL_DEVICES_BBOX
-2. the freshly calculated smaller HARD_CONTENT_BOX
-
-Label both with their actual calculated pixel dimensions.
-
-Do not use old fixed coordinates from a previous attempt.
-
-The proof must visually demonstrate that every essential element is completely inside this rectangle.
-
-Do not put this rectangle or label on the clean final banner.
-
-==================================================
-FINAL QUALITY-CONTROL CHECK
-==================================================
-
-19. BEFORE giving me the files, verify ALL of the following:
-
-[ ] Final PNG is exactly 2560 × 1440 pixels.
-
-[ ] Proof PNG is exactly 2560 × 1440 pixels.
-
-[ ] Background fills the entire canvas edge-to-edge.
-
-[ ] Background contains NO generated title or other lettering.
-
-[ ] There is only ONE copy of the title.
-
-[ ] There is only ONE copy of the subtitle.
-
-[ ] There is only ONE SOLD OUT / to Jesus ticket.
-
-[ ] Title was added programmatically.
-
-[ ] Subtitle was added programmatically.
-
-[ ] Divider/star was added programmatically.
-
-[ ] SOLD OUT ticket was added programmatically.
-
-[ ] Entire foreground was first constructed on a transparent layer exactly matching the freshly calculated HARD_CONTENT_BOX.
-
-[ ] That layer was composited at the freshly calculated HARD_CONTENT_BOX left/top coordinates.
-
-[ ] TITLE_BBOX passes the hard-boundary test.
-
-[ ] DIVIDER_BBOX passes the hard-boundary test.
-
-[ ] SUBTITLE_BBOX passes the hard-boundary test.
-
-[ ] TICKET_BBOX passes the hard-boundary test.
-
-[ ] ESSENTIAL_CONTENT_BBOX passes all four hard-boundary tests.
-
-[ ] No essential pixel extends left of HARD_CONTENT_BOX.left.
-
-[ ] No essential pixel extends right of HARD_CONTENT_BOX.right.
-
-[ ] No essential pixel extends above HARD_CONTENT_BOX.top.
-
-[ ] No essential pixel extends below HARD_CONTENT_BOX.bottom.
-
-[ ] Text spelling is exact.
-
-[ ] Text is readable.
-
-[ ] Elements do not overlap accidentally.
-
-[ ] Clean final banner contains no crop guides.
-
-[ ] Proof version clearly shows both the screenshot-derived All Devices box and the inset HARD_CONTENT_BOX.
-
-If ANY item fails, FIX IT before giving me the files.
-
-==================================================
-IMPORTANT FAILURE PREVENTION
-==================================================
-
-20. Do NOT solve a cropping failure by repeatedly generating wider images.
-
-Do NOT solve it by simply telling an image generator to make the text smaller.
-
-Do NOT solve it by merely centering the composition.
-
-Do NOT use image generation for the final foreground.
-
-Do NOT rely on visual judgment alone.
-
-Do NOT deliver a banner merely because it "looks centered."
-
-The final banner succeeds ONLY if the programmatically measured foreground content fits inside the hard numerical boundaries.
-
-21. Do NOT confuse:
-
-"the image is 2560 × 1440"
-
-with:
-
-"the essential content is inside X=555–2005 and Y=530–910."
-
-These are TWO DIFFERENT requirements.
-
-Both must be satisfied.
-
-==================================================
-FINAL INSTRUCTION
-==================================================
-
-Use image generation ONLY to create a clean, text-free theater background if necessary.
-
-Then STOP using image generation.
-
-Measure the current YouTube screenshot first and calculate MASTER_ALL_DEVICES_BBOX and HARD_CONTENT_BOX.
-
-Create a separate transparent foreground layer exactly matching HARD_CONTENT_BOX.
-
-Programmatically compose ALL essential content inside that layer.
-
-Composite that layer onto the 2560 × 1440 background at HARD_CONTENT_BOX.left and HARD_CONTENT_BOX.top.
-
-Programmatically measure and verify every bounding box.
-
-Create:
-
-1. clean final 2560 × 1440 YouTube banner PNG
-2. 2560 × 1440 safe-area proof PNG
-
-DO NOT give me the files until every required numerical test passes.
-
-Never report that the banner "passes" merely because it fits coordinates chosen in advance.
-
-A PASS requires:
-- current screenshot-derived crop geometry when a screenshot is supplied;
-- a genuinely clean background;
-- programmatic foreground construction;
-- successful bounding-box tests against the screenshot-derived HARD_CONTENT_BOX.
-
-The goal is not merely a beautiful banner.
-
-The goal is a beautiful banner whose COMPLETE essential composition is mathematically guaranteed to survive YouTube's all-device crop.
-
-==================================================
-YOUTUBE PREVIEW UI OVERLAYS — DO NOT MISREAD THEM
-==================================================
-
-IMPORTANT: YouTube's crop-preview interface places floating labels over the artwork, including labels such as:
-
-- "Viewable on TV"
-- "Viewable on desktop"
-- "Viewable on all devices"
-
-These gray/white labels are UI OVERLAYS.
+These are temporary YouTube UI overlays.
 
 They are NOT part of the banner.
-They are NOT crop boundaries.
-They are NOT safe-area edges.
-They are NOT evidence that artwork may safely sit underneath them.
+They are NOT safe-area boundaries.
+They are NOT artwork.
 
-When measuring the screenshot:
+Do not interpret the edges of these labels as crop boundaries.
 
-1. Identify crop boundaries ONLY from the actual crop-guide lines/rectangles.
-2. Ignore the floating label boxes when determining geometry.
-3. Do not use the left, right, top, or bottom edge of a floating label as a coordinate.
-4. Assume the labels may temporarily cover artwork in the preview even when that artwork is technically inside the crop.
-5. Therefore, do not place important text near the top-left portion of the All Devices region where the floating "Viewable on all devices" label commonly appears.
+Because the "Viewable on all devices" label may temporarily cover the upper-left portion of the center region during upload preview, keep the title comfortably centered with generous space around it.
 
-The screenshot is authoritative for the crop-guide geometry, but NOT for the geometry of floating UI labels.
+The composition should still be understandable even while that temporary YouTube label is visible.
 
 ==================================================
-DO NOT FILL THE ALL-DEVICES BOX
+TYPOGRAPHY
 ==================================================
 
-The All Devices rectangle is a SURVIVAL AREA, not a target that the artwork should fill.
+Use an elegant theatrical/classical serif typeface.
 
-Do NOT stretch the title, subtitle, divider, ticket, panel, or composition to nearly touch the All Devices boundaries.
+Title:
 
-After calculating MASTER_ALL_DEVICES_BBOX, create a deliberately compact visual composition.
+It's Time To Start The Show
 
-The ESSENTIAL_ARTWORK_GROUP should occupy approximately:
+- large
+- elegant
+- highly readable
+- one line
+- centered
+- warm ivory/white
+- subtle individual text shadow/stroke if needed
 
-- no more than 70–75% of the All Devices box width
-- no more than 60–65% of the All Devices box height
+Divider:
 
-Center this compact artwork group horizontally and vertically within the All Devices region, with a slight downward bias if needed to avoid YouTube's floating preview label.
+—— ✦ ——
 
-The purpose is generous empty breathing room on every side.
+- gold
+- short
+- centered
+- understated
 
-==================================================
-NO SAFE-AREA-SIZED BLACK RECTANGLE
-==================================================
+Subtitle:
 
-Do NOT create a black or dark rectangular panel that fills or nearly fills the All Devices box or HARD_CONTENT_BOX.
+A Love Story Opera
 
-The theater itself should remain visually continuous behind the lettering.
+- smaller than title
+- elegant serif
+- ivory/white
 
-If contrast assistance is necessary, use only one of these:
+Ticket:
 
-- subtle text shadow
-- subtle text stroke
-- a soft localized vignette or glow behind the actual lettering group
-- a compact translucent treatment substantially smaller than the safe area
-
-Never make the safe-area boundaries visually obvious in the clean final banner.
-
-The proof image may show rectangles.
-The clean upload banner must not.
-
-==================================================
-COMPACT CENTERED COMPOSITION FOR THIS BANNER
-==================================================
-
-For this specific banner, construct ONE compact centered unit in this order:
-
-TITLE
-"It's Time To Start The Show"
-
-DIVIDER
-short gold line — small gold star — short gold line
-
-LOWER ROW
-"A Love Story Opera"     [SOLD OUT / to Jesus ticket]
-
-Requirements:
-
-- The title must be centered and noticeably narrower than the All Devices box.
-- The title must not begin near the left edge of the All Devices box.
-- The title must sit low enough that YouTube's floating "Viewable on all devices" label does not visually cover it in the preview.
-- The divider must be much shorter than the available safe width.
-- The subtitle and ticket should read as one balanced lower row.
-- The ticket must remain secondary to the title.
-- The complete visual group must have generous empty space above, below, left, and right.
-- Do not enlarge elements merely because unused safe-area space remains.
+- small vintage cream ticket
+- red border
+- red SOLD OUT lettering
+- smaller "to Jesus" beneath it
+- tasteful and readable
+- secondary to the title
 
 ==================================================
-MANDATORY FINAL PREVIEW SIMULATION
+ONE-BANNER RULE
 ==================================================
 
-Before delivery, create a simulated crop-preview check from the final 2560 × 1440 banner.
+Create ONE banner design only.
 
-Verify BOTH of these separately:
+Do not create:
 
-A. GEOMETRIC PASS
-Every essential artwork pixel is safely inside the screenshot-derived All Devices crop.
+- alternatives
+- variations
+- multiple compositions
+- multiple generated finished banners
 
-B. VISUAL PASS
-The composition remains comfortably readable even when a mock floating "Viewable on all devices" label is placed over the same approximate upper-left location shown in my YouTube screenshot.
+Image generation may be used ONCE for the clean background.
 
-If the mock label overlaps the title or other essential content:
+After that, use programmatic compositing only.
 
-FAIL.
+The final user-facing deliverable is ONE finished banner PNG.
 
-Move or shrink the essential artwork group and test again.
+==================================================
+FINAL VALIDATION
+==================================================
 
-Do not deliver until both GEOMETRIC PASS and VISUAL PASS succeed.
+Before delivering the banner, verify programmatically:
 
-        xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+1. Final image dimensions are exactly 2560 × 1440.
 
-        more stuff:
+2. The source theater background contains no pre-existing lettering, tickets, signs, or graphic panels.
 
-        THE SAFE AREA MUST BE 100% INVISIBLE IN THE FINAL BANNER. Do not draw, darken, brighten, blur, vignette, mask, shade, tint, frame, panel, card, rectangle, gradient-box, or otherwise visually distinguish the safe area or artwork-group area from the surrounding background. The exact same continuous theater background must remain visible through and around all text. Contrast may be added only to individual text/ticket pixels using text shadow, stroke, or glow.
+3. All typography and the ticket were added programmatically after background generation.
 
-That is the missing rule.
+4. The title remains on one line.
+
+5. All essential content is comfortably inside the central all-devices region.
+
+6. The actual artwork group is substantially smaller than the all-devices region.
+
+7. Generous empty space remains around the complete artwork group.
+
+8. There is NO visible safe-area rectangle, panel, card, vignette, tint, mask, gradient box, or background plate.
+
+9. The continuous theater photograph remains visible directly behind the typography.
+
+10. Only individual text effects and the physical ticket itself may alter the pixels immediately surrounding those elements.
+
+If any validation fails:
+
+DO NOT DELIVER THE IMAGE.
+
+Correct it programmatically and test again.
+
+==================================================
+MOST IMPORTANT VISUAL TEST
+==================================================
+
+The finished image must look like:
+
+ONE beautiful continuous photograph of an opera theater
+with elegant typography printed directly over the theater.
+
+It must NOT look like:
+
+a smaller rectangular banner,
+poster,
+card,
+panel,
+or dark box
+pasted into the middle of a larger theater image.
+
+That distinction is critical.
+
+==================================================
+DELIVERABLE
+==================================================
+
+Deliver ONE clean 2560 × 1440 PNG ready for upload to YouTube.
+
+Do not deliver alternative designs unless I explicitly request them.
 
 </pre>
     </section>
