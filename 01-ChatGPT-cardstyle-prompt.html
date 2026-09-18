@@ -1,94 +1,170 @@
 
 
- <!-- ===================== -->
-<!-- Produce a single standalone HTML page in my Zion Coalition style for the attached essay.
-
-Requirements:
-
-Preserve 100% of the essay. Do not summarize, rewrite, or omit anything.
-Use the Zion Coalition visual style: blue background, multiple rounded cards, quote boxes, generous spacing, attractive typography, and visual pacing.
-Include a featured image at the very top of the page using the placeholder filename: 01-example.png.
-Break the essay into logical cards/sections for readability. Do not place the entire essay in one card.
-Highlight important quotations in quote boxes.
-Output human-readable HTML, not minified. Every tag should be properly indented and on its own line so it can be edited easily in GitHub.
-Make it completely standalone (no external CSS, JavaScript, fonts, or libraries).
-Include a Return to Home link at the bottom (index.html).
-Create both:
-the standalone .html file
-a .zip containing exactly that one HTML file. Do not output the HTML into the chat window. Instead, generate the downloadable files.....Treat this as a designed publication, not a document conversion. -->
 <!-- ===================== -->
 
-<!--
-Add the provided vintage movie-film graphic to the existing picture.
+<!-- ZION COALITION MASTER HTML PUBLICATION PROMPT
 
-Reproduce the film graphic as closely as possible to the reference image:
-the same large silver metal film reel with five large dark openings,
-small center holes, black-and-white movie clapperboard positioned behind
-and slightly to the upper left of the reel, and a short curling strip of
-photographic film coming out beneath it.
+Produce a single standalone HTML page in my Zion Coalition style for the attached essay.
 
-Preserve the proportions, arrangement, metallic appearance, highlights,
-shadows, and overall realistic 3D look of the reference graphic.
+REQUIREMENTS
 
-IMPORTANT:
-The film-reel/clapperboard graphic itself must have a completely transparent
-background—no gold foliage, scenery, rectangular background, border, glow,
-colored box, or backdrop from the reference image.
+1. PRESERVE THE CONTENT
 
-Only the reel, clapperboard, and curling film strip should remain.
+Preserve 100% of the essay.
 
-Place this transparent film graphic naturally on the provided picture as a
-foreground graphic element.
+Do not summarize, rewrite, shorten, paraphrase, or omit anything unless I specifically instruct you to do so.
 
-Do not otherwise alter the underlying picture.
-
-Keep all existing people, bridge, landscape, signs, words, lighting,
-composition, and other elements exactly as they currently appear.
-
-The only change should be the addition of this film-reel/clapperboard graphic.
--->
+The essay text is the source material. Your job is to design and format it as a publication, not rewrite it.
 
 
-<!--
-IMAGE PATH REQUIREMENT:
+2. ZION COALITION CANONICAL VISUAL STYLE
 
-All image files used by this page/project must be located in the "images/" folder.
+IMPORTANT: Maintain a consistent visual identity across all Zion Coalition pages. Do not invent a substantially different design, typography system, color palette, or page style for each essay.
 
-Always reference image files using this relative path format:
+Use this canonical Zion Coalition design:
 
-images/filename.png
+COLORS
 
-Example:
+* outer/background blue: #0d3f73
+* deeper blue where useful: #082b4d
+* primary light content card: #f8fbff
+* secondary/soft card: #edf5fc
+* primary text: #17324d
+* muted text: #4d6983
+* dark blue headings: #123b5d
+* gold accent where appropriate: #f2c14e
+* light blue accent where appropriate: #9fd3ff
+
+LAYOUT
+
+* blue page background
+* centered publication with a comfortable maximum reading width
+* featured image at the top
+* multiple light-colored rounded content cards
+* generous spacing between cards
+* soft shadows
+* comfortable margins and padding
+* responsive layout for desktop and mobile
+
+TYPOGRAPHY
+
+Use a clean, highly readable sans-serif font stack throughout the publication, such as:
+
+font-family: Arial, Helvetica, sans-serif;
+
+Do not switch to a decorative, book-style, or serif typography system unless I specifically request it.
+
+Headings should be dark blue, strong, attractive, and clearly differentiated from body text.
+
+Avoid excessively large titles. The title should feel prominent but should not dominate an entire desktop screen.
+
+Body text should be comfortably sized and easy to read.
+
+READABILITY — VERY IMPORTANT
+
+Never place dark body text directly on a dark blue background.
+
+Normal essay text must appear inside a light-colored card or other light reading surface.
+
+If text intentionally appears directly on a dark blue background, that text MUST be white or another sufficiently light color with strong contrast.
+
+Every paragraph, heading, quotation, caption, link, and other piece of text must have strong visual contrast against its background.
+
+Do not allow inherited CSS colors to create dark-on-dark or light-on-light text.
+
+When in doubt, prioritize readability over decoration.
+
+CONTENT CARDS
+
+Use multiple rounded light cards to organize the essay into logical sections.
+
+Do not place the entire essay in one giant card.
+
+Cards should normally use:
+
+background: #f8fbff;
+color: #17324d;
+border-radius: 18px;
+box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
+
+Use softer secondary cards or quote boxes where helpful.
+
+QUOTE BOXES
+
+Important quotations or statements may be emphasized in attractive quote boxes.
+
+Quote boxes must remain highly readable and visually consistent with the rest of the page.
+
+Use restrained accents such as light blue or gold rather than introducing an unrelated color scheme.
+
+CONSISTENCY
+
+A visitor moving from one Zion Coalition essay to another should immediately recognize that the pages belong to the same website.
+
+Individual pages may have modest creative variation in card arrangement, quotations, featured images, and visual pacing, but the following should remain consistent:
+
+* blue background
+* light reading cards
+* sans-serif typography
+* dark blue headings on light backgrounds
+* readable body text
+* rounded corners
+* soft shadows
+* established Zion Coalition color palette
+* overall page width and spacing
+
+Do not redesign the Zion Coalition visual identity from scratch for each publication.
+
+Treat this canonical style as the default unless I explicitly request a different design.
+
+
+3. FEATURED IMAGE
+
+Include a featured image at the very top of the publication.
+
+If I provide the image filename, use that filename.
+
+If I do not provide a filename, use:
+
+images/01-example.png
+
+The featured image should be visually integrated into the page and sized responsively.
+
+
+4. IMAGE PATH REQUIREMENT
+
+ALL images used anywhere in the page must be located in the:
+
+images/
+
+folder.
+
+Every image src path must therefore begin with:
+
+images/
+
+Correct examples:
 
 images/01-dangerous-beliefs.png
+images/jesus-pillow.png
+images/01-example.png
 
 Do NOT use:
+
 01-dangerous-beliefs.png
 /01-dangerous-beliefs.png
 ./01-dangerous-beliefs.png
 
-Every image src path must begin with:
-
-images/
-
-Example HTML:
+Example:
 
 <img src="images/01-dangerous-beliefs.png" alt="Dangerous Beliefs">
 
-Apply this rule to every image used anywhere in the page.
 
--->
+5. YELLOW AND GREEN HIGHLIGHTS
 
+Include the following CSS so I can use these highlight classes anywhere in the essay:
 
-<!--
-YELLOW AND GREEN HIGHLIGHT CSS:
-
-so that I can use this: <span class="yellow-highlight">(prelude)</span>
-  and this:  <span class="green-highlight">(prelude)</span>
- 
- be sure to add to the css these:
- 
- .yellow-highlight {
+.yellow-highlight {
   background: linear-gradient(
     transparent 35%,
     #fff176 35%,
@@ -112,11 +188,81 @@ so that I can use this: <span class="yellow-highlight">(prelude)</span>
   color: #1e3a5f;
 }
 
-Finally, don't put these instructions into the html page you are creating (you did that once)
+This allows me to write, for example:
+
+<span class="yellow-highlight">(prelude)</span>
+
+or:
+
+<span class="green-highlight">(prelude)</span>
+
+
+6. HTML QUALITY
+
+Create clean, human-readable HTML.
+
+Do NOT minify the HTML.
+
+Indent the code consistently.
+
+Put HTML elements on separate lines where practical so the page can be easily edited in GitHub.
+
+The page must be completely standalone.
+
+Do not use:
+
+- external CSS
+- external JavaScript
+- external fonts
+- external libraries
+
+All required CSS must be contained inside the HTML file.
+Before creating the files, perform a final readability check of the finished HTML and CSS. 
+Verify that no dark text appears on a dark background, no light text appears on a light background,
+and that all body text, headings, links, quotations, captions, and highlighted text are clearly readable 
+throughout the entire page. Check both desktop and mobile styling. If any CSS rule or inherited color creates poor contrast, correct it before generating the files.
+
+7. LINKS
+
+Use relative internal links wherever appropriate.
+
+The Return to Home link must be:
+
+index.html
+
+Include a clearly visible Return to Home link at the bottom of the page.
+
+
+8. OUTPUT FILES
+
+Create BOTH:
+
+1. The standalone .html file.
+2. A .zip file containing exactly that one HTML file.
+
+Do not output the HTML source code into the chat window.
+
+Instead, generate downloadable files.
+
+
+9. IMPORTANT — DO NOT PUBLISH THESE INSTRUCTIONS
+
+These instructions are production instructions only.
+
+Do NOT place this prompt, these requirements, explanatory notes, production comments, or other instruction text into the finished HTML page.
+
+Only the actual essay/publication content should appear in the finished page.
+
+
+FINAL PRINCIPLE
+
+Preserve the author's words while making the page visually beautiful, readable, organized, and consistent with the Zion Coalition website.
+
+Treat this as a designed publication, not a document conversion.
 
 -->
 
-
+<!-- ===================== -->
 
 
 
