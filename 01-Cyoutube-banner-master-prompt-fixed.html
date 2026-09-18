@@ -261,41 +261,95 @@ Exact size: 2560 × 1440 pixels.
 This must be identical to File A except that it visibly shows the hard safe-area rectangle used for the composition.
 
 ==================================================
-CRITICAL GEOMETRY — DO NOT GUESS
+CRITICAL GEOMETRY — MY ACTUAL YOUTUBE SCREENSHOT IS AUTHORITATIVE
 ==================================================
 
-4. For this 2560 × 1440 master canvas, use this CONSERVATIVE HARD CONTENT BOX for ALL essential foreground content:
+4. If I provide a screenshot of YouTube's actual "Customize banner art" upload preview, that screenshot is the FINAL AUTHORITY for the All Devices crop.
 
-LEFT X = 555
-RIGHT X = 2005
-TOP Y = 530
-BOTTOM Y = 910
+DO NOT use a generic published safe-area rectangle instead of my screenshot.
 
-HARD CONTENT BOX SIZE:
+DO NOT reuse previously assumed coordinates such as:
 
-1450 × 380 pixels
+X = 555 to 2005
+Y = 530 to 910
+1450 × 380
 
-This rectangle is centered inside the 2560 × 1440 canvas.
+unless those exact values are freshly derived from the current screenshot.
 
-These coordinates are the mandatory working boundaries for essential content.
+Previously used coordinates are NOT authoritative.
 
-DO NOT ask the image generator to understand these coordinates.
+5. Measure the actual YouTube preview screenshot programmatically.
 
-DO NOT merely describe this area in prose and hope that generated artwork respects it.
+Identify:
 
-The programmatic compositing stage must enforce these coordinates mathematically.
+A. The complete displayed banner rectangle.
+B. The inner rectangle labeled "Viewable on all devices" or "All devices."
 
-5. Treat the HARD CONTENT BOX as a miniature canvas embedded inside the full 2560 × 1440 banner.
+Measure the pixel coordinates of both rectangles in the screenshot.
 
-The two areas have completely different jobs:
+Then convert the inner rectangle from screenshot coordinates into NORMALIZED coordinates relative to the displayed banner:
 
-FULL 2560 × 1440 CANVAS:
-Decorative background scenery only.
+safe_left_ratio   = (safe_left - banner_left) / banner_width
+safe_right_ratio  = (safe_right - banner_left) / banner_width
+safe_top_ratio    = (safe_top - banner_top) / banner_height
+safe_bottom_ratio = (safe_bottom - banner_top) / banner_height
 
-HARD CONTENT BOX:
-The complete essential foreground composition.
+Then translate those ratios onto the exact 2560 × 1440 master canvas:
 
-While designing the essential foreground composition, behave as though nothing outside X=555–2005 and Y=530–910 exists.
+MASTER_SAFE_LEFT   = round(safe_left_ratio × 2560)
+MASTER_SAFE_RIGHT  = round(safe_right_ratio × 2560)
+MASTER_SAFE_TOP    = round(safe_top_ratio × 1440)
+MASTER_SAFE_BOTTOM = round(safe_bottom_ratio × 1440)
+
+Do not eyeball this conversion.
+
+Do not infer it from memory.
+
+Actually calculate it.
+
+6. After calculating the screenshot-derived master safe rectangle, create an even SMALLER internal content box.
+
+Inset the screenshot-derived safe rectangle by approximately:
+
+5% of its width on the left
+5% of its width on the right
+5% of its height on the top
+5% of its height on the bottom
+
+Call this:
+
+HARD_CONTENT_BOX
+
+ALL essential foreground content must fit inside HARD_CONTENT_BOX.
+
+This deliberate inset provides extra protection from measurement error, UI scaling, antialiasing, and text edges.
+
+7. If no current YouTube crop-preview screenshot is supplied, then and only then verify YouTube's current official specifications and derive the safe area from them.
+
+But whenever my actual YouTube upload screenshot exists:
+
+MY SCREENSHOT OVERRIDES GENERIC SAFE-AREA ASSUMPTIONS.
+
+==================================================
+SCREENSHOT CALIBRATION PROOF
+==================================================
+
+Before constructing the banner, record the calculated values:
+
+SCREENSHOT_BANNER_BBOX
+SCREENSHOT_ALL_DEVICES_BBOX
+NORMALIZED_ALL_DEVICES_BBOX
+MASTER_ALL_DEVICES_BBOX
+HARD_CONTENT_BOX
+
+Do not proceed to final compositing until these values have been calculated.
+
+The proof PNG must show both:
+
+1. the screenshot-derived MASTER_ALL_DEVICES_BBOX
+2. the smaller HARD_CONTENT_BOX
+
+Use different visible outlines and label them clearly.
 
 ==================================================
 MOST IMPORTANT RULE — DESIGN INSIDE THE BOX FIRST
@@ -318,15 +372,50 @@ For this banner, that combined composition includes:
 - complete subtitle
 - complete SOLD OUT / to Jesus ticket
 
-The OUTERMOST PIXEL of every essential foreground element must remain inside:
+The OUTERMOST PIXEL of every essential foreground element must remain inside the freshly calculated HARD_CONTENT_BOX.
 
-X = 555 through 2005
-Y = 530 through 910
+Nothing essential may cross its left boundary.
+Nothing essential may cross its right boundary.
+Nothing essential may cross its top boundary.
+Nothing essential may cross its bottom boundary.
 
-Nothing essential may cross the left boundary.
-Nothing essential may cross the right boundary.
-Nothing essential may cross the top boundary.
-Nothing essential may cross the bottom boundary.
+
+==================================================
+ABSOLUTE CLEAN-BACKGROUND REQUIREMENT
+==================================================
+
+Before adding ANY foreground content, inspect the chosen background asset.
+
+The background is acceptable ONLY if it contains ZERO pre-existing:
+
+- title text
+- subtitle text
+- SOLD OUT ticket
+- lettering
+- logos
+- stamps
+- signs
+- ghost text
+- faded text
+- partially obscured text
+- remnants of earlier compositions
+
+DO NOT use a previously lettered banner as the background.
+
+DO NOT cover old lettering with a translucent or blurred rectangle.
+
+DO NOT attempt to hide old text underneath the new composition.
+
+DO NOT reuse an AI-generated finished banner as a scenic base.
+
+If the available theater image contains ANY old essential foreground content, it is INVALID AS A BACKGROUND.
+
+Instead, generate or use a genuinely clean, text-free theater background.
+
+Before continuing, verify visually that no old text/sign/ticket remains anywhere beneath the future foreground area.
+
+This requirement is mandatory even if reusing an old image would be faster.
+
 
 ==================================================
 NO AI-GENERATED FINAL LETTERING
@@ -393,20 +482,17 @@ Measure the rendered pixels.
 MANDATORY INTERNAL MARGIN
 ==================================================
 
-9. The hard content box already provides conservative protection, but essential elements should still avoid touching its edges.
+9. HARD_CONTENT_BOX is already the deliberately inset working region.
 
-Prefer approximately 25–40 pixels of additional internal margin wherever practical.
+Do not enlarge it merely because the composition looks small.
 
-Therefore, the preferred working region is approximately:
+The exact numerical boundaries must come from the current screenshot-calibration calculation.
 
-LEFT = 590
-RIGHT = 1970
-TOP = 555
-BOTTOM = 885
-
-The hard boundaries X=555–2005 and Y=530–910 may NEVER be crossed.
+All essential pixels must remain inside HARD_CONTENT_BOX.
 
 ==================================================
+LAYOUT FOR THIS PARTICULAR BANNER
+===================================================================================================
 LAYOUT FOR THIS PARTICULAR BANNER
 ==================================================
 
@@ -518,10 +604,10 @@ ESSENTIAL_CONTENT_BBOX
 
 The following tests are mandatory:
 
-ESSENTIAL_CONTENT_BBOX.left &gt;= 555
-ESSENTIAL_CONTENT_BBOX.right &lt;= 2005
-ESSENTIAL_CONTENT_BBOX.top &gt;= 530
-ESSENTIAL_CONTENT_BBOX.bottom &lt;= 910
+ESSENTIAL_CONTENT_BBOX.left &gt;= HARD_CONTENT_BOX.left
+ESSENTIAL_CONTENT_BBOX.right &lt;= HARD_CONTENT_BOX.right
+ESSENTIAL_CONTENT_BBOX.top &gt;= HARD_CONTENT_BOX.top
+ESSENTIAL_CONTENT_BBOX.bottom &lt;= HARD_CONTENT_BOX.bottom
 
 Also test each individual element against those same boundaries.
 
@@ -548,41 +634,42 @@ Repeat until EVERY test passes.
 PROGRAMMATIC CLIPPING SAFEGUARD
 ==================================================
 
-17. As an additional safeguard, construct the essential foreground composition on a separate transparent layer exactly:
+17. After screenshot calibration, calculate:
 
-1450 × 380 pixels
+HARD_WIDTH = HARD_CONTENT_BOX.right - HARD_CONTENT_BOX.left
+HARD_HEIGHT = HARD_CONTENT_BOX.bottom - HARD_CONTENT_BOX.top
 
-Treat that 1450 × 380 transparent layer as the foreground design canvas.
+Create a separate transparent foreground layer exactly:
 
-All title, subtitle, divider, star, ticket, and other essential content must be drawn entirely inside that layer.
+HARD_WIDTH × HARD_HEIGHT pixels.
+
+All title, subtitle, divider, star, ticket, and other essential content must be drawn entirely inside that transparent layer.
 
 Then composite that completed foreground layer onto the 2560 × 1440 background at:
 
-X = 555
-Y = 530
+X = HARD_CONTENT_BOX.left
+Y = HARD_CONTENT_BOX.top
 
-Nothing essential should be drawn directly onto the full canvas outside this foreground layer.
+Nothing essential may be drawn directly outside this layer.
 
 This is a HARD implementation requirement.
 
-This prevents essential foreground content from accidentally extending outside the intended safe area.
-
 ==================================================
+SAFE-AREA PROOF
+===================================================================================================
 SAFE-AREA PROOF
 ==================================================
 
 18. Create a proof copy.
 
-On the proof copy ONLY, draw a clearly visible rectangle at:
+On the proof copy ONLY, draw:
 
-LEFT = 555
-TOP = 530
-RIGHT = 2005
-BOTTOM = 910
+1. the freshly calculated MASTER_ALL_DEVICES_BBOX
+2. the freshly calculated smaller HARD_CONTENT_BOX
 
-Label it:
+Label both with their actual calculated pixel dimensions.
 
-HARD ALL-DEVICES CONTENT BOX — 1450 × 380
+Do not use old fixed coordinates from a previous attempt.
 
 The proof must visually demonstrate that every essential element is completely inside this rectangle.
 
@@ -616,9 +703,9 @@ FINAL QUALITY-CONTROL CHECK
 
 [ ] SOLD OUT ticket was added programmatically.
 
-[ ] Entire foreground was first constructed on a 1450 × 380 transparent layer.
+[ ] Entire foreground was first constructed on a transparent layer exactly matching the freshly calculated HARD_CONTENT_BOX.
 
-[ ] That layer was composited at X=555, Y=530.
+[ ] That layer was composited at the freshly calculated HARD_CONTENT_BOX left/top coordinates.
 
 [ ] TITLE_BBOX passes the hard-boundary test.
 
@@ -630,13 +717,13 @@ FINAL QUALITY-CONTROL CHECK
 
 [ ] ESSENTIAL_CONTENT_BBOX passes all four hard-boundary tests.
 
-[ ] No essential pixel extends left of X=555.
+[ ] No essential pixel extends left of HARD_CONTENT_BOX.left.
 
-[ ] No essential pixel extends right of X=2005.
+[ ] No essential pixel extends right of HARD_CONTENT_BOX.right.
 
-[ ] No essential pixel extends above Y=530.
+[ ] No essential pixel extends above HARD_CONTENT_BOX.top.
 
-[ ] No essential pixel extends below Y=910.
+[ ] No essential pixel extends below HARD_CONTENT_BOX.bottom.
 
 [ ] Text spelling is exact.
 
@@ -646,7 +733,7 @@ FINAL QUALITY-CONTROL CHECK
 
 [ ] Clean final banner contains no crop guides.
 
-[ ] Proof version clearly shows the 1450 × 380 hard content box.
+[ ] Proof version clearly shows both the screenshot-derived All Devices box and the inset HARD_CONTENT_BOX.
 
 If ANY item fails, FIX IT before giving me the files.
 
@@ -688,11 +775,13 @@ Use image generation ONLY to create a clean, text-free theater background if nec
 
 Then STOP using image generation.
 
-Create a separate transparent foreground layer exactly 1450 × 380 pixels.
+Measure the current YouTube screenshot first and calculate MASTER_ALL_DEVICES_BBOX and HARD_CONTENT_BOX.
+
+Create a separate transparent foreground layer exactly matching HARD_CONTENT_BOX.
 
 Programmatically compose ALL essential content inside that layer.
 
-Composite that layer onto the 2560 × 1440 background at X=555, Y=530.
+Composite that layer onto the 2560 × 1440 background at HARD_CONTENT_BOX.left and HARD_CONTENT_BOX.top.
 
 Programmatically measure and verify every bounding box.
 
@@ -702,6 +791,14 @@ Create:
 2. 2560 × 1440 safe-area proof PNG
 
 DO NOT give me the files until every required numerical test passes.
+
+Never report that the banner "passes" merely because it fits coordinates chosen in advance.
+
+A PASS requires:
+- current screenshot-derived crop geometry when a screenshot is supplied;
+- a genuinely clean background;
+- programmatic foreground construction;
+- successful bounding-box tests against the screenshot-derived HARD_CONTENT_BOX.
 
 The goal is not merely a beautiful banner.
 
