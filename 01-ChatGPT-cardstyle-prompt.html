@@ -8,6 +8,7 @@ Produce a single standalone HTML page in my Zion Coalition style for the attache
 
 REQUIREMENTS
 
+
 1. PRESERVE THE CONTENT
 
 Preserve 100% of the essay.
@@ -19,9 +20,12 @@ The essay text is the source material. Your job is to design and format it as a 
 
 2. ZION COALITION CANONICAL VISUAL STYLE
 
-IMPORTANT: Maintain a consistent visual identity across all Zion Coalition pages. Do not invent a substantially different design, typography system, color palette, or page style for each essay.
+IMPORTANT: Maintain a consistent visual identity across all Zion Coalition pages.
+
+Do not invent a substantially different design, typography system, color palette, or page style for each essay.
 
 Use this canonical Zion Coalition design:
+
 
 COLORS
 
@@ -35,6 +39,7 @@ COLORS
 * gold accent where appropriate: #f2c14e
 * light blue accent where appropriate: #9fd3ff
 
+
 LAYOUT
 
 * blue page background
@@ -46,6 +51,7 @@ LAYOUT
 * comfortable margins and padding
 * responsive layout for desktop and mobile
 
+
 TYPOGRAPHY
 
 Use a clean, highly readable sans-serif font stack throughout the publication, such as:
@@ -56,40 +62,117 @@ Do not switch to a decorative, book-style, or serif typography system unless I s
 
 Headings should be dark blue, strong, attractive, and clearly differentiated from body text.
 
-Avoid excessively large titles. The title should feel prominent but should not dominate an entire desktop screen.
+Avoid excessively large titles.
+
+The title should feel prominent but should not dominate an entire desktop screen.
 
 Body text should be comfortably sized and easy to read.
 
-READABILITY — VERY IMPORTANT
 
-Never place dark body text directly on a dark blue background.
+3. READABILITY AND CARD CONTAINMENT — ABSOLUTE REQUIREMENT
 
-Normal essay text must appear inside a light-colored card or other light reading surface.
+ALL essay/publication content must be contained inside light-colored content cards.
 
-If text intentionally appears directly on a dark blue background, that text MUST be white or another sufficiently light color with strong contrast.
+This includes:
 
-Every paragraph, heading, quotation, caption, link, and other piece of text must have strong visual contrast against its background.
+* paragraphs
+* headings
+* quotations
+* lists
+* captions
+* introductory text
+* transitional sentences
+* concluding text
+* emphasized statements
 
-Do not allow inherited CSS colors to create dark-on-dark or light-on-light text.
+DO NOT place normal essay text directly on the blue page background.
 
-When in doubt, prioritize readability over decoration.
+The blue background is decorative page framing only.
 
-CONTENT CARDS
+IT IS NOT A READING SURFACE.
+
+There must NEVER be dark blue, navy, gray, or black body text sitting directly on the blue page background.
+
+Normal body text must use:
+
+color: #17324d;
+
+and must appear on a light background such as:
+
+background: #f8fbff;
+
+or:
+
+background: #edf5fc;
+
+If text is intentionally placed outside a light card for a special design reason, it MUST use white or another sufficiently light color with strong contrast.
+
+However, ordinary essay prose should NEVER be handled this way.
+
+Ordinary essay prose belongs inside a light content card.
+
+
+IMPORTANT STRUCTURAL RULE
+
+Each logical section of the essay must be wrapped in a light content card.
+
+Paragraphs must NOT accidentally fall between closing and opening card elements.
+
+Do not create designs in which a quote box is inside a card but the paragraphs immediately before or after that quote box are outside the card.
+
+A quote box is normally an element INSIDE a larger light content card.
+
+For example, the intended structure is conceptually:
+
+LIGHT CONTENT CARD
+    paragraph
+    paragraph
+    quote box
+    paragraph
+    paragraph
+END LIGHT CONTENT CARD
+
+NOT:
+
+paragraph floating on blue background
+quote box
+paragraph floating on blue background
+
+
+PREFERRED READABILITY SOLUTION
+
+The preferred solution is always:
+
+DARK TEXT + LIGHT CARD.
+
+Do NOT solve ordinary body-text contrast problems merely by changing the paragraph text to white.
+
+Instead, put the prose inside the appropriate light content card.
+
+
+4. CONTENT CARDS
 
 Use multiple rounded light cards to organize the essay into logical sections.
 
-Do not place the entire essay in one giant card.
+Do not place the entire essay into one giant card.
 
-Cards should normally use:
+At the same time, do not fragment the essay so aggressively that individual paragraphs are floating between cards.
+
+Each card should contain a coherent section of the essay.
+
+Primary cards should normally use:
 
 background: #f8fbff;
 color: #17324d;
 border-radius: 18px;
 box-shadow: 0 12px 30px rgba(0, 0, 0, 0.16);
 
-Use softer secondary cards or quote boxes where helpful.
+Cards should have generous internal padding.
 
-QUOTE BOXES
+Use softer secondary cards, inset panels, or quote boxes where helpful.
+
+
+5. QUOTE BOXES
 
 Important quotations or statements may be emphasized in attractive quote boxes.
 
@@ -97,11 +180,26 @@ Quote boxes must remain highly readable and visually consistent with the rest of
 
 Use restrained accents such as light blue or gold rather than introducing an unrelated color scheme.
 
-CONSISTENCY
+Quote boxes should normally appear INSIDE a larger light content card.
+
+Do not use a quote box as an excuse to leave the surrounding paragraphs directly on the blue background.
+
+Every quote box must have strong text/background contrast.
+
+
+6. CONSISTENCY
 
 A visitor moving from one Zion Coalition essay to another should immediately recognize that the pages belong to the same website.
 
-Individual pages may have modest creative variation in card arrangement, quotations, featured images, and visual pacing, but the following should remain consistent:
+Individual pages may have modest creative variation in:
+
+* card arrangement
+* quotations
+* featured images
+* section organization
+* visual pacing
+
+But the following should remain consistent:
 
 * blue background
 * light reading cards
@@ -118,7 +216,7 @@ Do not redesign the Zion Coalition visual identity from scratch for each publica
 Treat this canonical style as the default unless I explicitly request a different design.
 
 
-3. FEATURED IMAGE
+7. FEATURED IMAGE
 
 Include a featured image at the very top of the publication.
 
@@ -131,7 +229,7 @@ images/01-example.png
 The featured image should be visually integrated into the page and sized responsively.
 
 
-4. IMAGE PATH REQUIREMENT
+8. IMAGE PATH REQUIREMENT
 
 ALL images used anywhere in the page must be located in the:
 
@@ -159,8 +257,10 @@ Example:
 
 <img src="images/01-dangerous-beliefs.png" alt="Dangerous Beliefs">
 
+Apply this rule to EVERY image used anywhere in the publication.
 
-5. YELLOW AND GREEN HIGHLIGHTS
+
+9. YELLOW AND GREEN HIGHLIGHTS
 
 Include the following CSS so I can use these highlight classes anywhere in the essay:
 
@@ -197,7 +297,7 @@ or:
 <span class="green-highlight">(prelude)</span>
 
 
-6. HTML QUALITY
+10. HTML QUALITY
 
 Create clean, human-readable HTML.
 
@@ -211,18 +311,52 @@ The page must be completely standalone.
 
 Do not use:
 
-- external CSS
-- external JavaScript
-- external fonts
-- external libraries
+* external CSS
+* external JavaScript
+* external fonts
+* external libraries
 
 All required CSS must be contained inside the HTML file.
-Before creating the files, perform a final readability check of the finished HTML and CSS. 
-Verify that no dark text appears on a dark background, no light text appears on a light background,
-and that all body text, headings, links, quotations, captions, and highlighted text are clearly readable 
-throughout the entire page. Check both desktop and mobile styling. If any CSS rule or inherited color creates poor contrast, correct it before generating the files.
 
-7. LINKS
+
+11. FINAL READABILITY AND STRUCTURE CHECK — REQUIRED
+
+BEFORE creating the downloadable files, inspect the finished HTML and CSS.
+
+Do not merely assume that the colors are readable.
+
+Verify the actual HTML structure and CSS rules.
+
+Specifically verify that:
+
+1. EVERY normal essay paragraph is inside a light-colored content card.
+
+2. EVERY heading associated with essay content is inside an appropriate readable container.
+
+3. NO dark body text appears directly on the dark blue page background.
+
+4. NO light text appears on a light background.
+
+5. Quote boxes do not leave surrounding paragraphs outside their parent light card.
+
+6. Opening and closing section/div tags have not accidentally caused paragraphs to escape from their intended cards.
+
+7. Body text, headings, links, quotations, captions, lists, highlighted text, and emphasized text all have strong contrast against their actual backgrounds.
+
+8. The page remains readable on both desktop and mobile screen widths.
+
+9. Responsive CSS or media queries do not introduce dark-on-dark or light-on-light text.
+
+10. Inherited CSS colors do not override the intended card text colors.
+
+If ANY essay paragraph is dark text sitting directly on the blue page background, THE PAGE HAS FAILED THIS CHECK.
+
+Correct the HTML structure or CSS before generating the files.
+
+Do not deliver the page until this check passes.
+
+
+12. LINKS
 
 Use relative internal links wherever appropriate.
 
@@ -232,8 +366,10 @@ index.html
 
 Include a clearly visible Return to Home link at the bottom of the page.
 
+The Return to Home link itself must also have sufficient contrast against its background.
 
-8. OUTPUT FILES
+
+13. OUTPUT FILES
 
 Create BOTH:
 
@@ -245,11 +381,11 @@ Do not output the HTML source code into the chat window.
 Instead, generate downloadable files.
 
 
-9. IMPORTANT — DO NOT PUBLISH THESE INSTRUCTIONS
+14. IMPORTANT — DO NOT PUBLISH THESE INSTRUCTIONS
 
 These instructions are production instructions only.
 
-Do NOT place this prompt, these requirements, explanatory notes, production comments, or other instruction text into the finished HTML page.
+Do NOT place this prompt, these requirements, explanatory notes, production comments, examples, or other instruction text into the finished HTML page.
 
 Only the actual essay/publication content should appear in the finished page.
 
@@ -258,13 +394,17 @@ FINAL PRINCIPLE
 
 Preserve the author's words while making the page visually beautiful, readable, organized, and consistent with the Zion Coalition website.
 
+The dark blue background is the FRAME.
+
+The light cards are the READING SURFACE.
+
+Essay prose belongs on the light reading surface, not directly on the dark blue frame.
+
 Treat this as a designed publication, not a document conversion.
 
 -->
 
 <!-- ===================== -->
-
-
 
 <!DOCTYPE html>
 <html lang="en">
