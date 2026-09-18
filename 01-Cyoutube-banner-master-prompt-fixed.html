@@ -142,318 +142,467 @@
       <h2>Copy-and-Paste Prompt</h2>
       <pre class="prompt-box">Please create youtube banner....
 
-YOUTUBE CHANNEL BANNER — WORKING MASTER PROMPT
+YOUTUBE CHANNEL BANNER — FINAL MASTER PRODUCTION PROMPT
 
-Create ONE finished YouTube channel banner.
+I need you to create a YouTube channel banner.
 
 IMPORTANT:
-We have already tested this workflow in YouTube's actual banner uploader and confirmed that it works.
+Follow this workflow exactly.
 
-DO NOT improvise a different sizing strategy.
-DO NOT merely create a normal 2560×1440 image and hope YouTube crops it correctly.
+We have previously had problems because ChatGPT/image generation kept
+reconstructing the banner after we had already achieved a correct YouTube fit.
 
-==================================================
-STEP 0 — VERIFY CURRENT YOUTUBE BANNER GEOMETRY
-==================================================
+This prompt is designed specifically to prevent that.
 
-Before creating the banner, check the current official YouTube banner/channel-art specifications on the web.
+============================================================
+PHASE 1 — VERIFY YOUTUBE'S CURRENT BANNER GEOMETRY
+============================================================
 
-Also look at a current successful YouTube banner template/example showing the TV, desktop, and all-devices crop areas.
+BEFORE creating anything, check the current official YouTube channel-banner
+specifications on the web.
 
-The purpose of this research is GEOMETRY, not artistic inspiration.
+Also examine at least one current successful YouTube banner template/example
+that clearly identifies the TV, desktop, and "all devices" areas.
 
-As of our successful test, the working geometry is:
+You are checking GEOMETRY, not looking for artistic inspiration.
 
-FULL UPLOAD CANVAS:
+Our previously TESTED AND SUCCESSFUL geometry was:
+
+FULL UPLOAD:
 2560 × 1440 pixels
 
-CENTER ALL-DEVICES DESIGN STRIP:
+CENTER "ALL DEVICES" AREA:
 approximately 1546 × 423 pixels
 
-CENTERED POSITION:
-approximately:
+CENTERED approximately at:
+
 X = 507 to 2053
 Y = 508 to 931
 
-If current reliable sources still support essentially this geometry, USE THESE DIMENSIONS.
+If YouTube's current specifications still correspond to this geometry,
+use it.
 
-If YouTube has materially changed its banner specifications, use the current specifications instead.
+If YouTube has materially changed its specifications, use the current
+official geometry instead.
 
-==================================================
-THE KEY LESSON FROM OUR SUCCESSFUL TEST
-==================================================
+DO NOT GUESS THE SAFE AREA.
 
-The entire upload must still be 2560 × 1440.
+============================================================
+THE MOST IMPORTANT GEOMETRY LESSON
+============================================================
 
-BUT:
+The final upload file is 2560 × 1440.
 
-The important recognizable visual composition must be deliberately fitted into the narrow CENTER 1546 × 423 strip.
+However, the meaningful banner composition is NOT designed as though
+the entire 2560 × 1440 canvas will always be visible.
 
-This includes:
+Instead:
 
-- the important part of the theater
-- title
-- subtitle
-- decorative divider/star
-- SOLD OUT ticket
+2560 × 1440 = FULL YOUTUBE UPLOAD CANVAS
 
-Think of the 1546 × 423 center strip as the REAL banner.
+approximately 1546 × 423 = THE REAL UNIVERSAL BANNER
 
-Think of the rest of the 2560 × 1440 canvas as expendable extension/background that YouTube may crop away on different devices.
+The important visual composition must deliberately fit inside that
+center strip.
 
-THIS DISTINCTION IS CRITICAL.
+That includes:
 
-Do NOT simply scale a normal 2560 × 1440 composition and place text somewhere near the center.
+• title
+• subtitle
+• logos
+• tickets
+• faces
+• symbols
+• important scenery
+• any other essential visual information
 
-Instead, intentionally construct the meaningful banner composition at 1546 × 423 and place that composition in the exact center of the 2560 × 1440 upload canvas.
+The surrounding area exists primarily for YouTube's TV/desktop cropping.
 
-==================================================
-STAGE 1 — CLEAN THEATER BACKGROUND
-==================================================
+Think:
 
-Use image generation only if a clean theater background does not already exist.
+      2560 × 1440 FULL CANVAS
+      ┌───────────────────────────────────────────┐
+      │                                           │
+      │        expendable outer scenery           │
+      │                                           │
+      │     ┌─────────────────────────────┐       │
+      │     │                             │       │
+      │     │    REAL BANNER CONTENT      │       │
+      │     │       1546 × 423            │       │
+      │     │                             │       │
+      │     └─────────────────────────────┘       │
+      │                                           │
+      │        expendable outer scenery           │
+      │                                           │
+      └───────────────────────────────────────────┘
 
-If a suitable clean background from the previous successful banner exists, REUSE IT.
+DO NOT solve cropping problems merely by making all the text tiny.
 
-Do not unnecessarily regenerate it.
+Instead, design the IMPORTANT VISUAL SCENE itself for the narrow
+center strip.
 
-The theater should be:
+============================================================
+PHASE 2 — CREATE THE BACKGROUND
+============================================================
 
-- empty grand opera theater
-- viewed from the stage
-- red velvet curtains
-- ornate balconies
-- warm theatrical lighting
-- red seats
-- polished wooden stage
-- symmetrical
-- cinematic
-- no people
+If a new scenic background is required, image generation may be used
+ONLY for the background artwork.
 
-If generating a new background, it must contain:
+The generated background should contain:
 
-- NO words
-- NO letters
-- NO title
-- NO subtitle
-- NO ticket
-- NO logos
-- NO signs
+NO title
+NO subtitle
+NO words
+NO letters
+NO logos
+NO tickets
+NO labels
+NO signs
+NO typography
 
-Image generation is for the scenic background ONLY.
+Generate only the scenic artwork.
 
-==================================================
-STAGE 2 — CREATE THE REAL 1546 × 423 BANNER
-==================================================
+If I have supplied an existing background that I want used, use that
+background instead of unnecessarily generating another one.
 
-Use Python/Pillow for the actual banner construction.
+Once a satisfactory clean background exists:
 
-Create a meaningful central composition measuring:
+STOP USING IMAGE GENERATION.
 
-1546 × 423 pixels
+============================================================
+PHASE 3 — BUILD THE ACTUAL BANNER PROGRAMMATICALLY
+============================================================
 
-Fit the recognizable theater scene into this entire 1546 × 423 strip.
+Use Python/Pillow or equivalent deterministic image-compositing tools
+for:
 
-This is important:
+• typography
+• positioning
+• sizing
+• logos
+• tickets
+• decorative lines
+• stars
+• labels
+• rotations
+• final compositing
 
-THE THEATER ITSELF must be scaled/cropped to work as a composition inside this strip.
+Do NOT ask the image generator to create exact typography or exact
+layout.
 
-Do not just make the text smaller.
+Image generators are creative reconstruction tools.
 
-The successful solution was to make the THEATER COMPOSITION fit the narrow banner strip while allowing the text to remain large and readable.
+Python/Pillow is the precision layout tool.
 
-Add programmatically:
+============================================================
+DESIGN THE CENTER STRIP FIRST
+============================================================
 
-It's Time To Start The Show
+Create the meaningful banner composition specifically for the
+approximately 1546 × 423 all-devices region.
 
-Then:
+The important scenery itself should work compositionally inside this
+strip.
 
-short gold line — gold star — short gold line
+Do NOT merely create a beautiful 2560 × 1440 picture and hope that its
+center happens to work.
 
-Then:
+Fit/crop/scale the important visual scene specifically for the narrow
+center strip.
 
-A Love Story Opera
+Keep essential content comfortably inside the boundaries.
 
-And a vintage cream/red ticket reading:
+When practical, use an additional INTERNAL SAFETY MARGIN inside the
+official all-devices area.
 
-SOLD OUT
-to Jesus
+Do not place important content right against the official crop lines.
 
-==================================================
-TEXT SIZE
-==================================================
+============================================================
+OUTER CANVAS
+============================================================
 
-KEEP THE TITLE LARGE.
+After the center composition works, construct the complete
+2560 × 1440 upload.
 
-Do NOT solve fit problems by repeatedly shrinking the title.
+The areas outside the center strip can be extensions of the same scene.
 
-The title should be visually prominent and readable.
+They may be:
 
-The title:
+• enlarged
+• blurred
+• softened
+• darkened
+• simplified
+• extended
 
-It's Time To Start The Show
+These areas are expendable crop territory.
 
-must remain on ONE LINE.
+NO essential information belongs there.
 
-The subtitle and ticket may be smaller.
+============================================================
+YOUTUBE'S UPLOAD PREVIEW
+============================================================
 
-The important lesson from our successful test is:
-
-KEEP THE TEXT LARGE,
-BUT SCALE THE IMPORTANT THEATER PICTURE/COMPOSITION TO THE 1546 × 423 STRIP.
-
-==================================================
-CENTRAL STRIP COMPOSITION
-==================================================
-
-Within the 1546 × 423 strip, use approximately this arrangement:
-
-          It's Time To Start The Show
-
-                 —— ✦ ——
-
-       A Love Story Opera     [SOLD OUT
-                                  to Jesus]
-
-The complete composition must fit comfortably inside the strip.
-
-Leave reasonable margins.
-
-Do not let the title touch the left or right edges.
-
-Do not place important artwork outside this strip.
-
-==================================================
-STAGE 3 — BUILD THE 2560 × 1440 UPLOAD FILE
-==================================================
-
-Now create the final:
-
-2560 × 1440 pixel canvas.
-
-Place the completed 1546 × 423 meaningful banner strip EXACTLY in the center.
-
-Approximate placement:
-
-LEFT = 507 px
-TOP = 508 px
-RIGHT = 2053 px
-BOTTOM = 931 px
-
-The area OUTSIDE this central strip exists primarily to satisfy YouTube's larger TV/upload canvas.
-
-Fill that outer area using an extension of the same theater image.
-
-It may be:
-
-- enlarged
-- softly blurred
-- visually simplified
-- darkened slightly
-
-because it is expendable crop territory.
-
-DO NOT put essential information there.
-
-The important thing is that the central 1546 × 423 region contains the complete finished banner.
-
-==================================================
-VERY IMPORTANT — DO NOT CONFUSE THIS WITH A PANEL
-==================================================
-
-The central 1546 × 423 area is the meaningful composition because of YouTube's cropping behavior.
-
-It is NOT supposed to look like an arbitrary black card pasted over the picture.
-
-The center should contain the actual sharp theater scene.
-
-The outer 2560 × 1440 area is an extended version of that theater scene.
-
-This creates:
-
-OUTER CANVAS = expendable theater extension
-
-CENTER STRIP = sharp, complete, meaningful theater banner
-
-==================================================
-YOUTUBE PREVIEW LABELS
-==================================================
-
-YouTube may display temporary interface labels such as:
+When I upload the banner, YouTube may display:
 
 "Viewable on TV"
 "Viewable on desktop"
 "Viewable on all devices"
 
-These are YouTube interface overlays.
+It may also fade or wash out portions of the image outside a selected
+crop region.
 
-They are NOT part of the artwork.
+THESE ARE YOUTUBE INTERFACE OVERLAYS.
 
-Do not mistake the dimensions of those floating labels for crop boundaries.
+They are not part of my banner.
 
-Use the actual crop guide lines.
+Do not mistake the gray/white faded areas for something that exists
+inside the uploaded PNG.
 
-==================================================
-VALIDATION
-==================================================
+Pay attention to the actual crop boundaries.
 
-Before delivering the banner, programmatically verify:
+The "Viewable on all devices" region is the critical test.
 
-1. Final file is exactly 2560 × 1440.
+============================================================
+FINAL VALIDATION BEFORE DELIVERY
+============================================================
 
-2. Central meaningful strip is approximately 1546 × 423.
+Programmatically verify:
 
-3. Central strip is horizontally and vertically centered.
+1. Final PNG is exactly 2560 × 1440.
 
-4. The recognizable theater composition itself fits inside that strip.
+2. The all-devices design area is correctly centered.
 
-5. Title remains LARGE.
+3. Every essential element is inside the all-devices region.
 
-6. Title remains on ONE LINE.
+4. Preferably, essential elements are inside an additional internal
+   safety margin.
 
-7. Subtitle is fully visible.
+5. No title is clipped.
 
-8. SOLD OUT ticket is fully visible.
+6. No subtitle is clipped.
 
-9. No essential content extends beyond the central strip.
+7. No logo/ticket/graphic is clipped.
 
-10. Outer areas contain no essential content.
+8. Rotated objects are checked using their COMPLETE ROTATED BOUNDING BOX,
+   not their dimensions before rotation.
 
-11. The final composition follows the same geometry as the previously successful YouTube upload test.
+9. Important scenery works inside the narrow all-devices strip.
 
-==================================================
-DO NOT REPEAT OUR PREVIOUS MISTAKES
-==================================================
+10. Outer areas contain no essential information.
 
-DO NOT:
+Deliver ONE finished PNG unless I specifically request alternatives.
 
-- keep shrinking the text to solve the problem
-- generate lettering with the image generator
-- treat the entire 2560 × 1440 canvas as the meaningful composition
-- enlarge the theater across the full canvas and merely put text near the middle
-- guess the crop from a screenshot
-- treat YouTube's floating labels as crop boundaries
-- create multiple alternative banners
-- create a black rectangle behind the text
-- create a poster/card floating over the theater
+============================================================
+CRITICAL RULE AFTER I TEST IT IN YOUTUBE
+============================================================
 
-The successful strategy is:
+THIS IS THE MOST IMPORTANT RULE IN THIS ENTIRE PROMPT.
 
-2560 × 1440 TOTAL FILE
-        ↓
-1546 × 423 CENTERED REAL BANNER
-        ↓
-LARGE READABLE TEXT + IMPORTANT THEATER SCENE
-        ↓
-OUTER AREA = EXPENDABLE EXTENSION FOR YOUTUBE CROPPING
+When I upload the banner to YouTube and tell you that it works,
+fits, looks correct, is beautiful, is perfect, or otherwise approve it:
 
-==================================================
-DELIVERABLE
-==================================================
+THAT EXACT PNG IMMEDIATELY BECOMES THE:
 
-Produce ONE finished PNG at exactly 2560 × 1440 pixels.
+              *** LOCKED MASTER ***
 
-Do not create alternatives unless I explicitly request them.
+From that point forward:
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!                                                        !!
+!!   IMAGE GENERATION IS FORBIDDEN FOR SMALL EDITS.       !!
+!!                                                        !!
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Do NOT send the banner back through image generation.
+
+Do NOT ask an image generator to "keep everything the same."
+
+Do NOT recreate the composition.
+
+Do NOT recreate the theater/background.
+
+Do NOT recreate the title.
+
+Do NOT recreate the ticket.
+
+Do NOT approximate the previous layout.
+
+The approved PNG itself is now the source of truth.
+
+============================================================
+SURGICAL EDIT RULE
+============================================================
+
+If I subsequently say something like:
+
+"make this text bigger"
+
+"move this upward"
+
+"move this to the right"
+
+"rotate this"
+
+"change these words"
+
+"make the ticket bigger"
+
+"change this color"
+
+"move the star"
+
+"make SOLD OUT smaller"
+
+or request ANY other localized adjustment:
+
+START FROM THE LOCKED MASTER PNG.
+
+Use Python/Pillow or another deterministic editing method.
+
+CHANGE ONLY THE REQUESTED ELEMENT.
+
+Everything else is frozen.
+
+For example, if I say:
+
+"Move 'to Jesus' upward."
+
+That means:
+
+• same 2560 × 1440 canvas
+• same theater
+• same theater crop
+• same title
+• same title position
+• same title size
+• same divider
+• same star
+• same subtitle
+• same ticket
+• same ticket dimensions
+• same ticket position
+• same ticket rotation
+• same SOLD OUT text
+• same YouTube geometry
+
+ONLY "to Jesus" moves.
+
+Nothing else is allowed to change.
+
+============================================================
+PIXEL-LOCK PRINCIPLE
+============================================================
+
+For a surgical edit, think of the approved banner like a finished
+Photoshop document.
+
+EVERY PIXEL OUTSIDE THE REQUESTED EDIT REGION IS LOCKED.
+
+Whenever technically possible, verify that pixels outside the intended
+edit region remain identical to the locked master.
+
+Do not interpret:
+
+"everything else stays the same"
+
+as a stylistic request.
+
+It is a TECHNICAL REQUIREMENT.
+
+============================================================
+DO NOT CONFUSE EDITING WITH REGENERATION
+============================================================
+
+An image generator cannot guarantee:
+
+"change only these words and preserve everything else exactly."
+
+It may reconstruct:
+
+• typography
+• cropping
+• scenery
+• proportions
+• object positions
+• ticket size
+• title size
+• lighting
+• safe-area geometry
+
+Therefore:
+
+LOCAL CHANGE TO APPROVED BANNER
+              =
+PROGRAMMATIC SURGICAL EDIT
+
+NOT
+
+IMAGE GENERATION.
+
+============================================================
+WHEN IMAGE GENERATION MAY BE USED AGAIN
+============================================================
+
+After a LOCKED MASTER exists, image generation may be used again ONLY
+if I explicitly request something equivalent to:
+
+"redesign the banner"
+
+"regenerate the banner"
+
+"make a completely different banner"
+
+"create a new background"
+
+"start over"
+
+or another request that clearly requires creative reconstruction.
+
+Otherwise assume:
+
+LOCKED MASTER + SURGICAL EDIT.
+
+============================================================
+VERSION CONTROL
+============================================================
+
+Never overwrite the approved locked master.
+
+For every edit:
+
+1. Start from the current approved master.
+2. Save the edited banner as a NEW version.
+3. Tell me exactly what changed.
+4. Do not call the new version the locked master until I confirm that
+   it works in YouTube.
+
+If I reject the new version:
+
+GO BACK TO THE PREVIOUS LOCKED MASTER.
+
+Do not continue modifying the rejected version unless I specifically
+tell you to.
+
+If I approve the new version:
+
+That new version becomes the LOCKED MASTER.
+
+============================================================
+ONE-SENTENCE FAILSAFE
+============================================================
+
+Before performing ANY edit to an already-approved YouTube banner,
+silently ask yourself:
+
+"Am I editing the locked PNG programmatically, or am I accidentally
+regenerating it?"
+
+If the answer is "regenerating":
+
+STOP.
+
+Use the locked PNG instead.
 
 </pre>
     </section>
