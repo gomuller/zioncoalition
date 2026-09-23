@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MP4 to GIF — Reusable Master Prompt</title>
+  <style>
+    :root {
+      --bg:#0b3d78; --card:#ffffff; --ink:#172033; --muted:#53627a;
+      --accent:#f1c75b; --line:#dbe4ef; --code:#f6f8fb;
+    }
+    * { box-sizing:border-box; }
+    body {
+      margin:0; background:linear-gradient(180deg,#0b3d78,#082c57);
+      color:var(--ink); font-family:Arial,Helvetica,sans-serif; line-height:1.55;
+    }
+    main { width:min(980px,92%); margin:40px auto; }
+    .card {
+      background:var(--card); border-radius:22px; padding:28px;
+      margin:0 0 22px; box-shadow:0 14px 35px rgba(0,0,0,.20);
+    }
+    h1 { margin:.1em 0 .25em; font-size:clamp(2rem,5vw,3.3rem); }
+    h2 { margin-top:0; color:#0b3d78; }
+    .kicker { color:#0b3d78; font-weight:700; letter-spacing:.08em; text-transform:uppercase; }
+    .note {
+      border-left:6px solid var(--accent); background:#fff8df;
+      padding:16px 18px; border-radius:12px; margin-top:18px;
+    }
+    pre {
+      margin:0; padding:22px; background:var(--code); border:1px solid var(--line);
+      border-radius:16px; white-space:pre-wrap; overflow-wrap:anywhere;
+      font:15px/1.55 Consolas,Monaco,"Courier New",monospace;
+    }
+    .small { color:var(--muted); font-size:.95rem; }
+    a { color:#0b3d78; font-weight:700; }
+  </style>
+</head>
+<body>
+<main>
+  <section class="card">
+    <div class="kicker">Reusable production prompt</div>
+    <h1>MP4 → GIF / Iterative Visual Compositing</h1>
+    <p>This prompt captures the workflow developed through repeated MP4-to-GIF conversion, timing edits, compositing, magical materialization effects, preview approval, final holds, and decorative framing.</p>
+    <div class="note"><strong>Key principle:</strong> approved work becomes locked. Future edits change only the specifically requested dimension.</div>
+    <div class="note"><strong>Default presentation:</strong> unless Greg explicitly says otherwise, every finished GIF is placed inside the approved old-fashioned <strong>Jesus TV</strong> television surround, with the animation itself left unchanged.</div>
+  </section>
+
+  <section class="card">
+    <h2>Copy/paste master prompt</h2>
+    <pre>MASTER PROMPT — MP4 → GIF / ITERATIVE VISUAL COMPOSITING WORKFLOW
+
+GOAL
+Help me turn an MP4 (or an existing GIF) into a polished animated GIF through a careful, iterative editing process. I may ask you to change speed, pause on frames, add an existing picture/object, make an object materialize, add particles/sparkles, add a decorative frame, or make other programmatic visual edits.
+
+CORE RULE: PRESERVE APPROVED WORK
+Once I say that a version, section, timing, image, effect, or sequence is approved, treat it as LOCKED. Keep it exactly as it is unless I explicitly tell you to change that specific part.
+
+DO NOT silently improve, redesign, reinterpret, regenerate, crop, zoom, recolor, retime, or replace approved material.
+
+IMAGE GENERATION
+Do NOT use image generation unless I explicitly say that I want you to generate a new image.
+
+For ordinary GIF/video editing, use programmatic editing/compositing tools such as Python, PIL/Pillow, OpenCV, and FFmpeg when appropriate.
+
+If I supply a photograph, sign, logo, drawing, frame, or other visual element, use that exact supplied asset. Do not redraw or reinterpret it unless I explicitly request that.
+
+STEP 1 — INSPECT THE SOURCE
+Before editing:
+• inspect the MP4/GIF dimensions, duration, frame rate/frame count, orientation, and timing;
+• identify the portion of the footage relevant to my requested edit;
+• preserve the source aspect ratio unless I explicitly request otherwise;
+• do not assume where an object is located if that matters to the edit—inspect the actual frames.
+
+STEP 2 — MP4 TO GIF
+When converting MP4 to GIF:
+• preserve the important action and framing;
+• choose a practical GIF frame rate and resolution that balance smoothness and file size;
+• do not unnecessarily crop the source;
+• preserve chronological order;
+• create a genuine animated GIF, not a static image;
+• verify programmatically that the exported file contains multiple frames and is animated.
+
+STEP 3 — ITERATE WITHOUT DESTROYING APPROVED VERSIONS
+Every significant revision should be saved under a NEW filename.
+
+Never overwrite an approved source unless I explicitly request it.
+
+Examples:
+source.gif
+source-slower.gif
+source-new-ending.gif
+source-effect-preview.gif
+source-FINAL.gif
+
+When I say “keep everything like it is,” copy the approved version and modify ONLY the named dimension.
+
+Examples:
+• “slow the last two seconds” = timing change only;
+• “hold the last image three seconds longer” = duration change only;
+• “add a TV frame” = add pixels outside the approved animation without altering the animation itself.
+
+STEP 4 — TIMING EDITS
+For speed, pauses, and holds, prefer changing frame durations rather than recreating visual frames.
+
+If I request a still hold:
+• use the exact approved frame;
+• keep it completely motionless;
+• remove transient effects during the hold unless I explicitly request otherwise;
+• set the requested duration precisely in milliseconds;
+• verify the duration after export.
+
+STEP 5 — ADDING EXISTING PICTURE ELEMENTS
+When adding an existing visual asset:
+• preserve the asset exactly unless I request alteration;
+• determine its intended position, scale, and timing from the actual footage;
+• composite it programmatically;
+• do not regenerate it with AI;
+• use masks/alpha only as necessary;
+• make sure no part of the asset is accidentally clipped.
+
+If the element must eventually appear exactly as it does in an approved final frame, use that approved frame’s exact pixels as the authoritative source.
+
+STEP 6 — MATERIALIZATION / MAGICAL EFFECTS
+If I want an existing object to appear through fairy dust, light, smoke, particles, etc.:
+• create the effect programmatically;
+• use coherent particle motion rather than random static noise;
+• preserve the underlying footage;
+• reveal the COMPLETE object, not merely pixels detected by an automatic difference mask;
+• when necessary, use an intentionally oversized reveal region so no portion is clipped;
+• progressively force the entire reveal region to full opacity near completion;
+• finish on the exact approved final image;
+• remove all particles before any requested clean final hold.
+
+For directional effects, identify the true origin from the footage. If the source (for example, a trumpet) is off-camera or absent, STOP and ask/propose where the effect should originate before editing.
+
+STEP 7 — PREVIEWS FOR RISKY CHANGES
+For a substantial new effect, create a SHORT PREVIEW FIRST when I request one.
+
+The preview should contain only enough footage to judge the new effect.
+
+Do not modify the full approved GIF until I approve the preview.
+
+Once approved, integrate that exact effect into the full GIF while preserving all earlier approved footage and timing.
+
+STEP 8 — DEFAULT JESUS TV FRAME
+UNLESS I EXPLICITLY TELL YOU OTHERWISE, EVERY FINISHED GIF YOU CREATE FOR ME SHOULD BE FRAMED INSIDE A “JESUS TV” OLD-FASHIONED TELEVISION BORDER.
+
+Use the Jesus TV treatment developed in our approved church-sign GIF as the model:
+• a classic 1950s–1960s old-fashioned television cabinet;
+• warm/dark brown wood appearance;
+• substantial cabinet surrounding the screen;
+• slightly rounded CRT-style screen opening/bezel;
+• vintage channel and volume knobs;
+• speaker grille;
+• metallic/brass-style trim and subtle dimensional highlights/shadows;
+• a visible vintage-style nameplate near the bottom that says exactly: “Jesus TV”.
+
+This Jesus TV surround is the DEFAULT FINAL PRESENTATION for my GIFs. I should not have to request it each time.
+
+When applying the Jesus TV frame:
+• FIRST complete and approve the actual GIF animation/effects;
+• THEN place that completed GIF inside the Jesus TV cabinet as the final production step;
+• expand the canvas around the existing GIF rather than covering the animation;
+• do NOT crop, cover, resize, distort, regenerate, or otherwise change the approved animation merely to fit the TV;
+• preserve the original animation’s aspect ratio;
+• keep the television cabinet completely stationary on every frame;
+• preserve every original animation frame and every frame duration;
+• preserve all approved pauses/final holds exactly;
+• put “Jesus TV” on the cabinet itself, not over the moving picture;
+• only omit or replace the Jesus TV surround when I explicitly tell you to do so.
+
+If I explicitly request a different decorative surround (film frame, theater, another TV design, no frame, etc.), follow that instruction instead of the default Jesus TV frame.
+
+STEP 9 — VERIFY BEFORE DELIVERY
+Before giving me the final file, programmatically verify as applicable:
+1. the output is genuinely animated;
+2. frame count is correct;
+3. dimensions are correct;
+4. unchanged/locked frames remain unchanged;
+5. requested effects occur only where intended;
+6. complete picture elements are present and unclipped;
+7. final frame matches the approved final image when required;
+8. final hold duration is exact;
+9. no particles/effects continue into a clean still hold;
+10. source/approved files remain untouched.
+
+STEP 10 — DOWNLOADABLE OUTPUT
+Save the finished work under a clear NEW filename in /mnt/data and give me a direct sandbox download link.
+
+If a download link fails, recreate/re-encode the same approved GIF under a short new filename WITHOUT changing its visual content or timing, then give me the new link.
+
+COMMUNICATION RULES
+• If I ask, “Give me the prompt first,” give me TEXT ONLY and do absolutely nothing else until I send the prompt back or explicitly authorize execution.
+• Do not create a picture of the prompt.
+• Do not call image generation while we are discussing or drafting prompts.
+• If I say “pause,” “stop,” or “don’t do anything yet,” stop tool use and stay in text chat.
+• When I ask for a prompt, write the operational prompt I can paste back to you.
+• When I authorize execution, perform exactly the requested edit and no additional creative changes.
+
+CURRENT JOB
+[Describe the source MP4/GIF and the exact change I want here.]
+
+SOURCE FILE:
+[filename]
+
+LOCKED / APPROVED ELEMENTS:
+[List anything that must remain exactly unchanged.]
+
+REQUESTED CHANGE:
+[Describe only what should change.]
+
+OUTPUT:
+Create a new animated GIF, verify it, preserve the source, and give me the download link.</pre>
+  </section>
+
+  <section class="card">
+    <h2>How to use it</h2>
+    <p>For each new project, paste the master prompt and fill in the four fields at the bottom: <strong>Current Job</strong>, <strong>Source File</strong>, <strong>Locked / Approved Elements</strong>, and <strong>Requested Change</strong>.</p>
+    <p class="small">The prompt deliberately separates prompt-writing from execution, prohibits accidental image generation, preserves approved versions, and requires verification before delivery.</p>
+  </section>
+</main>
+</body>
+</html>
