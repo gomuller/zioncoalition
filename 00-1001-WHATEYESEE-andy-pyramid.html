@@ -141,7 +141,7 @@
       margin: 0;
     }
 
-    /* FUTURE MEMORY SLOTS */
+    /* CHAMBERS */
 
     .archive-grid {
       display: grid;
@@ -149,6 +149,8 @@
       gap: 18px;
       margin-top: 20px;
     }
+
+    /* FUTURE / EMPTY CHAMBER */
 
     .slot {
       background: var(--soft-card);
@@ -179,6 +181,44 @@
       color: var(--muted);
     }
 
+    /* COMPLETED CHAMBER */
+
+    .chamber-complete {
+      grid-column: 1 / -1;
+      background: var(--soft-card);
+      border: 2px solid var(--gold);
+      border-radius: 16px;
+      padding: 14px;
+      overflow: hidden;
+    }
+
+    .chamber-complete img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 11px;
+    }
+
+    .chamber-complete .chamber-text {
+      padding: 16px 10px 8px;
+    }
+
+    .chamber-complete .slot-number {
+      color: var(--muted);
+      margin-bottom: 5px;
+    }
+
+    .chamber-complete h2 {
+      margin: 0 0 6px;
+      color: var(--heading);
+      font-size: 1.35rem;
+    }
+
+    .chamber-complete p {
+      margin: 0;
+      color: var(--muted);
+    }
+
     .home-card {
       text-align: center;
     }
@@ -205,6 +245,15 @@
       .archive-grid {
         grid-template-columns: 1fr;
       }
+
+      .chamber-complete {
+        grid-column: 1;
+        padding: 8px;
+      }
+
+      .chamber-complete .chamber-text {
+        padding: 14px 8px 8px;
+      }
     }
   </style>
 </head>
@@ -216,6 +265,7 @@
   <!-- ROOM ENTRANCE -->
 
   <section class="room-plaque">
+
     <p class="label">YOU ARE ENTERING</p>
 
     <h1>The Jesus-Andy Pyramid ROOM</h1>
@@ -223,17 +273,13 @@
     <p class="experiment">
       The MORE Jesus = More Reality Experiment
     </p>
+
   </section>
 
 
   <!-- HERO / ROOM ANNOUNCEMENT -->
 
   <section class="card hero">
-
-    <!--
-      Replace this filename with the actual filename
-      you give the Pyramid Room image.
-    -->
 
     <img
       src="images/01-jesus-andy-pyramid-room.png"
@@ -343,52 +389,125 @@
   </section>
 
 
-  <!-- FUTURE INTERACTIONS -->
+  <!-- ANDY + JESUS CHAMBERS -->
 
   <section class="card">
 
     <p class="eyebrow">The ROOM Will Grow</p>
 
-    <h2>Future Andy + Jesus Encounters</h2>
+    <h2>Andy + Jesus Encounters</h2>
 
     <p>
-      These spaces are intentionally unfinished. As life happens,
-      new memories and artifacts can be placed here.
+      Each chamber gives me a place to preserve something that emerges
+      from my relationship with Andy—and to imagine that relationship
+      happening in the presence of Jesus.
     </p>
+
+    <p>
+      As life happens, new memories, conversations, ideas, images,
+      experiments, and discoveries can be placed into new chambers.
+    </p>
+
 
     <div class="archive-grid">
 
-      <article class="slot">
-        <div class="slot-number">CHAMBER 01</div>
-        <h2>A Memory</h2>
-        <p>
-          Something Andy + Jesus + Greg did together.
-        </p>
+
+      <!-- CHAMBER 01 — PYRAMID MEASUREMENTS -->
+
+      <article class="chamber-complete">
+
+        <img
+          src="images/00-1001-andy-chamber1.png"
+          alt="What I See On Jesus TV — Andy, Greg, and Jesus exploring pyramid measurements"
+        >
+
+        <div class="chamber-text">
+
+          <div class="slot-number">
+            CHAMBER 01
+          </div>
+
+          <h2>The Pyramid Measurements</h2>
+
+          <p>
+            What I See On Jesus TV — Andy + Jesus + Greg exploring
+            pyramid measurements, patterns, history, and their possible
+            relationships to events in the world.
+          </p>
+
+        </div>
+
       </article>
 
-      <article class="slot">
-        <div class="slot-number">CHAMBER 02</div>
-        <h2>An Idea</h2>
-        <p>
-          Something I learned or began seeing differently.
-        </p>
-      </article>
+
+      <!-- CHAMBER 02 -->
 
       <article class="slot">
-        <div class="slot-number">CHAMBER 03</div>
-        <h2>What I See On Jesus TV</h2>
+
+        <div class="slot-number">
+          CHAMBER 02
+        </div>
+
+        <h2>Future Encounter</h2>
+
         <p>
-          Future GIF, image, scene, or imagined interaction.
+          Reserved for another Andy + Jesus + Greg memory,
+          conversation, idea, or discovery.
         </p>
+
       </article>
 
+
+      <!-- CHAMBER 03 -->
+
       <article class="slot">
-        <div class="slot-number">CHAMBER 04</div>
+
+        <div class="slot-number">
+          CHAMBER 03
+        </div>
+
+        <h2>Future Encounter</h2>
+
+        <p>
+          Reserved for another What I See On Jesus TV scene.
+        </p>
+
+      </article>
+
+
+      <!-- CHAMBER 04 -->
+
+      <article class="slot">
+
+        <div class="slot-number">
+          CHAMBER 04
+        </div>
+
         <h2>Future Discovery</h2>
+
         <p>
           Reserved for something we haven't encountered yet.
         </p>
+
       </article>
+
+
+      <!-- CHAMBER 05 -->
+
+      <article class="slot">
+
+        <div class="slot-number">
+          CHAMBER 05
+        </div>
+
+        <h2>Future Encounter</h2>
+
+        <p>
+          Another empty chamber waiting for life to happen.
+        </p>
+
+      </article>
+
 
     </div>
 
@@ -412,24 +531,32 @@
     </p>
 
     <div class="quote-box">
+
       <p>
         <strong>
           I go toward the people I love looking for MORE Jesus there.
         </strong>
       </p>
+
     </div>
 
   </section>
 
 
+  <!-- RETURN HOME -->
+
   <section class="card home-card">
+
     <p>
-      <a href="index.html">Return to My Jesus-Greg WORLD</a>
+      <a href="index.html">
+        Return to My Jesus-Greg WORLD
+      </a>
     </p>
+
   </section>
+
 
 </main>
 
 </body>
 </html>
-
