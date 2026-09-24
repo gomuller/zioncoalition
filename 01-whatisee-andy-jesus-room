@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>The Jesus-Andy Pyramid ROOM | My Jesus-Greg WORLD</title>
+
+  <style>
+    :root {
+      --blue: #0d3f73;
+      --deep-blue: #082b4d;
+      --card: #f8fbff;
+      --soft-card: #edf5fc;
+      --text: #17324d;
+      --muted: #4d6983;
+      --heading: #123b5d;
+      --gold: #f2c14e;
+      --sand: #d8b477;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--blue);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .page {
+      width: min(100% - 32px, 1000px);
+      margin: 0 auto;
+      padding: 34px 0 72px;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: 18px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+      padding: 28px;
+      margin-bottom: 26px;
+    }
+
+    h1, h2 {
+      color: var(--heading);
+      line-height: 1.2;
+      margin-top: 0;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.2rem);
+      margin-bottom: 8px;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .82rem;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 1.08rem;
+    }
+
+    /* ROOM PLAQUE */
+
+    .room-plaque {
+      background: var(--deep-blue);
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 24px 28px;
+      margin-bottom: 26px;
+      text-align: center;
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+
+    .room-plaque .label {
+      margin: 0 0 5px;
+      color: #9fd3ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+    }
+
+    .room-plaque h1 {
+      margin: 0;
+      color: white;
+    }
+
+    .room-plaque .experiment {
+      margin: 12px 0 0;
+      color: var(--gold);
+      font-weight: 700;
+    }
+
+    /* HERO IMAGE */
+
+    .hero {
+      padding: 12px;
+    }
+
+    .hero img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .caption {
+      text-align: center;
+      color: var(--muted);
+      margin: 12px 8px 4px;
+      font-size: .94rem;
+    }
+
+    /* QUOTES */
+
+    .quote-box {
+      background: var(--soft-card);
+      border-left: 6px solid var(--gold);
+      border-radius: 12px;
+      padding: 18px 22px;
+      margin: 22px 0;
+      color: var(--heading);
+    }
+
+    .quote-box p {
+      margin: 0;
+    }
+
+    /* FUTURE MEMORY SLOTS */
+
+    .archive-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .slot {
+      background: var(--soft-card);
+      border: 2px dashed #9ab9d2;
+      border-radius: 16px;
+      min-height: 190px;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .slot-number {
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .1em;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .slot h2 {
+      margin-bottom: 7px;
+      font-size: 1.2rem;
+    }
+
+    .slot p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .home-card {
+      text-align: center;
+    }
+
+    a {
+      color: #075fa8;
+      font-weight: 700;
+    }
+
+    @media (max-width: 680px) {
+      .page {
+        width: min(100% - 20px, 1000px);
+        padding-top: 18px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+
+      .hero {
+        padding: 8px;
+      }
+
+      .archive-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<main class="page">
+
+  <!-- ROOM ENTRANCE -->
+
+  <section class="room-plaque">
+    <p class="label">YOU ARE ENTERING</p>
+
+    <h1>The Jesus-Andy Pyramid ROOM</h1>
+
+    <p class="experiment">
+      The MORE Jesus = More Reality Experiment
+    </p>
+  </section>
+
+
+  <!-- HERO / ROOM ANNOUNCEMENT -->
+
+  <section class="card hero">
+
+    <!--
+      Replace this filename with the actual filename
+      you give the Pyramid Room image.
+    -->
+
+    <img
+      src="images/jesus-andy-pyramid-room.png"
+      alt="Greg, Jesus, and Andy at the entrance to the Jesus-Andy Pyramid Room"
+    >
+
+    <p class="caption">
+      Greg + Jesus + Andy — building another chamber in My Jesus-Greg WORLD.
+    </p>
+
+  </section>
+
+
+  <!-- BASIC IDEA -->
+
+  <section class="card">
+
+    <p class="eyebrow">Why does Andy have a ROOM?</p>
+
+    <h2>My Friends Have ROOMs</h2>
+
+    <p>
+      In <strong>My Jesus-Greg WORLD</strong>, the people in my life can have
+      ROOMs.
+    </p>
+
+    <p>
+      The ROOM is an <strong>ordering device for my imagination and memory</strong>.
+      It gives me somewhere to put the experiences, ideas, conversations,
+      guidance, images, songs, jokes, discoveries, and spiritual impressions
+      that become associated with a particular person over the years.
+    </p>
+
+    <p>
+      But I don't imagine Andy standing in this ROOM alone.
+    </p>
+
+    <div class="quote-box">
+      <p>
+        <strong>I imagine Andy with Jesus.</strong>
+      </p>
+    </div>
+
+    <p>
+      Matthew 25:38–40 gives me a way of experimenting with this idea:
+      encountering another person can also become an encounter with Jesus.
+      So instead of thinking that getting <strong>MORE Jesus</strong> always
+      requires withdrawing from people to go looking for Him somewhere else,
+      I can practice going <em>toward</em> people.
+    </p>
+
+    <p>
+      Andy is therefore not a distraction from my MORE Jesus experiment.
+      My relationship with Andy can become <strong>part of the experiment</strong>.
+    </p>
+
+  </section>
+
+
+  <!-- MEMORY PALACE -->
+
+  <section class="card">
+
+    <p class="eyebrow">A Relationship Memory Palace</p>
+
+    <h2>Andy + Jesus + Greg</h2>
+
+    <p>
+      Over time this ROOM can accumulate memories.
+    </p>
+
+    <p>
+      I might encounter an idea years from now and think:
+    </p>
+
+    <div class="quote-box">
+      <p>
+        <strong>
+          “Oh yeah. Andy + Jesus helped me see that.”
+        </strong>
+      </p>
+    </div>
+
+    <p>
+      Or:
+    </p>
+
+    <div class="quote-box">
+      <p>
+        <strong>
+          “Andy + Jesus and I experimented with that.”
+        </strong>
+      </p>
+    </div>
+
+    <p>
+      The ROOM gives those memories a place to live.
+      Instead of thousands of interactions floating around disconnected
+      in my head, I can begin arranging them into a landscape.
+    </p>
+
+    <p>
+      The friendship becomes a chamber in the larger architecture of
+      <strong>My Jesus-Greg WORLD</strong>.
+    </p>
+
+  </section>
+
+
+  <!-- FUTURE INTERACTIONS -->
+
+  <section class="card">
+
+    <p class="eyebrow">The ROOM Will Grow</p>
+
+    <h2>Future Andy + Jesus Encounters</h2>
+
+    <p>
+      These spaces are intentionally unfinished. As life happens,
+      new memories and artifacts can be placed here.
+    </p>
+
+    <div class="archive-grid">
+
+      <article class="slot">
+        <div class="slot-number">CHAMBER 01</div>
+        <h2>A Memory</h2>
+        <p>
+          Something Andy + Jesus + Greg did together.
+        </p>
+      </article>
+
+      <article class="slot">
+        <div class="slot-number">CHAMBER 02</div>
+        <h2>An Idea</h2>
+        <p>
+          Something I learned or began seeing differently.
+        </p>
+      </article>
+
+      <article class="slot">
+        <div class="slot-number">CHAMBER 03</div>
+        <h2>What I See On Jesus TV</h2>
+        <p>
+          Future GIF, image, scene, or imagined interaction.
+        </p>
+      </article>
+
+      <article class="slot">
+        <div class="slot-number">CHAMBER 04</div>
+        <h2>Future Discovery</h2>
+        <p>
+          Reserved for something we haven't encountered yet.
+        </p>
+      </article>
+
+    </div>
+
+  </section>
+
+
+  <!-- BIGGER WORLD -->
+
+  <section class="card">
+
+    <h2>A WORLD Full of ROOMs</h2>
+
+    <p>
+      Andy's ROOM is only one ROOM.
+    </p>
+
+    <p>
+      Other friends can have their own ROOMs too—each one becoming
+      a place where relationship, memory, imagination, and my search
+      for MORE Jesus can accumulate over time.
+    </p>
+
+    <div class="quote-box">
+      <p>
+        <strong>
+          I go toward the people I love looking for MORE Jesus there.
+        </strong>
+      </p>
+    </div>
+
+  </section>
+
+
+  <section class="card home-card">
+    <p>
+      <a href="index.html">Return to My Jesus-Greg WORLD</a>
+    </p>
+  </section>
+
+</main>
+
+</body>
+</html>
+
