@@ -3,83 +3,1149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My Jesus-Greg WORLD Is Becoming a Gallery of Galleries</title>
+
 <style>
-:root{--blue:#0d3f73;--deep:#082b4d;--card:#f8fbff;--soft:#edf5fc;--text:#17324d;--muted:#4d6983;--heading:#123b5d;--gold:#f2c14e}
-*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--blue);color:var(--text);line-height:1.7}
-.page{width:min(100% - 32px,960px);margin:auto;padding:34px 0 72px}.card{background:var(--card);border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.16);padding:30px;margin-bottom:26px}
-.feature{padding:16px}.feature img{display:block;width:100%;height:auto;border-radius:13px;background:var(--soft)}
-h1,h2{color:var(--heading);line-height:1.18;margin-top:0}h1{font-size:clamp(2rem,6vw,3.1rem)}h2{font-size:1.55rem}
-.eyebrow{color:var(--muted);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem}.subtitle{color:var(--muted);font-size:1.08rem}
-.quote{background:var(--soft);border-left:5px solid var(--gold);border-radius:12px;padding:18px 20px;margin:22px 0;font-size:1.12rem;color:var(--heading)}
-.home{text-align:center}a{color:#075fa8;font-weight:700}
-.yellow-highlight{background:linear-gradient(transparent 35%,#fff176 35%,#fff176 88%,transparent 88%);padding:0 4px;font-weight:700;color:#1e3a5f}
-.green-highlight{background:linear-gradient(transparent 35%,#66ff4d 35%,#66ff4d 88%,transparent 88%);padding:0 4px;font-weight:700;color:#1e3a5f}
-@media(max-width:680px){.page{width:min(100% - 20px,960px);padding-top:18px}.card{padding:21px}.feature{padding:12px}}
+:root{
+  --blue:#0d3f73;
+  --deep:#082b4d;
+  --card:#f8fbff;
+  --soft:#edf5fc;
+  --text:#17324d;
+  --muted:#4d6983;
+  --heading:#123b5d;
+  --gold:#f2c14e;
+}
+
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--blue);
+  color:var(--text);
+  line-height:1.7;
+}
+
+.page{
+  width:min(100% - 32px,960px);
+  margin:auto;
+  padding:34px 0 72px;
+}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  box-shadow:0 12px 30px rgba(0,0,0,.16);
+  padding:30px;
+  margin-bottom:26px;
+}
+
+.feature{
+  padding:16px;
+}
+
+.feature img{
+  display:block;
+  width:100%;
+  height:auto;
+  border-radius:13px;
+  background:var(--soft);
+}
+
+h1,h2,h3{
+  color:var(--heading);
+  line-height:1.18;
+  margin-top:0;
+}
+
+h1{
+  font-size:clamp(2rem,6vw,3.1rem);
+}
+
+h2{
+  font-size:1.55rem;
+}
+
+h3{
+  font-size:1.2rem;
+}
+
+.eyebrow{
+  color:var(--muted);
+  font-weight:700;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  font-size:.82rem;
+}
+
+.subtitle{
+  color:var(--muted);
+  font-size:1.08rem;
+}
+
+.quote{
+  background:var(--soft);
+  border-left:5px solid var(--gold);
+  border-radius:12px;
+  padding:18px 20px;
+  margin:22px 0;
+  font-size:1.12rem;
+  color:var(--heading);
+}
+
+.home{
+  text-align:center;
+}
+
+a{
+  color:#075fa8;
+  font-weight:700;
+}
+
+.yellow-highlight{
+  background:linear-gradient(
+    transparent 35%,
+    #fff176 35%,
+    #fff176 88%,
+    transparent 88%
+  );
+  padding:0 4px;
+  font-weight:700;
+  color:#1e3a5f;
+}
+
+.green-highlight{
+  background:linear-gradient(
+    transparent 35%,
+    #66ff4d 35%,
+    #66ff4d 88%,
+    transparent 88%
+  );
+  padding:0 4px;
+  font-weight:700;
+  color:#1e3a5f;
+}
+
+
+/* =========================================================
+   GALLERY OF GALLERIES
+   ========================================================= */
+
+.gallery-intro{
+  margin-bottom:26px;
+}
+
+.gallery-map{
+  background:var(--deep);
+  border-radius:18px;
+  padding:22px;
+  margin-top:28px;
+}
+
+.gallery-map-title{
+  color:white;
+  text-align:center;
+  margin-bottom:6px;
+  font-size:1.6rem;
+}
+
+.gallery-map-subtitle{
+  color:#d5e7f7;
+  text-align:center;
+  margin-top:0;
+  margin-bottom:24px;
+  font-size:.95rem;
+}
+
+.archive-grid{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
+
+
+/* POPULATED GALLERY */
+
+.gallery-complete{
+  background:white;
+  border:3px solid var(--gold);
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 8px 18px rgba(0,0,0,.18);
+  transition:transform .18s ease,box-shadow .18s ease;
+}
+
+.gallery-complete:hover{
+  transform:translateY(-4px);
+  box-shadow:0 13px 26px rgba(0,0,0,.26);
+}
+
+.gallery-complete a{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+
+.gallery-complete img{
+  display:block;
+  width:100%;
+  height:auto;
+  background:var(--soft);
+}
+
+.gallery-text{
+  padding:22px;
+}
+
+.gallery-text h3{
+  margin:7px 0 10px;
+}
+
+.gallery-text p{
+  margin-bottom:0;
+}
+
+
+/* FUTURE GALLERIES */
+
+.gallery-slot{
+  min-height:250px;
+  padding:24px;
+  border-radius:16px;
+  border:2px dashed #8eabc3;
+  background:#edf5fc;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  transition:transform .18s ease,background .18s ease;
+}
+
+.gallery-slot:hover{
+  transform:translateY(-2px);
+  background:#f5faff;
+}
+
+.gallery-slot h3{
+  margin:7px 0 10px;
+}
+
+.gallery-slot p{
+  margin:0;
+  color:var(--muted);
+}
+
+
+/* GALLERY NUMBER */
+
+.slot-number{
+  display:inline-block;
+  width:max-content;
+  color:#0d3f73;
+  background:#d8eafa;
+  border-radius:999px;
+  padding:5px 11px;
+  font-size:.75rem;
+  font-weight:800;
+  letter-spacing:.08em;
+  text-transform:uppercase;
+  margin-bottom:6px;
+}
+
+.gallery-complete .slot-number{
+  background:var(--gold);
+  color:#382b00;
+}
+
+
+/* STATUS */
+
+.gallery-status{
+  display:inline-block;
+  margin-top:16px;
+  font-size:.76rem;
+  font-weight:800;
+  letter-spacing:.06em;
+  text-transform:uppercase;
+  color:#326343;
+}
+
+.waiting{
+  color:#6d8295;
+}
+
+
+/* ARCHITECTURE STRIP */
+
+.architecture{
+  margin-top:24px;
+  padding:18px;
+  border-radius:13px;
+  background:rgba(255,255,255,.09);
+  color:white;
+  text-align:center;
+}
+
+.architecture strong{
+  color:var(--gold);
+}
+
+.architecture-flow{
+  font-size:1.08rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+
+/* MOBILE */
+
+@media(max-width:680px){
+
+  .page{
+    width:min(100% - 20px,960px);
+    padding-top:18px;
+  }
+
+  .card{
+    padding:21px;
+  }
+
+  .feature{
+    padding:12px;
+  }
+
+  .archive-grid{
+    grid-template-columns:1fr;
+  }
+
+  .gallery-map{
+    padding:15px;
+  }
+
+}
 </style>
 </head>
-<body><main class="page">
-<section class="card feature"><img src="images//00-1001-gallery-of-galleries.png" alt="Featured image for Gallery of Galleries"></section>
-<section class="card"><p class="eyebrow">My Jesus-Greg WORLD · The MORE Jesus = More Reality Experiment</p><h1>My Jesus-Greg WORLD Is Becoming a Gallery of Galleries</h1><p class="subtitle">An evolving memory palace of ordinary life, sacred imagination, art, and experiment.</p></section>
 
-<section class="card">
-<p>I have been thinking about calling this new collection <strong>The Church Gallery</strong>.</p>
-<p>That little change in language helps me see something much larger that may have been developing in <em>My Jesus-Greg WORLD</em> all along.</p>
-<p>Perhaps My Jesus-Greg WORLD is, among other things, <strong>a gallery of galleries</strong>.</p>
-<p>Or maybe it is closer to a <strong>memory palace</strong>—a constructed world made up of places I repeatedly visit, with images, objects, songs, stories, performances, and little movies deliberately positioned there to help shape what I remember and what I see.</p>
+
+<body>
+
+<main class="page">
+
+
+<!-- =====================================================
+     FEATURED IMAGE
+     ===================================================== -->
+
+<section class="card feature">
+
+  <img
+    src="images/00-1001-gallery-of-galleries.png"
+    alt="Featured image for Gallery of Galleries"
+  >
+
 </section>
 
-<section class="card"><h2>The Church Gallery</h2>
-<p>The first gallery is becoming obvious.</p>
-<p>I go to church every week. I see a chapel, people, pews, sacrament trays, speakers, classrooms, hallways, paintings, parking lots, and a steeple.</p>
-<p>But increasingly, that isn't <em>all</em> I see.</p>
-<p><strong>Jesus is changing what I see when I go to church.</strong></p>
-<p>So I am beginning to make little animated pieces that approximate what I see—or what I am learning to see—with my sacred imagination. I can make the invisible part of my experience somewhat visible. Then I can look at it again.</p>
-<p>That last part matters.</p><p>I am not merely documenting a worldview after it has changed.</p>
-<div class="quote"><strong>Making the art may be one of the mechanisms by which the worldview changes.</strong></div>
-<p>I make the picture. I watch the picture. I remember the picture. I return to the actual place. And now something from the picture accompanies me.</p>
-<p>That sounds remarkably like memory-palace technology.</p></section>
 
-<section class="card"><h2>The Galleries Were Already There</h2>
-<p>Once I saw <strong>The Church Gallery</strong>, I realized that I probably don't need to invent most of the other galleries.</p>
-<p>My ordinary life has already divided itself into them.</p>
-<p>There is <strong>The Work Gallery</strong>: fences, tools, work gloves, grant writing, handyman jobs, and <em>Heaven Can't Wait</em>.</p>
-<p>There is <strong>The Bedroom Gallery</strong>: waking, sleeping, dreams, the Jesus Pillow, the Open Bible stretch, prayer, Born Again, Womb/Tomb.</p>
-<p>There is <strong>The Kitchen Gallery</strong>: bread, tables, food, hunger, feeding people, the toaster.</p>
-<p>There is <strong>The Bathroom Gallery</strong>: showering, cleansing, cold water, singing, embodiment, humor, mortality, even poop.</p>
-<p>There is <strong>The Family Gallery</strong> and <strong>The Friends Gallery</strong>.</p>
-<p>There is <strong>The Music Gallery</strong>, where classic rock songs are redeemed and become part of the soundtrack of another world.</p>
-<p>There is <strong>The Scripture Gallery</strong>, where Bible, Book of Mormon, JGV, songs, stories, enactments, and newly written pieces begin interacting with one another.</p>
-<p>There is <strong>The Dream Gallery</strong>.</p>
-<p><strong>The Work Gallery. The Body Gallery. The Temple Gallery. The Exodus Gallery. The Zion Gallery. The Outside Gallery. The Jesus TV Gallery. The Jesus Radio Gallery.</strong></p>
-<p>And perhaps somewhere in the middle of all of them is <strong>The Imagination Gallery</strong>—the gallery that helps me notice what the other galleries are doing.</p></section>
+<!-- =====================================================
+     TITLE
+     ===================================================== -->
 
-<section class="card"><h2>An Artist's Gallery—and a Scientist's Laboratory</h2>
-<p>The word <em>gallery</em> also helps me understand the peculiar combination of artist and scientist that I am experimenting with.</p>
-<p>An artist makes something so that something inside can become visible outside.</p><p>A scientist experiments.</p><p>I am doing both.</p><p>I can ask:</p>
-<div class="quote"><strong>What happens if I deliberately introduce MORE Jesus into the representations through which I understand ordinary life?</strong></div>
-<p>Then I can make something.</p><p>Watch it.</p><p>Live with it.</p><p>Return to the real setting.</p><p>Notice what happens.</p><p>Make another version.</p>
-<p>In that sense, these galleries aren't merely places where finished art gets displayed. <strong>They are laboratories.</strong></p>
-<p>Every GIF, photograph, redeemed song, enactment, sign, room, object, and little movie can become another experiment in:</p>
-<p><strong>The MORE Jesus = More Reality Experiment.</strong></p></section>
+<section class="card">
 
-<section class="card"><h2>Curating Attention</h2>
-<p>This also helps me distinguish a <strong>gallery</strong> from an <strong>archive</strong>.</p><p>An archive stores things.</p><p>A gallery asks me to <strong>look</strong>.</p>
-<p>Someone chooses what goes on the wall. Someone decides where it goes. Someone walks through the room, stops, looks again, and perhaps sees something that wasn't visible before.</p>
-<p>That is much closer to what I am trying to do.</p><p>I am curating my attention.</p>
-<p>And because these galleries correspond to places I actually inhabit—church, bedroom, kitchen, workplace, yard, road, temple—the imaginary gallery and physical world can begin overlapping.</p>
-<p>I visit <strong>The Church Gallery</strong> on my computer.</p><p>Then I walk into the actual church.</p><p>The gallery comes with me.</p></section>
+  <p class="eyebrow">
+    My Jesus-Greg WORLD · The MORE Jesus = More Reality Experiment
+  </p>
 
-<section class="card"><h2>A Memory Palace for MORE Jesus</h2>
-<p>So perhaps <em>My Jesus-Greg WORLD</em> can increasingly be understood as a giant, evolving memory palace.</p><p>Not one I merely walk through in my head.</p><p>I can externalize it.</p>
-<p>I can build parts of it in HTML. I can hang moving pictures on its walls. I can make songs play in its rooms. I can create signs over its doors. I can photograph its objects. I can enact its scenes in my actual house and yard. I can revisit those representations until they become increasingly available to memory.</p>
-<p>And the organizing question running through the entire palace is wonderfully simple:</p>
-  <p>But soon the galleries will be filled with music, too—the soundtrack to the opera that is my life with MORE Jesus—and eventually, so much more.</p>
-<div class="quote"><strong>What would I see here if I saw MORE Jesus?</strong></div>
-<p>Church becomes a gallery.</p><p>Work becomes a gallery.</p><p>My bedroom becomes a gallery.</p><p>The kitchen becomes a gallery.</p><p>My body becomes a gallery.</p><p>My dreams become a gallery.</p>
-<p>Eventually, perhaps, <strong>the whole day becomes the gallery</strong>.</p>
-<p>And that may be one way of describing what My Jesus-Greg WORLD has been trying to become all along:</p>
-<p><strong>an inhabitable collection of reminders—constructed by an artist/scientist who is experimenting with MORE Jesus, one ordinary scene at a time.</strong></p></section>
+  <h1>
+    My Jesus-Greg WORLD Is Becoming a Gallery of Galleries
+  </h1>
 
-<section class="card home"><p><a href="index.html">Return to Home</a></p></section>
-</main></body></html>
+  <p class="subtitle">
+    An evolving memory palace of ordinary life, sacred imagination,
+    art, and experiment.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     INTRODUCTION
+     ===================================================== -->
+
+<section class="card">
+
+  <p>
+    I have been thinking about calling this new collection
+    <strong>The Church Gallery</strong>.
+  </p>
+
+  <p>
+    That little change in language helps me see something much larger
+    that may have been developing in <em>My Jesus-Greg WORLD</em>
+    all along.
+  </p>
+
+  <p>
+    Perhaps My Jesus-Greg WORLD is, among other things,
+    <strong>a gallery of galleries</strong>.
+  </p>
+
+  <p>
+    Or maybe it is closer to a <strong>memory palace</strong>—a
+    constructed world made up of places I repeatedly visit, with
+    images, objects, songs, stories, performances, and little movies
+    deliberately positioned there to help shape what I remember and
+    what I see.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     THE CHURCH GALLERY
+     ===================================================== -->
+
+<section class="card">
+
+  <h2>The Church Gallery</h2>
+
+  <p>
+    The first gallery is becoming obvious.
+  </p>
+
+  <p>
+    I go to church every week. I see a chapel, people, pews,
+    sacrament trays, speakers, classrooms, hallways, paintings,
+    parking lots, and a steeple.
+  </p>
+
+  <p>
+    But increasingly, that isn't <em>all</em> I see.
+  </p>
+
+  <p>
+    <strong>Jesus is changing what I see when I go to church.</strong>
+  </p>
+
+  <p>
+    So I am beginning to make little animated pieces that approximate
+    what I see—or what I am learning to see—with my sacred imagination.
+    I can make the invisible part of my experience somewhat visible.
+    Then I can look at it again.
+  </p>
+
+  <p>
+    That last part matters.
+  </p>
+
+  <p>
+    I am not merely documenting a worldview after it has changed.
+  </p>
+
+  <div class="quote">
+    <strong>
+      Making the art may be one of the mechanisms by which the
+      worldview changes.
+    </strong>
+  </div>
+
+  <p>
+    I make the picture. I watch the picture. I remember the picture.
+    I return to the actual place. And now something from the picture
+    accompanies me.
+  </p>
+
+  <p>
+    That sounds remarkably like memory-palace technology.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     THE GALLERIES WERE ALREADY THERE
+     ===================================================== -->
+
+<section class="card">
+
+  <h2>The Galleries Were Already There</h2>
+
+  <p>
+    Once I saw <strong>The Church Gallery</strong>, I realized that
+    I probably don't need to invent most of the other galleries.
+  </p>
+
+  <p>
+    My ordinary life has already divided itself into them.
+  </p>
+
+  <p>
+    There is <strong>The Work Gallery</strong>: fences, tools,
+    work gloves, grant writing, handyman jobs, and
+    <em>Heaven Can't Wait</em>.
+  </p>
+
+  <p>
+    There is <strong>The Bedroom Gallery</strong>: waking, sleeping,
+    dreams, the Jesus Pillow, the Open Bible stretch, prayer,
+    Born Again, Womb/Tomb.
+  </p>
+
+  <p>
+    There is <strong>The Kitchen Gallery</strong>: bread, tables,
+    food, hunger, feeding people, the toaster.
+  </p>
+
+  <p>
+    There is <strong>The Bathroom Gallery</strong>: showering,
+    cleansing, cold water, singing, embodiment, humor, mortality,
+    even poop.
+  </p>
+
+  <p>
+    There is <strong>The Family Gallery</strong> and
+    <strong>The Friends Gallery</strong>.
+  </p>
+
+  <p>
+    There is <strong>The Music Gallery</strong>, where classic rock
+    songs are redeemed and become part of the soundtrack of another
+    world.
+  </p>
+
+  <p>
+    There is <strong>The Scripture Gallery</strong>, where Bible,
+    Book of Mormon, JGV, songs, stories, enactments, and newly written
+    pieces begin interacting with one another.
+  </p>
+
+  <p>
+    There is <strong>The Dream Gallery</strong>.
+  </p>
+
+  <p>
+    <strong>
+      The Work Gallery. The Body Gallery. The Temple Gallery.
+      The Exodus Gallery. The Zion Gallery. The Outside Gallery.
+      The Jesus TV Gallery. The Jesus Radio Gallery.
+    </strong>
+  </p>
+
+  <p>
+    And perhaps somewhere in the middle of all of them is
+    <strong>The Imagination Gallery</strong>—the gallery that helps
+    me notice what the other galleries are doing.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     GALLERY OF GALLERIES
+     ===================================================== -->
+
+<section class="card">
+
+  <p class="eyebrow">
+    The WORLD Will Grow
+  </p>
+
+  <h2>
+    The Gallery of Galleries
+  </h2>
+
+  <div class="gallery-intro">
+
+    <p>
+      My galleries can have architecture, too.
+    </p>
+
+    <p>
+      A gallery is not merely a category on a website.
+      <strong>It is a place I can enter.</strong>
+    </p>
+
+    <p>
+      And inside a gallery can be rooms, chambers, exhibits,
+      images, sounds, memories, scenes, and doors leading
+      somewhere else.
+    </p>
+
+    <p>
+      So this becomes my <strong>Gallery of Galleries</strong>—a
+      growing directory of the places inside
+      <em>My Jesus-Greg WORLD</em>.
+    </p>
+
+    <p>
+      Some galleries are already populated. Some are only beginning
+      to take shape. Others are empty rooms waiting for life to happen.
+    </p>
+
+  </div>
+
+
+  <div class="gallery-map">
+
+    <h2 class="gallery-map-title">
+      GALLERY OF GALLERIES
+    </h2>
+
+    <p class="gallery-map-subtitle">
+      My Jesus-Greg WORLD · An expanding memory palace
+    </p>
+
+
+    <div class="archive-grid">
+
+
+      <!-- =================================================
+           GALLERY 01 — THE CHURCH GALLERY
+           ================================================= -->
+
+      <article class="gallery-complete">
+
+        <a href="00-1001-WHATEYESEE-church.html">
+
+          <img
+            src="images/00-1001-church-gallery-reel.png"
+            alt="The Church Gallery — What I See On Jesus TV"
+          >
+
+          <div class="gallery-text">
+
+            <div class="slot-number">
+              GALLERY 01
+            </div>
+
+            <h3>
+              The Church Gallery
+            </h3>
+
+            <p>
+              Chapels, pews, sacrament, paintings, signs, steeples,
+              Jesus TV, sacred imagination, and experiments in seeing
+              MORE Jesus in the places where I worship.
+            </p>
+
+            <div class="gallery-status">
+              ● Enter The Church Gallery
+            </div>
+
+          </div>
+
+        </a>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 02
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 02
+        </div>
+
+        <h3>
+          The Work Gallery
+        </h3>
+
+        <p>
+          Tools, fences, work gloves, grant writing, handyman jobs,
+          service, and <em>Heaven Can't Wait</em>.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 03
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 03
+        </div>
+
+        <h3>
+          The Bedroom Gallery
+        </h3>
+
+        <p>
+          Waking, sleeping, dreams, prayer, the Jesus Pillow,
+          the Open Bible stretch, Born Again, and Womb/Tomb.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 04
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 04
+        </div>
+
+        <h3>
+          The Kitchen Gallery
+        </h3>
+
+        <p>
+          Bread, tables, food, hunger, feeding people, meals,
+          family rhythms, and the Jesus toaster.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 05
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 05
+        </div>
+
+        <h3>
+          The Bathroom Gallery
+        </h3>
+
+        <p>
+          Showering, cleansing, cold water, singing, embodiment,
+          humor, mortality, and the sacred possibilities of
+          extremely ordinary things.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 06
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 06
+        </div>
+
+        <h3>
+          The Music Gallery
+        </h3>
+
+        <p>
+          Redeemed classic rock, songs, soundtrack, performance,
+          memory, and the music of the opera that is my life
+          with MORE Jesus.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 07
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 07
+        </div>
+
+        <h3>
+          The Scripture Gallery
+        </h3>
+
+        <p>
+          Bible, Book of Mormon, JGV, Come Follow Me, selected
+          verses, stories, enactments, and scripture written
+          into lived experience.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 08
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 08
+        </div>
+
+        <h3>
+          The Jesus TV Gallery
+        </h3>
+
+        <p>
+          Little movies, animated GIFs, signs, magical billboards,
+          film reels, scenes, and approximations of
+          <em>What I See On Jesus TV</em>.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 09
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 09
+        </div>
+
+        <h3>
+          The Zion Coalition Gallery
+        </h3>
+
+        <p>
+          Zion, Babylon, Exodus, experiments, movements,
+          invitations, manifestos, art, and attempts to imagine
+          what inhabiting Zion might look like.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting to be populated
+        </div>
+
+      </article>
+
+
+      <!-- =================================================
+           GALLERY 10
+           ================================================= -->
+
+      <article class="gallery-slot">
+
+        <div class="slot-number">
+          GALLERY 10
+        </div>
+
+        <h3>
+          Future Gallery
+        </h3>
+
+        <p>
+          An empty gallery waiting for something from life,
+          Jesus, imagination, experiment, relationship,
+          or discovery to give it a name.
+        </p>
+
+        <div class="gallery-status waiting">
+          Waiting for life to happen
+        </div>
+
+      </article>
+
+
+    </div>
+
+
+    <!-- WORLD ARCHITECTURE -->
+
+    <div class="architecture">
+
+      <div class="architecture-flow">
+
+        <strong>WORLD</strong>
+        &nbsp;→&nbsp;
+        GALLERY
+        &nbsp;→&nbsp;
+        ROOM
+        &nbsp;→&nbsp;
+        CHAMBER
+        &nbsp;→&nbsp;
+        EXHIBIT / SCENE
+
+      </div>
+
+      <p style="margin-bottom:0;">
+        One place can contain another—and any exhibit can become
+        a doorway into somewhere else.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     ARTIST + SCIENTIST
+     ===================================================== -->
+
+<section class="card">
+
+  <h2>
+    An Artist's Gallery—and a Scientist's Laboratory
+  </h2>
+
+  <p>
+    The word <em>gallery</em> also helps me understand the peculiar
+    combination of artist and scientist that I am experimenting with.
+  </p>
+
+  <p>
+    An artist makes something so that something inside can become
+    visible outside.
+  </p>
+
+  <p>
+    A scientist experiments.
+  </p>
+
+  <p>
+    I am doing both.
+  </p>
+
+  <p>
+    I can ask:
+  </p>
+
+  <div class="quote">
+
+    <strong>
+      What happens if I deliberately introduce MORE Jesus into
+      the representations through which I understand ordinary life?
+    </strong>
+
+  </div>
+
+  <p>Then I can make something.</p>
+
+  <p>Watch it.</p>
+
+  <p>Live with it.</p>
+
+  <p>Return to the real setting.</p>
+
+  <p>Notice what happens.</p>
+
+  <p>Make another version.</p>
+
+  <p>
+    In that sense, these galleries aren't merely places where finished
+    art gets displayed. <strong>They are laboratories.</strong>
+  </p>
+
+  <p>
+    Every GIF, photograph, redeemed song, enactment, sign, room,
+    object, and little movie can become another experiment in:
+  </p>
+
+  <p>
+    <strong>
+      The MORE Jesus = More Reality Experiment.
+    </strong>
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     CURATING ATTENTION
+     ===================================================== -->
+
+<section class="card">
+
+  <h2>
+    Curating Attention
+  </h2>
+
+  <p>
+    This also helps me distinguish a <strong>gallery</strong>
+    from an <strong>archive</strong>.
+  </p>
+
+  <p>
+    An archive stores things.
+  </p>
+
+  <p>
+    A gallery asks me to <strong>look</strong>.
+  </p>
+
+  <p>
+    Someone chooses what goes on the wall. Someone decides where
+    it goes. Someone walks through the room, stops, looks again,
+    and perhaps sees something that wasn't visible before.
+  </p>
+
+  <p>
+    That is much closer to what I am trying to do.
+  </p>
+
+  <p>
+    I am curating my attention.
+  </p>
+
+  <p>
+    And because these galleries correspond to places I actually
+    inhabit—church, bedroom, kitchen, workplace, yard, road,
+    temple—the imaginary gallery and physical world can begin
+    overlapping.
+  </p>
+
+  <p>
+    I visit <strong>The Church Gallery</strong> on my computer.
+  </p>
+
+  <p>
+    Then I walk into the actual church.
+  </p>
+
+  <p>
+    The gallery comes with me.
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     MEMORY PALACE
+     ===================================================== -->
+
+<section class="card">
+
+  <h2>
+    A Memory Palace for MORE Jesus
+  </h2>
+
+  <p>
+    So perhaps <em>My Jesus-Greg WORLD</em> can increasingly be
+    understood as a giant, evolving memory palace.
+  </p>
+
+  <p>
+    Not one I merely walk through in my head.
+  </p>
+
+  <p>
+    I can externalize it.
+  </p>
+
+  <p>
+    I can build parts of it in HTML. I can hang moving pictures
+    on its walls. I can make songs play in its rooms. I can create
+    signs over its doors. I can photograph its objects. I can enact
+    its scenes in my actual house and yard. I can revisit those
+    representations until they become increasingly available
+    to memory.
+  </p>
+
+  <p>
+    And the organizing question running through the entire palace
+    is wonderfully simple:
+  </p>
+
+  <p>
+    But soon the galleries will be filled with music, too—the
+    soundtrack to the opera that is my life with MORE Jesus—and
+    eventually, so much more.
+  </p>
+
+  <div class="quote">
+
+    <strong>
+      What would I see here if I saw MORE Jesus?
+    </strong>
+
+  </div>
+
+  <p>Church becomes a gallery.</p>
+
+  <p>Work becomes a gallery.</p>
+
+  <p>My bedroom becomes a gallery.</p>
+
+  <p>The kitchen becomes a gallery.</p>
+
+  <p>My body becomes a gallery.</p>
+
+  <p>My dreams become a gallery.</p>
+
+  <p>
+    Eventually, perhaps,
+    <strong>the whole day becomes the gallery</strong>.
+  </p>
+
+  <p>
+    And that may be one way of describing what My Jesus-Greg WORLD
+    has been trying to become all along:
+  </p>
+
+  <p>
+    <strong>
+      an inhabitable collection of reminders—constructed by an
+      artist/scientist who is experimenting with MORE Jesus,
+      one ordinary scene at a time.
+    </strong>
+  </p>
+
+</section>
+
+
+<!-- =====================================================
+     HOME
+     ===================================================== -->
+
+<section class="card home">
+
+  <p>
+    <a href="index.html">
+      Return to Home
+    </a>
+  </p>
+
+</section>
+
+
+</main>
+
+</body>
+</html>
