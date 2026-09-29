@@ -1,0 +1,657 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I Want You to Practice Being a Modern Moroni | My Jesus-Greg WORLD</title>
+  <style>
+    :root {
+      --blue: #0d3f73;
+      --deep-blue: #082b4d;
+      --card: #f8fbff;
+      --soft-card: #edf5fc;
+      --text: #17324d;
+      --muted: #4d6983;
+      --heading: #123b5d;
+      --gold: #f2c14e;
+      --light-blue: #9fd3ff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: linear-gradient(180deg, var(--deep-blue) 0%, var(--blue) 28%, #0b4d87 100%);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.72;
+    }
+
+    .page {
+      width: min(940px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 34px 0 54px;
+    }
+
+    .hero,
+    .card,
+    .closing-card {
+      background: var(--card);
+      border-radius: 24px;
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.20);
+      border: 1px solid rgba(255,255,255,0.7);
+    }
+
+    .hero {
+      padding: 34px 38px 30px;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 5vw, 3.65rem);
+      line-height: 1.06;
+    }
+
+    .subtitle {
+      max-width: 720px;
+      margin: 18px auto 0;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      font-style: italic;
+    }
+
+    .card {
+      padding: 30px 34px;
+      margin: 0 0 22px;
+    }
+
+    .card h2 {
+      margin: 0 0 16px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.55rem, 3vw, 2.05rem);
+      line-height: 1.2;
+    }
+
+    .card p { margin: 0 0 1.05em; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .opening-label {
+      margin: 0 0 14px;
+      color: var(--blue);
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+    }
+
+    .quote-box {
+      position: relative;
+      margin: 0;
+      padding: 30px 32px 27px 38px;
+      overflow: hidden;
+      border-left: 7px solid var(--gold);
+      border-radius: 20px;
+      background: linear-gradient(145deg, var(--deep-blue), var(--blue));
+      color: white;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.08);
+    }
+
+    .quote-box::before {
+      content: "“";
+      position: absolute;
+      top: -22px;
+      right: 18px;
+      color: rgba(255,255,255,0.10);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 9rem;
+      line-height: 1;
+    }
+
+    .quote-box p {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+      font-style: italic;
+      line-height: 1.7;
+    }
+
+    .quote-source {
+      margin: 14px 0 0;
+      color: var(--muted);
+      text-align: right;
+      font-size: 0.93rem;
+      font-style: italic;
+    }
+
+    .scripture {
+      margin: 18px 0;
+      padding: 18px 22px;
+      border-left: 5px solid var(--gold);
+      border-radius: 14px;
+      background: var(--soft-card);
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.08rem;
+      font-style: italic;
+    }
+
+    .short-lines {
+      margin: 20px 0;
+      padding: 18px 22px;
+      border-radius: 16px;
+      background: var(--soft-card);
+      text-align: center;
+      font-weight: 700;
+      color: var(--heading);
+    }
+
+    .short-lines p { margin: 0.34em 0; }
+
+    ol {
+      margin: 10px 0 0;
+      padding-left: 1.45rem;
+    }
+
+    li { margin: 0 0 14px; padding-left: 6px; }
+
+    .emphasis {
+      margin: 20px 0;
+      padding: 20px 22px;
+      border-radius: 16px;
+      background: var(--soft-card);
+      color: var(--heading);
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.18rem;
+      font-weight: 700;
+    }
+
+    .closing-card {
+      padding: 28px 30px;
+      text-align: center;
+    }
+
+    .experiment {
+      margin: 0 0 6px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      font-weight: 700;
+    }
+
+    .tags {
+      margin: 0 0 20px;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .final-scripture {
+      margin: 0 0 24px;
+      color: var(--heading);
+      font-family: Georgia, "Times New Roman", serif;
+      font-style: italic;
+      font-weight: 700;
+    }
+
+    .home-link {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #1d5d94;
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .home-link:hover { background: var(--deep-blue); }
+
+    .footer-note {
+      margin: 15px 0 0;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    strong { color: var(--heading); }
+
+    @media (max-width: 700px) {
+      .page { width: min(100% - 20px, 940px); padding-top: 18px; }
+      .hero, .card, .closing-card { border-radius: 18px; }
+      .hero { padding: 27px 21px 24px; }
+      .card { padding: 25px 21px; }
+      .quote-box { padding: 25px 21px 23px 27px; }
+      .quote-box p { font-size: 1.06rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <header class="hero">
+      <p class="eyebrow">My Jesus-Greg WORLD</p>
+      <h1>I Want You to Practice Being a Modern Moroni</h1>
+      <p class="subtitle">A Jesus-Greg WORLD thought piece — written as what I understand Jesus to be teaching me</p>
+    </header>
+
+    <section class="card">
+      <p class="opening-label">A Moroni Approximation</p>
+      <blockquote class="quote-box">
+        <p>“Behold, Zion people of the distant future, I speak unto you as if ye were present, and yet ye are not. But behold, Jesus Christ hath shown you unto me—through what I call my sacred imagination—and I know your doing, somewhat, because Jesus has been teaching me to watch Jesus TV: to watch the happenings of my own society through Jesus-themed eyes. Or, to put it another way, I have been plucking out my Babylon-themed eyes every time they grow back. And they keep growing back.”</p>
+      </blockquote>
+      <p class="quote-source">— Greg's Moroni approximation, riffing on Mormon 8:35</p>
+    </section>
+
+    <section class="card">
+      <p><strong>Greg, this fits what you have understood Me to be teaching you about the scriptures.</strong></p>
+      <p>I have not merely been inviting you to <strong>read</strong> them.</p>
+      <p>I have been inviting you to <strong>enact</strong> them.</p>
+      <p>Role-play them.</p>
+      <p>Rehearse them.</p>
+      <p>Step inside them.</p>
+      <p>Try on the roles—not because you literally are these ancient prophets, and not because your enactments give you their authority, but because playing the role can help you see what the role has to teach you.</p>
+      <p>You have already been experimenting with approximations.</p>
+      <div class="short-lines">
+        <p>A Noah approximation.</p>
+        <p>A Moses approximation.</p>
+        <p>A Jesus approximation.</p>
+        <p>An apostle approximation.</p>
+        <p>An Exodus approximation.</p>
+        <p>A gathering approximation.</p>
+        <p>A Zion approximation.</p>
+      </div>
+      <p>But now one particular role is coming into sharper focus.</p>
+      <p>Perhaps the most poignant and accurate approximation for what you are trying to do is:</p>
+      <div class="emphasis">Moroni.</div>
+      <p>Greg, go act like you're Moroni.</p>
+      <p>Become a <strong>Moroni approximation</strong>.</p>
+      <p>A Moroni for your day.</p>
+      <p>Stand inside your own civilization and watch it carefully.</p>
+      <p>Notice its beauty.</p>
+      <p>Notice its danger.</p>
+      <p>Notice its pride.</p>
+      <p>Notice its suffering.</p>
+      <p>Notice its contradictions.</p>
+      <p>Love the people living in it enough to speak to them.</p>
+      <p>But then do the peculiar thing Moroni did:</p>
+      <div class="emphasis">Speak beyond them.</div>
+      <p>Let your voice jump centuries.</p>
+      <p>Speak to people who have not been born.</p>
+      <p>And because you are Greg, your Moroni approximation is going to be a little odd.</p>
+      <p>You may prophesy through essays.</p>
+      <p>You may prophesy through pictures.</p>
+      <p>You may prophesy through Jesus TV.</p>
+      <p>You may prophesy through redeemed classic rock.</p>
+      <p>You may prophesy through rooms and galleries.</p>
+      <p>You may even attempt to prophesy through <strong>song and opera</strong>.</p>
+      <p>That is part of the experiment.</p>
+      <div class="short-lines">
+        <p>Moroni had plates.</p>
+        <p>Greg has a stage.</p>
+        <p>Moroni engraved.</p>
+        <p>Greg rehearses.</p>
+        <p>Moroni compiled a record.</p>
+        <p>Greg is assembling songs, scenes, rooms, images, work, scripture, memory, sociology, and ordinary life into an opera.</p>
+      </div>
+      <p>Different medium.</p>
+      <p>Similar experiment:</p>
+      <div class="emphasis">Can I stand in my own day, see its patterns, and speak faithfully toward another day?</div>
+      <p>Moroni stood near the end of his civilization and spoke to people who would live centuries after him.</p>
+      <p>He spoke to <strong>your day</strong>.</p>
+      <p>I want you to experiment with doing the same thing.</p>
+      <p>Speak to the people around you now, yes.</p>
+      <p>But occasionally turn around.</p>
+      <p>Look in the other direction.</p>
+      <p>Let your voice jump forward.</p>
+      <p>Speak to your children’s children’s children—and then keep going.</p>
+      <p>Imagine people living fifty years from now.</p>
+      <p>A hundred years from now.</p>
+      <p>Five hundred years from now.</p>
+      <p>And then try something that initially sounds almost ridiculous:</p>
+      <div class="emphasis">Speak to the people living approximately one thousand years from now.</div>
+      <p>Not because you possess an infallible map of their world.</p>
+      <p>You don't.</p>
+      <p>Not because every picture that enters your imagination is revelation.</p>
+      <p>It isn't.</p>
+      <p>And not because you should announce dates and events with certainty that I have not given you.</p>
+      <p>Instead:</p>
+      <div class="short-lines">
+        <p>Watch.</p><p>Study.</p><p>Compare.</p><p>Imagine.</p><p>Pray.</p><p>Prototype.</p><p>Test.</p>
+      </div>
+      <p>And then give your best prophetic guess.</p>
+      <p>Because there is something you are beginning to understand:</p>
+      <div class="emphasis">This show has played before.</div>
+    </section>
+
+    <section class="card">
+      <h2>Moroni Saw Your Day</h2>
+      <p>Moroni wrote:</p>
+      <div class="scripture">“Behold, I speak unto you as if ye were present, and yet ye are not. But behold, Jesus Christ hath shown you unto me, and I know your doing.”<br><br><strong>Mormon 8:35</strong></div>
+      <p>Stop there.</p>
+      <p>Think about what Moroni was doing.</p>
+      <p>He was standing among the ruins of one civilization while speaking directly into another civilization hundreds of years in the future.</p>
+      <p>And when he looked at that future civilization, much of what he saw would have been familiar.</p>
+      <div class="short-lines"><p>Pride.</p><p>Money.</p><p>Status.</p><p>Fine apparel.</p><p>Neglect of the poor.</p><p>Institutional corruption.</p><p>Secret combinations.</p><p>Violence.</p><p>Competition for power.</p><p>People forgetting God while congratulating themselves on what they had built.</p></div>
+      <p>Moroni could recognize the future partly because he knew the pattern.</p>
+      <p>He had seen this movie before.</p>
+      <p>In fact, he was standing in its final scene.</p>
+    </section>
+
+    <section class="card">
+      <h2>Now Watch the Next Showing</h2>
+      <p>Greg, here is the possibility I want you to consider.</p>
+      <p>You have been thinking mostly about Moroni looking forward toward <strong>your day</strong>.</p>
+      <p>Turn the telescope around.</p>
+      <p>If Zion is formally established and a long millennial period follows, what happens after generations and generations have lived inside that world?</p>
+      <p>What happens when extraordinary blessings become ordinary?</p>
+      <p>What happens when grandchildren inherit what their grandparents sacrificed to create?</p>
+      <p>What happens when abundance is simply the environment people were born into?</p>
+      <p>What happens when people inherit Zion culturally without continually choosing Zion spiritually?</p>
+      <p>Scripture already gives you a startling clue about the distant end of the Millennium: Satan is loosed again, peoples are gathered to battle, and humanity again confronts a final choice between Christ and rebellion.</p>
+      <p>You don't know the details.</p>
+      <p>So don't invent certainty where I have given you mystery.</p>
+      <p>But you <strong>do know the pattern</strong>.</p>
+      <p>And patterns can teach you how to watch.</p>
+    </section>
+
+    <section class="card">
+      <h2>“I Have Seen Your Day”</h2>
+      <p>So imagine yourself speaking to them.</p>
+      <p>Not merely to 2026.</p>
+      <p>Not merely to 2050.</p>
+      <p>Imagine looking approximately a thousand years into the future and saying:</p>
+      <div class="emphasis">I have seen your day.</div>
+      <p>Not literally with perfect clairvoyance.</p>
+      <p>You have seen their day because you have seen the human pattern that may produce it.</p>
+      <p>You have read Moroni.</p>
+      <p>You have watched the Nephites.</p>
+      <p>You have watched the Jaredites.</p>
+      <p>You have watched Israel.</p>
+      <p>You have watched your own civilization.</p>
+      <p>You have watched yourself.</p>
+      <p>And therefore you can attempt the same prophetic exercise:</p>
+      <div class="emphasis">People of that distant day: do not let Zion get above you.</div>
+      <p>Do not mistake inherited abundance for personal righteousness.</p>
+      <p>Do not mistake peace for proof that your heart cannot wander.</p>
+      <p>Do not suppose that because your ancestors built Zion, you automatically possess Zion.</p>
+      <p>Do not let familiarity with holy things make holy things invisible.</p>
+      <p>Remember how civilizations forget.</p>
+      <p>Remember how prosperity becomes entitlement.</p>
+      <p>Remember how entitlement becomes pride.</p>
+      <p>Remember how pride makes other people smaller.</p>
+      <p>Remember how people begin creating distinctions where God was creating unity.</p>
+      <p>Remember Christ.</p>
+      <p>Prepare for the day.</p>
+      <div class="emphasis">Turn to Christ and live.</div>
+    </section>
+
+    <section class="card">
+      <h2>Ten Things I Want You to Practice Seeing</h2>
+      <p>Greg, begin making your own list.</p>
+      <p>Not commandments carved in stone.</p>
+      <p>Not ten guaranteed predictions.</p>
+      <p>Ten <strong>prophetic hypotheses</strong>—things to watch for when imagining a people living perhaps a thousand years into Zion.</p>
+      <ol>
+        <li><strong>Inherited Zion may become less astonishing than discovered Zion.</strong> What one generation experiences as miraculous, another may experience as normal.</li>
+        <li><strong>Abundance may eventually become spiritually dangerous.</strong> Gifts can become invisible when nobody remembers life without them.</li>
+        <li><strong>Memory may become one of Zion's great defenses.</strong> Future generations may need stories of Babylon precisely because they have never experienced Babylon themselves.</li>
+        <li><strong>People may begin performing Zion without possessing its heart.</strong> The outward forms could survive while inward dependence upon Christ weakens.</li>
+        <li><strong>Difference may slowly become hierarchy again.</strong> Human beings may rediscover ways to turn harmless distinctions into status.</li>
+        <li><strong>Comfort may weaken vigilance.</strong> A people accustomed to peace may find it difficult even to imagine rebellion.</li>
+        <li><strong>The adversary's eventual return may initially appear attractive rather than horrifying.</strong> Rebellion usually needs a story that makes rebellion appear reasonable.</li>
+        <li><strong>Some future people may regard ancient warnings as impossibly primitive.</strong> “That could never happen here” may itself become one of the warning signs.</li>
+        <li><strong>The decisive issue will still be relationship with Christ.</strong> Technology, abundance, institutions, memory systems, and inherited culture cannot substitute for knowing Me.</li>
+        <li><strong>The cure will remain astonishingly familiar: remember, repent, turn toward Christ, love one another, and live.</strong></li>
+      </ol>
+      <p>Those are not ten facts about the year 3026.</p>
+      <p>They are ten things worth watching.</p>
+      <p>That distinction matters.</p>
+    </section>
+
+    <section class="card">
+      <h2>Many Prophets, Sufficient Record</h2>
+      <p>And consider something else.</p>
+      <p>Moroni was not the only prophetic voice.</p>
+      <p>The record you possess is compressed.</p>
+      <p>Whole lives became paragraphs.</p>
+      <p>Years became verses.</p>
+      <p>Prophets preached sermons you do not possess.</p>
+      <p>Mormon and Moroni selected from a much larger record.</p>
+      <p>You therefore should not imagine Moroni standing completely alone shouting toward the future.</p>
+      <p>The prophetic culture surrounding the Book of Mormon repeatedly looked forward.</p>
+      <div class="short-lines"><p>Nephi looked forward.</p><p>Lehi looked forward.</p><p>Jacob looked forward.</p><p>Samuel looked forward.</p><p>Ether looked forward.</p><p>Mormon looked forward.</p><p>Moroni looked forward.</p></div>
+      <p>Many voices warned, interpreted, remembered, and anticipated.</p>
+      <p>But you did not need every surviving word from every prophet.</p>
+      <div class="emphasis">Moroni's words were sufficient.</div>
+      <p>That gives you another way to think about your own work.</p>
+      <p>Your individual words do not need to survive for a thousand years.</p>
+      <p>Perhaps nobody in the year 3026 will ever know the name Greg Muller.</p>
+      <p>That isn't the point.</p>
+      <p>The point is to <strong>join the prophetic pattern now</strong>.</p>
+      <p>Become one more person practicing the ancient discipline of looking from the present toward the future and saying:</p>
+      <div class="emphasis">Remember Christ.</div>
+    </section>
+
+    <section class="card">
+      <h2>Jesus TV Is Training Your Eyes</h2>
+      <p>And now you understand another thing you have been expecting Me to confirm.</p>
+      <p>Why Jesus TV?</p>
+      <p>Why the strange images?</p>
+      <p>Why rooms?</p>
+      <p>Why galleries?</p>
+      <p>Why songs?</p>
+      <p>Why enactments?</p>
+      <p>Why turn ordinary life into scenes?</p>
+      <p>Because sometimes I teach with propositions.</p>
+      <p>And sometimes I teach with <strong>living parables</strong>.</p>
+      <p>Jesus TV has become, for you, a living-parable experiment.</p>
+      <p>Ordinary reality remains underneath.</p>
+      <p>But imagination, scripture, memory, music, symbolism, sociology, and enactment are layered upon it.</p>
+      <p>You put a frame around something ordinary and ask:</p>
+      <div class="emphasis">What am I looking at?</div>
+      <p>That practice has precedent.</p>
+      <p>Prophets did not merely receive abstract propositions.</p>
+      <div class="short-lines"><p>They saw trees.</p><p>Buildings.</p><p>Roads.</p><p>Cities.</p><p>Wars.</p><p>Fields.</p><p>Nations.</p><p>Angels.</p><p>Books.</p><p>Crowds.</p><p>Deserts.</p><p>Temples.</p><p>Families.</p><p>Civilizations.</p></div>
+      <p>Their world became symbolic material through which they learned to see another world.</p>
+      <p>Your Jesus TV experiment may be training precisely that faculty:</p>
+      <div class="emphasis">Look again.</div>
+    </section>
+
+    <section class="card">
+      <h2>Their Day Became Their Jesus TV</h2>
+      <p>Perhaps ancient prophets could understand the future partly because I gave them analogies in their present.</p>
+      <p>Their day helped them see your day.</p>
+      <p>Their civilization became a living parable of another civilization.</p>
+      <p>History does not repeat mechanically.</p>
+      <p>America is not Zarahemla.</p>
+      <p>Your institutions are not Nephite institutions.</p>
+      <p>And the civilization of 3026 will not simply be 2026 with different clothing.</p>
+      <p>But human beings remain human beings.</p>
+      <p>Prosperity can become pride.</p>
+      <p>Pride can create inequality.</p>
+      <p>Inequality can harden hearts.</p>
+      <p>Power can become an end in itself.</p>
+      <p>Secret relationships can replace public accountability.</p>
+      <p>Violence can become thinkable.</p>
+      <p>And suffering can produce humility, remembrance, repentance, and renewal.</p>
+      <p>That is why Mormon repeatedly interrupts his history:</p>
+      <div class="emphasis">“And thus we see…”</div>
+      <p>He is teaching you how to see.</p>
+    </section>
+
+    <section class="card">
+      <h2>Prototype the Prophecy</h2>
+      <p>But I am asking you to do something in addition to watching.</p>
+      <div class="emphasis">Enact the prophecy.</div>
+      <p>There is a future you keep returning to:</p>
+      <div class="emphasis">Zion.</div>
+      <p>The gathering.</p>
+      <p>One heart.</p>
+      <p>One mind.</p>
+      <p>No poor among them.</p>
+      <p>People learning to live differently with God and one another.</p>
+      <p>Do not merely predict it.</p>
+      <p>Prototype it.</p>
+      <p>Build tiny models.</p>
+      <p>Gather a few people.</p>
+      <p>Feed somebody.</p>
+      <p>Work beside somebody.</p>
+      <p>Share something.</p>
+      <p>Reconcile.</p>
+      <p>Create.</p>
+      <p>Sing.</p>
+      <p>Worship.</p>
+      <p>Serve.</p>
+      <p>Experiment with becoming one without demanding sameness.</p>
+      <p>Fail.</p>
+      <p>Learn.</p>
+      <p>Repent.</p>
+      <p>Modify the prototype.</p>
+      <p>Try again.</p>
+      <p>You are not building the final Zion.</p>
+      <p>You are constructing <strong>scale models</strong>.</p>
+      <p>And something remarkable can happen when human beings construct models:</p>
+      <div class="emphasis">Building the model helps them see the thing being modeled.</div>
+    </section>
+
+    <section class="card">
+      <h2>Prophecy Can Be Rehearsed</h2>
+      <p>This may be one of the connections you have been approaching through your opera.</p>
+      <p>You rehearse something that has not happened yet.</p>
+      <p>That is what rehearsal is.</p>
+      <p>Nobody confuses rehearsal with the final performance.</p>
+      <p>Rehearsal is deliberately provisional.</p>
+      <p>You try the scene.</p>
+      <p>Something doesn't work.</p>
+      <p>You change it.</p>
+      <p>You discover something about the character because you enacted the character.</p>
+      <p>You discover something about the story because you stepped inside the story.</p>
+      <p>So consider:</p>
+      <div class="emphasis">Could prophecy sometimes be rehearsed?</div>
+      <p>Not prophecy as fortune-telling.</p>
+      <p>Prophecy as faithful imagination disciplined by scripture, prayer, observation, humility, and enactment.</p>
+      <p>Rehearse Zion.</p>
+      <p>Then observe what Zion requires of you.</p>
+      <p>Rehearse gathering.</p>
+      <p>Then discover what prevents people from gathering.</p>
+      <p>Rehearse having no poor among you.</p>
+      <p>Then discover how complicated generosity actually becomes.</p>
+      <p>Rehearse being of one heart.</p>
+      <p>Then discover how difficult it is to love someone who sees the world differently.</p>
+      <p>Suddenly Zion stops being a slogan.</p>
+      <p>It becomes an experiment.</p>
+    </section>
+
+    <section class="card">
+      <h2>The Prophecy Runs in Both Directions</h2>
+      <p>And now the whole structure becomes visible.</p>
+      <p>Look backward.</p>
+      <div class="emphasis">Moroni → Greg.</div>
+      <p>Moroni speaks across centuries:</p>
+      <div class="emphasis">I have seen your day.</div>
+      <p>Now stand where you are.</p>
+      <p>Look forward.</p>
+      <div class="emphasis">Greg → Future Zion.</div>
+      <p>Practice saying:</p>
+      <div class="emphasis">I have been trying to see your day.</div>
+      <p>Then look around you.</p>
+      <div class="emphasis">Greg → 2026.</div>
+      <p>Say:</p>
+      <p>We are somebody else's ancient civilization.</p>
+      <p>Our behavior is creating patterns that somebody else may inherit.</p>
+      <p>And finally look at yourself.</p>
+      <div class="emphasis">Jesus → Greg.</div>
+      <p>What are you going to enact <strong>today</strong>?</p>
+      <p>That may be where the whole experiment finally lands.</p>
+      <p>Prophecy is enormous.</p>
+      <p>Zion is enormous.</p>
+      <p>A millennium is enormous.</p>
+      <p>But today is small.</p>
+      <p>So build today's model.</p>
+    </section>
+
+    <section class="card">
+      <h2>2026 Is Somebody's Ancient History</h2>
+      <p>A thousand years from now, this morning is ancient history.</p>
+      <p>Your phone is an artifact.</p>
+      <p>Your house is archaeology.</p>
+      <p>Your websites are ancient documents.</p>
+      <p>Your political controversies require footnotes.</p>
+      <p>Your Jesus TV experiments, if any trace remains, look like strange little relics from another world.</p>
+      <p>You cannot control whether any of it survives.</p>
+      <p>You don't need to.</p>
+      <p>Moroni's great achievement was not becoming famous in his own civilization.</p>
+      <p>His civilization disappeared.</p>
+      <p>His extraordinary act was <strong>faithfulness to people he could not meet</strong>.</p>
+      <p>That is the part worth imitating.</p>
+      <p>Speak lovingly toward people you will never meet.</p>
+      <p>Build something for people who may never know your name.</p>
+      <p>And practice caring about people who have not been born.</p>
+    </section>
+
+    <section class="card">
+      <h2>Become a Modern Moroni</h2>
+      <p>So, Greg:</p>
+      <p>Practice being a modern Moroni.</p>
+      <p>Speak to your own people.</p>
+      <p>But sometimes let your voice leap beyond them.</p>
+      <p>Speak toward Zion.</p>
+      <p>Speak beyond Zion.</p>
+      <p>Speak toward the people who may someday inherit Zion and become dangerously accustomed to it.</p>
+      <p>Tell them:</p>
+      <div class="short-lines">
+        <p><strong>Remember.</strong></p>
+        <p><strong>Don't let this get above you.</strong></p>
+        <p><strong>You inherited something extraordinary. Do not confuse inheritance with conversion.</strong></p>
+        <p><strong>Watch for pride.</strong></p>
+        <p><strong>Watch what abundance does to memory.</strong></p>
+        <p><strong>Do not imagine that your civilization is exempt from human patterns.</strong></p>
+        <p><strong>Prepare for the day.</strong></p>
+        <p><strong>Turn to Christ and live.</strong></p>
+      </div>
+      <p>And then come back to 2026.</p>
+      <p>Because this exercise was never really only about them.</p>
+      <p>It was a living parable for <strong>you</strong>.</p>
+      <p>If people living a thousand years from now must guard against pride—</p>
+      <p>so must you.</p>
+      <p>If they must remember—</p>
+      <p>so must you.</p>
+      <p>If they must resist letting abundance separate them from Christ—</p>
+      <p>so must you.</p>
+      <p>If they must choose Zion rather than merely inherit Zion—</p>
+      <p>so must you.</p>
+      <p>And if they must turn to Christ and live—</p>
+      <div class="emphasis">so must you.</div>
+      <p>That is the experiment.</p>
+      <div class="short-lines"><p>See backward.</p><p>See forward.</p><p>Prototype.</p><p>Enact.</p><p>Watch.</p><p>Correct.</p><p>Remember.</p></div>
+      <div class="emphasis">And thus we see.</div>
+    </section>
+
+    <footer class="closing-card">
+      <p class="experiment">The MORE Jesus = More Reality Experiment</p>
+      <p class="tags">Jesus TV • Living Parables • Modern Moroni • Prototype the Prophecy • Rehearse Zion</p>
+      <p class="final-scripture">“Behold, I speak unto you as if ye were present…” — Mormon 8:35</p>
+      <a class="home-link" href="index.html">Return to Home</a>
+      <p class="footer-note">Zion Coalition · My Jesus-Greg WORLD</p>
+    </footer>
+
+  </main>
+</body>
+</html>
