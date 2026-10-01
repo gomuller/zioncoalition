@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Prompt — Google Slides to Animated GIF Workflow</title>
+<style>
+:root{
+  --blue:#0d3f73;
+  --deep:#082b4d;
+  --card:#f8fbff;
+  --soft:#edf5fc;
+  --text:#17324d;
+  --muted:#4d6983;
+  --heading:#123b5d;
+  --gold:#f2c14e;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--blue);color:var(--text);font-family:Arial,Helvetica,sans-serif;line-height:1.65;}
+.wrap{width:min(1000px,94%);margin:0 auto;padding:40px 0 70px;}
+.card{background:var(--card);border-radius:20px;padding:32px;box-shadow:0 10px 30px rgba(0,0,0,.18);margin-bottom:24px;}
+h1,h2,h3{color:var(--heading);line-height:1.2;}
+h1{margin-top:0;}
+.subtitle{color:var(--muted);font-size:1.05rem;margin-bottom:28px;}
+.prompt{background:#fff;border:2px solid #d6e3ef;border-radius:14px;padding:26px;white-space:pre-wrap;font-family:Consolas,"Courier New",monospace;font-size:.94rem;line-height:1.55;overflow-wrap:anywhere;}
+.note{margin-top:22px;padding:18px 20px;background:var(--soft);border-left:6px solid var(--gold);border-radius:10px;}
+.rule{font-weight:bold;color:var(--deep);}
+a{color:#0d5796;}
+.return{margin-top:28px;text-align:center;}
+.return a{color:white;text-decoration:none;}
+ul,ol{padding-left:24px;}
+code{background:#eaf1f7;padding:2px 5px;border-radius:4px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="card">
+<h1>Master Prompt — Google Slides → Animated GIF</h1>
+<p class="subtitle">A reusable pre-prompt and field guide distilled from the “Popcorn Popping Axl Rose” Jesus-TV GIF project. Its purpose is to keep future GIF projects simple, visual, iterative, recoverable, and faithful to the actual Google Slides deck.</p>
+
+<div class="note"><strong>Why this page exists:</strong> Give ChatGPT the link to this page at the beginning of a future GIF project so it can recover the workflow before doing anything. This is not a prompt to immediately make a GIF. It is a prompt that teaches ChatGPT <em>how we make GIFs together</em>: inspect first, establish anchor frames, add only necessary transitions, visually verify, set timing last, and export only after approval.</div>
+</div>
+
+<div class="card">
+<h2>THE FIRST PROMPT TO GIVE CHATGPT NEXT TIME</h2>
+<div class="prompt">We are starting another Google-Slides-to-animated-GIF project.
+
+Before doing anything, open and read this workflow page:
+https://zioncoalition.org/00-05-PROMPT-gif-making.html
+
+I am giving you that link as a PRE-PROMPT. Its purpose is to remind you HOW we successfully built the earlier “Popcorn Popping Axl Rose” GIF: we treated existing slides as anchor frames, visually inspected rendered slides rather than trusting extracted text, made only a handful of useful transitional frames, kept static elements locked to prevent jitter, worked one anchor-to-anchor section at a time, approved each section before editing, decided timing only after the storyboard was finished, and generated the GIF from the current rendered deck.
+
+FIRST: read the page and tell me briefly what workflow you understand from it and how you will apply it to THIS new GIF project.
+
+Do not edit my deck yet.
+Do not add slides yet.
+Do not generate images yet.
+Do not create the GIF yet.
+
+After you understand the workflow, visually inspect the deck I identify and propose only the first small anchor-to-anchor sequence. Then STOP for my approval.</div>
+
+<div class="note"><strong>Same idea as the old-book-clipping prompt:</strong> When I point you to a stored prompt page such as <a href="00-04-PROMPT-old-book-clipping.html">00-04-PROMPT-old-book-clipping.html</a>, I am not merely showing you a web page. I am giving you a reusable set of operating instructions. Read the linked page first, understand <em>why</em> I supplied it, and use it as controlling workflow context for the new task. The GIF page works the same way.</div>
+</div>
+
+<div class="card">
+<h2>THE CORE METHOD</h2>
+<div class="prompt">MASTER WORKFLOW — GOOGLE SLIDES TO ANIMATED GIF
+
+1. THE GOOGLE SLIDES DECK IS THE STORYBOARD.
+Treat each slide as a possible GIF frame.
+
+2. VISUALLY INSPECT THE ACTUAL RENDERED SLIDES.
+Do not rely only on extracted text, object lists, speaker notes, accessibility text, templates, hidden/off-slide material, or old memory of the deck.
+What matters is what a viewer actually sees.
+
+3. EXISTING SLIDES ARE ANCHOR FRAMES.
+Preserve good existing slides whenever possible.
+Do not rebuild the whole sequence.
+
+4. ADD ONLY A HANDFUL OF TRANSITIONAL FRAMES.
+Usually 1–3 useful transitional slides between anchors is enough.
+Think children’s picture book coming alive, not 24-frame-per-second animation.
+
+5. FAVOR SMALL CHANGES FROM FRAME TO FRAME.
+Whenever practical, duplicate an existing slide and change only one or two visual things.
+
+6. LOCK STATIC ELEMENTS.
+Keep TV frame, camera position, crop, background, people, text placement, scale, and major objects pixel-consistent unless a deliberate change is part of the story.
+This prevents GIF jitter.
+
+7. USE ACCUMULATION FOR GROWTH.
+If something grows or multiplies, keep what was already there and add to it:
+none → 1 → several → many.
+Do not randomly reposition earlier objects.
+
+8. SYNCHRONIZE VISUAL ACTION WITH THE WORDS.
+Do not introduce a visual idea too early.
+If the lyric says “what once a sword, ploughshare came to be,” the sword should begin when that lyric begins—not during the preceding lyric.
+
+9. ONE MAJOR VISUAL EVENT AT A TIME.
+A sequence is easier to understand when the viewer knows what changed.
+Examples from the successful project:
+SETUP → POP! → AXL REVEAL
+bare tree → first popcorn → more popcorn → popcorn-filled tree
+NOVEMBER RAIN → CHRIST NOW REIGN
+SWORD → PLOW
+
+10. WORK ONE SECTION AT A TIME.
+Plan a short anchor-to-anchor sequence.
+Get approval.
+Then edit only that section.
+Visually inspect it.
+Then move to the next section.
+
+11. DO NOT MAKE THE GIF EARLY.
+Finish and approve the storyboard first.
+Timing comes after the visual sequence is stable.
+
+12. TIMING IS MUSICAL, NOT UNIFORM.
+Quick transformation frames move quickly.
+Lyric frames hold long enough to read.
+The final meaningful frame usually gets the longest hold.
+
+13. THE CURRENT DECK IS AUTHORITATIVE.
+If I edit the Google Slides deck myself, re-render and re-inspect it.
+Do not restore old slides, cached frames, deleted transitions, or previous artwork merely because they existed in an earlier GIF.
+
+14. EXPORT FROM CURRENT RENDERS.
+When approved, render every current slide at identical dimensions and build the GIF from those current renders.
+No interpolation, crossfade, invented frames, or per-frame cropping unless I explicitly ask.
+
+15. VERIFY BEFORE DELIVERY.
+Check frame count, order, durations, total runtime, visual continuity, readability, looping, final hold, and that no stale frame replaced a newer slide.</div>
+</div>
+
+<div class="card">
+<h2>OUR SUCCESSFUL ITERATIVE PATTERN</h2>
+<p>The earlier project worked because we did <strong>not</strong> try to solve the whole animation at once. These are the essential prompts/patterns worth reusing.</p>
+
+<h3>1. Initial storyboard inspection</h3>
+<div class="prompt">Open my Google Slides deck [DECK NAME].
+
+We are building individual frames for an eventual animated GIF, but DO NOT create the GIF yet.
+
+Base your analysis on what is actually visually displayed on each rendered slide.
+Ignore hidden, off-slide, speaker-note, template, accessibility, or other non-visible content unless I ask.
+
+Do not make changes yet.
+
+Study the deck as a sequence of GIF frames and give me a simple slide-by-slide plan that is smooth, visually interesting, easy to follow, consistent with the existing style, and SIMPLE enough that we do not get lost in the woods.
+
+Treat existing slides as ANCHOR FRAMES and recommend only a handful of transitional frames where they genuinely improve the animation.
+
+Favor small changes from frame to frame rather than constantly creating new scenes.
+
+STOP after proposing the sequence and wait for approval.</div>
+
+<h3>2. Plan one anchor-to-anchor section</h3>
+<div class="prompt">Work ONLY on the sequence from [ANCHOR A] to [ANCHOR B].
+
+Do not work beyond that section yet.
+
+First visually inspect the actual rendered anchor slides.
+Then propose the minimum useful frame sequence.
+
+Use this grammar unless the visuals suggest something better:
+ANCHOR → small change → payoff/change → NEXT ANCHOR.
+
+Prefer 1–3 transitional frames.
+Do not edit yet.
+STOP and wait for approval.</div>
+
+<h3>3. Edit an approved section</h3>
+<div class="prompt">The proposed sequence is approved. Now edit ONLY this section.
+
+Create transitional frames by duplicating the appropriate existing slide(s) whenever possible.
+Keep static elements in exactly the same positions.
+Change only one or two visual things per transitional frame.
+
+After editing, visually inspect the resulting rendered sequence as consecutive GIF frames.
+Correct only obvious continuity problems.
+
+Do not create the GIF.
+STOP and tell me exactly what changed.</div>
+
+<h3>4. Re-time a visual idea when it arrives too early</h3>
+<div class="prompt">The visual event is introduced too early.
+Synchronize it with the lyric/text that actually describes it.
+
+The preceding lyric/idea should finish completely before the new visual appears.
+From the moment the relevant lyric begins, keep the lyric visually locked while only the transformation imagery changes.
+
+Reuse the assets and positioning already created wherever practical.
+Do not redesign the artwork.
+Do not add unnecessary frames.
+After editing, visually inspect the corrected sequence and verify the visual no longer appears before its words.</div>
+
+<h3>5. Final storyboard review</h3>
+<div class="prompt">The individual sections are approved.
+Do not edit yet.
+
+Render and visually inspect the entire deck from beginning to end as one animation storyboard.
+Check for accidental duplicates, obsolete transitional frames, jitter, objects appearing too early, objects disappearing too soon, confusing visual changes, and whether the final lyric/image feels like the true ending.
+
+Prefer using existing slides.
+Do not introduce another complicated visual event at the end.
+Recommend the exact ending sequence and which frame should receive the longest final hold.
+STOP for approval.</div>
+
+<h3>6. Timing pass</h3>
+<div class="prompt">The storyboard is approved.
+DO NOT create the GIF yet.
+DO NOT edit the slides.
+
+Visually review every slide and assign a specific duration to each frame.
+
+Use timing categories as guidance, not mechanical rules:
+QUICK TRANSITION: roughly 0.25–0.5 sec
+NORMAL VISUAL BEAT: roughly 0.75–1.5 sec
+LYRIC / READING HOLD: roughly 1.5–5+ sec depending on text
+FINAL MEANINGFUL HOLD: usually the longest
+CLOSING BUTTON: enough to register without stealing the ending
+
+Give me:
+Slide | What happens | Recommended duration
+
+Calculate total runtime.
+STOP for approval before making the GIF.</div>
+
+<h3>7. GIF production pass</h3>
+<div class="prompt">The storyboard and timing map are approved.
+NOW create the GIF.
+
+Do NOT modify Google Slides.
+Render the CURRENT ACTUAL APPEARANCE of every slide.
+Use identical dimensions for every frame.
+Use the exact approved frame durations.
+
+Do not:
+• add frames
+• remove frames
+• interpolate
+• crossfade
+• add transitions
+• alter artwork or text
+• crop individual slides differently
+• substitute cached old frames when current renders are available
+
+Loop continuously and give the final slide its complete approved hold before returning to Slide 1.
+
+Before delivery verify:
+• exact frame count
+• correct order
+• exact durations
+• correct total runtime
+• current deck renders were used
+• no stale/deleted frame returned
+• no artificial resizing/cropping/jitter
+• text remains readable
+• major visual transformations read clearly
+
+Correct production problems in the GIF/rendering, NOT in Google Slides.
+Then give me the finished GIF.</div>
+
+<h3>8. When I edit the deck myself</h3>
+<div class="prompt">I have made edits to the Google Slides deck myself.
+The CURRENT DECK is now authoritative.
+
+Do not assume old numbering is still correct.
+Visually inspect the current rendered slides and remap the previous timing by visual correspondence.
+
+Do not blindly use old slide number + N.
+Identify new, deleted, duplicated, reordered, or substantially changed slides rather than guessing.
+
+Preserve previously approved durations wherever the corresponding frame can be confidently identified.
+Do not edit anything during this inspection pass.
+Report the new frame/slide/timing map first.</div>
+</div>
+
+<div class="card">
+<h2>VISUAL GRAMMAR LEARNED FROM THE POPCORN / AXL PROJECT</h2>
+<ul>
+<li><strong>SETUP → LOOK → POP! → REVEAL.</strong> A fast “POP!” frame works because it is brief and immediately followed by the payoff.</li>
+<li><strong>Accumulation:</strong> popcorn worked best as none → one → several → many, with earlier popcorn staying put.</li>
+<li><strong>Object transformation:</strong> the record transformation worked by keeping BEFORE and AFTER artwork at the exact same X/Y position, width, height, and rotation.</li>
+<li><strong>Transformation does not require a morph:</strong> sword → plow could be understood with a few discrete frames. Simplicity beat technical complexity.</li>
+<li><strong>Words control timing:</strong> the sword needed to arrive with “what once a sword…” rather than during “November Rain became redeemed.”</li>
+<li><strong>End by resolving, not escalating:</strong> after several visual jokes/payoffs, the final lyric should feel clean and conclusive rather than introducing another elaborate effect.</li>
+<li><strong>Long reading frames are okay.</strong> A frame can hold 4–7 seconds when the viewer genuinely needs that time to read it.</li>
+<li><strong>User edits override history.</strong> If the user changes Slides 1 and 2, those current slides become authoritative even if earlier versions were approved.</li>
+</ul>
+</div>
+
+<div class="card">
+<h2>ANTI-WOODS RULES</h2>
+<div class="prompt">KEEP US OUT OF THE WOODS.
+
+When uncertain, prefer:
+
+• fewer frames
+• duplicated slides instead of rebuilt scenes
+• one changing object instead of many
+• obvious visual storytelling instead of sophisticated effects
+• current rendered slides instead of assumptions
+• approval checkpoints instead of doing the whole project at once
+• direct BEFORE → AFTER transformations
+• readable holds instead of rushing lyrics
+• exact asset reuse instead of recreating approved artwork
+
+Do not “improve” things that have already been approved unless I ask.
+Do not solve a local problem by redesigning the whole deck.
+Do not generate a new picture when I tell you an existing supplied image is authoritative.
+Do not create the GIF while we are still designing frames.</div>
+</div>
+
+<div class="card">
+<h2>PROMPT-TO-PROMPT-YOURSELF RULE</h2>
+<div class="prompt">When I give you a link to one of my Zion Coalition PROMPT pages, first ask yourself:
+
+“WHY is Greg giving me this link?”
+
+The answer is usually:
+
+“He wants me to recover a previously developed workflow, visual grammar, constraints, and successful interaction pattern BEFORE I act.”
+
+Therefore:
+
+1. Open/read the linked prompt page.
+2. Treat it as a reusable PRE-PROMPT, not merely as reference prose.
+3. Identify which parts apply to the current project.
+4. Preserve the established workflow unless Greg explicitly changes it.
+5. Do not immediately execute the final artifact step unless the current prompt asks for that step.
+6. Work incrementally and stop at the requested approval checkpoint.
+
+Example:
+If Greg gives me:
+https://zioncoalition.org/00-04-PROMPT-old-book-clipping.html
+
+I should understand that he is telling me to load and follow the established OLD-BOOK-CLIPPING workflow before creating the new clipping.
+
+Likewise, if Greg gives me:
+https://zioncoalition.org/00-05-PROMPT-gif-making.html
+
+I should understand that he is telling me to load and follow the established GOOGLE-SLIDES-TO-GIF workflow before we begin the new GIF project.</div>
+</div>
+
+<div class="card">
+<h2>FINAL CHECKLIST FOR FUTURE GIF PROJECTS</h2>
+<div class="prompt">BEFORE STORYBOARDING
+[ ] I visually inspected rendered slides.
+[ ] I know which slides are anchors.
+[ ] I am not relying on extracted text alone.
+
+WHILE BUILDING
+[ ] We are working only one anchor-to-anchor section at a time.
+[ ] Transitional frames are few and useful.
+[ ] Static elements remain locked.
+[ ] Only one or two things change per transitional frame.
+[ ] Visual events arrive with the words that describe them.
+[ ] Approved assets are reused exactly.
+[ ] We stop for approval before moving on.
+
+BEFORE TIMING
+[ ] The entire storyboard has been visually reviewed.
+[ ] Obsolete/duplicate frames are gone.
+[ ] The ending is resolved and simple.
+
+BEFORE GIF EXPORT
+[ ] Timing map is approved.
+[ ] Current slide count/order is known.
+[ ] Current deck is authoritative.
+
+AFTER GIF EXPORT
+[ ] Frame count is correct.
+[ ] Frame order is correct.
+[ ] Durations are correct.
+[ ] Total runtime is correct.
+[ ] Loop behavior is correct.
+[ ] Final hold is correct.
+[ ] No stale frames returned.
+[ ] No unexpected crop/resize/jitter.
+[ ] Text is readable.
+[ ] GIF production did not modify Google Slides.</div>
+</div>
+
+<div class="card">
+<h2>REFERENCE CASE: “POPCORN POPPING AXL ROSE”</h2>
+<p>The finished working method emerged through repeated small approvals: opening setup and POP reveal; popcorn accumulation; original record → redeemed record; sword → plow synchronized to its lyric; final lyric and closing hold; timing pass; GIF export; then re-rendering whenever the deck was manually edited.</p>
+<p>The important lesson is not the specific Axl/Jesus/popcorn imagery. The reusable lesson is the <strong>process</strong>: <em>anchor frames + minimal transitions + visual inspection + continuity + approval checkpoints + timing last + current renders only.</em></p>
+</div>
+
+<div class="return"><a href="index.html">← Return to Home</a></div>
+</div>
+</body>
+</html>
