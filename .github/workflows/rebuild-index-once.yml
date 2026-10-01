@@ -1,0 +1,44 @@
+name: One-time index rebuild
+
+on:
+  push:
+    paths:
+      - '.github/workflows/rebuild-index-once.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rebuild index
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          lines=p.read_text(encoding='utf-8').splitlines()
+          moved='\n'.join(lines[775:976])
+          lines=lines[:775]+lines[976:]
+          text='\n'.join(lines)
+          old='<body>\n  <main class="page-wrap">'
+          new='''<body>\n  <main class="page-wrap">\n\n  <div class="content-card" style="text-align:center; margin-top:0;">\n    <a href="01-backstage-pass.html" style="font-weight:800; font-size:1.15rem;">Go BACK STAGE here—if Jesus tells you to.</a>\n  </div>'''
+          if old not in text:
+              raise SystemExit('Top insertion anchor not found')
+          text=text.replace(old,new,1)
+          anchor='''  </div>\n</section>\n\n</div>\n  </div>\n  </main>'''
+          replacement='''  </div>\n</section>\n\n<section class="content-card">\n<!-- MOVED FROM ORIGINAL LINES 776–976 -->\n'''+moved+'''\n</section>\n\n</div>\n  </div>\n  </main>'''
+          if anchor not in text:
+              raise SystemExit('Bottom insertion anchor not found')
+          text=text.replace(anchor,replacement,1)
+          p.write_text(text,encoding='utf-8')
+          PY
+      - name: Commit rebuilt index and remove one-time workflow
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          rm .github/workflows/rebuild-index-once.yml
+          git add index.html .github/workflows/rebuild-index-once.yml
+          git commit -m "Reorganize index and add Backstage link"
+          git push
