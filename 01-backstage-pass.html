@@ -4,34 +4,918 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
 <title>Jesus’ Backstage Pass | Zion Coalition</title>
+
 <style>
-:root{--blue:#0d3f73;--deep:#082b4d;--card:#f8fbff;--soft:#edf5fc;--text:#17324d;--muted:#4d6983;--heading:#123b5d;--gold:#f2c14e;--light:#9fd3ff}*{box-sizing:border-box}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--blue);color:var(--text);line-height:1.7}.page{max-width:920px;margin:0 auto;padding:42px 22px 80px;background:var(--deep);min-height:100vh}.card{background:var(--card);border-radius:18px;padding:30px;margin-bottom:26px;box-shadow:0 12px 30px rgba(0,0,0,.16)}.soft{background:var(--soft)}h1,h2{color:var(--heading);line-height:1.2}h1{text-align:center;font-size:clamp(2rem,5vw,3rem);margin:0 0 12px}h2{margin-top:0}.subtitle,.stage{text-align:center;font-weight:700}.subtitle{color:var(--muted)}.stage{font-size:1.2rem;color:var(--heading)}.quote{margin:22px 0;padding:18px 22px;background:#fff;border-left:6px solid var(--gold);border-radius:12px}.email{text-align:center;margin:24px 0;padding:22px;background:#fff;border:2px solid var(--light);border-radius:14px}a{color:#045cb4;font-weight:700}.home{text-align:center}@media(max-width:640px){.page{padding:20px 12px 50px}.card{padding:22px 18px}}
+:root{
+  --blue:#0d3f73;
+  --deep:#082b4d;
+  --card:#f8fbff;
+  --soft:#edf5fc;
+  --text:#17324d;
+  --muted:#4d6983;
+  --heading:#123b5d;
+  --gold:#f2c14e;
+  --light:#9fd3ff
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:var(--blue);
+  color:var(--text);
+  line-height:1.7
+}
+
+.page{
+  max-width:920px;
+  margin:0 auto;
+  padding:42px 22px 80px;
+  background:var(--deep);
+  min-height:100vh
+}
+
+.card{
+  background:var(--card);
+  border-radius:18px;
+  padding:30px;
+  margin-bottom:26px;
+  box-shadow:0 12px 30px rgba(0,0,0,.16)
+}
+
+.soft{background:var(--soft)}
+
+h1,h2{
+  color:var(--heading);
+  line-height:1.2
+}
+
+h1{
+  text-align:center;
+  font-size:clamp(2rem,5vw,3rem);
+  margin:0 0 12px
+}
+
+h2{margin-top:0}
+
+.subtitle,.stage{
+  text-align:center;
+  font-weight:700
+}
+
+.subtitle{color:var(--muted)}
+
+.stage{
+  font-size:1.2rem;
+  color:var(--heading)
+}
+
+.quote{
+  margin:22px 0;
+  padding:18px 22px;
+  background:#fff;
+  border-left:6px solid var(--gold);
+  border-radius:12px
+}
+
+.email{
+  text-align:center;
+  margin:24px 0;
+  padding:22px;
+  background:#fff;
+  border:2px solid var(--light);
+  border-radius:14px
+}
+
+a{
+  color:#045cb4;
+  font-weight:700
+}
+
+.home{text-align:center}
+
+
+/* ======================================================
+   THE TREASURE HUNT / WALKABLE CHIASM
+   Everything below is scoped to .treasure-zone
+   ====================================================== */
+
+.treasure-zone{
+  margin-bottom:26px;
+  padding:28px;
+  border-radius:18px;
+  background:#dcefff;
+  box-shadow:0 12px 30px rgba(0,0,0,.16);
+  overflow:hidden;
+}
+
+.treasure-zone .treasure-label{
+  text-align:center;
+  font-size:clamp(1.45rem,4vw,2rem);
+  line-height:1.2;
+  font-weight:900;
+  color:var(--heading);
+  letter-spacing:.02em;
+  margin-bottom:8px;
+}
+
+.treasure-zone .treasure-subtitle{
+  text-align:center;
+  color:var(--muted);
+  font-weight:700;
+  margin-bottom:26px;
+}
+
+.treasure-zone .treasure-note{
+  background:var(--card);
+  border-radius:16px;
+  padding:26px;
+  margin:20px 0;
+  box-shadow:0 7px 18px rgba(8,43,77,.12);
+  overflow-wrap:anywhere;
+  word-break:normal;
+}
+
+.treasure-zone .facebook-post{
+  border-top:7px solid var(--light);
+}
+
+.treasure-zone .chiasmus-note{
+  border-top:7px solid var(--gold);
+}
+
+.treasure-zone .section-break{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:32px 0;
+  color:var(--heading);
+  font-weight:900;
+  text-align:center;
+}
+
+.treasure-zone .section-break::before,
+.treasure-zone .section-break::after{
+  content:"";
+  flex:1;
+  height:2px;
+  background:linear-gradient(
+    to right,
+    transparent,
+    var(--gold),
+    transparent
+  );
+}
+
+.treasure-zone .long-code{
+  display:block;
+  width:100%;
+  text-align:center;
+  font-weight:900;
+  letter-spacing:.035em;
+  color:var(--heading);
+  overflow-wrap:anywhere;
+  word-break:break-word;
+  line-height:1.45;
+  margin:8px 0 28px;
+}
+
+.treasure-zone .post-title{
+  text-align:center;
+  font-size:clamp(2rem,6vw,3.2rem);
+  line-height:1.05;
+  margin:16px 0 24px;
+  color:var(--heading);
+}
+
+.treasure-zone .big-line{
+  text-align:center;
+  font-size:1.25rem;
+  font-weight:900;
+  color:var(--heading);
+  margin:20px 0;
+}
+
+.treasure-zone .neon{
+  text-align:center;
+  margin:28px 0;
+  padding:24px 18px;
+  background:var(--deep);
+  color:#fff;
+  border:3px solid var(--gold);
+  border-radius:14px;
+  box-shadow:
+    0 0 0 5px rgba(242,193,78,.13),
+    0 8px 22px rgba(0,0,0,.18);
+}
+
+.treasure-zone .neon .neon-title{
+  display:block;
+  font-size:clamp(1.45rem,5vw,2.35rem);
+  font-weight:900;
+  line-height:1.2;
+  margin-bottom:8px;
+}
+
+.treasure-zone .neon .neon-world{
+  display:block;
+  font-size:clamp(1.05rem,3.5vw,1.45rem);
+  font-weight:900;
+  color:var(--gold);
+}
+
+.treasure-zone .door{
+  max-width:520px;
+  margin:24px auto;
+  padding:24px;
+  text-align:center;
+  background:#fff;
+  border:4px solid var(--heading);
+  border-radius:10px;
+  font-weight:900;
+  color:var(--heading);
+  box-shadow:0 7px 0 rgba(18,59,93,.16);
+}
+
+.treasure-zone .more-jesus-button{
+  width:min(360px,100%);
+  margin:28px auto;
+  padding:25px 18px;
+  text-align:center;
+  border-radius:999px;
+  background:#b3261e;
+  color:#fff;
+  border:7px solid #fff;
+  outline:4px solid #7d1712;
+  box-shadow:
+    0 9px 0 #65120e,
+    0 15px 24px rgba(0,0,0,.25);
+  font-size:clamp(1.5rem,5vw,2.4rem);
+  font-weight:900;
+  line-height:1.1;
+}
+
+.treasure-zone .chiasmus-title{
+  text-align:center;
+  font-size:clamp(1.7rem,5vw,2.5rem);
+  color:var(--heading);
+  margin:0 0 10px;
+}
+
+.treasure-zone .chiasmus-intro{
+  text-align:center;
+  font-weight:700;
+  color:var(--muted);
+  margin-bottom:26px;
+}
+
+.treasure-zone .chiasm-map{
+  max-width:700px;
+  margin:28px auto;
+}
+
+.treasure-zone .chi-step{
+  background:#fff;
+  border:2px solid #c5def3;
+  border-radius:14px;
+  padding:15px 18px;
+  margin:10px auto;
+}
+
+.treasure-zone .chi-step strong{
+  color:var(--heading);
+}
+
+.treasure-zone .chi-b{width:94%}
+.treasure-zone .chi-c{width:86%}
+.treasure-zone .chi-d{width:78%}
+.treasure-zone .chi-e{width:70%}
+
+.treasure-zone .chi-center{
+  width:62%;
+  min-width:250px;
+  margin:18px auto;
+  padding:25px 15px;
+  text-align:center;
+  background:var(--deep);
+  color:#fff;
+  border:5px solid var(--gold);
+  border-radius:18px;
+  box-shadow:0 10px 25px rgba(0,0,0,.2);
+}
+
+.treasure-zone .chi-center .x{
+  display:block;
+  font-size:.95rem;
+  letter-spacing:.1em;
+  font-weight:900;
+  color:var(--gold);
+  margin-bottom:5px;
+}
+
+.treasure-zone .chi-center .center-text{
+  display:block;
+  font-size:clamp(1.7rem,5vw,2.6rem);
+  line-height:1.05;
+  font-weight:900;
+}
+
+.treasure-zone .reverse-label{
+  text-align:center;
+  font-weight:900;
+  color:var(--heading);
+  margin:22px 0 12px;
+}
+
+.treasure-zone .structural-map{
+  margin:30px 0;
+  padding:22px 12px;
+  text-align:center;
+  background:var(--deep);
+  color:#fff;
+  border-radius:14px;
+  font-weight:900;
+  font-size:clamp(.95rem,3.2vw,1.35rem);
+  line-height:1.7;
+  overflow-wrap:anywhere;
+}
+
+.treasure-zone .structural-map .x-highlight{
+  display:inline-block;
+  padding:2px 8px;
+  margin:0 3px;
+  background:var(--gold);
+  color:var(--deep);
+  border-radius:6px;
+}
+
+.treasure-zone .simple-chiasm{
+  max-width:650px;
+  margin:28px auto;
+  text-align:center;
+  background:#fff;
+  border:3px solid var(--gold);
+  border-radius:16px;
+  padding:22px;
+}
+
+.treasure-zone .simple-chiasm div{
+  padding:4px 0;
+  font-weight:700;
+}
+
+.treasure-zone .simple-chiasm .jesus-center{
+  margin:8px auto;
+  padding:10px;
+  max-width:260px;
+  background:var(--gold);
+  color:var(--deep);
+  border-radius:10px;
+  font-size:1.4rem;
+  font-weight:900;
+}
+
+.treasure-zone .walkable{
+  max-width:650px;
+  margin:26px auto;
+  padding:24px;
+  background:#fff;
+  border-left:7px solid var(--light);
+  border-radius:14px;
+  text-align:center;
+  font-weight:700;
+}
+
+.treasure-zone .walkable .walk-center{
+  display:block;
+  margin:8px 0;
+  color:var(--heading);
+  font-size:1.35rem;
+  font-weight:900;
+}
+
+.treasure-zone .final-line{
+  margin:30px 0 5px;
+  padding:25px;
+  text-align:center;
+  background:var(--deep);
+  color:#fff;
+  border-radius:16px;
+  font-size:clamp(1.15rem,4vw,1.55rem);
+  font-weight:900;
+}
+
+.treasure-zone .final-line strong{
+  color:var(--gold);
+}
+
+
+@media(max-width:640px){
+  .page{
+    padding:20px 12px 50px
+  }
+
+  .card{
+    padding:22px 18px
+  }
+
+  .treasure-zone{
+    padding:18px 12px;
+  }
+
+  .treasure-zone .treasure-note{
+    padding:20px 16px;
+  }
+
+  .treasure-zone .chi-step,
+  .treasure-zone .chi-b,
+  .treasure-zone .chi-c,
+  .treasure-zone .chi-d,
+  .treasure-zone .chi-e{
+    width:100%;
+  }
+
+  .treasure-zone .chi-center{
+    width:92%;
+    min-width:0;
+  }
+
+  .treasure-zone .structural-map{
+    font-size:.9rem;
+  }
+}
 </style>
 </head>
+
 <body>
+
 <main class="page">
-<section class="card"><h1>JESUS’ BACKSTAGE PASS</h1><p class="subtitle">Notes from the Artist</p></section>
+
 <section class="card">
-<p>Most of what I do publicly is <strong>FRONT STAGE</strong>.</p>
-<p>Facebook posts.<br>Jesus Street Preaching.<br>Zion Coalition.<br>Jesus TV.<br>My Jesus-Greg WORLD.<br>Whatever this thing is becoming.</p>
-<p>Increasingly, I am trying to let the art <strong>just happen in front of you</strong> without immediately explaining it.</p><p>That is intentional.</p>
-<div class="quote"><em>🎵 “I’m trying to be like Jesus.”</em></div>
-<p>Jesus had a habit of doing and saying things FRONT STAGE that people did not immediately understand. Parables. Strange sayings. Symbolic acts. Questions instead of answers.</p><p>Sometimes the explanation came later.</p><p>Sometimes it apparently didn't.</p><p>So I am experimenting with that too.</p>
+  <h1>JESUS’ BACKSTAGE PASS</h1>
+  <p class="subtitle">Notes from the Artist</p>
 </section>
-<section class="card soft"><h2>FRONT STAGE</h2>
-<p>On the FRONT STAGE, you might encounter me casually referring to my “Bible,” inventing a word like <em>presenced-upon</em>, talking about Jesus TV, rehearsing an opera, turning my house into scripture, redeeming a classic-rock song, or behaving as though Jesus is an active participant in the performance.</p><p>And I may not explain myself.</p><div class="quote"><strong>The absence of explanation is becoming part of the art.</strong></div><p>But there is another door.</p></section>
-<section class="card"><h2>BACK STAGE</h2>
-<p>A small group of people have indicated that they actually want to know what is going on behind the curtain.</p><p>Questionable judgment, perhaps.</p><p>Nevertheless:</p><div class="quote"><strong>BACK STAGE is where I explain the experiment.</strong></div>
-<p>Occasionally I send <strong>Notes from the Artist</strong>—emails in which I pull back the curtain (open the veil?) and talk about what I <strong>think, believe, imagine, wonder, guess, experiment with, and am trying to do</strong>.</p>
-<p>It is the commentary track.</p><p>The footnotes.</p><p>The deleted scenes.</p><p>The director talking over the movie.</p><p>The machinery behind the stage.</p><p>The <strong>Book of MORE Jesus</strong>, perhaps.</p><p>Bonus, extra-biblical material.</p>
-<p class="stage">FRONT STAGE is the art.</p><p class="stage">BACK STAGE is Greg trying to explain what Greg thinks might have just happened.</p><p>Oompah, oompah.</p></section>
-<section class="card soft"><h2>WANT A BACKSTAGE PASS?</h2>
-<p>This is invitation-only.</p><p>Fortunately, <strong>you can invite yourself.</strong></p><p>If you are curious and—more importantly—<strong>if Jesus tells you to</strong>:</p>
-<div class="email"><p>Send me an email at <a href="mailto:gomuller@gmail.com">gomuller@gmail.com</a> and say something approximately like:</p><p><strong>“Greg, let me BACK STAGE.”</strong></p></div>
-<p>No application.</p><p>No worthiness interview.</p><p>No secret handshake.</p><p>No demonstrated ability to understand what Greg is talking about.</p><p>You will then become part of a very select group:</p>
-  <p class="stage">chosen, predestined, foreordained...</p><p>...okay, you asked for the emails...or didn't request them to stop.</p><p>And sometime thereafter, when something happens FRONT STAGE that seems to deserve a peek behind the curtain—</p><div class="quote"><strong>I’ll open the door.</strong></div><p>Welcome BACK STAGE.</p><p>Or don't come.</p><p>Your choice.</p><div class="quote"><em>🎵 “I’m trying to be like Jesus.”</em></div>
+
+<section class="card">
+  <p>Most of what I do publicly is <strong>FRONT STAGE</strong>.</p>
+
+  <p>
+    Facebook posts.<br>
+    Jesus Street Preaching.<br>
+    Zion Coalition.<br>
+    Jesus TV.<br>
+    My Jesus-Greg WORLD.<br>
+    Whatever this thing is becoming.
+  </p>
+
+  <p>Increasingly, I am trying to let the art <strong>just happen in front of you</strong> without immediately explaining it.</p>
+
+  <p>That is intentional.</p>
+
+  <div class="quote">
+    <em>🎵 “I’m trying to be like Jesus.”</em>
+  </div>
+
+  <p>Jesus had a habit of doing and saying things FRONT STAGE that people did not immediately understand. Parables. Strange sayings. Symbolic acts. Questions instead of answers.</p>
+
+  <p>Sometimes the explanation came later.</p>
+
+  <p>Sometimes it apparently didn't.</p>
+
+  <p>So I am experimenting with that too.</p>
 </section>
-<section class="card home"><p><a href="index.html">Return to Home</a></p></section>
+
+<section class="card soft">
+  <h2>FRONT STAGE</h2>
+
+  <p>On the FRONT STAGE, you might encounter me casually referring to my “Bible,” inventing a word like <em>presenced-upon</em>, talking about Jesus TV, rehearsing an opera, turning my house into scripture, redeeming a classic-rock song, or behaving as though Jesus is an active participant in the performance.</p>
+
+  <p>And I may not explain myself.</p>
+
+  <div class="quote">
+    <strong>The absence of explanation is becoming part of the art.</strong>
+  </div>
+
+  <p>But there is another door.</p>
+</section>
+
+<section class="card">
+  <h2>BACK STAGE</h2>
+
+  <p>A small group of people have indicated that they actually want to know what is going on behind the curtain.</p>
+
+  <p>Questionable judgment, perhaps.</p>
+
+  <p>Nevertheless:</p>
+
+  <div class="quote">
+    <strong>BACK STAGE is where I explain the experiment.</strong>
+  </div>
+
+  <p>Occasionally I send <strong>Notes from the Artist</strong>—emails in which I pull back the curtain (open the veil?) and talk about what I <strong>think, believe, imagine, wonder, guess, experiment with, and am trying to do</strong>.</p>
+
+  <p>It is the commentary track.</p>
+  <p>The footnotes.</p>
+  <p>The deleted scenes.</p>
+  <p>The director talking over the movie.</p>
+  <p>The machinery behind the stage.</p>
+  <p>The <strong>Book of MORE Jesus</strong>, perhaps.</p>
+  <p>Bonus, extra-biblical material.</p>
+
+  <p class="stage">FRONT STAGE is the art.</p>
+
+  <p class="stage">BACK STAGE is Greg trying to explain what Greg thinks might have just happened.</p>
+
+  <p>Oompah, oompah.</p>
+</section>
+
+<section class="card soft">
+  <h2>WANT A BACKSTAGE PASS?</h2>
+
+  <p>This is invitation-only.</p>
+
+  <p>Fortunately, <strong>you can invite yourself.</strong></p>
+
+  <p>If you are curious and—more importantly—<strong>if Jesus tells you to</strong>:</p>
+
+  <div class="email">
+    <p>Send me an email at <a href="mailto:gomuller@gmail.com">gomuller@gmail.com</a> and say something approximately like:</p>
+
+    <p><strong>“Greg, let me BACK STAGE.”</strong></p>
+  </div>
+
+  <p>No application.</p>
+  <p>No worthiness interview.</p>
+  <p>No secret handshake.</p>
+  <p>No demonstrated ability to understand what Greg is talking about.</p>
+
+  <p>You will then become part of a very select group:</p>
+
+  <p class="stage">chosen, predestined, foreordained...</p>
+
+  <p>...okay, you asked for the emails...or didn't request them to stop.</p>
+
+  <p>And sometime thereafter, when something happens FRONT STAGE that seems to deserve a peek behind the curtain—</p>
+
+  <div class="quote">
+    <strong>I’ll open the door.</strong>
+  </div>
+
+  <p>Welcome BACK STAGE.</p>
+
+  <p>Or don't come.</p>
+
+  <p>Your choice.</p>
+
+  <div class="quote">
+    <em>🎵 “I’m trying to be like Jesus.”</em>
+  </div>
+</section>
+
+
+<!-- ======================================================
+     THE TREASURE HUNT / WALKABLE CHIASM
+     ====================================================== -->
+
+<section class="treasure-zone">
+
+  <div class="treasure-label">🎁 NOTES FROM FURTHER BACK STAGE</div>
+
+  <div class="treasure-subtitle">
+    Unwrapping • breadcrumbs • seeking • finding • MORE Jesus
+  </div>
+
+
+  <!-- INTRODUCTION -->
+
+  <div class="treasure-note">
+    <p>Hello fellow "watchers" of Jesus TV. Jesus and I posted the following to my Facebook Feed.</p>
+
+    <p>Here, forward, you also will have the joy of unwrapping (or not). Following breadcrumbs or not.</p>
+  </div>
+
+
+  <div class="section-break">THE FACEBOOK POST</div>
+
+
+  <!-- FACEBOOK POST -->
+
+  <div class="treasure-note facebook-post">
+
+    <div class="long-code">
+      WEHADJOYWEHADFUNWEHADSEASONSINTHESUNANDWESTILLWILLJUSTAFEWMORECLICKSAWAY
+    </div>
+
+    <h2 class="post-title">I’m Going Dark.</h2>
+
+    <p>Well… not dark.</p>
+
+    <p><strong>Harder to find.</strong></p>
+
+    <p>I’m moving away from the Amazon-patented <strong>ONE-CLICK</strong> approach to sharing my Jesus-Greg WORLD.</p>
+
+    <p>I feel Jesus taking me somewhere different: a place that <strong>anyone can find</strong>, but only if they’re willing to click more than once to get there.</p>
+
+    <p>Because I’m trying to be like Jesus.</p>
+
+    <p>And Jesus, I’m discovering, is really into <strong>Easter-egg hunts.</strong></p>
+
+    <p>Treasure hunts.</p>
+
+    <p class="big-line">Seek, and ye shall find.</p>
+
+    <p>Jesus puts good stuff everywhere. He gives goodies to everybody. But there always seems to be <strong>MORE</strong> waiting for the person who keeps looking.</p>
+
+    <p>
+      Another clue.<br><br>
+      Another door.<br><br>
+      Another layer.<br><br>
+      Another <em>Come and see.</em>
+    </p>
+
+    <p>And I think my <strong>Jesus-Greg WORLD</strong> is headed in that direction.</p>
+
+    <p>Not hidden.</p>
+
+    <p class="big-line">Wrapped.</p>
+
+    <p>Think Christmas presents—but instead of wrapping the present once, Jesus and I wrap it <strong>30 times.</strong></p>
+
+    <p>Until now, many of my Facebook posts have been like Christmas morning with every present already completely unwrapped and sitting under a flashing neon arrow:</p>
+
+    <div class="neon">
+      <span class="neon-title">
+        HEY!!!<br><br>
+        LOOKY LOOKY!!!<br><br>
+        LOOK WHAT JESUS IS SAYING TO ME!!!
+      </span>
+    </div>
+
+    <p style="text-align:center;font-size:2rem;">😂</p>
+
+    <p>And, judging by the response, relatively few people are terribly interested in Greg standing beside a flashing neon Jesus sign.</p>
+
+    <p>Which is fine.</p>
+
+    <p>Because something different seems to be happening.</p>
+
+    <p>The neon sign isn't disappearing.</p>
+
+    <p class="big-line">It's moving deeper into the building.</p>
+
+    <p>So maybe tomorrow you wake up and Greg's Facebook post is just a picture of an <strong>old sock with a lump of coal inside.</strong></p>
+
+    <p>Nothing to see here.</p>
+
+    <p>Keep scrolling.</p>
+
+    <p>But suppose you don't.</p>
+
+    <p>Suppose you click.</p>
+
+    <p>You discover that the lump of coal has actually been fashioned into a <strong>secret decoder ring.</strong></p>
+
+    <p>You turn the decoder ring and discover a tiny inscription:</p>
+
+    <p class="big-line">LOOK UNDER THE SOCK.</p>
+
+    <p>Under the sock is a hand-drawn map with an <strong>X</strong> on it.</p>
+
+    <p>You follow the map and discover an old wooden door marked:</p>
+
+    <div class="door">
+      DO NOT OPEN<br>
+      <span style="font-size:.85em;">(unless Jesus tells you to)</span>
+    </div>
+
+    <p>Naturally, you open it.</p>
+
+    <p>Behind the door is a little red button labeled:</p>
+
+    <div class="more-jesus-button">MORE JESUS</div>
+
+    <p>You push it.</p>
+
+    <p>And <em>then</em>—</p>
+
+    <p>six clicks, three clues, one sock, a lump of coal, a decoder ring, a treasure map, and a suspicious door later—</p>
+
+    <p>there it is:</p>
+
+    <div class="neon">
+      <span class="neon-title">THE FLASHING NEON SIGN.</span>
+      <span class="neon-world">🎵 WELCOME TO THE JESUS-GREG WORLD. 🎵</span>
+    </div>
+
+    <p>
+      Same weird Greg.<br><br>
+      Same Jesus.<br><br>
+      Same sharing.<br><br>
+      Same neon sign.
+    </p>
+
+    <p>I'm just putting some <strong>wrapping paper around it.</strong></p>
+
+    <p>Because maybe finding it is becoming part of the experience.</p>
+
+    <p>Maybe the journey to the thing is part of the thing.</p>
+
+    <p>Maybe Jesus doesn't always put the treasure on the front porch with a giant arrow pointing at it.</p>
+
+    <p>Sometimes He says:</p>
+
+    <p class="big-line">Seek.</p>
+
+    <p>And then waits to see whether we'll take another step.</p>
+
+    <p>And another.</p>
+
+    <p>And another.</p>
+
+    <p>Until suddenly—</p>
+
+    <p class="big-line">we find.</p>
+
+  </div>
+
+
+  <div class="section-break">THE CHIASMUS UNDERNEATH IT</div>
+
+
+  <!-- CHIASMUS EXPLANATION -->
+
+  <div class="treasure-note chiasmus-note">
+
+    <h2 class="chiasmus-title">A Walkable Chiasmus</h2>
+
+    <p>The next part we just wrote has a <strong>chiasmus-like architecture</strong>, even though it isn't a strict word-for-word literary chiasm. The interesting part is that your <em>new way of presenting the Jesus-Greg WORLD</em> could itself operate as chiasmus.</p>
+
+    <p>A simplified map looks like this:</p>
+
+
+    <div class="chiasm-map">
+
+      <div class="chi-step">
+        <strong>A — PUBLIC / FACEBOOK</strong><br>
+        Everything is visible. Greg is saying, <em>“Look! Jesus! Here it is!”</em>
+      </div>
+
+      <div class="chi-step chi-b">
+        → <strong>B — WRAPPING</strong><br>
+        The obvious meaning disappears. You get the sock and coal.
+      </div>
+
+      <div class="chi-step chi-c">
+        → → <strong>C — CLUE</strong><br>
+        The coal becomes a decoder ring.
+      </div>
+
+      <div class="chi-step chi-d">
+        → → → <strong>D — SEARCH</strong><br>
+        The decoder ring points to the map.
+      </div>
+
+      <div class="chi-step chi-e">
+        → → → → <strong>E — DOOR</strong><br>
+        The map leads to the strange door: <em>“Do not open unless Jesus tells you to.”</em>
+      </div>
+
+      <div class="chi-center">
+        <span class="x">X — CENTER</span>
+        <span class="center-text">MORE JESUS</span>
+        <br>
+        Behind the door is the button.
+      </div>
+
+      <div class="reverse-label">Then the movement reverses:</div>
+
+      <div class="chi-step chi-e">
+        <strong>E′ — OPEN</strong><br>
+        The seeker chooses to enter.
+      </div>
+
+      <div class="chi-step chi-d">
+        <strong>D′ — FIND</strong><br>
+        The search produces discovery.
+      </div>
+
+      <div class="chi-step chi-c">
+        <strong>C′ — UNDERSTAND</strong><br>
+        What looked meaningless becomes meaningful.
+      </div>
+
+      <div class="chi-step chi-b">
+        <strong>B′ — UNWRAP</strong><br>
+        The wrapping comes off.
+      </div>
+
+      <div class="chi-step">
+        <strong>A′ — PUBLIC / JESUS-GREG WORLD</strong><br>
+        And you're back where you began—with Greg's flashing neon Jesus sign.
+      </div>
+
+    </div>
+
+
+    <p>So structurally:</p>
+
+    <div class="structural-map">
+      A → B → C → D → E →
+      <span class="x-highlight">X</span>
+      ← E′ ← D′ ← C′ ← B′ ← A′
+    </div>
+
+    <p>And <strong>X is Jesus / MORE Jesus.</strong></p>
+
+    <p>That's remarkably compatible with the biblical idea of chiasmus because the <strong>center is often where the emphasis lands</strong>. The journey inward isn't merely making something harder to access. It focuses attention on the center.</p>
+
+    <p>There's an even simpler conceptual chiasm underneath your piece:</p>
+
+
+    <div class="simple-chiasm">
+
+      <div><strong>VISIBLE</strong></div>
+
+      <div>↓</div>
+
+      <div>hidden under wrapping</div>
+
+      <div>↓</div>
+
+      <div>seeking</div>
+
+      <div>↓</div>
+
+      <div class="jesus-center">JESUS</div>
+
+      <div>↓</div>
+
+      <div>finding</div>
+
+      <div>↓</div>
+
+      <div>unwrapping</div>
+
+      <div>↓</div>
+
+      <div><strong>VISIBLE</strong></div>
+
+    </div>
+
+
+    <p>Which makes your line <strong>“Not hidden. Wrapped.”</strong> especially useful.</p>
+
+    <p>And there's another dimension I think fits what you're developing: <strong>the reader physically enacts the literary form.</strong></p>
+
+    <p>Instead of merely <em>reading</em> a chiasm, someone coming from Facebook would <strong>walk one</strong>.</p>
+
+
+    <div class="walkable">
+      Facebook<br>
+      ↓<br>
+      click<br>
+      ↓<br>
+      clue<br>
+      ↓<br>
+      room<br>
+      ↓<br>
+      deeper room<br>
+
+      <span class="walk-center">↓<br>JESUS / treasure<br>↓</span>
+
+      discovery gives new meaning to the rooms<br>
+      ↓<br>
+      clue now makes sense<br>
+      ↓<br>
+      original Facebook post now makes sense
+    </div>
+
+
+    <p>They arrive back conceptually at the beginning—but <strong>the beginning looks different because they've encountered the center</strong>.</p>
+
+    <p>That's almost a <em>chiasmus as website architecture</em>.</p>
+
+    <p>And your coal example is perfect for it: at <strong>A</strong>, coal looks like nothing. After reaching <strong>X</strong>, you can return to <strong>A′</strong> and realize the supposedly boring coal was the entrance to the whole thing.</p>
+
+    <p class="big-line">Seek → find → see again.</p>
+
+    <div class="final-line">
+      That could become a very interesting organizing principle for ZionCoalition.org and the Jesus-Greg WORLD:
+      <br><br>
+      <strong>don't merely write chiasmus—build one people can walk through.</strong>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="card home">
+  <p><a href="index.html">Return to Home</a></p>
+</section>
+
 </main>
+
 </body>
 </html>
