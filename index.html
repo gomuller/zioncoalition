@@ -648,7 +648,148 @@
             line-height: 1.55;
         }
 
-    
+    /* ======================================================
+   BOOK OF AXL — TREASURE HUNT ENTRANCE
+   ====================================================== */
+
+.opera-treasure-entry{
+  max-width:760px;
+  margin:12px auto 42px;
+  padding:28px 32px 30px;
+
+  text-align:center;
+
+  background:linear-gradient(
+    180deg,
+    #d6eaf8 0%,
+    #c7e1f2 100%
+  );
+
+  border:2px solid rgba(30,58,95,.22);
+  border-radius:20px;
+
+  box-shadow:
+    0 8px 22px rgba(20,60,90,.16);
+}
+
+.opera-treasure-small{
+  margin-bottom:10px;
+
+  color:#1e3a5f;
+  font-size:.82rem;
+  font-weight:900;
+  letter-spacing:.18em;
+}
+
+.opera-treasure-text{
+  max-width:650px;
+  margin:0 auto 14px;
+
+  color:#243447;
+  font-family:Georgia,serif;
+  font-size:clamp(1.15rem,2.5vw,1.45rem);
+  line-height:1.55;
+}
+
+.opera-treasure-warning{
+  margin:18px 0 6px;
+
+  color:#1e3a5f;
+  font-size:1.12rem;
+  font-weight:900;
+}
+
+.opera-treasure-clue{
+  margin:8px auto 18px;
+
+  color:#40566d;
+  font-size:1rem;
+  line-height:1.7;
+}
+
+.opera-treasure-scripture{
+  margin:20px auto;
+
+  color:#1e3a5f;
+  font-family:Georgia,serif;
+  font-size:1.25rem;
+  font-style:italic;
+  font-weight:700;
+}
+
+.opera-treasure-button{
+  display:inline-block;
+
+  margin:8px auto 14px;
+  padding:17px 34px;
+
+  background:#1e3a5f;
+  color:#ffffff !important;
+
+  border:3px solid #f2c14e;
+  border-radius:999px;
+
+  text-decoration:none !important;
+
+  font-size:clamp(1.05rem,2.5vw,1.3rem);
+  font-weight:900;
+  letter-spacing:.03em;
+
+  box-shadow:
+    0 6px 0 #102943,
+    0 10px 20px rgba(0,0,0,.18);
+
+  transition:
+    transform .15s ease,
+    box-shadow .15s ease;
+}
+
+.opera-treasure-button span{
+  display:block;
+  margin-top:3px;
+
+  color:#f2c14e;
+  font-size:.72em;
+  font-weight:700;
+  letter-spacing:.08em;
+}
+
+.opera-treasure-button:hover{
+  transform:translateY(-2px);
+
+  box-shadow:
+    0 8px 0 #102943,
+    0 13px 24px rgba(0,0,0,.20);
+}
+
+.opera-treasure-button:active{
+  transform:translateY(3px);
+
+  box-shadow:
+    0 3px 0 #102943,
+    0 6px 12px rgba(0,0,0,.18);
+}
+
+.opera-treasure-footnote{
+  margin-top:12px;
+
+  color:#536b82;
+  font-family:Georgia,serif;
+  font-size:.95rem;
+  font-style:italic;
+}
+
+@media(max-width:640px){
+  .opera-treasure-entry{
+    margin:10px 4px 32px;
+    padding:24px 18px;
+  }
+
+  .opera-treasure-button{
+    width:100%;
+    padding:16px 18px;
+  }
+}
 
 /* =========================================================
    FEED YOUR HEAD — WORKING NOTES ZONE
@@ -790,7 +931,48 @@
     title="Opera start"
   />
 </figure>
+<!-- ======================================================
+     THE BOOK OF AXL — TREASURE HUNT ENTRANCE
+     Put immediately below images/01-book-of-axl.png
+     ====================================================== -->
 
+<div class="opera-treasure-entry">
+
+  <div class="opera-treasure-small">
+    THE OPERA CONTINUES...
+  </div>
+
+  <p class="opera-treasure-text">
+    Somewhere beyond this button is a rehearsal of this part of the Opera—
+    with <strong>Jesus, Greg, and angels.</strong>
+  </p>
+
+  <p class="opera-treasure-warning">
+    But I'm not taking you there directly.
+  </p>
+
+  <p class="opera-treasure-clue">
+    You'll have to follow the breadcrumbs.<br>
+    Click more than once.<br>
+    Open a few doors.<br>
+    Hunt for the treasure.
+  </p>
+
+  <p class="opera-treasure-scripture">
+    “Seek, and ye shall find.”
+  </p>
+
+  <a class="opera-treasure-button"
+     href="PUT-FIRST-BREADCRUMB-HERE.html">
+    BEGIN THE TREASURE HUNT
+    <span>→ first breadcrumb</span>
+  </a>
+
+  <div class="opera-treasure-footnote">
+    Not hidden. Wrapped. 🎁
+  </div>
+
+</div>
     <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
