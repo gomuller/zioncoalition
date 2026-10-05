@@ -812,6 +812,104 @@
 .feed-note strong { color:#7a2525; }
 .feed-note a { font-weight:700; }
 
+
+    /* =========================================================
+   TEMPLE TREASURE ZONE
+   ========================================================= */
+
+.temple-treasure-zone{
+  max-width:900px;
+  margin:70px auto 40px;
+  padding:18px 34px 42px;
+
+  background:
+    radial-gradient(circle at top, #173f68 0%, #0d2c4d 55%, #071d34 100%);
+
+  border:4px dashed #d5a947;
+  border-radius:22px;
+
+  box-shadow:
+    0 12px 30px rgba(0,0,0,.25),
+    inset 0 0 35px rgba(243,210,122,.08);
+
+  position:relative;
+}
+
+.temple-treasure-label{
+  width:fit-content;
+  margin:-48px auto 24px;
+  padding:13px 34px;
+
+  background:linear-gradient(180deg,#e1b653,#b78024);
+  color:#071d34;
+
+  border:4px solid #f8e5a3;
+  border-radius:9px;
+
+  font-family:Georgia,serif;
+  font-size:clamp(1.4rem,3vw,2.1rem);
+  font-weight:900;
+  text-align:center;
+  letter-spacing:.04em;
+
+  box-shadow:0 6px 16px rgba(0,0,0,.35);
+  transform:rotate(.5deg);
+}
+
+.temple-treasure-subtitle{
+  text-align:center;
+  color:#f7e9bb;
+  font-family:Georgia,serif;
+  font-style:italic;
+  font-size:1.08rem;
+  margin:0 auto 26px;
+}
+
+.temple-treasure-card{
+  margin:24px auto;
+  padding:26px;
+
+  background:#edf5fc;
+  border-left:7px solid #d5a947;
+  border-radius:15px;
+
+  box-shadow:0 6px 18px rgba(0,0,0,.18);
+  text-align:center;
+}
+
+.temple-treasure-card img{
+  max-width:100%;
+  height:auto;
+  display:block;
+  margin:0 auto;
+}
+
+.temple-treasure-card a{
+  font-weight:700;
+}
+
+.temple-treasure-caption{
+  margin:16px auto 0;
+  font-family:Georgia,serif;
+  font-size:1.05rem;
+  color:#1e3a5f;
+}
+
+@media(max-width:640px){
+  .temple-treasure-zone{
+    margin:58px 4px 32px;
+    padding:16px 16px 28px;
+  }
+
+  .temple-treasure-label{
+    padding:11px 20px;
+  }
+
+  .temple-treasure-card{
+    padding:16px;
+  }
+}
+
   </style>
 </head>
 <body>
@@ -2085,29 +2183,62 @@ style="
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 <hr class="wp-block-separator has-alpha-channel-opacity"/>
 
-<div class="content-card" style="text-align:center;">
-  <a href="999-001-1-question.html">
-    <img src="images/01-jesus-veilkey.png"
-         alt="Jesus Veilkey — Travel to the Temple Treasure"
-         style="max-width:500px;width:90%;height:auto;display:block;margin:0 auto;">
-  </a>
+<!-- ======================================================
+     TEMPLE TREASURE
+     ====================================================== -->
 
-  <p style="margin-top:14px;">
+<div class="temple-treasure-zone">
+
+  <div class="temple-treasure-label">
+    🥾 TEMPLE TREASURE
+  </div>
+
+  <div class="temple-treasure-subtitle">
+    Follow the breadcrumbs • remember • seek • find
+  </div>
+
+
+  <!-- THE VEILKEY -->
+  <div class="temple-treasure-card">
+
     <a href="999-001-1-question.html">
-      <strong>Click the Jesus Veilkey to travel to the Temple Treasure.</strong>
+      <img
+        src="images/01-jesus-veilkey.png"
+        alt="Jesus Veilkey — Travel to the Temple Treasure"
+        style="max-width:500px;width:90%;">
     </a>
-  </p>
-</div>
 
-  
-   <div class="content-card" style="text-align:center;">
-  <a href="999-001-1-question.html">
-    <img src="images/01-fallen-notes.gif"
-         alt="The Fallen Notes"
-         style="max-width:100%; height:auto; border-radius:12px; cursor:pointer;">
-  </a>
-</div>
+    <p class="temple-treasure-caption">
+      <a href="999-001-1-question.html">
+        <strong>Click the Jesus Veilkey to travel to the Temple Treasure.</strong>
+      </a>
+    </p>
 
+  </div>
+
+
+  <!-- WHAT I SEE ON JESUS TV -->
+  <div class="temple-treasure-card">
+
+    <a href="999-001-1-question.html">
+      <img
+        src="images/01-fallen-notes.gif"
+        alt="The Fallen Notes — What I See On Jesus TV">
+    </a>
+
+    <p class="temple-treasure-caption">
+      <strong>A little miracle that happened before I knew what the story would become.</strong>
+    </p>
+
+  </div>
+
+
+  <div class="temple-treasure-subtitle"
+       style="margin-top:28px;margin-bottom:0;">
+    “Seek, and ye shall find.”
+  </div>
+
+</div>
   
 </section>
 
