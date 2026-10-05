@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zion Coalition Breadcrumb Journey Prompt</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #9fc7db;
+      color: #243447;
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 40px 22px 80px;
+      background: #5fa3c7;
+      min-height: 100vh;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .card {
+      background: #d6eaf8;
+      border-radius: 14px;
+      padding: 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+    h1, h2 {
+      color: #1e3a5f;
+      line-height: 1.2;
+    }
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin: 0 0 30px;
+    }
+    h2 { margin-top: 0; }
+    .prompt-box {
+      background: rgba(255,255,255,0.55);
+      border-radius: 12px;
+      padding: 22px;
+      white-space: pre-wrap;
+      font-family: Arial, sans-serif;
+      overflow-wrap: anywhere;
+    }
+    .home-link {
+      text-align: center;
+      font-weight: bold;
+    }
+    a {
+      color: #046bd2;
+      font-weight: bold;
+    }
+    @media (max-width: 640px) {
+      .page { padding: 24px 12px 50px; }
+      .card { padding: 20px; }
+      h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Zion Coalition Breadcrumb Journey Prompt</h1>
+
+    <section class="card">
+      <h2>Purpose</h2>
+      <p>
+        Use this prompt whenever starting another Zion Coalition breadcrumb / Easter-egg journey.
+        It documents the prototype system: the 999 breadcrumb pages, 888 treasure page, image naming,
+        seven-click structure, step-by-step build process, linking rules, and final audit.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Copy-and-Paste Prompt</h2>
+      <div class="prompt-box">Please help me build a new Zion Coalition “breadcrumb journey” / Easter-egg treasure hunt.
+
+GOAL
+
+Create a deliberately multi-click path from a teaser image to a substantial final “treasure” page. The hunt should make the longer material a little harder—and more playful—to reach. It should feel like seeking, discovering, opening wrappings, following breadcrumbs, or finding Easter eggs. The clicks should not be pointless obstacles: each breadcrumb should give the visitor a small conceptual reward, hint, question, image, or piece of the argument that makes the final treasure more desirable and intelligible.
+
+DEFAULT STRUCTURE
+
+Unless I tell you otherwise, use:
+
+* 1 teaser/entry image that links into the hunt
+* 7 breadcrumb pages / 7 successive clicks
+* 1 final treasure page
+
+The teaser may live on another Zion Coalition page or the home page. Breadcrumb #1 is the first dedicated hunt page.
+
+NAMING SYSTEM
+
+Each hunt gets a three-digit hunt number. The first prototype was hunt 001.
+
+Breadcrumb HTML:
+999-[HUNT]-1-[slug].html
+999-[HUNT]-2-[slug].html
+...
+999-[HUNT]-7-[slug].html
+
+Breadcrumb images:
+images/999-[HUNT]-1-[slug].png
+images/999-[HUNT]-2-[slug].png
+...
+images/999-[HUNT]-7-[slug].png
+
+Final treasure HTML:
+888-[HUNT]-[treasure-slug].html
+
+Final treasure featured image:
+images/888-[HUNT]-[treasure-slug].png
+
+Examples from hunt 001:
+999-001-1-question.html
+images/999-001-1-question.png
+999-001-7-portkey.html
+images/999-001-7-portkey.png
+888-001-temple-treasure.html
+images/888-001-temple-treasure.png
+
+Keep 999 reserved for breadcrumb/hunt pages and 888 reserved for final treasure pages. Always use lowercase, hyphenated, descriptive slugs. Never casually change a filename after an earlier page has already linked to it. If a name changes, explicitly tell me which existing href must also be changed.
+
+FIRST: PLAN THE JOURNEY
+
+Before generating files, study the treasure/content I provide and propose the conceptual arc of the seven breadcrumbs.
+
+Each breadcrumb should do at least one of these:
+* ask an intriguing question
+* reveal one small piece of the argument
+* offer a memorable metaphor
+* create curiosity about the next step
+* introduce a key term
+* deepen the visitor’s understanding
+* act as a threshold into the final treasure
+
+The seven crumbs should feel like one unfolding sequence, not seven unrelated posters.
+
+Think in the form:
+
+1. QUESTION / HOOK
+2. FIRST SURPRISE
+3. DEEPEN THE IDEA
+4. STEP INSIDE / INHABIT
+5. REVEAL THE SPECIFIC SUBJECT
+6. REMEMBER / PERSONALIZE / APPROACH THE THRESHOLD
+7. FINAL DOOR / PORTKEY / TREASURE-IS-NEXT
+
+Those labels are conceptual, not mandatory. Adapt them to the actual treasure.
+
+Do not reveal the entire treasure early. Give “snacks,” not the whole meal.
+
+WORK WITH ME STEP BY STEP
+
+This is important.
+
+Do not dump all seven pages on me at once unless I explicitly ask for that.
+
+Default workflow:
+
+A. Identify the next hunt number and establish the filenames.
+B. Design Breadcrumb #1.
+C. Create/generate its image.
+D. Tell me the exact image filename and exact images/ path.
+E. After I upload it, give me/create the corresponding HTML.
+F. That HTML should already point to the planned filename for the NEXT breadcrumb.
+G. I upload/commit/test it.
+H. We repeat for Breadcrumbs #2–#7.
+I. Breadcrumb #7 links to the 888 final treasure page.
+J. Finally create the treasure page and its ZIP.
+
+When a not-yet-created next page produces a 404 during testing, that is expected. Treat the 404 as a temporary wiring test, not an error, as long as the href is correct.
+
+BREADCRUMB IMAGE DESIGN
+
+Each breadcrumb is primarily a visual page.
+
+Create one strong image per breadcrumb. The image should:
+* communicate one idea quickly
+* contain relatively little text
+* feel intriguing and worth clicking
+* visually relate to the treasure
+* work on desktop and mobile
+* preferably include a visual invitation to continue: a door, object, arrow, “step inside,” “take one,” “touch,” “continue,” etc.
+* vary enough to make the journey interesting while still feeling like one hunt
+
+The picture itself is the hyperlink. The visitor should not need a separate “Next” button.
+
+Do not put huge chunks of the final essay into breadcrumb images. They are bait/snacks/hints.
+
+BREADCRUMB HTML TEMPLATE
+
+Each breadcrumb HTML page should be extremely simple: dark Zion Coalition blue background, centered responsive image, and the entire image wrapped in a relative link to the next breadcrumb.
+
+Use this as the standard structure, changing title, href, image src, and alt text:
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+
+&lt;title&gt;[PAGE TITLE]&lt;/title&gt;
+
+&lt;style&gt;
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  background: #071d32;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.breadcrumb {
+  display: block;
+  width: 100%;
+  max-width: 1536px;
+  margin: auto;
+  cursor: pointer;
+}
+
+.breadcrumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.55);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.breadcrumb:hover img {
+  transform: scale(1.005);
+  box-shadow: 0 16px 50px rgba(0,0,0,.7);
+}
+&lt;/style&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+
+&lt;a class=&quot;breadcrumb&quot;
+   href=&quot;[NEXT-PAGE].html&quot;
+   aria-label=&quot;[SHORT CONTINUE DESCRIPTION]&quot;&gt;
+
+  &lt;img
+    src=&quot;images/[CURRENT-IMAGE].png&quot;
+    alt=&quot;[USEFUL IMAGE DESCRIPTION]&quot;&gt;
+
+&lt;/a&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+Keep breadcrumb pages standalone. No external CSS, JavaScript, fonts, or libraries.
+
+LINKING RULES
+
+Use relative links because the HTML files live together in the repository root.
+
+Breadcrumb #1 → #2
+#2 → #3
+#3 → #4
+#4 → #5
+#5 → #6
+#6 → #7
+#7 → 888 final treasure
+
+All breadcrumb images live in images/.
+
+Before declaring a step complete, verify:
+* current HTML filename
+* current image filename/path
+* href target
+* next planned filename
+* capitalization and hyphens
+* no accidental stale href from an earlier working name
+
+FINAL TREASURE PAGE
+
+The 888 page is different from the 999 pages.
+
+The breadcrumb pages are sparse visual doors.
+The treasure is a substantial publication.
+
+When I provide the treasure essay/content, preserve 100% of it unless I explicitly ask for editing. Do not summarize, rewrite, shorten, paraphrase, or omit material merely to make the page easier to build.
+
+Use the canonical Zion Coalition publication style:
+
+COLORS
+* outer/background blue: #0d3f73
+* deeper blue where useful: #082b4d
+* primary light content card: #f8fbff
+* secondary/soft card: #edf5fc
+* primary text: #17324d
+* muted text: #4d6983
+* dark blue headings: #123b5d
+* gold accent: #f2c14e
+* light blue accent: #9fd3ff
+
+LAYOUT
+* blue page background/frame
+* centered publication with comfortable maximum reading width
+* featured image at top
+* multiple light rounded content cards
+* generous spacing
+* soft shadows
+* responsive desktop/mobile layout
+* clean Arial/Helvetica/sans-serif typography
+
+ABSOLUTE READABILITY RULE
+The dark blue background is the FRAME, not the reading surface.
+
+ALL ordinary essay prose, headings, quotations, lists, captions, transitions, and concluding material must be inside light-colored reading cards. Never leave dark body text floating directly on the blue background.
+
+Use multiple coherent cards rather than one giant card, but do not fragment the essay so aggressively that paragraphs escape between cards.
+
+Featured image path must begin:
+images/
+
+Include a clearly visible Return to Home link at the bottom:
+index.html
+
+FINAL TREASURE OUTPUT
+
+For the final treasure, create:
+1. the standalone 888 HTML file
+2. a ZIP containing exactly that HTML file
+
+If I provide a featured image, use it. If its current filename is not the final standardized name, tell me exactly what to rename/upload it as.
+
+Do not print the entire treasure HTML into chat when I ask for the finished page; generate downloadable files instead.
+
+QUALITY CONTROL
+
+Before finishing the hunt, perform an end-to-end audit:
+
+TEASER → 999 #1 → #2 → #3 → #4 → #5 → #6 → #7 → 888 TREASURE
+
+Check every href and every image src.
+
+Confirm that:
+* every 999 page points to exactly one next destination
+* every image path begins with images/
+* all seven breadcrumb images have matching page numbers/slugs
+* #7 points to the exact 888 filename
+* the 888 page exists
+* the treasure featured image path is correct
+* there are no abandoned working filenames such as an earlier slug that was later changed
+* the treasure has a Return to Home link
+
+DOCUMENT THE HUNT
+
+At completion, give me a compact manifest I can keep, showing:
+
+Hunt number:
+Treasure title:
+Entry/teaser:
+1. filename → image → next page
+2. filename → image → next page
+...
+7. filename → image → treasure
+Treasure: 888 filename → featured image
+
+Also briefly summarize the conceptual journey in one line, for example:
+
+QUESTION → PLACEBO → BELIEFS → INHABIT → TEMPLE → REMEMBER → PORTKEY → TREASURE
+
+THE SPIRIT OF THE SYSTEM
+
+This is not security and is not intended to hide public material from a determined visitor. It is deliberate friction and playful discovery.
+
+Think:
+* Easter egg hunt
+* breadcrumb trail
+* wrapped Christmas present
+* rabbit trail
+* seek and ye shall find
+* small rewards for continuing
+* increasingly interesting as the visitor proceeds
+
+The purpose is to make access to longer material feel discovered rather than pushed at people.
+
+The visitor should feel:
+“I wonder what is behind the next door.”
+
+And when they reach the 888 page:
+“I found it.”
+
+When I begin a future hunt, start by asking for—or identifying from what I supplied—the TREASURE, the TEASER/entry point, and the next available HUNT NUMBER. Then propose the seven-step conceptual arc and take me through construction one breadcrumb at a time.
+</div>
+    </section>
+
+    <section class="card home-link">
+      <p><a href="index.html">Return to Home</a></p>
+    </section>
+  </main>
+</body>
+</html>
