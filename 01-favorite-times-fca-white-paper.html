@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorite Times — A Free Life-Story & Obituary Preparation Tool</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0d3f73;
+      color: #17324d;
+      line-height: 1.7;
+    }
+    .page {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 36px 22px 80px;
+    }
+    .hero {
+      background: #f8fbff;
+      border-radius: 18px;
+      padding: 38px 34px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+      text-align: center;
+    }
+    .hero img {
+      width: 100%;
+      max-width: 760px;
+      height: auto;
+      display: block;
+      margin: 0 auto 26px;
+      border-radius: 14px;
+    }
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: .11em;
+      font-weight: 700;
+      color: #4d6983;
+      font-size: .84rem;
+      margin-bottom: 8px;
+    }
+    h1, h2, h3 {
+      color: #123b5d;
+      line-height: 1.2;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      margin: 8px 0 12px;
+    }
+    h2 { font-size: 1.7rem; margin-top: 0; }
+    h3 { font-size: 1.2rem; margin-top: 24px; }
+    .subtitle {
+      font-size: 1.18rem;
+      color: #4d6983;
+      margin: 0 auto;
+      max-width: 720px;
+    }
+    .card {
+      background: #f8fbff;
+      color: #17324d;
+      border-radius: 18px;
+      padding: 30px;
+      margin-bottom: 26px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+    }
+    .soft {
+      background: #edf5fc;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 20px 0;
+    }
+    .quote {
+      background: #edf5fc;
+      border-left: 6px solid #f2c14e;
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin: 22px 0;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #123b5d;
+    }
+    .big-question {
+      text-align: center;
+      font-size: 1.55rem;
+      font-weight: 700;
+      color: #123b5d;
+      margin: 12px 0;
+    }
+    .yellow-highlight {
+      background: linear-gradient(transparent 35%, #fff176 35%, #fff176 88%, transparent 88%);
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+    .green-highlight {
+      background: linear-gradient(transparent 35%, #66ff4d 35%, #66ff4d 88%, transparent 88%);
+      padding: 0 4px;
+      font-weight: 700;
+      color: #1e3a5f;
+    }
+    ul { padding-left: 24px; }
+    li { margin-bottom: 10px; }
+    a { color: #046bd2; font-weight: 700; }
+    .phase {
+      display: inline-block;
+      background: #123b5d;
+      color: white;
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-size: .82rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .home-link {
+      text-align: center;
+      background: #f8fbff;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(0,0,0,.16);
+    }
+    @media (max-width: 640px) {
+      .page { padding: 20px 12px 50px; }
+      .hero, .card { padding: 23px 20px; }
+      h1 { font-size: 2rem; }
+      h2 { font-size: 1.45rem; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+
+    <section class="hero">
+      <img src="images/01-example.png" alt="Favorite Times project featured image">
+      <div class="eyebrow">Concept White Paper</div>
+      <h1>Favorite Times</h1>
+      <p class="subtitle">
+        A Free Life-Story &amp; Obituary Preparation Tool<br>
+        A concept for Funeral Consumers Alliance of Utah
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>The Idea</h2>
+      <p class="big-question">What have been your favorite times on Earth?</p>
+      <p>
+        That simple question could become a remarkably gentle way to help people prepare for death—
+        by first helping them remember their lives.
+      </p>
+      <p>
+        Funeral Consumers Alliance of Utah already helps people make informed, meaningful and affordable
+        choices about death, funerals and after-death care. Its planning resources encourage people to
+        communicate their wishes before they can no longer speak for themselves, and its Funeral Planning
+        Worksheet specifically asks whether a person has written an obituary.
+      </p>
+      <div class="quote">Before you write your obituary, remember your life.</div>
+    </section>
+
+    <section class="card">
+      <h2>How It Would Work</h2>
+      <p>
+        <strong>Favorite Times</strong> would invite a person to begin collecting favorite memories—
+        perhaps 10, 50, 100, or eventually 500.
+      </p>
+      <p>
+        Not necessarily the <em>most important</em> events. Just moments when the person can look back and say:
+      </p>
+      <div class="quote">“I am glad I was alive for this.”</div>
+      <p>
+        A childhood afternoon. A friend. A road trip. A wedding. A ridiculous family story. A meal.
+        A teacher. A pet. A difficult experience survived. A beautiful place. A song. A person deeply loved.
+      </p>
+      <p>
+        Users could gradually add a title, short story, people, date or life period, location, photographs,
+        and perhaps audio or video to each memory.
+      </p>
+      <p>
+        There is no requirement to reach 500. <strong>The remembering is the point.</strong>
+        The original <em>500 Favorite Times on Earth</em> experiment explicitly invites people to adapt
+        the idea however they wish.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>From Memories to an Obituary</h2>
+      <p>
+        Over time, those individual memories become something larger: a structured portrait of a human life.
+      </p>
+      <p>When desired, the collection could help produce useful outputs such as:</p>
+      <div class="soft">
+        <strong>My Life Story • Obituary Starter • Funeral/Memorial Program Ideas • Favorite Photos •
+        Important People • Favorite Places • Things I Loved • Stories My Family Should Know • Messages for Family</strong>
+      </div>
+      <p>
+        Eventually, an optional AI assistant could help turn the person's own collected material into a
+        draft obituary or life sketch—with the person remaining in control of what is included.
+      </p>
+      <p>
+        This complements FCA Utah's existing advance-planning tools rather than replacing them.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Why It Fits Funeral Consumers Alliance</h2>
+      <p>
+        FCA Utah describes itself as a volunteer-run educational organization advocating the right to choose
+        simple, meaningful and affordable after-death arrangements. Its work emphasizes peace of mind,
+        knowledge, consumer choice and tools for discussing end of life while people still can.
+      </p>
+      <p>
+        National Funeral Consumers Alliance likewise emphasizes consumer choice, educational resources at
+        little or no cost, and people's right to make end-of-life choices consistent with their own religious,
+        philosophical and ethical beliefs.
+      </p>
+      <div class="soft">
+        <p><strong>FREE.</strong> No subscription. No paywall. No premium obituary.</p>
+        <p><strong>VOLUNTARY.</strong> Ten memories are worthwhile. Five hundred are worthwhile. There is no finish line.</p>
+        <p><strong>PERSONAL.</strong> Religious, spiritual, secular, funny, serious or unconventional—people tell their own stories.</p>
+        <p><strong>USEFUL BEFORE AND AFTER DEATH.</strong> It enriches and preserves life now while leaving useful material for family later.</p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>A Different Kind of Funeral-Planning Tool</h2>
+      <p>Most funeral planning begins with death:</p>
+      <div class="quote">What do you want done when you die?</div>
+      <p>Favorite Times begins somewhere else:</p>
+      <div class="quote">Tell me about being alive.</div>
+      <p>
+        That may make it an unusually inviting doorway into advance planning.
+      </p>
+      <p>
+        When death eventually comes, instead of a family sitting in grief trying to reconstruct someone's
+        life from memory, much of that person's story may already be waiting for them—in the person's own words.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>The Proposed Experiment</h2>
+      <p>
+        Build a simple first version branded for <strong>Funeral Consumers Alliance of Utah</strong>,
+        offer it free to everyone, test it with real users, and learn.
+      </p>
+      <div class="quote">
+        Start small.<br><br>
+        Remember a life.<br>
+        Preserve its stories.<br>
+        Make the eventual obituary easier.<br>
+        And perhaps make life a little richer while we're still here.
+      </div>
+    </section>
+
+    <section class="card">
+      <div class="phase">PAGE TWO — STRATEGIC FIT &amp; AI</div>
+      <h2>Why This Could Become an FCA Tool</h2>
+      <p>
+        The connection between <strong>Favorite Times</strong> and the Funeral Consumers Alliance mission
+        is surprisingly direct.
+      </p>
+      <p>
+        National FCA's strategic direction includes publishing educational content in a variety of media
+        and formats at little or no cost for consumers, strengthening online educational resources, and
+        helping affiliates respond to emerging technologies.
+      </p>
+      <p>
+        FCA already helps people answer practical end-of-life questions: What kind of funeral do I want?
+        What will it cost? What are my rights? Who should make decisions? Burial or cremation?
+        What should my family know?
+      </p>
+      <p>Favorite Times adds another category:</p>
+      <div class="quote">What do I want remembered about my life?</div>
+      <p>
+        That belongs naturally beside advance directives, funeral-planning worksheets, obituary resources
+        and other before-death planning materials.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>AI Could Make This Much More Than an “App”</h2>
+      <p>
+        We do not need to begin by deciding that this must be an iPhone or Android app.
+        The simplest and most accessible first version may be a <strong>free mobile-friendly web app</strong>
+        that works on phones, tablets and computers.
+      </p>
+      <p>A person opens a link and sees one inviting question:</p>
+      <div class="quote">Tell me about one of your favorite times on Earth.</div>
+      <p>
+        AI could become a gentle interviewing and organizing assistant. Instead of presenting a long form,
+        it could have a conversation:
+      </p>
+      <div class="soft">
+        <p><strong>Where were you?</strong></p>
+        <p><strong>Who was there?</strong></p>
+        <p><strong>About how old were you?</strong></p>
+        <p><strong>What happened?</strong></p>
+        <p><strong>Why does that memory still matter to you?</strong></p>
+        <p><strong>Do you have a photograph that belongs with it?</strong></p>
+      </div>
+      <p>
+        The user could type—or simply talk. AI could transcribe the person's voice, lightly clean up the
+        story, suggest a title and save it as <strong>Favorite Time #1</strong>.
+      </p>
+      <div class="quote">Want to remember another one?</div>
+    </section>
+
+    <section class="card">
+      <h2>What AI Could Eventually Do</h2>
+      <p><strong>REMEMBER —</strong> Suggest memory prompts involving childhood, family, school, friends, love, work, travel, holidays, funny moments, music, food, places, accomplishments and ordinary unforgettable days.</p>
+      <p><strong>INTERVIEW —</strong> Turn life review into a friendly conversation rather than a questionnaire.</p>
+      <p><strong>ORGANIZE —</strong> Identify people, places, approximate dates, periods of life and recurring themes.</p>
+      <p><strong>CONNECT —</strong> Notice relationships among memories: “You have mentioned camping with your father in six different stories. Would you like to see those together?”</p>
+      <p><strong>PRESERVE —</strong> Combine text, photographs, scanned documents, audio and video into a personal life archive.</p>
+      <p><strong>WRITE —</strong> Using the person's own material, create drafts of an obituary, life sketch, funeral-program biography, memorial webpage or family-history narrative.</p>
+      <p><strong>SUMMARIZE —</strong> Create something as simple as: “The 20 things I most want my family to know about my life.”</p>
+      <p><strong>PREPARE —</strong> Gently connect users to FCA's practical planning resources when appropriate.</p>
+      <p><strong>SHARE —</strong> Create a private link, printable document, family archive or selected memory collection.</p>
+    </section>
+
+    <section class="card">
+      <h2>An Important AI Principle</h2>
+      <div class="quote">AI should help people tell their stories—not tell their stories for them.</div>
+      <p>
+        The AI should not invent accomplishments, embellish memories or manufacture an impressive obituary.
+        Its job is to ask, listen, organize and help.
+      </p>
+      <div class="soft">
+        <p><strong>The human supplies the life.<br>AI helps preserve it.</strong></p>
+      </div>
+      <p>
+        Privacy should therefore be designed into the project from the beginning. People should know what
+        is being stored, who can see it, how it can be exported and how it can be deleted.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>Prototype 1: Start Very Small</h2>
+      <p>The first experiment could be almost ridiculously simple:</p>
+      <ol>
+        <li>Visit a webpage.</li>
+        <li>Click <strong>“Add a Favorite Time.”</strong></li>
+        <li>Type or speak the memory.</li>
+        <li>Let AI ask two or three optional follow-up questions.</li>
+        <li>Add a photograph if desired.</li>
+        <li>Save the memory.</li>
+        <li>Repeat whenever another memory comes to mind.</li>
+      </ol>
+      <p>A dashboard might simply say:</p>
+      <div class="quote">You have remembered 37 Favorite Times.<br><br>Remember another →</div>
+      <p>
+        After enough memories have accumulated, another option could appear:
+        <strong>“What is my life story beginning to look like?”</strong>
+        AI could summarize recurring people, places, themes and periods as another invitation to remember.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>From a Utah Experiment to a National Resource?</h2>
+      <p>
+        National FCA is an educational organization with a nationwide network of affiliates. That creates
+        a sensible pathway for experimentation:
+      </p>
+      <div class="quote">
+        Utah experiments → people actually use it → we learn what works → FCA Utah shares the results →
+        National FCA can decide whether other affiliates might benefit.
+      </div>
+      <p>
+        The underlying technology could eventually be common while individual affiliates supply their own
+        branding and local resources.
+      </p>
+      <p>
+        That turns the idea from “Greg and his friend made a neat obituary app” into a potentially broader
+        consumer resource: a free way to remember a life before family members someday have to write about
+        that life after it is over.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>The Larger Idea</h2>
+      <p>Funeral planning usually begins with the assumption:</p>
+      <div class="quote">Someday I will die.</div>
+      <p>Favorite Times begins with another equally true assumption:</p>
+      <div class="quote">But first, I lived.</div>
+      <p>
+        AI gives us a new way to sit beside someone and help them remember that life—one story, one photograph,
+        one voice recording, one favorite time at a time.
+      </p>
+      <p>
+        When the practical moment eventually arrives to write an obituary, prepare a memorial or tell
+        grandchildren who this person was, the raw material is already there.
+      </p>
+      <div class="soft">
+        <p><strong>Not generated by AI.</strong></p>
+        <p><strong>Remembered by a human being.</strong></p>
+        <p><strong>Preserved with AI's help.</strong></p>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Background Links</h2>
+      <p>
+        <a href="https://www.utahfunerals.org/">Funeral Consumers Alliance of Utah</a><br>
+        <a href="https://www.funerals.org/">National Funeral Consumers Alliance</a><br>
+        <a href="https://zioncoalition.org/01-500-favorite-times-on-earth.html">500 Favorite Times on Earth — Source Concept</a>
+      </p>
+    </section>
+
+    <section class="home-link">
+      <p><a href="index.html">Return to Home</a></p>
+    </section>
+
+  </main>
+</body>
+</html>
