@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MASTER PROMPT — Image Preservation &amp; Surgical Editing</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0d3f73;color:#17324d;font-family:Arial,Helvetica,sans-serif;line-height:1.7}
+.page{max-width:960px;margin:auto;padding:30px 20px 70px}
+h1{color:white;text-align:center;font-size:clamp(1.7rem,4vw,2.5rem);margin:8px 0 12px}
+.tagline{text-align:center;color:#e8f4ff;margin:0 0 28px;font-size:1.08rem}
+h2{color:#123b5d;margin:0 0 14px;font-size:1.35rem}
+h3{color:#17324d;margin-bottom:6px}
+.card{background:#f8fbff;border-radius:18px;box-shadow:0 12px 30px rgba(0,0,0,.16);padding:28px;margin-bottom:22px}
+.card p:last-child{margin-bottom:0}
+.quote-box{background:#edf5fc;border-left:5px solid #f2c14e;border-radius:10px;padding:16px 20px;margin:18px 0;font-weight:bold;font-size:1.13rem}
+.warning{background:#fff8e8;border-left:5px solid #d6a322;border-radius:10px;padding:16px 20px;margin:18px 0}
+.prompt{background:white;border:2px solid #d6e3ef;border-radius:14px;padding:22px;white-space:pre-wrap;font-family:Consolas,"Courier New",monospace;font-size:.93rem;line-height:1.6;overflow-wrap:anywhere}
+code{overflow-wrap:anywhere}a{color:#046bd2;font-weight:bold}
+ul,ol{padding-left:1.5rem}li{margin:6px 0}
+.home-link{text-align:center;margin-top:30px}.home-link a{color:white;text-decoration:none}
+@media(max-width:600px){.page{padding:20px 12px 48px}.card{padding:20px}.prompt{padding:14px;font-size:.85rem}h2{font-size:1.2rem}}
+</style>
+</head>
+<body>
+<main class="page">
+<h1>MASTER PROMPT — IMAGE PRESERVATION &amp; SURGICAL EDITING</h1>
+<p class="tagline">00-08 · Lock the approved image. Change only what is requested.</p>
+
+<section class="card">
+<h2>Purpose</h2>
+<p>This is a <strong>universal master prompt</strong> for editing an existing approved image without unintended changes. It applies to photographs, memes, book covers, signs, portraits, posters, Jesus TV scenes, architectural compositions, and all other visual artwork.</p>
+<div class="quote-box">PRESERVE FIRST. MODIFY SECOND. NEVER RECREATE WHAT IS ALREADY APPROVED.</div>
+<p>Unlike a style prompt, this prompt establishes <strong>change control</strong>: the current approved image is authoritative, and only specifically authorized areas or elements may be modified.</p>
+</section>
+
+<section class="card">
+<h2>How to Use</h2>
+<ol>
+<li>Provide the <strong>most recently approved full image</strong> as the MASTER IMAGE. A previous description or an older image is not a substitute.</li>
+<li>Provide any original portraits, posters, book covers, or other <strong>reference assets</strong> whose details must remain faithful.</li>
+<li>Specify the <strong>exact change</strong> and its location. Identify anything that must stay in front of or behind the edited element.</li>
+<li>Tell ChatGPT: <strong>“Apply 00-08 Image Preservation. Make only this change: …”</strong></li>
+<li>Inspect the result against the master before approving it as the new master.</li>
+</ol>
+<div class="warning"><strong>Important:</strong> A URL, filename, or HTML image tag does not prove that ChatGPT has actually inspected an image. If the master or essential reference cannot be accessed, request the image attachment rather than inventing its appearance.</div>
+</section>
+
+<section class="card">
+<h2>Master Prompt — Copy and Reuse</h2>
+<div class="prompt">MASTER PROMPT — IMAGE PRESERVATION &amp; SURGICAL EDITING
+
+TASK TYPE: EDIT THE APPROVED IMAGE; DO NOT RECREATE IT.
+
+MASTER IMAGE:
+[ATTACH THE MOST RECENTLY APPROVED FULL IMAGE]
+
+REFERENCE ASSETS:
+[ATTACH ORIGINAL PHOTOS / POSTERS / COVERS, IF NEEDED]
+
+AUTHORIZED CHANGE(S):
+[STATE EXACTLY WHAT TO CHANGE]
+
+EDIT LOCATION(S):
+[STATE WHERE EACH CHANGE GOES, INCLUDING FRONT/BEHIND RELATIONSHIPS]
+
+EVERYTHING ELSE IS LOCKED.
+
+========================================================
+1. MASTER IMAGE IS AUTHORITATIVE
+========================================================
+
+The supplied approved image is the controlling source.
+Do not redesign, reinterpret, enhance, regenerate, rearrange,
+restyle, or "fix" any unmentioned element.
+
+Preserve the original:
+• composition, framing, crop, dimensions and aspect ratio
+• camera viewpoint, perspective, lighting and shadows
+• colors, textures, architecture and background
+• people, faces, expressions, clothing and poses
+• typography, spelling, punctuation and exact text
+• signs, posters, objects, decorative details and their positions
+• borders, frames, logos, watermarks and plaques
+• relative sizes, spacing, occlusion and depth order
+
+Do not add new objects or remove existing objects unless instructed.
+
+========================================================
+2. DEFINE THE EDIT MASK — EVERYTHING ELSE IS LOCKED
+========================================================
+
+Change only the specifically authorized region or element.
+Treat all pixels outside that region as protected whenever technically possible.
+
+For each change, identify:
+• the object or area being edited
+• what must be replaced, inserted, removed or adjusted
+• its exact location and intended size
+• which existing elements overlap it
+• whether it sits in front of or behind those elements
+
+If the request is ambiguous enough to risk changing an important
+approved element, ask one concise clarifying question before editing.
+
+========================================================
+3. REFERENCE ASSETS ARE SOURCE MATERIAL, NOT INSPIRATION
+========================================================
+
+When an original photo, face, book cover, poster, or other graphic is
+supplied, preserve its identity and visual details faithfully.
+
+Prefer inserting or compositing the actual supplied asset.
+Do not redraw faces or approximate the original from a text description.
+Do not invent new text or redesign supplied typography.
+
+Only apply necessary resizing, perspective correction, cropping when
+authorized, masking, and subtle lighting integration.
+
+If a faithful composite is not possible with the available tools,
+state that limitation rather than claiming an exact match.
+
+========================================================
+4. PREFER LOCALIZED COMPOSITING OVER WHOLE-IMAGE GENERATION
+========================================================
+
+Use non-generative image compositing for exact preservation when available.
+Otherwise use targeted, masked editing rather than regenerating the full scene.
+
+If only a generative editor is available, recognize that it may alter
+unmasked details, text, faces, or framing despite these instructions.
+Never promise pixel-perfect fidelity from a method that cannot guarantee it.
+
+Do not call an image "unchanged" without checking it.
+
+========================================================
+5. PRESERVE EXACT TEXT
+========================================================
+
+Treat existing and supplied text as visual source material.
+Do not paraphrase, respell, abbreviate, change capitalization, add
+punctuation, omit lines, or replace unusual wording.
+
+When text must remain exact, prefer reusing original graphic pixels or
+adding precisely typeset text instead of relying on image generation.
+
+========================================================
+6. PROTECT LAYERS AND OCCLUSION
+========================================================
+
+Maintain correct front/behind relationships.
+If a poster belongs behind a railing, the railing must remain in front.
+If an object is on a stand, preserve the stand and its original position.
+
+Do not cover existing signs, windows, faces, or other protected objects
+unless the authorized change explicitly requires it.
+
+========================================================
+7. COMPARE BEFORE DELIVERING
+========================================================
+
+Compare the result against the master image, checking:
+[ ] Overall frame, crop, proportions and perspective unchanged
+[ ] All unedited objects remain in their original positions
+[ ] Faces and likenesses remain faithful to source assets
+[ ] Original wording and typography remain intact
+[ ] Only authorized regions have changed
+[ ] Layer order, lighting and perspective are appropriate
+[ ] No unrequested additions, removals or visual drift
+
+If unintended changes are detected, correct them when possible.
+If they cannot be corrected, disclose the specific limitation.
+Do not silently present the result as an exact preservation.
+
+========================================================
+8. APPROVAL AND VERSION CONTROL
+========================================================
+
+The newest explicitly approved result becomes the master for the NEXT edit.
+A newly generated result is not automatically approved.
+Never substitute an earlier draft for the latest approved master.
+
+When a request says "nothing else changes," interpret that literally:
+ONLY THE SPECIFIED CHANGE IS AUTHORIZED.
+
+FINAL RULE:
+PRESERVE FIRST. MODIFY SECOND.
+NEVER RECREATE WHAT IS ALREADY APPROVED.</div>
+</section>
+
+<section class="card">
+<h2>Practical Editing Workflow</h2>
+<ol>
+<li><strong>Identify the master:</strong> Confirm which exact image is approved.</li>
+<li><strong>Identify the references:</strong> Use the original image assets, especially for recognizable people and detailed typography.</li>
+<li><strong>Define the change zone:</strong> Identify the smallest practical edit area.</li>
+<li><strong>Protect the rest:</strong> Prefer a layered composite or masked edit that leaves the original pixels intact.</li>
+<li><strong>Check the result:</strong> Compare the revised image to the master, including details outside the edited area.</li>
+<li><strong>Promote only after approval:</strong> The approved result becomes the next master.</li>
+</ol>
+</section>
+
+<section class="card">
+<h2>Special Case — Jesus TV</h2>
+<p>When the artwork is inside the standard <strong>What I See On Jesus TV</strong> frame, apply this preservation prompt <em>together with</em> the existing <a href="https://zioncoalition.org/00-07-PROMPT-jtv-frame.html">00-07 Master Prompt — Jesus TV Frame</a>.</p>
+<div class="quote-box">00-07 defines the permanent Jesus TV frame. 00-08 controls what may change in an already approved image.</div>
+<p>For example, when editing Victory Hall, preserve the television casing, gold trim, plaque, building, signs, sidewalk writing, and all other approved details unless a specific change is requested.</p>
+</section>
+
+<section class="card">
+<h2>Technical Honesty — What This Prompt Can and Cannot Guarantee</h2>
+<p>A strong prompt improves editing discipline, but it is <strong>not a pixel-lock mechanism</strong>. Generative image tools can still drift in faces, signs, architecture, and text. For exact preservation, the reliable approach is direct image compositing: retain the original image and change only the selected pixels or layers.</p>
+<p>If the task demands exact preservation and suitable compositing tools are available, use them. Otherwise, explain the risk and ask whether a less exact generative edit is acceptable.</p>
+</section>
+
+<section class="card">
+<h2>Quick Instruction for Future Chats</h2>
+<div class="quote-box">Apply <a href="https://zioncoalition.org/00-08-PROMPT-image-preservation.html">00-08 Image Preservation</a>. The attached image is the approved master. Change only what I specify. Everything else is locked.</div>
+<p>When first publishing this file, the link above will work after it is added to the Zion Coalition site at the matching filename.</p>
+</section>
+
+<p class="home-link"><a href="https://zioncoalition.org/">← Return to Zion Coalition Home</a></p>
+</main>
+</body>
+</html>
