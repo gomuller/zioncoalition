@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>00-10 MASTER PROMPT — Narration and Scene Synchronization</title><style>*{box-sizing:border-box}body{margin:0;background:#0d3f73;color:#17324d;font:16px/1.65 Arial,Helvetica,sans-serif}.page{max-width:960px;margin:auto;padding:30px 18px 60px}h1{color:white;text-align:center;font-size:clamp(1.6rem,4vw,2.5rem)}.sub{text-align:center;color:#e8f4ff}.card{background:#f8fbff;border-radius:18px;padding:28px;margin:22px 0;box-shadow:0 12px 30px #0002}h2{color:#123b5d;margin-top:0}.note{background:#edf5fc;border-left:5px solid #f2c14e;padding:16px;border-radius:9px}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:white;border:2px solid #d6e3ef;border-radius:12px;padding:20px;font:14px/1.55 Consolas,monospace}code{overflow-wrap:anywhere}a{color:#0566b4}.footer{text-align:center}.footer a{color:white}@media(max-width:600px){.card{padding:18px}pre{padding:12px}}</style></head><body><main class="page"><h1>MASTER PROMPT — NARRATION &amp; SCENE SYNCHRONIZATION</h1><p class="sub">00-10 · Keep the film. Align the words. Preserve each approved change.</p><section class="card"><h2>Purpose</h2><p>Reusable workflow for a movie assembled from multiple visual scenes and a separate human voice recording. Developed during the 14-scene, approximately 112-second <em>500 Redeemed Memories</em> project. The guiding preference is to <strong>move narration segments rather than shorten approved footage</strong>, unless specifically requested otherwise.</p><div class="note"><strong>Priority order:</strong> approved visuals → authentic voice → natural spoken phrasing → meaningful scene alignment → compatible export → user playback approval.</div></section><section class="card"><h2>Pre-prompt for a new session</h2><pre>Read and apply https://zioncoalition.org/00-10-PROMPT-narration-scene-sync.html before we edit narration timing.
+
+I will provide my current approved movie and voice file. First inspect their actual timing and make a scene/narration alignment map. Do not edit yet. Preserve the approved video scenes and spoken words. Once I identify a move, change only that portion of the narration, retain earlier approved edits, export using the successful stereo AAC profile in 00-09, and let me check the result.</pre></section><section class="card"><h2>Reusable master prompt</h2><pre>MASTER PROMPT — NARRATION TO PICTURE
+
+INPUTS: [APPROVED VIDEO], [LATEST APPROVED AUDIO], [SCRIPT OR TRANSCRIPT IF AVAILABLE]
+
+1. INSPECT: Determine exact video/audio durations and streams. Identify scene boundaries from the real video. If needed, create a contact sheet with scene start times. Do not invent precise timestamps from memory.
+
+2. ALIGNMENT MAP: Record for each scene its start/end, visible subject, corresponding spoken passage, and current voice start/end. Where speech boundaries are uncertain, inspect the waveform or listen rather than cutting mid-word.
+
+3. EDIT COMMANDS: Accept informal instructions such as:
+   “Move ‘Along the way’ to 0:16, start of mint scene.”
+   “Move the entire sacrament passage to the sacrament scene.”
+   “Add three seconds of silence after ‘Lord, when saw we thee?’”
+   “Keep the visuals fixed; shift only this audio passage.”
+
+4. MOVE WHOLE THOUGHTS: Cut at natural silence or zero crossings with small fades to prevent clicks. Never split words. Preserve every word and its original voice quality. Avoid overlapping passages unless explicitly requested. If moving one segment would collide with another, explain the conflict and propose a minimal solution before destructive edits.
+
+5. TRACK CHANGES: Maintain a numbered edit log (Move #1, #2, etc.), with original and new time, exact phrase and affected range. Apply each new request to the last APPROVED master, not an earlier file. Never silently undo an earlier approved move.
+
+6. LENGTH: Prefer silence, natural pauses, or a held final picture over speeding up the voice. If the spoken audio exceeds the video, discuss a final-frame hold or other options. Do not truncate the closing line.
+
+7. RECORDING-GUIDE MODE: If I ask for silent video with captions so I can rerecord, remove voice/music and overlay low-positioned, readable script captions at planned scene times. Treat them as a pacing guide, not automatically as word-perfect subtitle synchronization. Include an editable SRT when useful.
+
+8. SCRIPT REVISIONS: If I remove a sentence (e.g., “Begin with one memory”), remove it from the working script/caption plan. Do not assume an old recording magically loses the spoken line; use the new recording or request permission to cut it.
+
+9. EXPORT: Use 00-09's confirmed compatible H.264 MP4 + stereo AAC 192 kb/s, 48 kHz audio, +faststart. Analyze levels, prevent clipping and verify audio exists and decodes. Do not mistake stream metadata for user-confirmed audibility.
+
+10. REVIEW: Provide a versioned preview. Ask for one specific correction at a time. When I say “that worked,” lock it. Never declare that I heard the audio unless I confirm it.</pre></section><section class="card"><h2>Quick command format</h2><pre>MOVE AUDIO: “{exact opening words}”
+TO: {mm:ss OR description of scene}
+RANGE: {single sentence / through “ending words” / whole passage}
+KEEP: video unchanged; other approved audio edits unchanged</pre><p>Natural language is equally acceptable. If the phrase uniquely identifies a passage, no form is necessary.</p></section><section class="card"><h2>Version and approval rules</h2><p>Keep source recordings, silent visual master, caption guide, and last approved narrated master as distinct files. Use versioned filenames. If a new version fails playback, return to the last working version and change only the failing audio-export dimension. See <a href="00-09-PROMPT-movie-audio-compatibility.html">00-09 Movie Audio Compatibility</a>.</p></section><p class="footer"><a href="index.html">Return to Home</a></p></main></body></html>
