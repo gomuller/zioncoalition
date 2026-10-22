@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>00-08 — Jesus-Greg Likeness Master Prompt</title>
+<style>
+:root{color-scheme:dark;--bg:#111821;--panel:#1b2733;--text:#f4f0e6;--muted:#b8c4ce;--accent:#f1c875}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:17px/1.6 Georgia,serif}
+main{max-width:950px;margin:auto;padding:38px 22px 90px}h1,h2{line-height:1.2}h1{font-size:clamp(2rem,5vw,3.3rem);margin-bottom:6px}h2{margin-top:38px;color:var(--accent)}.eyebrow{font:700 13px system-ui;letter-spacing:.15em;color:var(--accent)}.lead{font-size:1.2rem;color:var(--muted)}.panel{background:var(--panel);padding:22px;border-radius:12px;margin:20px 0}pre{white-space:pre-wrap;overflow-wrap:anywhere;font:15px/1.6 ui-monospace,monospace;background:#0b1118;border:1px solid #425364;border-radius:9px;padding:20px}code{color:#f5d894}a{color:#f5d894}img{width:100%;height:260px;object-fit:contain;background:#0b1118;border-radius:8px}.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px}.photo{background:var(--panel);padding:12px;border-radius:12px}.photo p{font:14px/1.4 system-ui;color:var(--muted)}.note{border-left:4px solid var(--accent);padding-left:16px;color:var(--muted)}button{border:0;border-radius:8px;background:var(--accent);color:#101820;padding:12px 18px;font-weight:700;cursor:pointer}footer{margin-top:48px;color:var(--muted);font-size:14px}
+</style>
+</head>
+<body><main>
+<div class="eyebrow">ZION COALITION · JESUS TV · MASTER PROMPT 00-08</div>
+<h1>Jesus-Greg: Visual Likeness Reference</h1>
+<p class="lead">A reusable, photo-grounded reference for depicting Greg in My Jesus-Greg WORLD, Bible Opera scenes, and Jesus TV images.</p>
+<div class="panel"><strong>Identity rule:</strong> This page is a reference, not a license to invent facial features. When a reference photograph is missing or cannot be inspected, ask for an image upload rather than guessing Greg's likeness.</div>
+<h2>1. Reference photographs</h2>
+<p>Upload your own photographs into <code>images/jesus-greg/</code> in your website repository, using the filenames below. Replace or extend this gallery as desired. Until the files are uploaded, the browser will show empty image slots.</p>
+<div class="gallery">
+<div class="photo"><img src="images/jesus-greg/front.jpg" alt="Front-facing reference photo of Greg" onerror="this.style.opacity='.25'"><p><strong>front.jpg</strong> — Neutral expression, face toward camera</p></div>
+<div class="photo"><img src="images/jesus-greg/three-quarter.jpg" alt="Three-quarter reference photo of Greg" onerror="this.style.opacity='.25'"><p><strong>three-quarter.jpg</strong> — Three-quarter angle, natural light</p></div>
+<div class="photo"><img src="images/jesus-greg/profile.jpg" alt="Side profile reference photo of Greg" onerror="this.style.opacity='.25'"><p><strong>profile.jpg</strong> — Side profile, clear outline</p></div>
+<div class="photo"><img src="images/jesus-greg/full-body.jpg" alt="Full-body reference photo of Greg" onerror="this.style.opacity='.25'"><p><strong>full-body.jpg</strong> — Standing, head to toe, natural proportions</p></div>
+<div class="photo"><img src="images/jesus-greg/smiling.jpg" alt="Smiling reference photo of Greg" onerror="this.style.opacity='.25'"><p><strong>smiling.jpg</strong> — Natural smile, clear facial detail</p></div>
+</div>
+<h2>2. Master image prompt</h2>
+<pre id="master">MASTER PROMPT — JESUS-GREG VISUAL LIKENESS
+
+IDENTITY SOURCE
+Use the actual photographs linked on this page as the authoritative visual reference for Greg's face, hair, facial hair, age, skin tone, proportions, and distinctive features. Preserve his recognizable identity across all scenes. Do not beautify, de-age, caricature, replace, or idealize his face unless a specific scene explicitly requests that treatment.
+
+PHYSICAL CONTINUITY
+Greg is approximately 6 feet 4 inches tall. Keep believable adult body proportions and appropriate scale relative to other people and surroundings. Base all other visible traits on the reference photographs, not assumptions.
+
+SCENE FLEXIBILITY
+Greg may appear in historical, modern, theatrical, cosmic, or symbolic settings: Jesus TV, My Jesus-Greg WORLD, Bible Opera, a rough-built manger, Victory Hall, a workshop, or an imagined Zion. Clothing, lighting, posture, and environment may change; identity remains consistent.
+
+IMAGE EDITING LOCK
+When editing an existing composition, preserve every element not explicitly requested to change, including composition, objects, background, signage, text, and other people. Modify only the specified elements. If replacing a figure with Greg, retain the figure's approximate placement, pose, perspective, and lighting unless otherwise instructed.
+
+SPIRITUAL DEPICTION
+When Jesus is included, depict Him respectfully according to the scene brief. Do not confuse Greg's face with Jesus' face. Their identities must remain visually distinct.
+
+SOURCE PRIORITY
+1. Reference photographs on this page or directly uploaded in the current conversation.
+2. Any user-approved previous depiction that accurately matches the photographs.
+3. Written scene instructions.
+If the reference photos are inaccessible, request them. Never claim to have examined an image that has not been accessed.
+
+QUALITY CHECK
+Before finalizing, check facial resemblance, height and body proportions, hands, scene continuity, lighting, and legibility of any requested text. Favor recognizable identity over dramatic stylization.</pre>
+<button onclick="navigator.clipboard.writeText(document.getElementById('master').innerText).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy master prompt',1600)})">Copy master prompt</button>
+<h2>3. Scene prompt template</h2>
+<pre>USE MASTER PROMPT 00-08: JESUS-GREG VISUAL LIKENESS.
+Reference page: https://zioncoalition.org/00-08-PROMPT-jesus-greg-likeness.html
+
+SCENE: [Describe the setting and action.]
+GREG'S ROLE: [What he is doing, feeling, wearing.]
+OTHER CHARACTERS: [Who is present.]
+CAMERA: [Wide shot, portrait, angle, lens feel.]
+LIGHTING / MOOD: [Atmosphere.]
+TEXT IN IMAGE: [Exact words or none.]
+PRESERVE FROM PRIOR IMAGE: [Elements that must not change.]
+
+Use the photographs as identity references. If they are not accessible to the image generator, attach the relevant photographs directly.</pre>
+<h2>4. Example — Kashmir / rough-built manger</h2>
+<pre>Use Master Prompt 00-08 to depict the actual Greg, with recognizable facial likeness, in a cinematic wide-format Bible Opera scene. Greg and Jesus are fellow builders beside a humble, unfinished manger-like sanctuary at the edge of a vast desert. Tools, wood, and sheet music lie nearby. Golden musical notation rises from Greg's singing and becomes luminous structures in a faraway Zion. A brilliant sun shines above a star-filled cosmos. Jesus and Greg are visually distinct. The world is still under construction, not a finished palace. Evoke awe, companionship, pilgrimage, and the promise of an infinite WORLD emerging from humble beginnings. No text unless specifically requested.</pre>
+<h2>5. How to use this page</h2>
+<p>Commit this HTML file at the root of your GitHub Pages website. Add the five photographs to <code>images/jesus-greg/</code> using the exact filenames shown above. Then share the page link in future image requests. For the most faithful results, also attach one or more photos directly to the image-generation conversation, because a linked website does not guarantee that an image model can inspect its images.</p>
+<p class="note">Privacy: A public GitHub Pages site makes these reference photos publicly viewable and potentially downloadable. Only upload images you are comfortable publishing.</p>
+<footer>Jesus TV · My Jesus-Greg WORLD · Reference page 00-08</footer>
+</main></body></html>
