@@ -1,0 +1,388 @@
+/* =========================================================
+   Jesus Mountain Restaurant — Prototype 001
+   Palette (from Construction Assignment 001):
+   Warm cream   #F7F0E5
+   Forest green #263F32
+   Charcoal     #25231F
+   Antique gold #B68A4B
+   Clay red     #874D3A
+   ========================================================= */
+
+:root {
+  --cream: #F7F0E5;
+  --cream-dark: #EFE4D0;
+  --forest: #263F32;
+  --forest-dark: #1C3026;
+  --charcoal: #25231F;
+  --gold: #B68A4B;
+  --clay: #874D3A;
+  --serif-display: "Playfair Display", "Didot", "Bodoni MT", Georgia, "Times New Roman", serif;
+  --serif-body: Georgia, "Times New Roman", Times, serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-family: var(--serif-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+}
+
+img { max-width: 100%; height: auto; display: block; }
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--forest);
+  color: var(--cream);
+  padding: 0.6rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+a:focus-visible, button:focus-visible {
+  outline: 3px solid var(--gold);
+  outline-offset: 2px;
+}
+
+/* ---------- Navigation ---------- */
+
+.site-header {
+  background: var(--cream);
+  border-bottom: 1px solid var(--cream-dark);
+  position: relative;
+  z-index: 20;
+}
+
+.main-nav {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.9rem 2rem;
+}
+
+.nav-links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-group {
+  display: flex;
+  gap: 2.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-group a {
+  color: var(--forest);
+  text-decoration: none;
+  font-family: var(--serif-display);
+  font-size: 0.92rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.1rem;
+}
+.nav-group a:hover { color: var(--clay); text-decoration: underline; text-underline-offset: 4px; }
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  padding: 0.5rem;
+  margin-left: auto;
+}
+.nav-toggle-bar {
+  display: block;
+  width: 26px;
+  height: 3px;
+  background: var(--forest);
+  margin: 5px 0;
+  border-radius: 2px;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: var(--charcoal);
+}
+
+.hero-photo {
+  width: 100%;
+  height: clamp(340px, 56vw, 640px);
+  object-fit: cover;
+  object-position: center 42%;
+}
+
+.hero-logo-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: clamp(0.6rem, 3.2vw, 2.6rem);
+  pointer-events: none;
+}
+
+.hero-heading { margin: 0; line-height: 0; }
+
+.hero-logo {
+  width: min(780px, 92vw);
+  /* Soft warm glow so the black artwork stays legible over sky and cloud,
+     echoing how the logo sits on the sky in the approved mockup. */
+  filter: drop-shadow(0 0 14px rgba(247, 240, 229, 0.85))
+          drop-shadow(0 0 42px rgba(247, 240, 229, 0.55));
+}
+
+/* ---------- Intro & tiles ---------- */
+
+.intro {
+  background: var(--cream);
+  text-align: center;
+  padding: 1.6rem 2rem 2.6rem;
+}
+
+.intro-headline {
+  font-family: var(--serif-display);
+  font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0.4rem 0 0.2rem;
+}
+
+.intro-sep { color: var(--gold); font-size: 0.85em; padding: 0 0.35em; }
+
+.intro-tagline {
+  font-size: clamp(1rem, 1.8vw, 1.2rem);
+  color: var(--charcoal);
+  margin: 0 0 1.8rem;
+}
+
+.tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.4rem;
+  max-width: 1360px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tile {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  background: var(--forest);
+  box-shadow: 0 2px 10px rgba(37, 35, 31, 0.18);
+}
+.tile:hover .tile-label { background: var(--forest-dark); }
+.tile:hover .tile-arrow { background: var(--gold); color: var(--forest-dark); }
+
+.tile-photo { position: relative; display: block; }
+.tile-photo img {
+  width: 100%;
+  aspect-ratio: 338 / 177;
+  object-fit: cover;
+}
+
+.placeholder-badge {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  background: rgba(37, 35, 31, 0.78);
+  color: var(--cream);
+  font-family: var(--serif-body);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.55rem;
+  border-radius: 2px;
+}
+
+.tile-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  background: var(--forest);
+  color: var(--cream);
+  font-family: var(--serif-display);
+  font-size: 0.95rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 0.95rem 0.6rem;
+  transition: background 0.2s ease;
+}
+
+.tile-arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.7rem;
+  height: 1.7rem;
+  border: 1.5px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 1.25rem;
+  line-height: 1;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* ---------- Placeholder page sections ---------- */
+
+.page-section {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2.8rem 2rem 0.6rem;
+  text-align: center;
+}
+
+.page-section h2 {
+  font-family: var(--serif-display);
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--forest);
+  margin: 0 0 0.4rem;
+}
+
+.page-section h2::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  background: var(--gold);
+  margin: 0.7rem auto 0;
+}
+
+.section-note {
+  font-style: italic;
+  color: var(--clay);
+  margin: 0.6rem 0 0.8rem;
+}
+
+.page-section p { margin: 0.4rem 0 1rem; }
+.page-section:last-of-type { padding-bottom: 3rem; }
+
+/* ---------- Footer strip ---------- */
+
+.footer-strip {
+  background: var(--forest);
+  color: var(--gold);
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  margin-top: 2.6rem;
+  padding: 1.15rem 1rem;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin: 0;
+  padding: 0.2rem 2.2rem;
+  font-family: var(--serif-display);
+  font-size: 0.92rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.strip-item + .strip-item { border-left: 1px solid rgba(182, 138, 75, 0.45); }
+
+.strip-icon { width: 1.45rem; height: 1.45rem; fill: var(--gold); flex: none; }
+
+/* ---------- Footer ---------- */
+
+.site-footer {
+  background: var(--forest-dark);
+  color: var(--cream);
+  text-align: center;
+  padding: 2.6rem 1.5rem 2.2rem;
+  border-top: 2px solid var(--gold);
+}
+
+.footer-logo {
+  width: min(340px, 78vw);
+  margin: 0 auto 0.8rem;
+  filter: invert(1) sepia(0.25) brightness(0.96);
+  opacity: 0.95;
+}
+
+.footer-name {
+  font-family: var(--serif-display);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 1.05rem;
+  margin: 0.2rem 0 0;
+}
+
+.footer-phrase { color: var(--cream-dark); margin: 0.15rem 0 1.1rem; }
+
+.footer-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.4rem 1.8rem;
+  margin-bottom: 1.2rem;
+}
+.footer-nav a {
+  color: var(--gold);
+  text-decoration: none;
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.footer-nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.footer-note { font-size: 0.88rem; color: var(--cream-dark); margin: 0; }
+
+/* ---------- Tablet ---------- */
+
+@media (max-width: 1024px) {
+  .tiles { grid-template-columns: repeat(2, 1fr); }
+  .nav-group { gap: 1.5rem; }
+}
+
+/* ---------- Phone ---------- */
+
+@media (max-width: 640px) {
+  .main-nav { padding: 0.55rem 1rem; display: flex; flex-wrap: wrap; align-items: center; }
+  .nav-toggle { display: block; }
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    padding: 0.6rem 0 0.9rem;
+  }
+  .nav-links.open { display: flex; }
+  .nav-group { flex-direction: column; gap: 0; }
+  .nav-group li { border-top: 1px solid var(--cream-dark); }
+  .nav-group a { display: block; padding: 0.75rem 0.2rem; }
+
+  .hero-photo { height: 380px; object-position: center 40%; }
+  .hero-logo { width: 94vw; }
+
+  .intro { padding: 1.2rem 1rem 2rem; }
+  .tiles { grid-template-columns: 1fr; gap: 1.1rem; }
+
+  .footer-strip { flex-direction: column; align-items: center; gap: 0.7rem; }
+  .strip-item { padding: 0.2rem 0.5rem; }
+  .strip-item + .strip-item { border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
