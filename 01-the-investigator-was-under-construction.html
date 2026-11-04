@@ -18,6 +18,30 @@
     a{color:#046bd2;font-weight:bold}.home{text-align:center}
     .yellow-highlight{background:linear-gradient(transparent 35%,#fff176 35%,#fff176 88%,transparent 88%);padding:0 4px;font-weight:700;color:#1e3a5f}
     .green-highlight{background:linear-gradient(transparent 35%,#66ff4d 35%,#66ff4d 88%,transparent 88%);padding:0 4px;font-weight:700;color:#1e3a5f}
+    /* Distinctive visual treatment for the many-gifts section */
+    .gifts-card{
+      position:relative;
+      overflow:hidden;
+      border:2px solid #d6a841;
+      border-left:9px solid #d6a841;
+      background:linear-gradient(135deg,#fffdf4 0%,#f8fbff 55%,#eef6ff 100%);
+      box-shadow:0 16px 38px rgba(0,0,0,.22),0 0 0 4px rgba(242,193,78,.12);
+    }
+    .gifts-card::before{
+      content:"✦";
+      position:absolute;
+      right:22px;
+      top:12px;
+      font-size:4.5rem;
+      line-height:1;
+      color:rgba(185,134,26,.18);
+      pointer-events:none;
+    }
+    .gifts-card h2{
+      position:relative;
+      padding-bottom:16px;
+      border-bottom:2px solid rgba(185,134,26,.35);
+    }
     @media(max-width:600px){main{padding:12px 12px 50px}.card{margin:14px 0;border-radius:14px}body{font-size:16px}}
   </style>
 </head>
@@ -133,7 +157,7 @@
     </p>
   </section>
 
-  <section class="card">
+  <section class="card gifts-card">
     <h2>7. Moroni 10, Myers-Briggs, and the Many Gifts of God</h2>
     <p>
       And if this is a possible way God works upon me, why would I assume He works upon
