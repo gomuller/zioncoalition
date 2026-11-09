@@ -1,0 +1,77 @@
+name: Publish image from encoded chunks
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'image-transfer/manifest.json'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-image-main
+  cancel-in-progress: false
+
+jobs:
+  reconstruct:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Reconstruct and verify original image
+        run: |
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          import base64, hashlib, json, pathlib, re
+          from io import BytesIO
+          from PIL import Image
+          root = pathlib.Path('image-transfer')
+          m = json.loads((root/'manifest.json').read_text())
+          name = m['filename']
+          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.(?:jpg|jpeg|png|webp)', name, re.I):
+              raise SystemExit('Invalid destination filename')
+          chunks = m['chunks']
+          if not isinstance(chunks, list) or not (1 <= len(chunks) <= 500):
+              raise SystemExit('Expected 1 to 500 chunk filenames')
+          payload = []
+          for chunk in chunks:
+              if not isinstance(chunk, str) or not re.fullmatch(r'chunk-[0-9]{4}\.txt', chunk):
+                  raise SystemExit('Invalid chunk name')
+              payload.append((root/chunk).read_text().strip())
+          data = base64.b64decode(''.join(payload), validate=True)
+          if len(data) > 10_000_000:
+              raise SystemExit('Image exceeds 10 MB')
+          digest = hashlib.sha256(data).hexdigest()
+          if digest != m['sha256']:
+              raise SystemExit(f'SHA256 mismatch: {digest}')
+          im = Image.open(BytesIO(data))
+          im.verify()
+          im = Image.open(BytesIO(data))
+          expected = {'.jpg':'JPEG','.jpeg':'JPEG','.png':'PNG','.webp':'WEBP'}[pathlib.Path(name).suffix.lower()]
+          if im.format != expected or im.width*im.height > 60_000_000:
+              raise SystemExit('Image format or dimensions invalid')
+          pathlib.Path(name).write_bytes(data)
+          print(f'Verified {name}: {im.width}x{im.height}, {len(data)} bytes, sha256={digest}')
+          PY
+      - name: Commit verified image
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          m=json.loads(Path('image-transfer/manifest.json').read_text())
+          with open('image-transfer/output-filename.txt','w') as f:
+              f.write(m['filename'])
+          PY
+          FILENAME="$(cat image-transfer/output-filename.txt)"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$FILENAME"
+          if git diff --cached --quiet; then
+            echo "Image already matches existing file."
+          else
+            git commit -m "Publish reconstructed image: $FILENAME"
+            git push origin HEAD:main
+          fi
