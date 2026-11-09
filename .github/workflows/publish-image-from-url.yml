@@ -41,9 +41,9 @@ jobs:
           with open(os.environ['GITHUB_ENV'], 'a', encoding='utf-8') as env:
               for key, field in [('REQUEST_IMAGE_URL','image_url'),('REQUEST_FILENAME','filename')]:
                   value = request[field]
-                  if not isinstance(value,str) or '\\n' in value or '\\r' in value:
+                  if not isinstance(value,str) or '\n' in value or '\r' in value:
                       raise SystemExit('Invalid request value')
-                  env.write(f'{key}={value}\\n')
+                  env.write(f'{key}={value}\n')
           PY
       - name: Validate, download and inspect image
         env:
