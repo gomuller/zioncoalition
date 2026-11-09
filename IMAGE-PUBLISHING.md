@@ -14,7 +14,9 @@
    ```
 6. The push automatically triggers `.github/workflows/publish-image-from-url.yml`. The workflow downloads, validates, and commits the original image to `main`.
 7. Check the GitHub Actions run status and the repository Git tree to verify the published file, its byte count, and Git blob checksum.
-8. Final public URL: `https://zioncoalition.org/<filename>`.
+8. Confirm the published image is accessible at `https://zioncoalition.org/<filename>` (not just present in a queued or successful workflow). Check that the GitHub copy matches the source by byte size and checksum when available.
+9. **Clean up the staging folder:** only after GitHub publication and the live website image are verified, delete the *specific temporary Google Drive image* uploaded for that publication from `/Google Drive/Jesus-Greg Public Images/`. Use its exact Drive file ID, not a filename guess. Never delete an image while its workflow is queued, running, failed, or unverified. If deletion is unavailable through the connected tools, report it and leave the file in place for later cleanup.
+10. Preserve the GitHub-published image and any original/source files stored elsewhere. The public Drive folder is a **temporary transfer staging area**, not the permanent image archive.
 
 **No manual Drive upload, sharing change, or GitHub Actions button is required.**
 
@@ -31,4 +33,4 @@
 - JPEG, PNG, WebP; maximum 10 MB and 60 million pixels; simple root-level filename only.
 - Files placed in the public folder are **publicly readable**. Do not place private or sensitive images there.
 - Existing destination filenames may be overwritten; use distinctive names for new artwork.
-- Verify success rather than assuming a workflow request was published.
+- Verify success rather than assuming a workflow request was published. Clean up Drive only after that verification; never bulk-delete unrelated folder contents.
