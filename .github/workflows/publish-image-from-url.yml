@@ -39,7 +39,7 @@ jobs:
           from io import BytesIO
           url = os.environ['IMAGE_URL']
           filename = os.environ['FILENAME']
-          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\\.(?:jpg|jpeg|png|webp)', filename, re.I):
+          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.(?:jpg|jpeg|png|webp)', filename, re.I):
               raise SystemExit('Use a simple .jpg, .png, or .webp filename without directories')
           parsed = urllib.parse.urlparse(url)
           if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
