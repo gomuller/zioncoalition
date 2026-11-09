@@ -1,0 +1,86 @@
+name: Publish an image from a URL
+
+on:
+  workflow_dispatch:
+    inputs:
+      image_url:
+        description: 'Public HTTPS URL of a JPEG, PNG, or WebP image'
+        required: true
+        type: string
+      filename:
+        description: 'Destination filename at repository root (e.g. 01-my-artwork.jpg)'
+        required: true
+        type: string
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-image-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Validate, download and inspect image
+        env:
+          IMAGE_URL: ${{ inputs.image_url }}
+          FILENAME: ${{ inputs.filename }}
+        run: |
+          python -m pip install --quiet Pillow
+          python - <<'PY'
+          import os, re, socket, ipaddress, urllib.parse, urllib.request
+          from PIL import Image
+          from io import BytesIO
+          url = os.environ['IMAGE_URL']
+          filename = os.environ['FILENAME']
+          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\\.(?:jpg|jpeg|png|webp)', filename, re.I):
+              raise SystemExit('Use a simple .jpg, .png, or .webp filename without directories')
+          parsed = urllib.parse.urlparse(url)
+          if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
+              raise SystemExit('A public HTTPS URL is required')
+          def public_host(host):
+              for item in socket.getaddrinfo(host, None):
+                  ip = ipaddress.ip_address(item[4][0])
+                  if not ip.is_global:
+                      raise SystemExit('Private or non-public network address rejected')
+          public_host(parsed.hostname)
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  raise SystemExit('Redirects are not supported; provide the final HTTPS image URL')
+          opener = urllib.request.build_opener(NoRedirect)
+          req = urllib.request.Request(url, headers={'User-Agent': 'zioncoalition-image-publisher/1.0'})
+          with opener.open(req, timeout=30) as response:
+              data = response.read(10_000_001)
+          if len(data) > 10_000_000:
+              raise SystemExit('Image exceeds 10 MB')
+          im = Image.open(BytesIO(data))
+          im.verify()
+          actual = Image.open(BytesIO(data))
+          expected = {'.jpg':'JPEG','.jpeg':'JPEG','.png':'PNG','.webp':'WEBP'}[os.path.splitext(filename)[1].lower()]
+          if actual.format != expected:
+              raise SystemExit(f'Image format mismatch: expected {expected}, got {actual.format}')
+          if actual.width * actual.height > 60_000_000:
+              raise SystemExit('Image pixel count too large')
+          with open(filename,'wb') as out:
+              out.write(data)
+          print(f'Validated {filename}: {actual.width}x{actual.height}, {len(data)} bytes')
+          PY
+      - name: Commit published image
+        env:
+          FILENAME: ${{ inputs.filename }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$FILENAME"
+          if git diff --cached --quiet; then
+            echo "Image already matches existing file."
+          else
+            git commit -m "Publish image: $FILENAME"
+            git push origin HEAD:main
+          fi
