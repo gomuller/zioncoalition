@@ -5,6 +5,7 @@ on:
       - experiment/lean-pages-deployment
     paths:
       - '.github/workflows/lean-pages-reference-audit.yml'
+      - 'tools/audit_lean_pages.py'
   workflow_dispatch:
 permissions:
   contents: read
