@@ -33,3 +33,8 @@
 - Candidate temporarily omitted **76** media files totaling **104,700,867 raw bytes**. Earlier reference audit reported 81 files / 143,939,599 bytes; difference arises because the simulator also scans newer text including audit/plan content, so its naive reference heuristic changes when files mention media names. This proves the current text-scan method is **not stable enough to determine safe exclusions**.
 - Both ZIPs were removed at end of run. This was **not** a GitHub Pages deployment, so no deployment success is implied. No originals were changed.
 - **Next:** freeze a deterministic, explicit allowlist of actual page dependencies, and test lossless WebP conversion in staging. Keep old direct asset URLs reachable before any production switch.
+
+## Verified lossless WebP staging results — November 10, 2026
+- [Successful test 42837683819](https://github.com/gomuller/zioncoalition/actions/runs/42837683819): original ZIP **684,771,452 bytes**; five lossless WebP substitutions **679,605,710 bytes**; savings **5,165,742 bytes (0.754%)**. Source PNGs and live URLs untouched. The test is a packaging simulation, not a verified deployable converted website.
+- Stable web-source URL scan [run 42837535290](https://github.com/gomuller/zioncoalition/actions/runs/42837535290): **302** media, **199** matched literal references, **103** unmatched totaling **182,268,199 bytes**. Dynamic/external references remain possible; do not delete these files.
+- Production Pages [run 42836280332](https://github.com/gomuller/zioncoalition/actions/runs/42836280332) **succeeded**, disproving any claim that the current package size categorically prevents deployment. Verify public URLs independently.
