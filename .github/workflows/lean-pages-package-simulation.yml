@@ -1,0 +1,17 @@
+name: Lean Pages package simulation (no deployment)
+on:
+  push:
+    branches: [experiment/lean-pages-deployment]
+    paths:
+      - 'tools/simulate_lean_pages.py'
+      - '.github/workflows/lean-pages-package-simulation.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  simulate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Compare real ZIP sizes; do not deploy
+        run: python3 tools/simulate_lean_pages.py
