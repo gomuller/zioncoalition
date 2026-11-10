@@ -23,7 +23,10 @@ for page in root.rglob('*'):
         url=urlsplit(token)
         if url.scheme or url.netloc or token.startswith('//'): continue
         path=unquote(url.path).lstrip('/')
-        options=[path,(page.parent/path).resolve().relative_to(root.resolve()).as_posix()] if not token.startswith('/') else [path]
+        options=[path]
+        if not token.startswith('/'):
+            try: options.append((page.parent/path).resolve().relative_to(root.resolve()).as_posix())
+            except ValueError: pass
         for candidate in options:
             if candidate in media:
                 refs[candidate].append(pagepath)
