@@ -43,6 +43,13 @@ report = {
     "png_count": len(png),
     "png_bytes": sum(p.stat().st_size for p in png),
     "media_with_no_literal_reference_count": sum(refs[p.relative_to(root).as_posix()] == 0 for p in media),
+    "media_with_no_literal_reference_bytes": sum(p.stat().st_size for p in media if refs[p.relative_to(root).as_posix()] == 0),
+    "media_with_literal_reference_bytes": sum(p.stat().st_size for p in media if refs[p.relative_to(root).as_posix()] > 0),
+    "largest_media_without_literal_reference": [
+        {"path": p.relative_to(root).as_posix(), "bytes": p.stat().st_size}
+        for p in sorted(media, key=lambda x: x.stat().st_size, reverse=True)
+        if refs[p.relative_to(root).as_posix()] == 0
+    ][:30],
     "largest_media": [
         {"path": p.relative_to(root).as_posix(), "bytes": p.stat().st_size, "literal_mentions": refs[p.relative_to(root).as_posix()]}
         for p in sorted(media, key=lambda x: x.stat().st_size, reverse=True)[:25]
