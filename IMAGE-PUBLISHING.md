@@ -95,3 +95,9 @@
 - MP4 uses **a different workflow and request file** from images and GIFs. Check the current `.github/workflows/publish-video-from-drive.yml`, and include `ffmpeg`/`ffprobe` provisioning. Never repeat the first-run failure. 
 - Public Drive staging must not be used for private material. Avoid overwriting existing destination filenames accidentally.
 - Update **both this canonical Markdown document and its companion `00-16-PROMPT-image-publishing.html`** when the pipeline changes. The HTML prompt is a navigation and memory-recovery mirror, not a competing procedure.
+
+### GitHub Pages deployment recovery — 2026-11-10
+
+- Pages run `42827270287` built successfully but its initial deployment stayed in `syncing_files` until the 10-minute timeout. Rerunning its failed deploy job reused the cancelled deployment ID and failed immediately with `Deployment cancelled.`
+- **Do not rerun this same cancelled deployment again.** Make a new, purposeful commit to `main` to generate a fresh Pages build/deploy run, then inspect its new deployment ID and outcome. A successfully committed MP4 and a successful Pages deployment are separate checkpoints.
+- If a fresh deployment again stalls in `syncing_files`, investigate artifact size and the Pages service/configuration rather than continuing blind retries.
