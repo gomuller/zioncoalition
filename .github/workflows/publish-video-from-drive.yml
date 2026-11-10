@@ -1,0 +1,67 @@
+name: Publish MP4 from Google Drive
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'video-publish-request.json'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-video-main
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+          persist-credentials: true
+      - name: Download and validate MP4
+        run: |
+          python -m pip install --quiet gdown
+          python - <<'PY'
+          import json, pathlib, re, subprocess
+          import gdown
+          m=json.loads(pathlib.Path('video-publish-request.json').read_text())
+          name=m['filename']
+          if not isinstance(name,str) or not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.mp4',name,re.I):
+              raise SystemExit('Invalid root-level MP4 filename')
+          url=m['video_url']
+          match=re.fullmatch(r'https://drive\.google\.com/file/d/([A-Za-z0-9_-]+)/view(?:\?usp=sharing)?',url)
+          if not match:
+              raise SystemExit('Expected public Google Drive file URL')
+          result=gdown.download(id=match.group(1),output=name,quiet=False)
+          if not result:
+              raise SystemExit('Drive download failed')
+          p=pathlib.Path(name)
+          if not 1000 < p.stat().st_size <= 50_000_000:
+              raise SystemExit('Video size outside 1KB-50MB range')
+          with p.open('rb') as f:
+              head=f.read(12)
+          if head[4:8]!=b'ftyp':
+              raise SystemExit('Not an ISO base media file')
+          probe=subprocess.run(['ffprobe','-v','error','-show_entries','format=duration','-show_entries','stream=codec_type,codec_name','-of','json',name],capture_output=True,text=True,check=True)
+          info=json.loads(probe.stdout)
+          duration=float(info['format']['duration'])
+          if not 1<=duration<=1800 or not any(s.get('codec_type')=='video' for s in info['streams']):
+              raise SystemExit('Invalid MP4 duration or missing video stream')
+          print(f'Validated {name}: {p.stat().st_size} bytes, {duration:.2f}s')
+          PY
+      - name: Commit MP4
+        run: |
+          FILENAME="$(python -c "import json; print(json.load(open('video-publish-request.json'))['filename'])")"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$FILENAME"
+          if git diff --cached --quiet; then
+            echo "MP4 already published."
+          else
+            git commit -m "Publish video: $FILENAME"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
