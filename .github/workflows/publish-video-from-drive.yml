@@ -23,6 +23,7 @@ jobs:
           persist-credentials: true
       - name: Download and validate MP4
         run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
           python -m pip install --quiet gdown
           python - <<'PY'
           import json, pathlib, re, subprocess
