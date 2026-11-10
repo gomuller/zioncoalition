@@ -1,0 +1,57 @@
+name: Post-publication health check (30 minutes)
+on:
+  workflow_run:
+    workflows: ["pages build and deployment"]
+    types: [completed]
+permissions:
+  contents: read
+  issues: write
+jobs:
+  check:
+    if: ${{ github.event.workflow_run.head_branch == 'main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - name: Allow live site to settle
+        run: sleep 1800
+      - name: Verify deployment and public URLs
+        id: verify
+        env:
+          PAGES_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          PAGES_RUN: ${{ github.event.workflow_run.html_url }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ "$PAGES_CONCLUSION" != "success" ]]; then
+            echo "Pages workflow concluded: $PAGES_CONCLUSION ($PAGES_RUN)" >&2
+            exit 1
+          fi
+          base=https://zioncoalition.org
+          for name in "" 01-brooklyn-sculptor.html brooklyn-sculptor-final.mp4 brooklyn-sculptor-comments.gif brooklyn-sculptor-poster.jpg; do
+            url="$base/${name}"
+            echo "Checking $url"
+            curl --fail --location --silent --show-error --retry 2 --max-time 60 --range 0-1023 --output /tmp/site-health-response --write-out 'HTTP=%{http_code} content_type=%{content_type} bytes_received=%{size_download}\n' "$url"
+            test -s /tmp/site-health-response
+          done
+          echo 'All checked URLs returned successful nonempty responses.'
+      - name: Create GitHub issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          PAGES_RUN: ${{ github.event.workflow_run.html_url }}
+          PAGES_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          PAGES_SHA: ${{ github.event.workflow_run.head_sha }}
+        shell: bash
+        run: |
+          cat > /tmp/publishing-issue.md <<EOF
+          The automated post-publication check failed after a 30-minute settling period.
+
+          - Pages run: $PAGES_RUN
+          - Pages conclusion: $PAGES_CONCLUSION
+          - Commit: $PAGES_SHA
+          - Post-publication check: https://github.com/$GH_REPO/actions/runs/$GITHUB_RUN_ID
+
+          Inspect the check logs for the exact failing URL/status. This test verifies HTTP access and nonempty responses, **not browser video playback**.
+          EOF
+          gh issue create --title "Publishing watchdog: post-deployment verification failed ($PAGES_SHA)" --body-file /tmp/publishing-issue.md
