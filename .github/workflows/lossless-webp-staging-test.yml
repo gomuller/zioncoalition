@@ -1,0 +1,19 @@
+name: Lossless WebP staging package test (no deployment)
+on:
+  push:
+    branches: [experiment/lean-pages-deployment]
+    paths:
+      - 'tools/simulate_lossless_webp_package.py'
+      - '.github/workflows/lossless-webp-staging-test.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Pillow
+        run: python3 -m pip install --quiet pillow
+      - name: Measure ZIP sizes after five lossless conversions
+        run: python3 tools/simulate_lossless_webp_package.py
