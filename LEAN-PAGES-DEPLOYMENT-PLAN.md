@@ -26,3 +26,10 @@
 - 81 media files, **143,939,599 bytes (~143.9 MB)**, had no literal filename mention in the scanned text files; 549,661,233 media bytes had at least one literal mention. These categories do **not** establish actual reachability or safe deletion.
 - Largest unmentioned candidates: `coins (1).gif` 12,186,201 bytes; `bird (1).gif` 9,963,302; `jcarrot (1).gif` 8,453,912; `j-eyes (1).gif` 4,760,842; `follow (1).png` 3,874,475.
 - **Do not remove or exclude any of these from production.** Next: inspect exact external links and dynamic usage, then stage a reversible deployment with URL compatibility before any cutover.
+
+## Staging ZIP simulation — November 10, 2026
+- [Successful GitHub Actions run 42836901692](https://github.com/gomuller/zioncoalition/actions/runs/42836901692).
+- Full checkout ZIP: **684,767,737 bytes**. Candidate ZIP: **583,763,802 bytes**. Measured ZIP reduction **101,003,935 bytes (~14.75%)**.
+- Candidate temporarily omitted **76** media files totaling **104,700,867 raw bytes**. Earlier reference audit reported 81 files / 143,939,599 bytes; difference arises because the simulator also scans newer text including audit/plan content, so its naive reference heuristic changes when files mention media names. This proves the current text-scan method is **not stable enough to determine safe exclusions**.
+- Both ZIPs were removed at end of run. This was **not** a GitHub Pages deployment, so no deployment success is implied. No originals were changed.
+- **Next:** freeze a deterministic, explicit allowlist of actual page dependencies, and test lossless WebP conversion in staging. Keep old direct asset URLs reachable before any production switch.
