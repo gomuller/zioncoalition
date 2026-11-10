@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       image_url:
-        description: 'Public HTTPS URL of a JPEG, PNG, or WebP image'
+        description: 'Public HTTPS URL of a JPEG, PNG, WebP, or GIF image'
         required: true
         type: string
       filename:
@@ -57,7 +57,7 @@ jobs:
           from io import BytesIO
           url = os.environ['IMAGE_URL']
           filename = os.environ['FILENAME']
-          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.(?:jpg|jpeg|png|webp)', filename, re.I):
+          if not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.(?:jpg|jpeg|png|webp|gif)', filename, re.I):
               raise SystemExit('Use a simple .jpg, .png, or .webp filename without directories')
           parsed = urllib.parse.urlparse(url)
           if parsed.scheme != 'https' or not parsed.hostname or parsed.username or parsed.password:
@@ -99,7 +99,7 @@ jobs:
           im = Image.open(BytesIO(data))
           im.verify()
           actual = Image.open(BytesIO(data))
-          expected = {'.jpg':'JPEG','.jpeg':'JPEG','.png':'PNG','.webp':'WEBP'}[os.path.splitext(filename)[1].lower()]
+          expected = {'.jpg':'JPEG','.jpeg':'JPEG','.png':'PNG','.webp':'WEBP','.gif':'GIF'}[os.path.splitext(filename)[1].lower()]
           if actual.format != expected:
               raise SystemExit(f'Image format mismatch: expected {expected}, got {actual.format}')
           if actual.width * actual.height > 60_000_000:
