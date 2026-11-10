@@ -1,0 +1,23 @@
+name: Public Brooklyn sculptor URL smoke test
+on:
+  push:
+    branches: [experiment/lean-pages-deployment]
+    paths: ['.github/workflows/brooklyn-public-smoke-test.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check public page and media headers
+        shell: bash
+        run: |
+          set -euo pipefail
+          base=https://zioncoalition.org
+          for name in 01-brooklyn-sculptor.html brooklyn-sculptor-final.mp4 brooklyn-sculptor-comments.gif brooklyn-sculptor-poster.jpg; do
+            echo "Checking $base/$name"
+            curl --fail --location --silent --show-error --max-time 45 --retry 2 --range 0-1023 --output /tmp/brooklyn-response --write-out 'HTTP=%{http_code} content_type=%{content_type} bytes_received=%{size_download} effective_url=%{url_effective}\n' "$base/$name"
+            test -s /tmp/brooklyn-response
+          done
+          echo 'All four public URLs returned nonempty successful HTTP responses.'
