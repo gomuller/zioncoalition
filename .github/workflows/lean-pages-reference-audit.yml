@@ -1,0 +1,17 @@
+name: Lean Pages reference audit (read only)
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/lean-pages-reference-audit.yml']
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: experiment/lean-pages-deployment
+      - name: Run non-destructive media reference audit
+        run: python3 tools/audit_lean_pages.py
