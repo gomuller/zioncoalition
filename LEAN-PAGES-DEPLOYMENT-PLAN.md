@@ -20,3 +20,9 @@
 
 ## Current decision
 **Do not run bulk WebP conversion or change production Pages settings yet.** First collect reference dependencies and test a staging build. The user wants all artwork preserved, and the primary objective is a reliable deployment rather than a speculative compression target.
+
+## Reference audit results — November 10, 2026
+- Experimental run [42836562898](https://github.com/gomuller/zioncoalition/actions/runs/42836562898) succeeded.
+- 81 media files, **143,939,599 bytes (~143.9 MB)**, had no literal filename mention in the scanned text files; 549,661,233 media bytes had at least one literal mention. These categories do **not** establish actual reachability or safe deletion.
+- Largest unmentioned candidates: `coins (1).gif` 12,186,201 bytes; `bird (1).gif` 9,963,302; `jcarrot (1).gif` 8,453,912; `j-eyes (1).gif` 4,760,842; `follow (1).png` 3,874,475.
+- **Do not remove or exclude any of these from production.** Next: inspect exact external links and dynamic usage, then stage a reversible deployment with URL compatibility before any cutover.
