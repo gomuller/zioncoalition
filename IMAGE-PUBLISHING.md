@@ -1,8 +1,8 @@
-# Jesus-Greg image and animated-GIF publishing — ZERO MANUAL UPLOAD
+# Jesus-Greg image, animated GIF, and MP4 video publishing — ZERO MANUAL UPLOAD
 
-**Canonical first reference for ALL Zion Coalition image publishing.** Updated 2026-11-10. Companion prompt: [00-16-PROMPT-image-publishing.html](00-16-PROMPT-image-publishing.html).
+**Canonical first reference for ALL Zion Coalition image, animated GIF, and MP4 video publishing.** Updated 2026-11-10. Companion prompt: [00-16-PROMPT-image-publishing.html](00-16-PROMPT-image-publishing.html).
 
-> **MANDATORY FOR FUTURE ASSISTANTS:** Before claiming that image/GIF upload to GitHub is impossible, before asking Greg to upload anything manually, or before replacing an animated GIF with HTML, READ THIS FILE AND INSPECT THE ACTUAL WORKFLOWS. We already built, tested, and documented a fully automated ChatGPT → Google Drive → GitHub Actions → Zion Coalition pipeline. Do not confuse limitations of GitHub's text-only `create_file`/`update_file` APIs with limitations of the established publishing system. Greg should not have to re-teach this.
+> **MANDATORY FOR FUTURE ASSISTANTS:** Before claiming that image, GIF, or MP4 upload to GitHub is impossible, before asking Greg to upload anything manually, or before replacing an animated GIF with HTML, READ THIS FILE AND INSPECT THE ACTUAL WORKFLOWS. We already built, tested, and documented a fully automated ChatGPT → Google Drive → GitHub Actions → Zion Coalition pipeline for JPEG, PNG, WebP, GIF, and MP4 video. Do not confuse limitations of GitHub's text-only `create_file`/`update_file` APIs with limitations of the established publishing system. Greg should not have to re-teach this.
 
 ## Authoritative automated workflow (successfully tested 2026-11-09; GIF tested 2026-11-10)
 
@@ -24,6 +24,42 @@
 8. Embed with an ordinary `<img src="DESIRED-ROOT-FILENAME.gif" ...>` in the target HTML page. GitHub's text file APIs CAN edit HTML and the request JSON; they are not how we transport image bytes.
 9. **Cleanup only after full verification:** remove only the specific temporary Drive staging file by its exact file ID, not by guessed filename, and never bulk-delete the folder. If deletion is unavailable, leave it in place and report it. Do not delete while queued, running, failed, or unverified. Preserve GitHub publication and original/source files.
 10. If any stage fails, inspect the actual workflow logs, Drive permissions, file size, format, request JSON, and Actions run. Retry the established pipeline before proposing a manual workaround.
+
+## Authoritative automated MP4 publishing (successfully tested 2026-11-10)
+
+**This is the video counterpart to the image/GIF procedure above.** The binary bridge remains ChatGPT → Google Drive → GitHub Actions → the `gomuller/zioncoalition` repository, with **no manual upload**. Use the dedicated video workflow, not the image workflow. Always inspect the current files for changes before acting.
+
+1. Prepare a real, browser-playable MP4 in the working container, ideally H.264 video and AAC audio for broad HTML5 support. Preserve the original. Confirm container path, byte size, codec information, and duration; when compressing for GitHub, target a manageable file size (the Brooklyn test was **20,075,282 bytes**, approximately 20.1 MB, lasting about **2:09**). Test decoding before publishing.
+2. Upload the MP4 using the **same** `files__manage_library` mechanism and public Google Drive staging folder as for images:
+   ```json
+   {"operations":[{"operation":"upload","container_path":"/mnt/data/EXACT-VIDEO.mp4","destination_path":"/Google Drive/Jesus-Greg Public Images/EXACT-VIDEO.mp4"}]}
+   ```
+   If the exact source is an exported snapshot with a `file_id`, use `source_file_ref` where appropriate. Staging folder ID: `1-xgO3kkjuDJhe97WbCfZRzeHK2C5dM6G`. This is PUBLIC transfer staging; never send confidential footage here.
+3. Extract the new Drive file ID from `external-gdrive:...:file:<ID>`. Check the Drive file's visibility if feasible. Form its share URL `https://drive.google.com/file/d/<ID>/view?usp=sharing`.
+4. In GitHub repository `gomuller/zioncoalition` on `main`, edit or (if missing) create **`video-publish-request.json`** with the GitHub connector:
+   ```json
+   {"video_url":"https://drive.google.com/file/d/<ID>/view?usp=sharing","filename":"DESIRED-ROOT-FILENAME.mp4"}
+   ```
+   Use `fetch_file` + `update_file` and current blob SHA for existing files. An actual change to this request file triggers `.github/workflows/publish-video-from-drive.yml` on push. A workflow-source edit alone **does not** trigger it. If retrying after a fix, make a fresh request-file commit (a harmless `request_version` field is accepted by the tested workflow) or use an authorized rerun action. Avoid concurrent writers to the request file.
+5. The video workflow `publish-video-from-drive.yml` checks out `main` with `actions/checkout@v5`, installs `ffmpeg` to provide `ffprobe` and Python `gdown`, downloads the public Drive link, validates a simple root-level `.mp4` filename, enforces **more than 1,000 and at most 50,000,000 bytes**, checks the MP4 `ftyp` header, and uses `ffprobe` to check video stream and **1–1,800 seconds** duration. It commits the original downloaded bytes to `main`, rebasing before pushing.
+6. **Proven gotcha:** on the first MP4 publishing run, Drive downloaded the full 20.1 MB successfully, but the job **failed** because the hosted GitHub runner did not have the `ffprobe` executable. The diagnostic was `FileNotFoundError: [Errno 2] No such file or directory: 'ffprobe'`. We repaired the workflow by installing `ffmpeg` with `sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null`; we then changed `video-publish-request.json` to retrigger. **The second run succeeded.** Do not repeat the faulty assumption that `ffprobe` exists by default.
+7. **Verify each stage separately:** Drive upload; request commit; GitHub Actions run `status=completed`, `conclusion=success`; presence of exact filename in `https://api.github.com/repos/gomuller/zioncoalition/git/trees/main`, including byte size and Git blob SHA; GitHub Pages **build and deploy** outcome; and the **live** `https://zioncoalition.org/<filename>.mp4` URL and its actual playback in a browser. An Actions success for video does not imply Pages deployment success, and a Git tree entry alone is not a live-web test. Do not call the feature fully ready until the Pages site and playback have been checked or explicitly report a limitation.
+8. Embed the video in the HTML page using `<video controls playsinline preload="metadata" poster="DESIRED-POSTER.jpg" src="DESIRED-ROOT-FILENAME.mp4">...</video>`. GitHub's normal text API updates the HTML; binary bytes go by Drive-to-Actions. For a vertical film, use `width:100%;height:auto;aspect-ratio:9/16;max-height:82vh;object-fit:contain` as an example. Publish a separately extracted first-frame poster through the existing **image** pipeline to show a preview before play. Verify that poster is in the repo, too.
+9. **GitHub Pages deployment gotcha encountered:** the page build for this MP4 succeeded, but the deployment job failed with `No artifacts named "github-pages" were found for this workflow run`. We called GitHub's `rerun_failed_workflow_run_jobs` for run `42826032870`; its retry was **still in progress at the last confirmed inspection**, so don't claim Pages success without a fresh check. Inspect jobs and logs; distinguish infrastructure/deployment artifact errors from missing MP4.
+10. **Cleanup:** only after file, Pages, and live playback are verified, remove only the exact temporary Drive staging MP4 using the returned Drive file ID. If cleanup is not available, leave it and report so. Never delete the original source or published GitHub MP4.
+
+### 2026-11-10 — MP4 proof and exact records
+
+- Video: `brooklyn-sculptor-final.mp4`, **20,075,282 bytes**; originally a **33.9 MB**, approximately **2:09** vertical movie that was compressed before publishing.
+- Public Drive staging file ID: `14tUpYymh4zfZgWq8ZWh7cZVELYDj4P8A`; staged under `/Google Drive/Jesus-Greg Public Images/brooklyn-sculptor-final.mp4`.
+- Publisher workflow: [`.github/workflows/publish-video-from-drive.yml`](.github/workflows/publish-video-from-drive.yml), created in commit `6f97f31d180e71b6142ee333ba27a376e6a95ec7` and fixed in commit `e3bd04edb9fad072567c05660941d1f216e4fbb9`.
+- Trigger file: [`video-publish-request.json`](video-publish-request.json), first request commit `0afec0cbdbeeb5eaccc177cb7288ccee6c447bca`, retry request commit `956e329bb4dbae8bac105e7cdaa81050c217cde9`.
+- Initial failed workflow (missing `ffprobe`): https://github.com/gomuller/zioncoalition/actions/runs/42825684968
+- **Successful video publisher:** https://github.com/gomuller/zioncoalition/actions/runs/42825880617
+- GitHub `main` tree **confirmed** `brooklyn-sculptor-final.mp4` with exactly **20,075,282 bytes**, Git blob SHA `005fab32ec6e108699614f2cbf2f6dc89fac5174`.
+- Also confirmed in Git tree: `brooklyn-sculptor-comments.gif` (**568,779 bytes**, SHA `f66c7926c5ce8cabd2ebc3bd88b526f4355d48b2`); `brooklyn-sculptor-poster.jpg` (**53,297 bytes**, SHA `94ef885fcb65933f373d250ac19286be9b47ef22`).
+- HTML: `01-brooklyn-sculptor.html` contains enlarged vertical video and poster plus the verbatim-comment GIF. Target: https://zioncoalition.org/01-brooklyn-sculptor.html
+- The successful **publisher** and a successful **Pages deployment** are separate facts. Pages run https://github.com/gomuller/zioncoalition/actions/runs/42826032870 failed first deployment due to a missing Pages artifact; failed-jobs rerun requested. Verify its latest status independently.
 
 ## Real proof and test history
 
@@ -54,7 +90,8 @@
 
 - **Read this document FIRST**, then inspect current workflow files and the relevant prompt. Don't rely solely on memory summaries or partial recollections.
 - Never say `I cannot upload binary files to GitHub` as though that defeats the established Drive-to-Actions bridge.
-- Don't prematurely report success. Distinguish **Drive uploaded**, **request committed**, **Actions started**, **Actions succeeded**, **Git tree verified**, **website verified**, and **Drive staging cleaned**.
+- Don't prematurely report success. Distinguish **Drive uploaded**, **request committed**, **Actions started**, **media publisher succeeded**, **Git tree verified**, **Pages deployment succeeded**, **live playback verified**, and **Drive staging cleaned**.
 - Keep original text verbatim in text-driven artwork. Inspect readability and animation timing; a 30-slide × 12-second GIF takes six minutes.
+- MP4 uses **a different workflow and request file** from images and GIFs. Check the current `.github/workflows/publish-video-from-drive.yml`, and include `ffmpeg`/`ffprobe` provisioning. Never repeat the first-run failure. 
 - Public Drive staging must not be used for private material. Avoid overwriting existing destination filenames accidentally.
 - Update **both this canonical Markdown document and its companion `00-16-PROMPT-image-publishing.html`** when the pipeline changes. The HTML prompt is a navigation and memory-recovery mirror, not a competing procedure.
