@@ -557,6 +557,47 @@ downloadable publication files. For a routine, successful direct GitHub
 edit, a redundant ZIP is not necessary unless Greg requests it.
 
 
+
+17. CONTENT INTEGRITY AND ANTI-TRUNCATION CHECK — MANDATORY
+
+This requirement addresses a previously observed publication failure:
+the first words of multiple paragraphs were silently lost in the
+published HTML. The resulting page looked as if the left margin
+were clipping text, but the words were actually missing from the source.
+
+Never use fixed-width string slicing, substring offsets, arbitrary
+character trimming, or a line-wrapping routine that discards words.
+Wrap source lines ONLY at word boundaries while preserving the entire
+text, including the first and last word of every paragraph.
+
+Before publishing or updating a page:
+
+1. Establish the authoritative source text. For a formatting-only
+   conversion, preserve the source wording verbatim. For an explicitly
+   requested rewrite, use the approved revised text as the source.
+2. Compare every output paragraph against its source or approved
+   revision. Check paragraph starts AND ends, punctuation, quotations,
+   links, and inline emphasis. Do not merely check section headings.
+3. If line wrapping is performed programmatically, remove only the
+   added formatting whitespace and verify that the original and
+   wrapped paragraph texts are identical. A word-count check alone
+   is not sufficient; compare normalized complete text.
+4. Inspect the first sentence of EVERY paragraph. Flag fragments
+   that appear to begin mid-sentence or mid-word. Do not automatically
+   invent missing words: recover them from the authoritative source.
+5. After a GitHub write, fetch the actual committed file and repeat
+   the integrity check against the intended final text. A successful
+   commit or a visually attractive page does NOT prove integrity.
+6. If the original source is unavailable, report that a full
+   word-for-word verification is impossible. Never claim that all
+   content has been preserved without evidence.
+7. If any check fails, correct the content and verify again before
+   declaring publication complete.
+
+This check is separate from visual readability and card containment.
+Correct CSS cannot repair text that is absent from the HTML source.
+
+
 FINAL PRINCIPLE
 
 Preserve the author's words while making the page visually beautiful, readable, organized, and consistent with the Zion Coalition website.
