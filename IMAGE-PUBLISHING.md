@@ -113,3 +113,17 @@
 **Measured experimental optimization (NOT production changes):** In branch `experiment/lean-pages-deployment`, [package simulation run 42836901692](https://github.com/gomuller/zioncoalition/actions/runs/42836901692) reduced a temporary ZIP from **684,767,737** to **583,763,802 bytes** by omitting 76 candidate files. This is **not a safe deletion list**: dynamic/external URLs can use these files. A more stable web-source scan [run 42837535290](https://github.com/gomuller/zioncoalition/actions/runs/42837535290) counted 302 media files, 199 with literal web-code references and 103 unmatched (182,268,199 bytes); unmatched does NOT mean unused. [Lossless WebP staging run 42837683819](https://github.com/gomuller/zioncoalition/actions/runs/42837683819) measured full ZIP **684,771,452** versus **679,605,710 bytes** after temporary replacement of five PNGs with lossless WebP (saving **5,165,742 bytes**, ~0.75%). Those WebP URLs were not integrated into website code, so this was a size-only experiment, not a publishable converted site. Original artwork and production site were not changed by these experiments.
 
 **Operational default:** Preserve all existing media and direct URLs. Use the proven Drive → GitHub Actions pipeline for new images/GIFs/MP4s; use GitHub text updates for HTML. Optimize new files sensibly before publishing. Do not routinely run a full-site migration, delete unmatched assets, or convert images to WebP without link migration and explicit verification. Update this Markdown manual and its full HTML mirror together after substantive changes.
+
+## MANDATORY PUBLICATION COMPLETION GATE — 2026-11-13
+
+Do not call an image, GIF, or video published merely because its source was uploaded to Drive or its publishing request was committed. For EVERY publication, record these separate checks:
+
+1. Drive staging upload confirmed, with exact file ID and name.
+2. Publishing request committed to GitHub with correct URL and target filename.
+3. GitHub Actions media publisher completed with conclusion SUCCESS (not merely queued or running).
+4. Exact binary filename and byte size confirmed in the GitHub main tree; subsequent Pages deployment completed successfully.
+5. Public media URL and containing webpage verified to load the actual image/video (and animate/play where relevant).
+
+**If any check fails or cannot be independently verified:** publication status is INCOMPLETE; identify the precise stage, inspect the relevant logs/permissions/paths, attempt an appropriate recovery, and clearly report what remains unverified. Do not silently stop or imply success. When the user asks to publish, continue through the entire gate without needing a separate reminder. Afterward give a concise completion report showing PASS / FAIL / UNVERIFIED for each stage. Never substitute an HTML reference to a nonexistent binary for publication.
+
+**Incident motivating this rule:** The Jesus Mountain breakfast image was staged on Drive and referenced in HTML, but the image was not found at its expected repository path when checked. This must trigger pipeline investigation, not a claim that the image was published.
