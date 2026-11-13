@@ -386,3 +386,9 @@ a:focus-visible, button:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* Keep mockup-caption remnants outside the visible desktop tile crop. */
+@media (min-width: 769px) {
+  .tile-photo { overflow: hidden; aspect-ratio: 338 / 177; }
+  .tile-photo img { height: calc(100% + 18px); aspect-ratio: auto; object-fit: cover; object-position: center bottom; transform: translateY(-18px); }
+}
