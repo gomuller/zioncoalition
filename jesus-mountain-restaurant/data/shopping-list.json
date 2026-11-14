@@ -279,5 +279,110 @@
       "hummus"
     ],
     "note": "Recipe quantities are per dish and not aggregated into a purchase order; confirm meal choices, portions, and on-hand stock before shopping."
-  }
+  },
+  "recipe_requirements": [
+    {
+      "slug": "whole-wheat-bread",
+      "recipe_url": "../recipes/whole-wheat-bread.html",
+      "ingredients_as_written": "1 quart wheat berries (about 6 cups flour); 2½ cups water; 4 tablespoons sugar; 1 tablespoon yeast; 1 tablespoon salt.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "smothered-burritos",
+      "recipe_url": "../recipes/smothered-burritos.html",
+      "ingredients_as_written": "Batch makes 28 burritos: 28 tortillas; tortilla dough 6 cups flour, 2 cups water, ½ cup oil, 4 tablespoons sugar, 1 tablespoon salt. Filling: 4 cans drained beans, 2 cups sauce, 1 pound cheese, diced onion, pepper and carrots. Sauce: 16 cups broth, roux from 8 oz butter or oil plus 1 cup flour; chili powder, salt, garlic, cumin, oregano, about 1 cup each ketchup and minced onions to taste.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "dal-shorva",
+      "recipe_url": "../recipes/dal-shorva.html",
+      "ingredients_as_written": "1 cup red lentils; 4 cups chicken broth or water; 1 can (14 oz) stewed tomatoes; ¼ cup milk powder; ½ tsp turmeric; 1-inch ginger; 1½ tsp salt; ¼ cup butter; 1 yellow onion; 1 tsp cumin seeds; black pepper; optional ¼ cup cilantro.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "hot-sour-soup",
+      "recipe_url": "../recipes/hot-sour-soup.html",
+      "ingredients_as_written": "12 cups water; 2 tbsp Better Than Bouillon; ½ cup dried wood ear strips; 6 dried shiitake mushrooms; 1 square inch ginger; ⅓ cup red wine vinegar; ⅔ cup soy sauce; 1 tbsp fish sauce; 1 tsp sesame oil; ½ tbsp chili paste; optional 2 tbsp butter; 1 egg; 4 oz firm tofu; ⅓ cup bamboo shoots; 3 baby carrots; ⅛ lb chicken; pinch sugar; ⅓ cup cornstarch mixed with equal water.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "pico-de-gallo",
+      "recipe_url": "../recipes/pico-de-gallo.html",
+      "ingredients_as_written": "3 tomatoes diced; ½ onion diced; 1 tbsp cilantro minced; 1 tsp minced jalapeño; ¼ tsp salt; ½ tbsp fresh lime or lemon juice.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "saebras-salsa",
+      "recipe_url": "../recipes/saebras-salsa.html",
+      "ingredients_as_written": "4 cans (14.5 oz each) stewed tomatoes; 1 large onion; 1 green pepper; 1 small Anaheim pepper; 1 jalapeño; 1 tbsp cilantro; juice of 1 lemon; ½ tsp salt; ½ tsp minced garlic; ⅛ tsp black pepper.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "rice",
+      "recipe_url": "../recipes/rice.html",
+      "ingredients_as_written": "1 cup rice; 1½ cups water; optional butter, salt, pepper.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "hummus",
+      "recipe_url": "../recipes/hummus.html",
+      "ingredients_as_written": "1 can garbanzo beans; 1 tbsp lemon juice; 1 tbsp sesame seeds or a little sesame oil; salt to taste.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "fried-rice",
+      "recipe_url": "../recipes/fried-rice.html",
+      "ingredients_as_written": "3 cups chilled cooked rice; 2 eggs; 1 cup frozen mixed vegetables; 2 tbsp soy sauce; 1 tbsp neutral oil; 2 sliced scallions (optional); 1 tsp sesame oil (optional).",
+      "status": "provisional"
+    },
+    {
+      "slug": "pasta",
+      "recipe_url": "../recipes/pasta.html",
+      "ingredients_as_written": "12 oz dry pasta; 1 can (28 oz) crushed tomatoes; 2 cloves garlic; 1 tbsp olive oil; 1 tsp dried basil; salt and pepper; optional grated cheese.",
+      "status": "provisional"
+    },
+    {
+      "slug": "grammy-sherrys-noodles",
+      "recipe_url": "../recipes/grammy-sherrys-noodles.html",
+      "ingredients_as_written": "12 oz noodles; 2 tbsp soy sauce; 1 tbsp neutral oil; 1 tsp sesame oil; 2 cloves garlic; 2 cups thinly sliced vegetables; optional chopped scallions.",
+      "status": "provisional"
+    },
+    {
+      "slug": "naan",
+      "recipe_url": "../recipes/naan.html",
+      "ingredients_as_written": "2 cups all-purpose flour; ¾ cup plain yogurt; ½ tsp salt; 1 tsp baking powder; 2–5 tbsp water as needed; oil for skillet.",
+      "status": "provisional"
+    },
+    {
+      "slug": "rolls",
+      "recipe_url": "../recipes/rolls.html",
+      "ingredients_as_written": "¼ batch risen Muller whole-wheat bread dough; optional butter for finishing.",
+      "status": "provisional"
+    },
+    {
+      "slug": "jesus-street-tacos",
+      "recipe_url": "../recipes/jesus-street-tacos.html",
+      "ingredients_as_written": "12 small tortillas; 1 lb cooked shredded beef or lamb; ½ onion finely diced; cilantro; lime; pico de gallo or Saebra’s salsa; optional cabbage.",
+      "status": "provisional"
+    },
+    {
+      "slug": "chicken-cheese-broccoli",
+      "recipe_url": "../recipes/chicken-cheese-broccoli.html",
+      "ingredients_as_written": "2 cups cooked chicken; 1 lb frozen broccoli; 1 cup shredded cheddar; ½ cup milk; 1 tbsp butter; 1 tbsp flour; salt and pepper; optional cooked rice.",
+      "status": "provisional"
+    },
+    {
+      "slug": "sweet-sour-chicken",
+      "recipe_url": "../recipes/sweet-sour-chicken.html",
+      "ingredients_as_written": "1 lb cooked crispy chicken; ⅓ cup ketchup; ¼ cup vinegar; ⅓ cup sugar; ½ cup water; 1 tbsp soy sauce; 1 tbsp cornstarch mixed with 2 tbsp water; optional pineapple chunks and peppers.",
+      "status": "provisional"
+    },
+    {
+      "slug": "navajo-tacos",
+      "recipe_url": "../recipes/navajo-tacos.html",
+      "ingredients_as_written": "2 cups flour; 2 tsp baking powder; ½ tsp salt; about ¾ cup warm water; oil for frying; 2 cups cooked beans or chili; lettuce, tomatoes, cheese and salsa.",
+      "status": "provisional"
+    }
+  ],
+  "shopping_status": "Recipe ingredient requirements captured for all 17 newly added pages, in source wording. Not yet normalized or aggregated; do not sum mutually exclusive menu choices."
 }
