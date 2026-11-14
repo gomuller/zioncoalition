@@ -382,7 +382,49 @@
       "recipe_url": "../recipes/navajo-tacos.html",
       "ingredients_as_written": "2 cups flour; 2 tsp baking powder; ½ tsp salt; about ¾ cup warm water; oil for frying; 2 cups cooked beans or chili; lettuce, tomatoes, cheese and salsa.",
       "status": "provisional"
+    },
+    {
+      "slug": "pumpkin-soup",
+      "recipe_url": "../recipes/pumpkin-soup.html",
+      "ingredients_as_written": "2 tbsp olive oil; 1 chopped yellow onion; ½ tsp salt; 3 lb peeled and cubed butternut squash OR an equivalent weight of prepared cooking pumpkin; 3 chopped garlic cloves; 1 tbsp chopped sage; ½ tbsp rosemary; 1 tsp grated ginger; 3–4 cups vegetable broth; black pepper. Optional parsley and toasted pumpkin seeds.",
+      "status": "externally sourced testable prototype"
+    },
+    {
+      "slug": "taco-soup",
+      "recipe_url": "../recipes/taco-soup.html",
+      "ingredients_as_written": "1 tbsp olive oil; 1 lb ground beef; 1 diced onion; 4 minced garlic cloves; 1 cup frozen corn; two 10-oz cans diced tomatoes with green chiles; one 15-oz can pinto beans, drained; one 15-oz can black beans, drained; 1 oz taco seasoning; 1 oz ranch seasoning; 3 tbsp tomato paste; 2 cups water. Optional cheese, cilantro, lime, sour cream.",
+      "status": "externally sourced testable prototype"
+    },
+    {
+      "slug": "minestrone",
+      "recipe_url": "../recipes/minestrone.html",
+      "ingredients_as_written": "1 oz butter; 1 tbsp olive oil; ½ lb carrots; ¼ lb tomatoes; ¼ lb celery; ¼ lb onion; 1 tsp garlic; ¼ lb green beans; 1 lb savoy cabbage; ¼ lb zucchini; 1 tsp parsley; 1 tsp basil; 1 gallon chicken stock; 1 bay leaf; 1–2 oz prosciutto; 2 oz Romano cheese rind; 1 lb potatoes; 1 can each kidney beans, garbanzo beans and cannellini beans (15 oz each); 2 oz grated Romano; salt and pepper.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "tomato-soup",
+      "recipe_url": "../recipes/tomato-soup.html",
+      "ingredients_as_written": "2 lb ripe tomatoes, quartered; 1 medium onion, quartered; 5 garlic cloves, peeled; 2 tbsp olive oil; 2 cups vegetable or chicken broth; ½ tsp salt, plus more to taste; black pepper; 1 tsp dried basil or a small handful of fresh basil; optional 1 tsp balsamic vinegar.",
+      "status": "externally sourced testable prototype"
+    },
+    {
+      "slug": "potato-soup",
+      "recipe_url": "../recipes/potato-soup.html",
+      "ingredients_as_written": "2 large baking potatoes, peeled and sliced; 3 cups milk; salt and pepper; ½ head cauliflower, chopped; 1 bunch scallions, whites and greens separated; 4 slices bacon; 1 cup shredded cheddar; ¼ cup sour cream.",
+      "status": "recovered working draft"
+    },
+    {
+      "slug": "dumpling-soup",
+      "recipe_url": "../recipes/dumpling-soup.html",
+      "ingredients_as_written": "For dumplings: 1 lb ground chicken; ½ cup chopped parsley; 1 minced garlic clove; ¼ cup water; 2 tbsp dry sherry (optional); juice of ½ lemon; 1 tbsp oil; 1 tsp salt; 1 tsp sugar; ½ tsp thyme; ½ tsp pepper; 2 tbsp melted butter; 1 package wonton wrappers. For soup: 1 tbsp oil; ½ diced onion; 3 diced carrots; 3 diced celery stalks; 5 cups chicken broth; salt and pepper.",
+      "status": "externally sourced testable prototype"
+    },
+    {
+      "slug": "chicken-curry-soup",
+      "recipe_url": "../recipes/chicken-curry-soup.html",
+      "ingredients_as_written": "1½ tbsp neutral oil; 2 minced garlic cloves; 2 tsp grated ginger; ½ chopped onion; 1 lb sliced boneless chicken thighs; 2½ tbsp mild curry powder; 1 cup chicken broth; 1¼ cups canned crushed tomatoes; ½ cup coconut milk or cream; salt to taste; chopped cilantro optional.",
+      "status": "externally sourced testable prototype"
     }
   ],
-  "shopping_status": "Recipe ingredient requirements captured for all 17 newly added pages, in source wording. Not yet normalized or aggregated; do not sum mutually exclusive menu choices."
+  "shopping_status": "Ingredient requirements captured for 17 earlier recipes and 7 newly completed soup/curry recipes. Not normalized or aggregated; some recipes are prototypes pending taste tests."
 }
