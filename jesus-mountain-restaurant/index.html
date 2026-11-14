@@ -21,7 +21,7 @@
       </button>
       <div class="nav-links" id="nav-links">
         <ul class="nav-group nav-group-left">
-          <li><a href="#menu">Menu</a></li>
+          <li><a href="#weekly-planner">Weekly Table</a></li><li><a href="#menu">Menu</a></li>
           <li><a href="#our-story">Our Story</a></li>
           <li><a href="#gallery">Gallery</a></li>
         </ul>
@@ -105,6 +105,33 @@
     </section>
 
     <!-- ============ FUTURE SECTIONS (Prototype 001 placeholders) ============ -->
+<section class="page-section" id="weekly-planner" aria-labelledby="weekly-planner-heading">
+<h2 id="weekly-planner-heading">Our Family's Weekly Table</h2>
+<p class="section-note">A new kind of restaurant: a living menu, revisited together every week.</p>
+<div style="max-width:1000px;margin:1rem auto;padding:1.4rem;background:#fffdf8;border:1px solid #ded6c5;border-radius:16px">
+<p style="font-size:1.15rem">Rather than pretending the menu was carved in stone, we ask again each week: <strong>Is this still what we want to cook, share, and eat?</strong> Here is the family's seven-day rhythm. Explore alternatives, follow recipes, and imagine your own family table.</p>
+<p style="font-size:.9rem;color:#66594c">Interactive prototype: choices you make here are your own preview, not a change to the restaurant's official menu. Only the family can publish the actual weekly choices. No orders or reservations are being accepted.</p>
+<div id="public-weekly-choices" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:12px;margin:1.2rem 0"></div>
+<div style="display:flex;gap:.75rem;flex-wrap:wrap;align-items:center"><button id="public-week-reset" type="button" style="padding:.65rem 1rem;border:1px solid #8b6c42;background:#f4ecdb;border-radius:8px;cursor:pointer">Start a fresh week</button><a href="kitchen/weekly-planner.html">Explore the family kitchen planner &amp; ingredient checklist</a></div>
+</div>
+</section>
+<script>
+(function(){
+const days=[
+["Sunday",[["pasta","Pasta"],["fried-rice","Fried rice"],["grammy-sherrys-noodles","Grammy Sherry’s noodles"]]],
+["Monday",[["vegetable-masala","Vegetable masala & naan"]]],
+["Tuesday",[["dal-shorva","Dal Shorva & rolls"],["hot-sour-soup","Hot-sour soup & rolls"]]],
+["Wednesday",[["smothered-burritos","Smothered burritos"],["jesus-street-tacos","Jesus Street Tacos"]]],
+["Thursday",[["general-tsos","General Tso’s"],["chicken-cheese-broccoli","Chicken Cheese Broccoli"],["sweet-sour-chicken","Sweet & Sour Chicken"]]],
+["Friday",[["big-als-pizza","Big Al’s pizza"]]],
+["Saturday",[["navajo-tacos","Navajo tacos"],["pitas-black-bean-salad","Pitas & black bean salad"]]]
+];
+const wrap=document.getElementById("public-weekly-choices");
+days.forEach(([day,choices],i)=>{const card=document.createElement("div");card.style.cssText="border:1px solid #e5ddcf;border-radius:10px;padding:1rem;background:#fff";const label=document.createElement("label");label.htmlFor="public-week-day-"+i;label.style.cssText="display:block;font-weight:700;margin-bottom:.4rem";label.textContent=day;const sel=document.createElement("select");sel.id=label.htmlFor;sel.style.cssText="width:100%;padding:.5rem;border:1px solid #b9ab96;border-radius:6px;background:white;color:#302b24";choices.forEach(([slug,name])=>{const opt=document.createElement("option");opt.value=slug;opt.textContent=name;sel.appendChild(opt)});const a=document.createElement("a");a.style.cssText="display:inline-block;margin-top:.6rem";a.textContent="See recipe";function sync(){a.href="recipes/"+sel.value+".html"}sel.addEventListener("change",sync);sync();card.append(label,sel,a);wrap.appendChild(card)});
+document.getElementById("public-week-reset").addEventListener("click",()=>{wrap.querySelectorAll("select").forEach(s=>{s.selectedIndex=0;s.dispatchEvent(new Event("change"))})});
+})();
+</script>
+
     <section class="page-section" id="menu" aria-labelledby="menu-heading">
       <h2 id="menu-heading">Our Menu</h2>
       <p class="section-note">The first featured breakfast · Jesus Mountain Restaurant</p>
@@ -122,7 +149,7 @@
 <article style="border:1px solid #ded6c5;border-radius:12px;background:#fffdf8;padding:1rem 1.25rem;margin:1rem 0"><h4 style="margin:0 0 .4rem;font-size:1.25rem">Friday</h4><p style="margin:.3rem 0"><a href="recipes/big-als-pizza.html">Big Al’s Pizza</a> · <a href="recipes/whole-wheat-bread.html">Muller mother dough</a></p><p style="margin:.5rem 0 0;font-size:.9rem;color:#66594c"><em>Draft recipes linked. Some are archived family recipes; others are labeled trials pending verification.</em></p></article>
 <article style="border:1px solid #ded6c5;border-radius:12px;background:#fffdf8;padding:1rem 1.25rem;margin:1rem 0"><h4 style="margin:0 0 .4rem;font-size:1.25rem">Saturday</h4><p style="margin:.3rem 0"><a href="recipes/navajo-tacos.html">Navajo Tacos</a> or <a href="recipes/pitas-black-bean-salad.html">Pitas with Black Bean Salad</a> · <a href="recipes/hummus.html">Hummus</a></p><p style="margin:.5rem 0 0;font-size:.9rem;color:#66594c"><em>Draft recipes linked. Some are archived family recipes; others are labeled trials pending verification.</em></p></article>
 <details style="margin:1.25rem 0;border:1px solid #ded6c5;border-radius:12px;padding:1rem"><summary style="cursor:pointer;font-weight:bold"><a href="soups.html">Soup &amp; Curry Collection — browse recipes</a></summary><p>Lentil · Pumpkin · Taco · Minestrone · Tomato · Potato · Dumpling · Curry (details to be confirmed)</p><p><em>Working list from the family's handwritten menu.</em></p></details>
-<p><strong>Kitchen planner:</strong> <a href="kitchen/weekly-planner.html">Choose this week’s dinners and view ingredient requirements</a> (back-of-house working draft).</p><p><strong>Project status:</strong> <a href="kitchen/draft-1-status.html">Yellow Muller Menu — Draft 1.0 completion report</a>.</p><p><strong>Behind the menu:</strong> <a href="kitchen/questions-for-greg.html">Questions for Greg</a> ·  <a href="kitchen/shopping-list.html">Kitchen shopping intelligence and purchasing logic</a> · <a href="data/shopping-list.json">Structured ingredient data</a>. We are linking each family recipe to its preparation, storage, shared ingredients, and eventual nutrition and story notes.</p>
+<p><strong>Our living weekly table:</strong> <a href="#weekly-planner">Try the public weekly menu planner</a> · <a href="kitchen/weekly-planner.html">Kitchen ingredient checklist</a>.</p><p><strong>Project status:</strong> <a href="kitchen/draft-1-status.html">Yellow Muller Menu — Draft 1.0 completion report</a>.</p><p><strong>Behind the menu:</strong> <a href="kitchen/questions-for-greg.html">Questions for Greg</a> ·  <a href="kitchen/shopping-list.html">Kitchen shopping intelligence and purchasing logic</a> · <a href="data/shopping-list.json">Structured ingredient data</a>. We are linking each family recipe to its preparation, storage, shared ingredients, and eventual nutrition and story notes.</p>
 </div>
     </section>
 
