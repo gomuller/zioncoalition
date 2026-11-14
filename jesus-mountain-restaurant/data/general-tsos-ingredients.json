@@ -1,0 +1,81 @@
+{
+  "recipe_id": "general-tsos",
+  "menu_day": "Thursday",
+  "status": "working draft",
+  "sauce_batches_per_meal": 1,
+  "source": "Muller family greg recipes Google Drive",
+  "sauce": [
+    [
+      "sugar",
+      0.5,
+      "cup"
+    ],
+    [
+      "ketchup",
+      0.25,
+      "cup"
+    ],
+    [
+      "Worcestershire sauce",
+      1,
+      "tbsp"
+    ],
+    [
+      "soy sauce",
+      2,
+      "tbsp"
+    ],
+    [
+      "sesame oil",
+      0.25,
+      "tsp"
+    ],
+    [
+      "garlic",
+      2,
+      "cloves"
+    ],
+    [
+      "red pepper",
+      0.125,
+      "tsp"
+    ],
+    [
+      "ginger",
+      0.25,
+      "tsp"
+    ],
+    [
+      "butter",
+      1,
+      "tbsp"
+    ],
+    [
+      "orange peel",
+      null,
+      "optional"
+    ]
+  ],
+  "chicken_batch": {
+    "chicken_lb": 5,
+    "cornstarch_cups": 2,
+    "flour_cups": 1,
+    "eggs": 4,
+    "soy_sauce_cups": 0.25,
+    "garlic_powder_tsp": 2,
+    "ginger_tsp": 2,
+    "pepper_tsp": 1
+  },
+  "cauliflower_trial": {
+    "cauliflower_lb": 1,
+    "eggs": 2,
+    "cornstarch_cups": 0.75
+  },
+  "pending": [
+    "family serving count",
+    "freezer portions",
+    "cauliflower test result",
+    "inventory locations",
+    "unit costs"
+  ]
+}
