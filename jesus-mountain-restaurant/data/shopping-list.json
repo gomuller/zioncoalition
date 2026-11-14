@@ -1,0 +1,256 @@
+{
+  "title": "Jesus Mountain Restaurant — working shared shopping list",
+  "updated": "2026-11-14",
+  "scope": "Recovered Monday Friday Saturday recipes plus established General Tso's broccoli standard",
+  "note": "Not a purchase order. Quantities are per individual recipe, not summed weekly totals; inventory, yields, vendors and prices have not been confirmed.",
+  "items": [
+    {
+      "ingredient": "Frozen broccoli florets",
+      "storage": "frozen",
+      "recipe_quantity": "1 lb bag",
+      "used_in": "General Tso's",
+      "purchasing_logic": "Established family standard: everyday value, freezer storage, good taste; fresh only when desired or on sale.",
+      "status": "confirmed"
+    },
+    {
+      "ingredient": "Whole-wheat bread dough",
+      "storage": "prepared",
+      "recipe_quantity": "¼ batch pizza; ½ batch pita",
+      "used_in": "Friday pizza; Saturday pita",
+      "purchasing_logic": "One mother dough supports multiple meals. Locate the actual bread formula.",
+      "status": "needs source"
+    },
+    {
+      "ingredient": "Stewed tomatoes",
+      "storage": "pantry",
+      "recipe_quantity": "1 can pizza; ½ of 14 oz can masala",
+      "used_in": "Pizza; vegetable masala",
+      "purchasing_logic": "Pizza can size not recorded. Buy based on verified can size later.",
+      "status": "needs verification"
+    },
+    {
+      "ingredient": "Garlic",
+      "storage": "fresh or stored",
+      "recipe_quantity": "2 cloves masala; 1 tsp pizza",
+      "used_in": "Masala; pizza",
+      "purchasing_logic": "Shared ingredient; source quantities preserved.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Fresh ginger",
+      "storage": "fresh",
+      "recipe_quantity": "2 tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Preferred source and storage method to discuss.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Black mustard seeds",
+      "storage": "dry spice",
+      "recipe_quantity": "1 tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Whole seeds specified; discuss supplier and shelf-life reasoning.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Cumin seeds",
+      "storage": "dry spice",
+      "recipe_quantity": "1 tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Whole seeds specified in family formula.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Coriander seeds",
+      "storage": "dry spice",
+      "recipe_quantity": "½ tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Whole seeds specified in family formula.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Turmeric",
+      "storage": "dry spice",
+      "recipe_quantity": "½ tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Ground in family source.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Garam masala",
+      "storage": "dry spice",
+      "recipe_quantity": "½ tsp",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Supplier and bulk-storage strategy pending.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Anaheim pepper",
+      "storage": "fresh",
+      "recipe_quantity": "½ pepper",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Store remainder safely or plan a second use.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Onions",
+      "storage": "fresh",
+      "recipe_quantity": "½ masala; 1 pita salad",
+      "used_in": "Masala; pita salad",
+      "purchasing_logic": "Consolidate purchases across meals; size unspecified.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Potato",
+      "storage": "fresh",
+      "recipe_quantity": "½ cup",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Source quantity.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Cauliflower",
+      "storage": "fresh or frozen",
+      "recipe_quantity": "½ cup masala; General Tso's trial 1 lb",
+      "used_in": "Masala; General Tso's",
+      "purchasing_logic": "Frozen or fresh selection for masala not yet family-verified.",
+      "status": "trial"
+    },
+    {
+      "ingredient": "Yogurt",
+      "storage": "refrigerated",
+      "recipe_quantity": "½ cup masala",
+      "used_in": "Vegetable masala",
+      "purchasing_logic": "Use family's preferred type; no special vegetarian restrictions.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Basil",
+      "storage": "spice or fresh",
+      "recipe_quantity": "1 tbsp",
+      "used_in": "Pizza",
+      "purchasing_logic": "Original doesn't specify fresh or dried; verify.",
+      "status": "needs verification"
+    },
+    {
+      "ingredient": "Mozzarella cheese",
+      "storage": "refrigerated",
+      "recipe_quantity": "to taste",
+      "used_in": "Pizza",
+      "purchasing_logic": "Quantity not recorded; do not infer shopping total.",
+      "status": "needs verification"
+    },
+    {
+      "ingredient": "Pepperoni",
+      "storage": "refrigerated",
+      "recipe_quantity": "to taste",
+      "used_in": "Pizza",
+      "purchasing_logic": "Quantity not recorded.",
+      "status": "needs verification"
+    },
+    {
+      "ingredient": "Black beans",
+      "storage": "pantry",
+      "recipe_quantity": "1 can 14.5 oz",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Drain before mixing.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Cornmeal",
+      "storage": "pantry",
+      "recipe_quantity": "for dusting",
+      "used_in": "Pita",
+      "purchasing_logic": "Shared with bread/pizza workflow.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Roma tomatoes",
+      "storage": "fresh",
+      "recipe_quantity": "2",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Fresh salad ingredient; plan near serving.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Green pepper",
+      "storage": "fresh",
+      "recipe_quantity": "½ pepper",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Use remaining half in another meal.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Cucumber",
+      "storage": "fresh",
+      "recipe_quantity": "½ cucumber",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Can overlap cucumber side dish.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Parsley",
+      "storage": "fresh",
+      "recipe_quantity": "¼ cup",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Consider use across sides to reduce waste.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Mint",
+      "storage": "fresh or dried",
+      "recipe_quantity": "1 tbsp fresh or 1 tsp dried",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Choice recorded in source.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Feta",
+      "storage": "refrigerated",
+      "recipe_quantity": "2 tbsp",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Buy only if not already in stock.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Lemon",
+      "storage": "fresh",
+      "recipe_quantity": "½ lemon",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Use other half in another meal.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Olive oil",
+      "storage": "pantry",
+      "recipe_quantity": "2 tbsp salad",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Additional oil used in masala; oil type there unspecified.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Balsamic vinegar",
+      "storage": "pantry",
+      "recipe_quantity": "1 tsp",
+      "used_in": "Pita salad",
+      "purchasing_logic": "Shared pantry staple.",
+      "status": "historical"
+    },
+    {
+      "ingredient": "Rice",
+      "storage": "pantry",
+      "recipe_quantity": "1 cup General Tso's recipe",
+      "used_in": "General Tso's",
+      "purchasing_logic": "Original family rice method: 1 cup rice to 1½ cups water.",
+      "status": "historical"
+    }
+  ],
+  "questions": [
+    "Where do you buy whole spices and why?",
+    "Which whole-wheat bread recipe is the mother dough?",
+    "What size stewed tomato can for pizza?",
+    "How much mozzarella and pepperoni per pizza?",
+    "How many people do the masala and pita recipes serve?",
+    "What does '1 inch carrot' mean in masala?"
+  ]
+}
