@@ -251,6 +251,33 @@
     "What size stewed tomato can for pizza?",
     "How much mozzarella and pepperoni per pizza?",
     "How many people do the masala and pita recipes serve?",
-    "What does '1 inch carrot' mean in masala?"
-  ]
+    "What does '1 inch carrot' mean in masala?",
+    "Recover and test the nine provisional recipes before considering the weekly menu family-final."
+  ],
+  "draft_version": "Yellow Muller Menu Draft 1.0",
+  "recipe_coverage": {
+    "all_seven_days_linked": true,
+    "provisional_recipes": [
+      "pasta",
+      "fried-rice",
+      "grammy-sherrys-noodles",
+      "naan",
+      "rolls",
+      "jesus-street-tacos",
+      "chicken-cheese-broccoli",
+      "sweet-sour-chicken",
+      "navajo-tacos"
+    ],
+    "recovered_new": [
+      "whole-wheat-bread",
+      "smothered-burritos",
+      "dal-shorva",
+      "hot-sour-soup",
+      "pico-de-gallo",
+      "saebras-salsa",
+      "rice",
+      "hummus"
+    ],
+    "note": "Recipe quantities are per dish and not aggregated into a purchase order; confirm meal choices, portions, and on-hand stock before shopping."
+  }
 }
