@@ -119,5 +119,6 @@ jobs:
             echo "Image already matches existing file."
           else
             git commit -m "Publish image: $FILENAME"
+            git pull --rebase origin main
             git push origin HEAD:main
           fi
