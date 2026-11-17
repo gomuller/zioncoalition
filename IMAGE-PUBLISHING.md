@@ -127,3 +127,13 @@ Do not call an image, GIF, or video published merely because its source was uplo
 **If any check fails or cannot be independently verified:** publication status is INCOMPLETE; identify the precise stage, inspect the relevant logs/permissions/paths, attempt an appropriate recovery, and clearly report what remains unverified. Do not silently stop or imply success. When the user asks to publish, continue through the entire gate without needing a separate reminder. Afterward give a concise completion report showing PASS / FAIL / UNVERIFIED for each stage. Never substitute an HTML reference to a nonexistent binary for publication.
 
 **Incident motivating this rule:** The Jesus Mountain breakfast image was staged on Drive and referenced in HTML, but the image was not found at its expected repository path when checked. This must trigger pipeline investigation, not a claim that the image was published.
+
+## REPEATED FAILURE PREVENTION — 2026-11-17
+
+**Trigger:** When Greg says "g", "do it", "to thumbnail gallery", "to Facebook, to thumbnail gallery", or asks to replace/publish an image, treat it as authorization to execute the relevant established workflow, not a request for instructions. Before claiming that a binary cannot be published, READ this document and inspect the existing GitHub Actions workflows. Do not stop after a text-only GitHub API fails; use the proven public Drive staging → GitHub Actions route.
+
+**Gallery procedure:** For `01-puzzle-pieces-gallery.html`, create a small real thumbnail of the supplied artwork, publish the binary through the documented image bridge, replace the text-only placeholder with its actual image path, and verify the published gallery. Preserve description and reconstruction notes. Do not substitute a search image or a text rendering for user-provided art.
+
+**Facebook is a separate delivery channel:** Consult the existing Facebook Bridge documentation and check whether its queue/Windows automation can actually execute; never claim a Facebook post succeeded merely because a queue request was made. Complete GitHub publication independently if Facebook is unavailable.
+
+**Memory reliability:** This file is durable operational memory, but it does not load itself into every future chat. The assistant must proactively fetch it whenever an image publishing command occurs. If the instruction was not retrieved, that is a process failure; do not ask Greg to re-teach the solution.
