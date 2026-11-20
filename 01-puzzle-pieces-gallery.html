@@ -13,6 +13,8 @@ h1,h2{color:#123b5d;line-height:1.25}h1{margin-top:0}a{color:#075caa}
 .piece{background:#edf5fc;border-radius:14px;padding:16px;min-width:0}
 .thumb{width:100%;aspect-ratio:3/2;object-fit:cover;border-radius:10px;background:#d8e5ef}
 small,.muted{color:#4d6983}.tag{display:inline-block;background:#fff0b7;border-radius:99px;padding:2px 10px;font-size:.8rem}
+.tag.placed{background:#d7efda;color:#245231}
+.placement{margin:.4em 0}
 details{margin-top:10px}summary{cursor:pointer;font-weight:bold}code{overflow-wrap:anywhere}
 </style>
 </head>
@@ -20,14 +22,14 @@ details{margin-top:10px}summary{cursor:pointer;font-weight:bold}code{overflow-wr
 <main>
 <section class="card">
 <h1>Puzzle Pieces Gallery</h1>
-<p><strong>A place for images that do not yet know where they belong.</strong>
-Memes, allusions, symbols, scenes and fragments can wait here until they
-find their place in Jesus-Greg WORLD.</p>
-<p>Being unplaced is not being lost. The puzzle is allowed to remain unfinished.</p>
+<p>Memes, allusions, symbols, scenes and fragments from Jesus-Greg WORLD. When a picture appears in a piece or on another page, follow its placement link to see it in context. Pictures still waiting for a home are marked <strong>Unplaced</strong>.</p>
 </section>
 <section class="card">
-<h2>Unplaced pieces</h2>
+<h2>Pictures</h2>
 <div class="grid">
+<!-- For a placed picture, add the placed class to its status tag and use
+     <p class="placement"><strong>Placed in</strong> <a href="page.html#section">Piece title</a></p>
+     below the status. Add another link for each additional placement. -->
 <article class="piece">
 <img class="thumb" src="jesus-tv-2026-11-18-thumb.webp" width="480" loading="lazy" alt="Jesus and Greg singing on Jesus TV to a vast imagined spirit-world audience">
 <h2>Jesus TV — Spirit World Audience</h2>
@@ -98,9 +100,11 @@ alt="Jesus smiles beside a pillow and carrot under gold lettering that reads Jes
 <section class="card">
 <h2>How this gallery works</h2>
 <p>Each new piece receives a small compressed thumbnail, title, date,
-description, status, reconstruction instructions, and eventually a
-destination link. Store the original-resolution image outside GitHub,
-with a matching filename or archive identifier.</p>
+description, and reconstruction instructions. When a picture finds a home,
+mark it <strong>Placed</strong> and add a <strong>Placed in</strong> link to each
+page that uses it. Link directly to the section where it appears when possible.
+Store the original-resolution image outside GitHub with a matching filename
+or archive identifier.</p>
 <p><strong>Storage principle:</strong> Only thumbnails belong here.
 A thumbnail saves repository space only when the full-size original
 is not also committed. A prompt alone cannot guarantee an exact remake.</p>
