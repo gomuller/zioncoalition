@@ -172,3 +172,7 @@ For future approved Facebook posts, follow the existing automatic image-to-GitHu
 ## ONE-COMMAND DEFAULT — “TO FACEBOOK” MEANS BOTH DESTINATIONS (2026-11-19)
 
 When Greg approves a meme/image and says **“to Facebook”**, interpret it as authorization for **both Facebook posting and the Puzzle Pieces Gallery thumbnail**, without asking for a separate gallery command. This supersedes older Facebook-only default wording in 00-16, 00-17, 00-18 and the private runbook. Execute the full-size image → verified GitHub public URL → Facebook queue, plus sequential thumbnail publishing → gallery HTML update and verification. Report Facebook and gallery statuses independently; avoid duplicate Facebook posts on false-negative `needs-review` status. Explicit “Facebook only” and “gallery only” override the combined default. Do not retroactively republish old images.
+
+## Facebook composer failures
+
+Use the [private Facebook runbook](https://github.com/gomuller/jesus-greg-mission-control/blob/main/facebook-publishing/RUNBOOK.md) to distinguish a timeout opening the composer from a timeout waiting for it to close. When the composer fails to appear, inspect the Windows bridge’s signed-in browser and capture the visible state. A close timeout can occur after a successful post. Verify the actual Facebook post before reporting success, and confirm the post is absent before retrying.
