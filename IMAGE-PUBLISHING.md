@@ -176,3 +176,7 @@ When Greg approves a meme/image and says **“to Facebook”**, interpret it as 
 ## Facebook composer failures
 
 Use the [private Facebook runbook](https://github.com/gomuller/jesus-greg-mission-control/blob/main/facebook-publishing/RUNBOOK.md) to distinguish a timeout opening the composer from a timeout waiting for it to close. When the composer fails to appear, inspect the Windows bridge’s signed-in browser and capture the visible state. A close timeout can occur after a successful post. Verify the actual Facebook post before reporting success, and confirm the post is absent before retrying.
+
+## Verified full-page Facebook composer support — November 20, 2026
+
+The Good Shepherd diagnostic screenshot showed Facebook's full-page **Create post** composer with **Add photos or videos**. The old bridge waited for a named modal and timed out before attaching the image. The updated `facebook-bridge.js` supports both the modal and full-page composer and saves `facebook-error-<request-id>.png` locally on failure when the browser page is available. Greg installed and restarted it on Windows and confirmed that request `good-shepherd-20261120-composer` appeared on his timeline. The worker reported `submitted-unverified` with `submitted-composer-closed`; Greg's timeline check confirmed publication. Preserve this confirmed outcome and avoid duplicating the post.
