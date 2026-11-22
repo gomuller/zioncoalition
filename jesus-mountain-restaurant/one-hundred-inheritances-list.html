@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>100 Gifts of God — Simple List</title>
+  <style>
+    body { max-width: 42rem; margin: 2rem auto; padding: 0 1rem; font: 1rem/1.6 system-ui, sans-serif; }
+    li { margin-block: .35rem; }
+  </style>
+  <script src="numbered-gifts.js" defer></script>
+</head>
+<body>
+  <main>
+    <p><a href="one-hundred-inheritances.html">← Back to the full gifts page</a></p>
+    <h1>100 Gifts of God</h1>
+    <ol id="gifts"></ol>
+    <noscript><p>Enable JavaScript to view the numbered list, or return to the full gifts page.</p></noscript>
+  </main>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const list = document.getElementById('gifts');
+      for (const [, gift] of numberedGifts) {
+        const item = document.createElement('li');
+        item.value = gift.number;
+        item.textContent = gift.title;
+        list.append(item);
+      }
+    });
+  </script>
+</body>
+</html>
