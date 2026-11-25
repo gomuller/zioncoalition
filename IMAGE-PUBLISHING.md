@@ -130,11 +130,11 @@ Do not call an image, GIF, or video published merely because its source was uplo
 
 ## REPEATED FAILURE PREVENTION — 2026-11-17
 
-**Trigger:** When Greg says "g", "do it", "to thumbnail gallery", "to Facebook, to thumbnail gallery", or asks to replace/publish an image, treat it as authorization to execute the relevant established workflow, not a request for instructions. Before claiming that a binary cannot be published, READ this document and inspect the existing GitHub Actions workflows. Do not stop after a text-only GitHub API fails; use the proven public Drive staging → GitHub Actions route.
+**Trigger:** When Greg says "g", "do it", "to thumbnail gallery", "to Facebook", or asks to replace/publish an image, treat it as authorization to execute the relevant established workflow, not a request for instructions. Before claiming that a binary cannot be published, READ this document and inspect the existing GitHub Actions workflows. Do not stop after a text-only GitHub API fails; use the proven public Drive staging → GitHub Actions route.
 
 **Gallery procedure:** For `01-puzzle-pieces-gallery.html`, create a small real thumbnail of the supplied artwork, publish the binary through the documented image bridge, replace the text-only placeholder with its actual image path, and verify the published gallery. Preserve description and reconstruction notes. Do not substitute a search image or a text rendering for user-provided art.
 
-**Facebook is a separate delivery channel:** Consult the existing Facebook Bridge documentation and check whether its queue/Windows automation can actually execute; never claim a Facebook post succeeded merely because a queue request was made. Complete GitHub publication independently if Facebook is unavailable.
+**Facebook is a separate delivery channel:** Use the private runbook only for an explicit request to post on Facebook.
 
 **Memory reliability:** This file is durable operational memory, but it does not load itself into every future chat. The assistant must proactively fetch it whenever an image publishing command occurs. If the instruction was not retrieved, that is a process failure; do not ask Greg to re-teach the solution.
 
@@ -153,13 +153,13 @@ Do not call an image, GIF, or video published merely because its source was uplo
 - **00-16-PROMPT-image-publishing.html** is the human-friendly master entry point and links to the specialized guides.
 - **00-17-PROMPT-puzzle-pieces-gallery.html** is the dedicated thumbnail workflow: compress, stage publicly, trigger the image publisher, verify the real binary and live page, update `01-puzzle-pieces-gallery.html`, and retain reconstruction notes.
 - **00-18-PROMPT-facebook-publishing.html** is the dedicated Facebook workflow: publish a verified full-size image, update private `gomuller/jesus-greg-mission-control/facebook-publishing/request.json`, let the Windows Playwright bridge process it, and verify the Facebook permalink. Do not mistake `needs-review` for success or failure.
-- **“To Facebook, to thumbnail gallery”** means execute BOTH pipelines independently without another authorization request after artwork approval; report separate verification status for each.
+- After Greg approves an image, “to Facebook” and “to Facebook, to thumbnail gallery” mean publish its compressed thumbnail to the Puzzle Pieces Gallery on GitHub only. Use the gallery workflow and skip the Facebook queue. A separate, explicit request to post on Facebook is required to use the Facebook bridge.
 - **2026-11-18 Jesus TV recovery:** the previously overlooked image bridge was rediscovered by reading this manual. Banner `jesus-tv-living-station-banner.jpg` (39,104 bytes) was uploaded to public staging Drive file `1RPD2vyUyeNR1tYZhTmqSX5dlIevrWqXV`, parent and anyone/reader verified; image-publish request commit `07b5b62d29c90863b09f3c49729e29284a4736cc` and homepage reference commit `6a82530d279f9a248fbd0f7cca8e28842ae99b2f`. Final publisher, Git tree, Pages and live image verification were NOT established at that point; do not describe them as confirmed without checking.
 
 
 ## STANDING EXECUTION RULE — COMPLETE THE REQUEST, NOT JUST THE STAGING (2026-11-19)
 
-When Greg approves artwork and says “to Facebook,” “to thumbnail gallery,” “both,” “do it,” or “g” in context, carry out the entire authorized workflow without requiring further commands. Read 00-16, 00-17, 00-18, and the private Facebook RUNBOOK. Verify Drive parent/anyone-reader permission; publish and verify the full-size GitHub image; only then queue Facebook, monitor the bridge and verify a permalink. For a gallery request, publish the thumbnail sequentially (never overwrite the first publishing request before completion), update gallery HTML with actual thumbnail and reconstruction notes, verify Pages and live rendering. Inspect pending/processing queues before replacement; never blindly retry timeouts that might have already posted. Keep working within the same task while tools permit, and report channel-by-channel confirmed, pending, needs-review, or blocked outcomes. Do not imply a persistent background agent exists merely because this instruction is written. If a dependency cannot be completed, preserve its state and name the blocker rather than claiming success.
+After Greg approves an image, “to Facebook” and “to Facebook, to thumbnail gallery” mean publish its compressed thumbnail to the Puzzle Pieces Gallery on GitHub only. Use the gallery workflow and skip the Facebook queue. A separate, explicit request to post on Facebook is required to use the Facebook bridge. Complete the authorized workflow through verification. For the gallery, publish the thumbnail, update the gallery HTML with the actual image and reconstruction notes, and verify live rendering.
 
 
 ## VERIFIED WINDOWS FACEBOOK BRIDGE STARTUP (2026-11-19)
@@ -169,9 +169,9 @@ Greg created a per-user Windows Startup shortcut **Jesus-Greg Facebook Bridge**.
 For future approved Facebook posts, follow the existing automatic image-to-GitHub-to-private-queue flow and check processing/confirmation without making Greg start the bridge as a routine manual prerequisite. If no processing appears, inspect bridge health and token/network conditions. Do not assume queue submission equals posting. The Jesus soup preference meme was **confirmed posted by Greg**, although Playwright marked it `needs-review` because the Facebook dialog/browser closed during the wait; do not automatically repost it. Improvement backlog: persistent queue history, reliable permalink/success recognition, heartbeat/health check, automatic crash recovery. Never commit or reveal GitHub tokens.
 
 
-## ONE-COMMAND DEFAULT — “TO FACEBOOK” MEANS BOTH DESTINATIONS (2026-11-19)
+## “To Facebook” → Puzzle Pieces Gallery only (2026-11-25)
 
-When Greg approves a meme/image and says **“to Facebook”**, interpret it as authorization for **both Facebook posting and the Puzzle Pieces Gallery thumbnail**, without asking for a separate gallery command. This supersedes older Facebook-only default wording in 00-16, 00-17, 00-18 and the private runbook. Execute the full-size image → verified GitHub public URL → Facebook queue, plus sequential thumbnail publishing → gallery HTML update and verification. Report Facebook and gallery statuses independently; avoid duplicate Facebook posts on false-negative `needs-review` status. Explicit “Facebook only” and “gallery only” override the combined default. Do not retroactively republish old images.
+After Greg approves an image, “to Facebook” and “to Facebook, to thumbnail gallery” mean publish its compressed thumbnail to the Puzzle Pieces Gallery on GitHub only. Use the gallery workflow and skip the Facebook queue. A separate, explicit request to post on Facebook is required to use the Facebook bridge.
 
 ## Facebook composer failures
 
