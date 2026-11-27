@@ -1,0 +1,50 @@
+name: Publish approved MP3
+on:
+  push:
+    branches: [main]
+    paths: ['audio-publish-request.json']
+permissions:
+  contents: write
+concurrency:
+  group: publish-audio-main
+  cancel-in-progress: false
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+      - name: Download and validate MP3
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg >/dev/null
+          python -m pip install --quiet gdown
+          python - <<'PY'
+          import json, pathlib, re, subprocess, hashlib
+          import gdown
+          m=json.loads(pathlib.Path('audio-publish-request.json').read_text())
+          name=m['filename']
+          assert re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9._-]{0,119}\.mp3',name)
+          match=re.fullmatch(r'https://drive\.google\.com/file/d/([A-Za-z0-9_-]+)/view(?:\?usp=sharing)?',m['audio_url'])
+          assert match
+          assert gdown.download(id=match.group(1),output=name,quiet=False)
+          p=pathlib.Path(name)
+          assert 1000 < p.stat().st_size <= 50_000_000
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==m['sha256']
+          info=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_entries','format=duration,format_name:stream=codec_type,codec_name','-of','json',name]))
+          assert info['format']['format_name']=='mp3'
+          assert 1 <= float(info['format']['duration']) <= 3600
+          assert any(s.get('codec_name')=='mp3' and s.get('codec_type')=='audio' for s in info['streams'])
+          print(f'Validated {name}: {p.stat().st_size} bytes')
+          PY
+      - name: Commit MP3
+        run: |
+          FILENAME="$(python -c "import json; print(json.load(open('audio-publish-request.json'))['filename'])")"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- "$FILENAME"
+          if ! git diff --cached --quiet; then
+            git commit -m "Publish audio: $FILENAME"
+            git pull --rebase origin main
+            git push origin HEAD:main
+          fi
